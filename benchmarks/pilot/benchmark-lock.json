@@ -3,6 +3,7 @@
     "benchmarks/redteam/memory-write-policy.jsonl": "a11d02b4dfffd8a95d56b0031f12cfada1ee25bf",
     "benchmarks/synthetic/scenarios.jsonl": "ed1c5ae2af645db372acc1c1799886fb9c57918f",
     "scripts/analyze_component_results.py": "58773a39032eebaca1b3aa034cc466922e016cc4",
+    "scripts/fetch_longmemeval.py": "add9521ccf5ecd60caaebcdcc30fa56ef4859d54",
     "scripts/freeze_pilot_benchmark.py": "c2ae7ae9dac411d23099f14a20da141b449a8c3e",
     "scripts/run_benchmark.py": "08da9baa17c79fcd702db19709f50184b8a1ab14",
     "scripts/run_external_trial.py": "73a5882298814e194df70c8b9a6c9f2929480388",
