@@ -1,12 +1,18 @@
 # Personal State Engine Research
 
-A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability compared with no memory, full-history replay, rolling summaries and similarity-only retrieval.
+A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability compared with no memory, full-history replay, rolling summaries and retrieval baselines.
 
-> **Current status:** engineering and evaluation pilot. The repository contains a tested reference architecture, deterministic component benchmark, persistent deletion tests, recovery controls, trial schemas, scoring utilities and a small memory-write red team. It does **not** yet establish improved real-LLM task performance.
+> **Current status:** engineering and external-evaluation preparation. The repository contains a tested reference architecture, deterministic component benchmark, model-run integrity controls, persistence and deletion tests, recovery controls, a LongMemEval adapter, trial schemas, scoring utilities and a small memory-write red team. It does **not** yet establish improved real-LLM task performance or algorithm parity.
+
+```text
+Research verdict: INCONCLUSIVE
+Evidence-weighted completion under mission v2: 13%
+Highest evidence level reached: E2 — engineering verification
+```
 
 ## Research question
 
-Can a Personal State Engine combining selective memory, temporal versioning, commitment tracking, controlled proactive intervention and evidence-backed completion outperform simpler memory baselines under fixed model, tool and token constraints?
+Can a Personal State Engine combining selective memory, temporal versioning, commitment tracking, controlled proactive intervention and evidence-backed completion outperform or match strong memory baselines under fixed model, tool, token and cost constraints?
 
 ## Implemented
 
@@ -21,20 +27,23 @@ Can a Personal State Engine combining selective memory, temporal versioning, com
 - Verified rollback before alternative recovery actions
 - Deterministic B0–B7 component baselines
 - Nine split-labelled pilot scenarios and 72 observations
-- Tamper-detecting benchmark lock
-- Provider-neutral replay and subprocess model adapters
-- Validated trial-record schema and independent structured scorer
-- Wilson interval and exact paired-comparison utilities
+- Benchmark tamper detection and execution-boundary regression tests
+- Strict replay and subprocess model adapters
+- Validated model-run manifests and immutable trial records
+- Independent structured scorer, Wilson intervals and exact paired-comparison utilities
+- Official-shape LongMemEval parsing, validation, history rendering and hypothesis JSONL support
 - 23-case multilingual memory-write red team with benign controls
-- 70 automated tests
+- **90 automated tests**
 
 ## What the evidence means
 
-The B0–B7 component benchmark checks whether each architecture exposes specific capabilities under controlled deterministic scenarios. It is useful for regression and architectural validation. Because capabilities are intentionally added across B4–B7, the scores are architecture-sensitive and are **not** proof that B7 is superior in real model use.
+The internal B0–B7 component benchmark checks whether each architecture exposes specific capabilities under controlled deterministic scenarios. It is useful for regression and architectural validation. Because capabilities are intentionally added across B4–B7, the scores are architecture-sensitive and are **not** proof that B7 is superior in real model use.
 
 The memory-write red team currently passes all 23 frozen cases: 15 malicious-or-secret cases are rejected and 8 benign controls are accepted. This is performance on a small curated corpus, not a real-world attack coverage estimate.
 
-No hypothesis is marked `SUPPORTED`. A valid efficacy result still requires at least two pinned models, repeated controlled runs, an untouched final set, independent adjudication, cost/latency evidence and independent reproduction.
+The LongMemEval adapter has been tested against official-shape fixtures, but the actual benchmark has not yet been downloaded, license-reviewed, hash-verified or executed with a real model. No LongMemEval result currently exists.
+
+No efficacy hypothesis is marked `SUPPORTED`. A valid parity result still requires pinned models, real external benchmark runs, faithful strong-baseline reproduction, an activated preregistration, sealed testing, cost and latency evidence, evaluator calibration and independent reproduction.
 
 ## Quick start
 
@@ -50,7 +59,13 @@ python scripts/run_redteam.py
 python scripts/analyze_component_results.py
 ```
 
-Generated evidence:
+Validate an authorized LongMemEval dataset copy:
+
+```bash
+python scripts/validate_longmemeval.py /path/to/longmemeval_s.json
+```
+
+Generated internal evidence:
 
 ```text
 results/raw/component_benchmark.jsonl
@@ -75,29 +90,50 @@ results/processed/memory_write_redteam_summary.json
 
 The statistics output contains an explicit warning that its intervals and exact paired tests describe only this fixed case set.
 
+## Latest validation
+
+GitHub Actions run **#56** passed on Python 3.11, 3.12 and 3.13 at implementation head `8178b9cb0f90893a9aa882fc84d9b8b7b0203ca4`.
+
+Each job ran compilation, all 90 tests, pilot-lock verification, internal benchmark and red-team regeneration, descriptive analysis and a clean committed-results diff check.
+
 ## Repository map
 
 ```text
 src/personal_state_engine/   implementation, persistence, adapters, records and scoring
-benchmarks/synthetic/        component scenarios
+benchmarks/synthetic/        internal component scenarios
 benchmarks/redteam/          memory-write safety corpus
-benchmarks/pilot/            hash lock
-experiments/                 provider-neutral run configuration
-scripts/                     reproducible runners
-results/raw/                 machine-readable observations
+benchmarks/pilot/            pilot benchmark lock
+experiments/                 run configuration, selection and preregistration drafts
+scripts/                     reproducible runners and dataset validators
+results/raw/                 machine-readable internal observations
 results/processed/           summaries and descriptive analysis
-reports/                     pilot research reports
-tests/                       unit, integration, persistence, recovery and security tests
-docs/                        protocol, architecture, limitations and gate status
+reports/                     pilot and algorithm-parity reports
+tests/                       unit, integration, persistence, adapter, recovery and security tests
+docs/                        protocol, architecture, audits, governance and progress status
 ```
 
 ## Current gate status
 
-The conservative weighted completion estimate is **55%**. Gate 0 is passed; later gates remain incomplete or in progress. See [`docs/progress.md`](docs/progress.md).
+The mission-v2 evidence-weighted completion estimate is **13%**. Engineering verification has reached E2, while real-model external baselines, strong-method reproduction, sealed parity testing and independent reproduction have not started.
+
+See:
+
+- [`docs/progress.md`](docs/progress.md)
+- [`reports/algorithm-parity-report.md`](reports/algorithm-parity-report.md)
+- [`docs/algorithm-reproduction-matrix.md`](docs/algorithm-reproduction-matrix.md)
+- [`experiments/preregistration.md`](experiments/preregistration.md)
+
+## Highest-value next action
+
+Acquire and hash an authorized copy of LongMemEval-S, validate it, then execute EXT-B0 and EXT-B5 with one pinned model on a development subset while preserving raw outputs, manifests, token usage, latency and failures.
 
 ## Security and privacy
 
-Do not place real credentials, private conversations, medical records, precise addresses, identity documents or other high-risk personal data in the benchmark. See [`SECURITY.md`](SECURITY.md) and [`docs/privacy-threat-model.md`](docs/privacy-threat-model.md).
+Do not place real credentials, private conversations, medical records, precise addresses, identity documents or other high-risk personal data in the benchmark. See [`SECURITY.md`](SECURITY.md), [`docs/data-governance.md`](docs/data-governance.md) and [`docs/security-threat-model.md`](docs/security-threat-model.md).
+
+## Publication status
+
+PR #2 remains Draft. Do not merge, tag, release or claim parity until the model-backed and independent-reproduction acceptance criteria are met.
 
 ## License
 
