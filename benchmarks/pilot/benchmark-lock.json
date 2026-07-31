@@ -11,7 +11,7 @@
     "scripts/run_redteam.py": "7ccfd16b9d53f94417a68ec80930ef5cc3c802fe",
     "scripts/validate_longmemeval.py": "3b71ee690aa30b513c2b8966e0f674c4d1ce006e",
     "scripts/verify_benchmark_lock.py": "6f660bbfa5e31238da32b76be44568c5eeed42ff",
-    "scripts/verify_external_e3_contract.py": "c80e3a9a760f5e1242549626cd80c67e787f5ab6",
+    "scripts/verify_external_e3_contract.py": "67bb300555f38b57a79bee6fb2754e9a251ef4fc",
     "src/personal_state_engine/__init__.py": "5c6059c70fde62255424005abe7403da3574649a",
     "src/personal_state_engine/_persistence_support.py": "dfc68cb69d8f099fcc2685d88bf753737c2d65d4",
     "src/personal_state_engine/baselines.py": "bded19a22f900074311d1f6d6ae4e3e15a28ecab",
