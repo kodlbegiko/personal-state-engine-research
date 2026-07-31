@@ -5,3 +5,6 @@ __pycache__/
 .pytest_cache/
 .coverage
 .DS_Store
+
+data/
+results/raw/external/
