@@ -1,0 +1,7 @@
+STATUS: OPEN SECURITY BLOCKER
+SEVERITY: HIGH DEPENDENCY FINDINGS
+SCOPE: ISOLATED RESEARCH RUNTIME ONLY
+
+See npm-audit.json and docs/runtime-security-blocker.md.
+
+Do not describe this runtime as secure or production ready.
