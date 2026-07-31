@@ -155,8 +155,9 @@ def parse_longmemeval_example(raw: object, *, index: int) -> LongMemEvalExample:
         raise LongMemEvalFormatError(
             f"{location}: session ids, dates and contents must align"
         )
-    if len(set(session_ids)) != len(session_ids):
-        raise LongMemEvalFormatError(f"{location}: duplicate session ids")
+    # The pinned cleaned LongMemEval-S source contains repeated session IDs in
+    # some examples. IDs are source labels, not unique primary keys; timestamp
+    # and list position disambiguate occurrences without rewriting source data.
     if not all(isinstance(item, str) and item.strip() for item in session_ids):
         raise LongMemEvalFormatError(
             f"{location}.haystack_session_ids must contain strings"
