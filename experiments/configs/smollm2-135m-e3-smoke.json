@@ -1,0 +1,10 @@
+{
+  "model_provider": "huggingface-open-weight-transformersjs",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_version": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "temperature": 0.0,
+  "seed": 7,
+  "token_budget": 64,
+  "timeout_seconds": 300.0,
+  "tool_policy": "none"
+}
