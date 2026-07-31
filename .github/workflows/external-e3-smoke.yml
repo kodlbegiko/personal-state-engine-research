@@ -6,6 +6,13 @@ on:
     branches: [main]
     paths:
       - .github/workflows/external-e3-smoke.yml
+      - scripts/run_longmemeval_e3_smoke.py
+      - scripts/transformersjs_model_server.mjs
+      - src/personal_state_engine/longmemeval.py
+      - experiments/configs/smollm2-135m-e3-smoke.json
+      - experiments/datasets/longmemeval-s-cleaned.json
+      - experiments/models/smollm2-135m-instruct-transformersjs.json
+      - experiments/runtime/package.json
 
 permissions:
   contents: read
