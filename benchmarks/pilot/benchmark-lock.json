@@ -1,0 +1,18 @@
+{
+  "files": {
+    "benchmarks/redteam/memory-write-policy.jsonl": "86370885ba2933dbc99ab381503f24b02176d2263c37c396dd3d3ab1776e4ead",
+    "benchmarks/synthetic/scenarios.jsonl": "a445dd5d693709501faa008c3934d75183f77e48299971de8bb0f8ffd2057b22",
+    "scripts/analyze_component_results.py": "92c4434304880daca724e1e690ac6077eaf65a646de52c2e61de126497dfc789",
+    "scripts/run_redteam.py": "c8d621f548848517adc8bf7e74280642bd8c063a38b67c0a292baf649c83abbd",
+    "src/personal_state_engine/evaluation.py": "c8b7b440a57b8259c233134459624d6d3b73ce80c47430250b039fd0a26ea374",
+    "src/personal_state_engine/policy.py": "bd32305622c54a70ae9486c5b4757980ed76353363643f4cac96e8136242bbd1",
+    "src/personal_state_engine/scoring.py": "1e5c8195c9e159e2f9dbc429c84e6660362b03f59a3e77460344dc0afabb27b2"
+  },
+  "scenario_count": 9,
+  "split_counts": {
+    "development": 3,
+    "pilot_test": 3,
+    "validation": 3
+  },
+  "version": "pilot-v0.3"
+}

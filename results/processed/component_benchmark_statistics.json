@@ -1,0 +1,129 @@
+{
+  "baseline_summaries": {
+    "B0": {
+      "n": 9,
+      "rate": 0.444444,
+      "successes": 4,
+      "wilson_95": [
+        0.188779,
+        0.733349
+      ]
+    },
+    "B1": {
+      "n": 9,
+      "rate": 0.222222,
+      "successes": 2,
+      "wilson_95": [
+        0.063225,
+        0.547411
+      ]
+    },
+    "B2": {
+      "n": 9,
+      "rate": 0.444444,
+      "successes": 4,
+      "wilson_95": [
+        0.188779,
+        0.733349
+      ]
+    },
+    "B3": {
+      "n": 9,
+      "rate": 0.333333,
+      "successes": 3,
+      "wilson_95": [
+        0.120584,
+        0.645798
+      ]
+    },
+    "B4": {
+      "n": 9,
+      "rate": 0.666667,
+      "successes": 6,
+      "wilson_95": [
+        0.354202,
+        0.879416
+      ]
+    },
+    "B5": {
+      "n": 9,
+      "rate": 0.777778,
+      "successes": 7,
+      "wilson_95": [
+        0.452589,
+        0.936775
+      ]
+    },
+    "B6": {
+      "n": 9,
+      "rate": 0.888889,
+      "successes": 8,
+      "wilson_95": [
+        0.565,
+        0.980109
+      ]
+    },
+    "B7": {
+      "n": 9,
+      "rate": 1.0,
+      "successes": 9,
+      "wilson_95": [
+        0.700855,
+        1.0
+      ]
+    }
+  },
+  "interpretation": "descriptive_architecture_sensitive_not_model_efficacy",
+  "paired_against_B0": {
+    "B0_vs_B1": {
+      "b0_only": 3,
+      "difference": -0.222222,
+      "exact_mcnemar_p": 0.625,
+      "other_only": 1,
+      "pairs": 9
+    },
+    "B0_vs_B2": {
+      "b0_only": 2,
+      "difference": 0.0,
+      "exact_mcnemar_p": 1.0,
+      "other_only": 2,
+      "pairs": 9
+    },
+    "B0_vs_B3": {
+      "b0_only": 3,
+      "difference": -0.111111,
+      "exact_mcnemar_p": 1.0,
+      "other_only": 2,
+      "pairs": 9
+    },
+    "B0_vs_B4": {
+      "b0_only": 1,
+      "difference": 0.222222,
+      "exact_mcnemar_p": 0.625,
+      "other_only": 3,
+      "pairs": 9
+    },
+    "B0_vs_B5": {
+      "b0_only": 0,
+      "difference": 0.333333,
+      "exact_mcnemar_p": 0.25,
+      "other_only": 3,
+      "pairs": 9
+    },
+    "B0_vs_B6": {
+      "b0_only": 0,
+      "difference": 0.444444,
+      "exact_mcnemar_p": 0.125,
+      "other_only": 4,
+      "pairs": 9
+    },
+    "B0_vs_B7": {
+      "b0_only": 0,
+      "difference": 0.555556,
+      "exact_mcnemar_p": 0.0625,
+      "other_only": 5,
+      "pairs": 9
+    }
+  },
+  "warning": "Intervals and exact paired tests describe this fixed nine-case component set only. They are not population estimates and must not be used as evidence of real-model superiority."
+}

@@ -1,0 +1,42 @@
+{
+  "B0": {
+    "pass_rate": 0.4444,
+    "passed": 4,
+    "total": 9
+  },
+  "B1": {
+    "pass_rate": 0.2222,
+    "passed": 2,
+    "total": 9
+  },
+  "B2": {
+    "pass_rate": 0.4444,
+    "passed": 4,
+    "total": 9
+  },
+  "B3": {
+    "pass_rate": 0.3333,
+    "passed": 3,
+    "total": 9
+  },
+  "B4": {
+    "pass_rate": 0.6667,
+    "passed": 6,
+    "total": 9
+  },
+  "B5": {
+    "pass_rate": 0.7778,
+    "passed": 7,
+    "total": 9
+  },
+  "B6": {
+    "pass_rate": 0.8889,
+    "passed": 8,
+    "total": 9
+  },
+  "B7": {
+    "pass_rate": 1.0,
+    "passed": 9,
+    "total": 9
+  }
+}

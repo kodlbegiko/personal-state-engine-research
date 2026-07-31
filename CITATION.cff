@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this research prototype, cite the repository and the exact commit SHA."
+title: "Personal State Engine Research"
+type: software
+version: 0.1.0
+date-released: 2026-07-31
+repository-code: "https://github.com/kodlbegiko/personal-state-engine-research"
+license: MIT
+authors:
+  - family-names: "Liu"
+    given-names: "Sean"
+keywords:
+  - long-term memory
+  - AI agents
+  - temporal reasoning
+  - personal assistants
