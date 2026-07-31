@@ -2,28 +2,16 @@ name: External E3 Smoke
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
-    paths:
-      - .github/workflows/external-e3-smoke.yml
-      - scripts/run_longmemeval_e3_smoke.py
-      - scripts/transformersjs_model_server.mjs
-      - src/personal_state_engine/longmemeval.py
-      - experiments/configs/smollm2-135m-e3-smoke.json
-      - experiments/datasets/longmemeval-s-cleaned.json
-      - experiments/models/smollm2-135m-instruct-transformersjs.json
-      - experiments/runtime/package.json
 
 permissions:
   contents: read
 
 concurrency:
-  group: external-e3-smoke-${{ github.event.pull_request.number || github.ref }}
+  group: external-e3-smoke-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   longmemeval-smoke:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
