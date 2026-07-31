@@ -1,114 +1,128 @@
 # Research Progress
 
-Assessment date: 2026-07-31 18:04 +08:00
+Assessment date: 2026-08-01 01:50 +08:00
 
 ## Executive status
 
 ```text
 Research verdict: INCONCLUSIVE
-Evidence-weighted completion under mission v2: 15%
-Highest evidence level reached: E2 — engineering verification
+Evidence-weighted completion under mission v2: 20%
+Highest evidence level reached: E3 — real-model external smoke evidence
 Algorithm parity demonstrated: NO
 ```
 
-The increase from 13% to 15% reflects two bounded changes only: the official LongMemEval-S source contract is now pinned and checksum-enforced, and an integrated immutable `EXT-B0` / `EXT-B5` trial vertical slice is current-head CI verified. No credit was added to Gates C–G because no real model external result exists.
+The repository now contains the first real-model LongMemEval-S evidence. This is a four-case development smoke run for pipeline and attribution validation. It is not a development matrix, confirmatory evaluation, strong-baseline comparison or parity result.
+
+## First E3 evidence
+
+```text
+Evidence commit: 2728fc9fc11076db2be9418edea9520c8195b333
+Source branch head: ca98c4789a7836651bde87f2d6b93fb140d737b0
+Archive workflow run: 30652039317
+Run ID: e3-smoke-30652039317-attempt-1
+Evidence label: REAL-MODEL SMOKE — E3 PIPELINE EVIDENCE
+```
+
+### Dataset
+
+```text
+Dataset: LongMemEval-S cleaned
+Source revision: 98d7416c24c778c2fee6e6f3006e7a073259d48f
+License: MIT
+File size: 277383467 bytes
+SHA-256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
+Questions: 500
+Sessions: 23867
+Turns: 246750
+Validation failures: 0
+```
+
+The source file was downloaded twice through pinned GitHub Actions workflows and matched the expected size and SHA-256. The 277 MB payload is not committed. The repository stores the source manifest, audit, split manifests and derived evidence.
+
+### Model and runtime
+
+```text
+Model: HuggingFaceTB/SmolLM2-135M-Instruct
+Model revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+Tokenizer revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+Quantization: q4
+Runtime: @huggingface/transformers 4.2.0
+Node: v24.18.0
+Hardware: GitHub-hosted ubuntu-24.04 CPU runner
+Model cache size: 184178727 bytes
+Model q4 SHA-256: 933577110303a2964096d19b6f15d3b4639bef7f99481ac0b61d9f3ad72f392a
+```
+
+`experiments/runtime/package-lock.json` is committed. The reusable smoke workflow now uses `npm ci` and is manual-only.
+
+### Paired smoke result
+
+| Metric | EXT-B0 | EXT-B5 |
+|---|---:|---:|
+| Cases | 4 | 4 |
+| Completed | 4 | 4 |
+| Errors | 0 | 0 |
+| Timeouts | 0 | 0 |
+| Provisional correct | 0 | 0 |
+| Input tokens | 361 | 14749 |
+| Output tokens | 228 | 256 |
+| Total tokens | 589 | 15005 |
+| Median latency | 1652 ms | 20933 ms |
+| Recorded output storage | 4972 bytes | 70070 bytes |
+| API spend | USD 0 | USD 0 |
+
+All four paired provisional differences were zero. This does not establish equivalence or non-inferiority. The evaluator is a deliberately limited deterministic diagnostic rather than the official semantic evaluation process, and the selected 135M model is a pipeline model rather than a competitive answer model.
+
+## Evidence integrity
+
+Durably committed evidence includes:
+
+- dataset audit;
+- development, validation and sealed-final split manifests;
+- smoke-selection manifest;
+- exact model cache file hashes;
+- environment manifest;
+- eight immutable raw trial records;
+- processed summary;
+- artifact registry with per-file SHA-256;
+- dependency audit;
+- exact npm lockfile;
+- archive provenance record.
+
+The artifact registry contains 16 entries. External inspection confirmed that all registry hashes match the committed files, all eight trial IDs and request IDs are unique, EXT-B0 has no retrieved history, EXT-B5 has one retrieved session per case, and summary counts tie exactly to raw records.
 
 ## Mission v2 gate status
 
 | Gate | Weight | Status | Earned | Verified evidence | Missing evidence |
 |---|---:|---|---:|---|---|
-| A — Repository, sources and licensing | 10% | EVIDENCE INCOMPLETE | 7% | Repository and Draft PR are inspectable; official LongMemEval-S cleaned source, revision, MIT license, size and SHA-256 are pinned; checked downloader and failure tests exist | Actual payload download and audit; split hashes; complete licensing review for every executed method and model |
-| B — Experiment infrastructure | 10% | IN PROGRESS | 8% | Strict model manifest and adapters; integrated `EXT-B0` / `EXT-B5` runner; immutable raw trial record; request/model/config attribution; error retention; v0.4 lock and current-head CI | Complete model-manifest snapshot reference; actual runtime manifest; lifecycle cost implementation; matrix runner; artifact registry; activated preregistration |
-| C — Basic external baselines | 15% | NOT STARTED | 0% | `EXT-B0` and deterministic BM25 `EXT-B5` are executable through one contract | No real-model run on downloaded, hash-verified external data |
-| D — Strong baseline reproduction | 20% | NOT STARTED / BLOCKED | 0% | TiMem and other candidates are tracked | No faithful clean-environment reproduction under matched conditions |
-| E — PSE candidate | 15% | NOT STARTED | 0% | Minimum candidate boundary and falsifiable hypotheses are documented | No external PSE-Min implementation result or ablation |
-| F — External parity test | 20% | NOT STARTED | 0% | Non-inferiority framework remains a draft | No activated preregistration, sealed final matrix, evaluator calibration or cluster-aware analysis |
-| G — Independent reproduction | 10% | NOT STARTED | 0% | GitHub-hosted CI reproduces E2 engineering checks | No independent operator or clean-room result reconstruction |
+| A — Repository, sources and licensing | 10% | IN PROGRESS | 9% | Pinned and audited LongMemEval-S source, exact hash, license, deterministic splits and durable audit | Complete redistribution review for every future benchmark and strong method |
+| B — Experiment infrastructure | 10% | IN PROGRESS | 9% | Pinned model/runtime, immutable raw trials, token/latency/storage capture, artifact registry, reproducible manual workflow | Official evaluator, full lifecycle compute accounting and stronger external anchoring |
+| C — Basic external baselines | 15% | SMOKE ONLY | 2% | Four paired real-model EXT-B0 and EXT-B5 cases with raw outputs | At least 20–50 predetermined development cases, EXT-B1–EXT-B6, competitive model and calibrated evaluation |
+| D — Strong baseline reproduction | 20% | NOT STARTED / BLOCKED | 0% | Candidate methods tracked | No faithful strong-baseline reproduction |
+| E — PSE candidate | 15% | NOT STARTED | 0% | PSE-Min boundary documented | No external PSE-Min run or ablation |
+| F — External parity test | 20% | NOT STARTED | 0% | Draft decision framework only | No activated preregistration or sealed matrix |
+| G — Independent reproduction | 10% | NOT STARTED | 0% | GitHub-hosted engineering and smoke runs are inspectable | No independent operator or clean-room reproduction |
 
 ```text
-Total evidence-weighted completion: 15%
-E2 completion cap: 20%
-Cap binding: NO — evidence-weighted Gate total is lower than the cap
+Total evidence-weighted completion: 20%
+Evidence-level cap: 45% because E3 exists without a faithful strong baseline
 ```
 
-## Completed in this execution pass
+## Open risks and blockers
 
-### Integrated external trial path
-
-- Added one formal external-trial entrypoint for LongMemEval cases.
-- Implemented `EXT-B0` without cross-session history.
-- Implemented deterministic BM25 `EXT-B5` session retrieval with fixed tie-breaking.
-- Persisted dataset, split, model, request, prompt and configuration attribution.
-- Preserved token, latency, raw output, error and timeout fields.
-- Made raw trial files exclusive-create and non-overwritable.
-- Added five runner tests covering B0 isolation, BM25 selection, attribution, failure retention and collision rejection.
-
-### Dataset source and integrity
-
-- Pinned `xiaowu0162/longmemeval-cleaned` revision `98d7416c24c778c2fee6e6f3006e7a073259d48f`.
-- Pinned `longmemeval_s_cleaned.json` at 277,383,467 bytes with SHA-256 `d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442`.
-- Recorded MIT license and a conservative derived-results-only repository policy.
-- Added a streaming downloader that refuses floating revisions and overwrites, verifies size and hash, and removes invalid partial files.
-- Added four dataset-source and download-failure tests.
-- Excluded downloaded benchmark payloads and external raw trials from accidental source commits.
-
-### Benchmark integrity
-
-- Committed `pilot-v0.4` using Git blob SHA-1 for all current package modules, Python runners and internal benchmark corpora.
-- Added lock anchor `22e7b10880005af05b8b4276c13f1d2904816f9b2ba4289938ee9e208082ee23`.
-- CI now regenerates the lock and anchor, requires no diff, checks the expected path set, verifies the anchor, and then regenerates committed internal outputs.
-- Issue #3 remains open because configuration, dependency and external-anchor boundaries still need a final completeness review.
-
-## Latest implementation validation
-
-Implementation head:
-
-```text
-51fe1dc67539d1ea45c44caeb228a4b31290d152
-```
-
-GitHub Actions run **#86** succeeded on Python 3.11, 3.12 and 3.13. Each job completed:
-
-- editable installation;
-- compilation;
-- **99 automated tests**;
-- v0.4 lock regeneration and clean-diff check;
-- expected-path and anchor verification;
-- deterministic component benchmark regeneration;
-- 23-case memory-write regression regeneration;
-- descriptive analysis;
-- committed-results clean-diff verification.
-
-## Evidence interpretation
-
-Valid now:
-
-- E2 engineering evidence that the external trial path, provenance checks, failure retention, dataset source contract and v0.4 integrity checks behave as tested.
-- E2 deterministic evidence that the existing internal benchmark outputs remain reproducible.
-
-Not valid now:
-
-- external-model effectiveness;
-- LongMemEval score;
-- BM25 improvement over no memory;
-- PSE algorithm parity;
-- faithful strong-baseline reproduction;
-- production readiness or general security claims.
-
-## Blocking evidence
-
-- LongMemEval-S is source-pinned but not downloaded or locally audited.
-- No exact real model/runtime is available in the execution environment.
-- No `EXT-B0` or `EXT-B5` real-model raw trial exists.
-- No evaluator calibration, lifecycle cost comparison, strong baseline, sealed matrix or independent reproduction exists.
+1. `npm audit` reports four high-severity findings in the smoke runtime dependency graph, involving `@huggingface/transformers`, `onnxruntime-node`, `adm-zip` and `sharp`. No automatic fix was available in the captured audit. The smoke ran in an isolated ephemeral GitHub runner and must not be treated as a secure production runtime.
+2. The provisional evaluator scored every case as incorrect; an official or calibrated semantic evaluator is still required.
+3. EXT-B5 used roughly 25 times the input tokens of EXT-B0 and materially higher latency on this smoke sample.
+4. Only four selected development cases and one small model were executed.
+5. No strong baseline, PSE-Min external experiment, sealed test or independent reproduction exists.
 
 ## Highest-value next action
 
-In a network-enabled and credentialed environment, run the checked LongMemEval downloader, validate and split the dataset, pin one exact model/runtime and execute 3–5 real `EXT-B0` and `EXT-B5` smoke cases. Preserve every success, error and timeout as immutable raw records. Do not expand PSE-Min before this first E3 evidence exists.
+Run a predetermined 20–50-case LongMemEval-S development subset using the same raw-evidence contract, a more capable pinned model, EXT-B0 and EXT-B5, and an official or calibrated evaluator. Do not expand PSE architecture before this basic matrix is stable.
 
 ## Publication status
 
-- PR #2 remains **Draft**.
+- PR #2 remains Draft.
 - Do not merge to `main`.
 - Do not create a research tag or GitHub Release.
-- Do not claim parity, superiority, validation or state of the art.
+- Do not claim parity, superiority, validation, production readiness or state of the art.
