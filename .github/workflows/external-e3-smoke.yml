@@ -39,11 +39,29 @@ jobs:
       - name: Install exact Transformers.js runtime
         working-directory: experiments/runtime
         run: npm install --ignore-scripts
+      - name: Expose exact runtime to the model server
+        run: ln -s experiments/runtime/node_modules node_modules
+      - name: Record dependency audit
+        run: |
+          mkdir -p results/e3-smoke
+          cd experiments/runtime
+          npm audit --json > ../../results/e3-smoke/npm-audit.json || true
       - name: Download and verify pinned LongMemEval-S
         run: |
           python scripts/fetch_longmemeval.py \
             --manifest experiments/datasets/longmemeval-s-cleaned.json \
             --output-directory .external-data/longmemeval
+      - name: Preload pinned real model and expose startup errors
+        env:
+          PSE_MODEL_ID: HuggingFaceTB/SmolLM2-135M-Instruct
+          PSE_MODEL_REVISION: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+          PSE_MODEL_DTYPE: q4
+          PSE_HF_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          node scripts/transformersjs_model_server.mjs </dev/null \
+            > results/e3-smoke/model-preload.stdout.jsonl \
+            2> results/e3-smoke/model-preload.stderr.log
+          grep '"status":"ready"' results/e3-smoke/model-preload.stdout.jsonl
       - name: Run paired real-model EXT-B0 and EXT-B5 smoke
         env:
           TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
