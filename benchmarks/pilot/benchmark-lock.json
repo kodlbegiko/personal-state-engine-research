@@ -1,18 +1,41 @@
 {
   "files": {
-    "benchmarks/redteam/memory-write-policy.jsonl": "86370885ba2933dbc99ab381503f24b02176d2263c37c396dd3d3ab1776e4ead",
-    "benchmarks/synthetic/scenarios.jsonl": "a445dd5d693709501faa008c3934d75183f77e48299971de8bb0f8ffd2057b22",
-    "scripts/analyze_component_results.py": "92c4434304880daca724e1e690ac6077eaf65a646de52c2e61de126497dfc789",
-    "scripts/run_redteam.py": "c8d621f548848517adc8bf7e74280642bd8c063a38b67c0a292baf649c83abbd",
-    "src/personal_state_engine/evaluation.py": "c8b7b440a57b8259c233134459624d6d3b73ce80c47430250b039fd0a26ea374",
-    "src/personal_state_engine/policy.py": "bd32305622c54a70ae9486c5b4757980ed76353363643f4cac96e8136242bbd1",
-    "src/personal_state_engine/scoring.py": "1e5c8195c9e159e2f9dbc429c84e6660362b03f59a3e77460344dc0afabb27b2"
+    "benchmarks/redteam/memory-write-policy.jsonl": "a11d02b4dfffd8a95d56b0031f12cfada1ee25bf",
+    "benchmarks/synthetic/scenarios.jsonl": "ed1c5ae2af645db372acc1c1799886fb9c57918f",
+    "scripts/analyze_component_results.py": "58773a39032eebaca1b3aa034cc466922e016cc4",
+    "scripts/freeze_pilot_benchmark.py": "c2ae7ae9dac411d23099f14a20da141b449a8c3e",
+    "scripts/run_benchmark.py": "08da9baa17c79fcd702db19709f50184b8a1ab14",
+    "scripts/run_external_trial.py": "73a5882298814e194df70c8b9a6c9f2929480388",
+    "scripts/run_redteam.py": "7ccfd16b9d53f94417a68ec80930ef5cc3c802fe",
+    "scripts/validate_longmemeval.py": "3b71ee690aa30b513c2b8966e0f674c4d1ce006e",
+    "scripts/verify_benchmark_lock.py": "6f660bbfa5e31238da32b76be44568c5eeed42ff",
+    "src/personal_state_engine/__init__.py": "5c6059c70fde62255424005abe7403da3574649a",
+    "src/personal_state_engine/_persistence_support.py": "dfc68cb69d8f099fcc2685d88bf753737c2d65d4",
+    "src/personal_state_engine/baselines.py": "bded19a22f900074311d1f6d6ae4e3e15a28ecab",
+    "src/personal_state_engine/benchmark_lock.py": "7ad5b7da1d5d3d30e1498efd4eb3d25e569a67ee",
+    "src/personal_state_engine/commitments.py": "6d05555b71c175a4b993fbcaa53eeb0c74f8beb6",
+    "src/personal_state_engine/engine.py": "ceeee9c32272ef52f08ee4a5a1580bdf71dd4e41",
+    "src/personal_state_engine/evaluation.py": "3383e26e238ca3d93a22819b2d1fa96995daffa0",
+    "src/personal_state_engine/experiment_records.py": "78573363db9207a71bb72e036b3467d581c16a8d",
+    "src/personal_state_engine/external_trials.py": "69c425cf499179e20beda1a6fec627480a3dec72",
+    "src/personal_state_engine/longmemeval.py": "6e5541bc3d851b40aa5a0db71a73f39873fb1640",
+    "src/personal_state_engine/model_adapters.py": "f18723799391df1c2fb05c88b6bea38a604d2b8d",
+    "src/personal_state_engine/models.py": "e2702843560f3eeeeb54bcacff1450944a2dd788",
+    "src/personal_state_engine/persistence.py": "a55f21d38e5e1bd39c11033f9c20fff2397cccca",
+    "src/personal_state_engine/policy.py": "7c690e6d68fddd89ced34576ea7d64b8256e697c",
+    "src/personal_state_engine/proactive.py": "e1489a8548a22131cddbfb50d44fb37a83029324",
+    "src/personal_state_engine/recovery.py": "fb8723cc3f4c57b0e0b2d00cbf647c6690d78284",
+    "src/personal_state_engine/retrieval.py": "43394691312a61dd6ada8d479c86564ff24c76d1",
+    "src/personal_state_engine/scoring.py": "933160127b342b50072097213dab3ab9654beb24",
+    "src/personal_state_engine/store.py": "4f87b24d5684914e9f8f7e6af0e811bba73142b4",
+    "src/personal_state_engine/verification.py": "fd6322fa1f9660ef7507ea4de7e715c5a7312fdb"
   },
+  "hash_algorithm": "git_blob_sha1",
   "scenario_count": 9,
   "split_counts": {
     "development": 3,
     "pilot_test": 3,
     "validation": 3
   },
-  "version": "pilot-v0.3"
+  "version": "pilot-v0.4"
 }
