@@ -1,0 +1,9 @@
+{
+  "name": "personal-state-engine-e3-runtime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@huggingface/transformers": "4.2.0"
+  }
+}
