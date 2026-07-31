@@ -50,9 +50,9 @@ No method is marked `OFFICIAL REPRODUCED`.
 
 ## Validation evidence
 
-The branch-wide CI run associated with commit `24fe46f726552eeb45a2d42a2c1178533c2b5de0` passed on Python 3.11, 3.12 and 3.13 with 82 tests before the final documentation-only commits. A new final-head CI result is required before treating the entire current branch as validated.
+GitHub Actions run #54 for branch commit `573051bcbc02d40a6e4b3ed1eca8520a62c93b69` passed on Python 3.11, 3.12 and 3.13. Each job compiled the project, ran 90 tests, verified the committed pilot lock, regenerated the deterministic component benchmark and 23-case memory-write regression outputs, ran descriptive analysis and confirmed that committed result artifacts did not change.
 
-The latest validated run also regenerated the deterministic component benchmark, regenerated the 23-case memory-write regression set, ran descriptive analysis and confirmed that committed result artifacts did not change.
+This validates the current engineering branch at E2. It does not upgrade the external algorithm-efficacy evidence because no real-model external run occurred.
 
 ## External Benchmark status
 
