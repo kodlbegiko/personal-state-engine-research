@@ -1,0 +1,6 @@
+{
+  "status": "OPEN",
+  "evidence": "results/external/first-e3-smoke/npm-audit.json",
+  "severity": "HIGH",
+  "production_ready": false
+}
