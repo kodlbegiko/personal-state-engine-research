@@ -1,0 +1,56 @@
+{
+  "schema_version": "repository-artifact-registry-v1",
+  "updated_at": "2026-07-31T17:50:00Z",
+  "artifacts": [
+    {
+      "artifact_id": "first-e3-archive-provenance",
+      "artifact_type": "archive-provenance",
+      "path": "results/external/first-e3-smoke/ARCHIVED.json",
+      "sha256": "7b1ea2abef0e2270cd0316ea0e6ec30f5b25aed8626ab7d27c81906808857b89",
+      "source_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+      "source_run_id": "30652039317",
+      "evidence_level": "E3",
+      "status": "complete"
+    },
+    {
+      "artifact_id": "first-e3-artifact-registry",
+      "artifact_type": "nested-artifact-registry",
+      "path": "results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/artifact-registry.json",
+      "sha256": "51d7e80bfd850138a6acc53033c07b90fd7bdd3f9104cf4ee0efc14e479b7c7f",
+      "source_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+      "source_run_id": "30652039317",
+      "evidence_level": "E3",
+      "status": "complete"
+    },
+    {
+      "artifact_id": "first-e3-processed-summary",
+      "artifact_type": "processed-result",
+      "path": "results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/processed-summary.json",
+      "sha256": "df83d46209ce7827b796f46af147c28d43400496612f26f2fee43a8cfd554ac7",
+      "source_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+      "source_run_id": "30652039317",
+      "evidence_level": "E3",
+      "status": "complete"
+    },
+    {
+      "artifact_id": "first-e3-dataset-audit",
+      "artifact_type": "dataset-audit",
+      "path": "results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/dataset-audit.json",
+      "sha256": "1517d03390a2d6a7d49f9dec3f6bf268f61fc66d62dcaf5bcaaf6a3da02290a3",
+      "source_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+      "source_run_id": "30652039317",
+      "evidence_level": "E3",
+      "status": "complete"
+    },
+    {
+      "artifact_id": "first-e3-runtime-audit",
+      "artifact_type": "dependency-audit",
+      "path": "results/external/first-e3-smoke/npm-audit.json",
+      "sha256": "f9774a946f9710e3dc76f6ed5f27bc956a6d52fd521c644ad33166a141600829",
+      "source_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+      "source_run_id": "30652039317",
+      "evidence_level": "E3",
+      "status": "security-review-required"
+    }
+  ]
+}
