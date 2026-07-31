@@ -7,4 +7,6 @@ __pycache__/
 .DS_Store
 
 data/
+.external-data/
 results/raw/external/
+results/e3-smoke/
