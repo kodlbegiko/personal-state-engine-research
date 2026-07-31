@@ -1,0 +1,9 @@
+{
+  "evidence_level": "E3_PIPELINE_SMOKE",
+  "completion_percent": 20,
+  "research_verdict": "INCONCLUSIVE",
+  "parity_demonstrated": false,
+  "evidence_commit": "2728fc9fc11076db2be9418edea9520c8195b333",
+  "workflow_run_id": "30652039317",
+  "run_id": "e3-smoke-30652039317-attempt-1"
+}
