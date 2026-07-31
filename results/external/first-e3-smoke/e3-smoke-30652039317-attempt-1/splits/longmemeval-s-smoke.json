@@ -1,0 +1,20 @@
+{
+  "case_count": 4,
+  "case_ids": [
+    "gpt4_93159ced_abs",
+    "29f2956b",
+    "4f54b7c9",
+    "cc5ded98"
+  ],
+  "parent_split": "development",
+  "parent_split_sha256": "9750b5e963e0aa77a0d66e6442fe4fb31cea5354e357cee82342a0abe83d8ec0",
+  "question_types": [
+    "temporal-reasoning",
+    "single-session-user",
+    "multi-session",
+    "knowledge-update"
+  ],
+  "schema_version": "longmemeval-smoke-selection-v1",
+  "sealed_final_accessed": false,
+  "selection_rule": "smallest-context deterministic coverage of abstention, single-session, multi-session and temporal/update categories"
+}

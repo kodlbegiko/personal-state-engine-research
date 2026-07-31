@@ -1,0 +1,39 @@
+{
+  "cache_directory": ".external-data/hf-cache",
+  "file_count": 6,
+  "files": [
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac/config.json",
+      "sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "size_bytes": 861
+    },
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac/generation_config.json",
+      "sha256": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+      "size_bytes": 132
+    },
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac/onnx/model_q4.onnx",
+      "sha256": "933577110303a2964096d19b6f15d3b4639bef7f99481ac0b61d9f3ad72f392a",
+      "size_bytes": 182068553
+    },
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer.json",
+      "sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "size_bytes": 2104556
+    },
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer_config.json",
+      "sha256": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "size_bytes": 3764
+    },
+    {
+      "path": "HuggingFaceTB/SmolLM2-135M-Instruct/config.json",
+      "sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "size_bytes": 861
+    }
+  ],
+  "files_sha256": "9fdbcd72292250c85aa59d7edb19b92f19c20cc662ad5ff44f60dcfa21739012",
+  "schema_version": "model-cache-manifest-v1",
+  "total_size_bytes": 184178727
+}

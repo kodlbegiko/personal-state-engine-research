@@ -1,0 +1,55 @@
+{
+  "answer_session_distribution": {
+    "1": 176,
+    "2": 250,
+    "3": 41,
+    "4": 19,
+    "5": 11,
+    "6": 3
+  },
+  "audit_code_commit": "55eaa489e1a984e98ad28eb1f8431e38ff27b215",
+  "audit_command": "python scripts/run_longmemeval_e3_smoke.py <dataset> ...",
+  "conversation_count": 500,
+  "dataset_name": "LongMemEval-S cleaned",
+  "dataset_version": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+  "duplicate_id_count": 0,
+  "duplicate_question_count": 0,
+  "evidence_turn_distribution": {
+    "with_has_answer": 896,
+    "without_has_answer": 245854
+  },
+  "file_size": 277383467,
+  "invalid_field_count": 0,
+  "license": "MIT",
+  "license_status": "CAN_COMMIT_DERIVED_RESULTS",
+  "local_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "missing_field_count": 0,
+  "normalization_applied": [],
+  "ordering_failures": 0,
+  "original_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "question_count": 500,
+  "question_type_distribution": {
+    "knowledge-update": 78,
+    "multi-session": 133,
+    "single-session-assistant": 56,
+    "single-session-preference": 30,
+    "single-session-user": 70,
+    "temporal-reasoning": 133
+  },
+  "redistribution_policy": "Do not commit the 277 MB dataset in this repository; fetch from the pinned official source and commit only hashes, manifests, audits and derived results permitted by the license.",
+  "retrieved_at": "2026-07-31T17:41:03Z",
+  "schema_version": "longmemeval-audit-v1",
+  "session_count": 23867,
+  "source_file": "longmemeval_s_cleaned.json",
+  "source_project": "LongMemEval",
+  "source_repository": "xiaowu0162/longmemeval-cleaned",
+  "source_revision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+  "source_url": "https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/98d7416c24c778c2fee6e6f3006e7a073259d48f/longmemeval_s_cleaned.json",
+  "timestamp_coverage": {
+    "question_dates_present": 500,
+    "session_dates_present": 23867
+  },
+  "turn_count": 246750,
+  "unique_question_count": 500,
+  "validation_failures": 0
+}
