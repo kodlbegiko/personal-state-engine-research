@@ -27,6 +27,10 @@ jobs:
         run: python -m compileall -q src scripts experiments/runners tests
       - name: Test
         run: python -m unittest discover -s tests -v
+      - name: Verify benchmark lock freshness
+        run: |
+          python scripts/freeze_pilot_benchmark.py
+          git diff --exit-code -- benchmarks/pilot/benchmark-lock.json benchmarks/pilot/benchmark-lock.sha256
       - name: Verify benchmark lock
         run: python scripts/verify_benchmark_lock.py
       - name: Reproduce benchmark
