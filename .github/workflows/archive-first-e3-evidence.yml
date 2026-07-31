@@ -1,0 +1,126 @@
+name: Archive First E3 Evidence
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-first-e3-evidence.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archive-first-e3-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Check whether evidence is already archived
+        id: state
+        run: |
+          if test -f results/external/first-e3-smoke/ARCHIVED.json; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.state.outputs.skip != 'true'
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        if: steps.state.outputs.skip != 'true'
+        with:
+          node-version: "24"
+      - name: Install Python package
+        if: steps.state.outputs.skip != 'true'
+        run: python -m pip install -e .
+      - name: Install exact Transformers.js runtime
+        if: steps.state.outputs.skip != 'true'
+        working-directory: experiments/runtime
+        run: npm install --ignore-scripts
+      - name: Expose exact runtime to the model server
+        if: steps.state.outputs.skip != 'true'
+        run: ln -s experiments/runtime/node_modules node_modules
+      - name: Record dependency audit
+        if: steps.state.outputs.skip != 'true'
+        run: |
+          mkdir -p results/external/first-e3-smoke
+          cd experiments/runtime
+          npm audit --json > ../../results/external/first-e3-smoke/npm-audit.json || true
+      - name: Download and verify pinned LongMemEval-S
+        if: steps.state.outputs.skip != 'true'
+        run: |
+          python scripts/fetch_longmemeval.py \
+            --manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --output-directory .external-data/longmemeval
+      - name: Preload pinned model
+        if: steps.state.outputs.skip != 'true'
+        env:
+          PSE_MODEL_ID: HuggingFaceTB/SmolLM2-135M-Instruct
+          PSE_MODEL_REVISION: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+          PSE_MODEL_DTYPE: q4
+          PSE_HF_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          node scripts/transformersjs_model_server.mjs </dev/null \
+            > results/external/first-e3-smoke/model-preload.stdout.jsonl \
+            2> results/external/first-e3-smoke/model-preload.stderr.log
+          grep '"status":"ready"' results/external/first-e3-smoke/model-preload.stdout.jsonl
+      - name: Run and preserve paired real-model smoke
+        if: steps.state.outputs.skip != 'true'
+        env:
+          GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+          TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          python scripts/run_longmemeval_e3_smoke.py \
+            .external-data/longmemeval/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --model-manifest experiments/models/smollm2-135m-instruct-transformersjs.json \
+            --run-manifest experiments/configs/smollm2-135m-e3-smoke.json \
+            --model-server scripts/transformersjs_model_server.mjs \
+            --cache-directory .external-data/hf-cache \
+            --output-root results/external/first-e3-smoke \
+            --smoke-cases 4 \
+            --retrieval-k 1
+      - name: Write archival provenance
+        if: steps.state.outputs.skip != 'true'
+        env:
+          SOURCE_HEAD: ${{ github.event.pull_request.head.sha }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, time
+          path = pathlib.Path('results/external/first-e3-smoke/ARCHIVED.json')
+          path.write_text(json.dumps({
+              'schema_version': 'e3-archive-v1',
+              'source_head_commit': os.environ['SOURCE_HEAD'],
+              'workflow_run_id': os.environ['RUN_ID'],
+              'workflow_run_attempt': os.environ['RUN_ATTEMPT'],
+              'archived_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+              'evidence_level': 'E3_PIPELINE_SMOKE',
+              'research_verdict': 'INCONCLUSIVE'
+          }, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          PY
+      - name: Verify payload and secret exclusions
+        if: steps.state.outputs.skip != 'true'
+        run: |
+          test -z "$(git status --short -- .external-data)"
+          ! grep -R -E 'sk-[A-Za-z0-9_-]{10,}|ghp_[A-Za-z0-9]{20,}|Bearer [A-Za-z0-9._-]{10,}' results/external/first-e3-smoke
+      - name: Commit durable E3 evidence to the research branch
+        if: steps.state.outputs.skip != 'true'
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -f results/external/first-e3-smoke experiments/runtime/package-lock.json
+          git commit -m "evidence(e3): archive first real-model smoke"
+          git push origin "HEAD:${HEAD_REF}"
