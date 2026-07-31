@@ -10,11 +10,12 @@ from pathlib import Path
 EXPECTED_SHA256 = {
     ".gitignore": "178e14d442342be3df8e9b107aecd70b4d94608166b148250036d47d9ef60e56",
     ".github/workflows/ci.yml": "0ec340b244010646e5a947bdadfc38c84574b565e014b453b673a6753c99e9e8",
-    ".github/workflows/external-e3-smoke.yml": "c4becbb2f10967231e6a7259f2ff1140d9fb397992b70ca29c5193e4cd77795f",
+    ".github/workflows/external-e3-smoke.yml": "32b7d5f14c15bc40bf9b652b087b1520b07c881711b8381c3e3d64a48f574039",
     "experiments/configs/smollm2-135m-e3-smoke.json": "9c17b38cab7cab5d63af33d291f7c73e74770598108c05a3a104e9b8d5c96778",
     "experiments/datasets/longmemeval-s-cleaned.json": "a790f09d4934b5ecb22988354feeb3489f35a076907233794516cf6eb3ef19b0",
     "experiments/models/smollm2-135m-instruct-transformersjs.json": "3d8ea69a641dba26601a5d084bd8cb98b0c53ce534a6778259f4e33758e49ab6",
     "experiments/runtime/package.json": "e401f51133165257f2bb9c3fcb7bf69216def8523a7e6e07e6c6694e308c2db7",
+    "experiments/runtime/package-lock.json": "85e48061fa8229d13b82a7cea1b9a9942542886b018e791c4e5f8ccfdbae3f48",
     "scripts/transformersjs_model_server.mjs": "68756552f611ab4a03bec3b77432d113ea15263be52f3a58d878def347a0c996"
 }
 
