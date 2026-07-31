@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: external-e3-smoke-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   longmemeval-smoke:
