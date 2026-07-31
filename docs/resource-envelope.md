@@ -1,6 +1,6 @@
 # Resource Envelope
 
-Assessment timestamp: 2026-07-31T16:45:00+08:00
+Assessment timestamp: 2026-07-31T18:04:00+08:00
 
 ## Confirmed local execution resources
 
@@ -22,39 +22,48 @@ local_models: none detected
 ## Network and repository access
 
 ```yaml
-direct_github_dns_from_container: failed
+direct_external_dns_from_container: failed
 authenticated_github_connector: available
 repository_read: available
 repository_write: available
 pull_request_and_issue_access: available
-workflow_metadata_access: available
+workflow_metadata_and_logs: available
+github_actions_network: available for normal CI dependency installation
 ```
 
-Direct network failure means local `git clone`, model downloads and ordinary GitHub HTTP access cannot be assumed. GitHub repository work can continue through the connector, but external datasets or model weights require an independently working download path.
+Direct DNS failure in the interactive container means local `git clone`, Hugging Face dataset download and model-weight download cannot be assumed. Repository work continued through the authenticated connector. GitHub Actions validated code and deterministic artifacts, but CI was not used to download the 277 MB benchmark or run a paid or unpinned model.
 
-## Credentials
+## Credentials and model runtimes
 
-No usable credentials were detected for:
+Only presence-state conclusions are retained; no secret value is recorded.
 
-```text
-OpenAI
-Anthropic
-Google or Gemini
-Hugging Face
+```yaml
+openai_api_credentials: absent in inspected environment
+anthropic_api_credentials: absent in inspected environment
+google_or_gemini_credentials: absent in inspected environment
+hugging_face_token: absent in inspected environment
+ollama: absent
+llama_cpp: untested_or_absent
+mlx: untested_or_absent
+vllm: absent
+transformers: absent
+pytorch: absent
+onnx_runtime: absent
+cuda: absent
+mps: not applicable in Linux container
+local_model_files: none detected
 ```
-
-The audit records only presence or absence and does not expose secret values.
 
 ## Cost and execution limits
 
 ```yaml
-api_budget: 0 until credentials and an explicit budget are available
-maximum_experiment_cost: 0 for paid-provider runs in the current environment
-maximum_storage_budget: 30 GB recommended working ceiling
-maximum_wall_clock_time: bounded by the active execution session
+paid_api_budget: 0 until credentials and an explicit ceiling exist
+current_real_model_trials: 0
+current_external_dataset_bytes_downloaded: 0
+recommended_working_storage_ceiling_gb: 30
 ```
 
-No paid API experiment may be started without a pinned model, a validated manifest, a development subset and a declared cost ceiling.
+A paid or drifting API alias must not be used merely to obtain a quick score. The first model must have an exact provider identifier or local file hash, fixed runtime, tokenizer metadata, generation settings and a declared development-run cost ceiling.
 
 ## Selected execution lane
 
@@ -62,22 +71,25 @@ No paid API experiment may be started without a pinned model, a validated manife
 Lane C — Blocked but Reproducible Setup
 ```
 
-Reason:
+Engineering progress within Lane C now includes:
 
-- no GPU or local model runtime;
-- no external model credentials;
-- external benchmark assets are not yet locally available;
-- direct network access is unreliable from the execution container.
+- pinned official LongMemEval-S source revision, size and SHA-256;
+- checksum-verifying downloader and failure tests;
+- integrated `EXT-B0` and `EXT-B5` trial entrypoint;
+- immutable raw trial schema and collision protection;
+- model/request attribution and classified failure retention;
+- current-head CI across Python 3.11, 3.12 and 3.13.
 
-The repository can still complete runners, adapters, manifests, deterministic tests, data validation, benchmark selection, failure recording and GitHub evidence. It cannot honestly claim full parity under the current resource envelope.
+Lane C still cannot produce E3 because no real dataset payload and no real model runtime are available in the same executable environment.
 
 ## Upgrade conditions
 
-Move to Lane B when all of the following are available:
+Move to Lane B only when all conditions are met:
 
-1. one legally usable external benchmark is downloaded and hash-verified;
-2. one pinned open-weight model can be executed reproducibly;
-3. the model runner writes complete manifests and raw outputs;
-4. a small development subset can run within the declared budget.
+1. the pinned LongMemEval-S payload is downloaded and its size and SHA-256 match the source manifest;
+2. `scripts/validate_longmemeval.py` produces a committed dataset audit;
+3. development, validation and untouched sealed-final split manifests are generated and leakage-checked;
+4. one exact model and runtime are pinned and executable;
+5. `EXT-B0` and `EXT-B5` smoke trials create raw immutable records with token, latency, failure and cost data.
 
-Move to Lane A only after two external benchmarks, two pinned model versions, strong baseline implementations and sufficient compute are available.
+Move to Lane A only after two external benchmarks, two pinned model versions, a faithfully reproduced strong baseline and sufficient compute are available for the preregistered matrix.
