@@ -1,0 +1,120 @@
+{
+  "cutoff_date": "2026-07-31",
+  "naming_note": "EXT-* identifiers are reserved for external model-backed parity baselines. Existing repository B0-B7 identifiers remain deterministic component baselines and must not be conflated with external efficacy methods.",
+  "primary_benchmark": "LongMemEval-S",
+  "schema_version": 1,
+  "secondary_benchmark": "LoCoMo",
+  "selection_status": "SOURCE_SELECTION_COMPLETE_EXECUTION_NOT_STARTED",
+  "methods": [
+    {
+      "id": "EXT-B0",
+      "name": "no_cross_session_memory",
+      "family": "no_memory",
+      "selected_first_wave": true,
+      "status": "ENVIRONMENT_READY",
+      "compute_feasibility": "high",
+      "implementation_fidelity_risk": "low"
+    },
+    {
+      "id": "EXT-B1",
+      "name": "full_history_replay",
+      "family": "history_replay",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "conditional_on_context_limit",
+      "implementation_fidelity_risk": "low"
+    },
+    {
+      "id": "EXT-B2",
+      "name": "recent_history",
+      "family": "history_replay",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "high",
+      "implementation_fidelity_risk": "low"
+    },
+    {
+      "id": "EXT-B3",
+      "name": "rolling_summary",
+      "family": "summary",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "conditional_on_summary_model",
+      "implementation_fidelity_risk": "medium"
+    },
+    {
+      "id": "EXT-B4",
+      "name": "dense_vector_retrieval",
+      "family": "retrieval",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "conditional_on_embedding_model",
+      "implementation_fidelity_risk": "medium"
+    },
+    {
+      "id": "EXT-B5",
+      "name": "bm25_sparse_retrieval",
+      "family": "retrieval",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "high",
+      "implementation_fidelity_risk": "low"
+    },
+    {
+      "id": "EXT-B6",
+      "name": "sparse_dense_hybrid",
+      "family": "retrieval",
+      "selected_first_wave": true,
+      "status": "NOT_STARTED",
+      "compute_feasibility": "conditional_on_embedding_model",
+      "implementation_fidelity_risk": "medium"
+    },
+    {
+      "id": "STRONG-TIMEM",
+      "name": "TiMem",
+      "family": "temporal_hierarchical",
+      "paper": "arXiv:2601.02845",
+      "official_repository": "TiMEM-AI/timem",
+      "selected_first_wave": false,
+      "status": "SOURCE_VERIFIED",
+      "compute_feasibility": "unknown_until_install_audit",
+      "implementation_fidelity_risk": "high",
+      "blockers": [
+        "exact_commit_not_recorded",
+        "license_compatibility_not_resolved",
+        "dataset_not_available_locally",
+        "model_credentials_unavailable"
+      ]
+    },
+    {
+      "id": "STRONG-AMEM",
+      "name": "A-MEM",
+      "family": "structured_linked_memory",
+      "paper": "arXiv:2502.12110",
+      "selected_first_wave": false,
+      "status": "SOURCE_VERIFIED",
+      "compute_feasibility": "unknown_until_install_audit",
+      "implementation_fidelity_risk": "high",
+      "blockers": [
+        "exact_commit_not_recorded",
+        "license_not_recorded",
+        "evaluation_compatibility_not_verified"
+      ]
+    },
+    {
+      "id": "DEFER-AGEMEM",
+      "name": "AgeMem",
+      "family": "learned_memory_policy",
+      "paper": "arXiv:2601.01885",
+      "selected_first_wave": false,
+      "status": "BLOCKED",
+      "compute_feasibility": "low",
+      "implementation_fidelity_risk": "very_high",
+      "blockers": [
+        "official_code_and_weights_not_verified",
+        "training_compute_unavailable",
+        "gpu_unavailable"
+      ]
+    }
+  ]
+}
