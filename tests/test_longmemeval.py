@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -124,6 +126,23 @@ class LongMemEvalAdapterTests(unittest.TestCase):
                 loaded,
                 (LongMemEvalHypothesis("q1", "tea"),),
             )
+
+    def test_validator_cli_reports_hash_and_counts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            dataset = self.write_dataset(directory, [self.row()])
+            script = Path(__file__).parents[1] / "scripts" / "validate_longmemeval.py"
+            completed = subprocess.run(
+                [sys.executable, str(script), str(dataset)],
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            summary = json.loads(completed.stdout)
+            self.assertEqual(summary["examples"], 1)
+            self.assertEqual(summary["sessions"], 2)
+            self.assertEqual(summary["turns"], 4)
+            self.assertEqual(summary["evidence_turns"], 1)
+            self.assertEqual(len(summary["sha256"]), 64)
 
 
 if __name__ == "__main__":
