@@ -27,7 +27,17 @@ jobs:
       - name: Verify and install exact evaluator-v2 source bundle
         shell: bash
         run: |
-          cat .github/evaluator-v2-source-bundle/part-* > /tmp/evaluator-v2-source.tar.gz.b64
+          cat \
+            .github/evaluator-v2-source-bundle/part-00 \
+            .github/evaluator-v2-source-bundle/part-01 \
+            .github/evaluator-v2-source-bundle/part-02 \
+            .github/evaluator-v2-source-bundle/part-03-0 \
+            .github/evaluator-v2-source-bundle/part-03-1 \
+            .github/evaluator-v2-source-bundle/part-04 \
+            .github/evaluator-v2-source-bundle/part-05 \
+            .github/evaluator-v2-source-bundle/part-06 \
+            .github/evaluator-v2-source-bundle/part-07 \
+            > /tmp/evaluator-v2-source.tar.gz.b64
           base64 --decode /tmp/evaluator-v2-source.tar.gz.b64 > /tmp/evaluator-v2-source.tar.gz
           echo "4445eecf7a41325f415dc9eb4922bcfb4afd4c381853a6ce8497b29b4882763f  /tmp/evaluator-v2-source.tar.gz" | sha256sum --check
           tar -xzf /tmp/evaluator-v2-source.tar.gz
