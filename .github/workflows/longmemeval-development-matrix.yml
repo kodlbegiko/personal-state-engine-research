@@ -1,14 +1,6 @@
 name: LongMemEval Development Matrix
 
 on:
-  push:
-    branches: [research/personal-state-engine-v0]
-    paths:
-      - .github/workflows/longmemeval-development-matrix.yml
-  pull_request:
-    branches: [main]
-    paths:
-      - .github/workflows/longmemeval-development-matrix.yml
   workflow_dispatch:
 
 permissions:
@@ -70,7 +62,7 @@ jobs:
       - name: Run fixed 20-case paired development matrix from verified subset
         env:
           TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
-          PSE_SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          PSE_SOURCE_HEAD_SHA: ${{ github.sha }}
         run: |
           python scripts/run_longmemeval_development_subset.py \
             .external-data/longmemeval/longmemeval_s_cleaned.json \
@@ -97,7 +89,7 @@ jobs:
         run: |
           git status --short
           test -z "$(git status --short -- .external-data)"
-          test -z "$(find . -path './.git' -prune -o \( -name '*.onnx' -o -name '*.safetensors' -o -name '*.bin' \) -print)"
+          test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
       - name: Upload complete development evidence or failures
         if: always()
         uses: actions/upload-artifact@v4
