@@ -23,10 +23,11 @@ Evaluator v2 evidence commit: 0fb95bd7d6a01f1553cfab7a28a4ca2c84bd7948
 Formal matrix workflow run: 30676516785
 Evaluator v2 workflow run: 30688327468
 Evaluator v2 job: 91338369889
+Final documentation CI run: 30688848469 — SUCCESS
 PR: #2
 PR state: OPEN / DRAFT
 Merge status: not merged
-Issue #6: evaluator blocker resolved; pending final closeout update
+Issue #6: resolved and closed after evaluator/CI verification
 Tag: none
 Release: none
 ```
