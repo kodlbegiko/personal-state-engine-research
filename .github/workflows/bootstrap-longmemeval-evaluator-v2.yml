@@ -31,8 +31,12 @@ jobs:
             .github/evaluator-v2-source-bundle/part-00 \
             .github/evaluator-v2-source-bundle/part-01 \
             .github/evaluator-v2-source-bundle/part-02 \
-            .github/evaluator-v2-source-bundle/part-03-0 \
-            .github/evaluator-v2-source-bundle/part-03-1 \
+            .github/evaluator-v2-source-bundle/part-03s-0 \
+            .github/evaluator-v2-source-bundle/part-03s-1 \
+            .github/evaluator-v2-source-bundle/part-03s-2 \
+            .github/evaluator-v2-source-bundle/part-03s-3 \
+            .github/evaluator-v2-source-bundle/part-03s-4 \
+            .github/evaluator-v2-source-bundle/part-03s-5 \
             .github/evaluator-v2-source-bundle/part-04 \
             .github/evaluator-v2-source-bundle/part-05 \
             .github/evaluator-v2-source-bundle/part-06 \
