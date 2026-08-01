@@ -78,8 +78,9 @@ jobs:
           run-id: 30676516785
       - name: Re-verify original evidence contract
         run: |
-          python scripts/verify_development_matrix_contract.py \
-            .artifact/results/development-matrix/development-matrix-30676516785-attempt-1
+          cd .artifact
+          python ../scripts/verify_development_matrix_contract.py \
+            results/development-matrix/development-matrix-30676516785-attempt-1
       - name: Build durable evidence archive and calibration
         run: |
           python .github/scripts/archive_longmemeval_development_evidence.py \
