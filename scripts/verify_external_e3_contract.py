@@ -9,7 +9,7 @@ from pathlib import Path
 
 EXPECTED_SHA256 = {
     ".gitignore": "178e14d442342be3df8e9b107aecd70b4d94608166b148250036d47d9ef60e56",
-    ".github/workflows/ci.yml": "0ec340b244010646e5a947bdadfc38c84574b565e014b453b673a6753c99e9e8",
+    ".github/workflows/ci.yml": "4090319ab416f37166f5457dd8863476c3efbc935fc1ced7b329831266e1c1d7",
     ".github/workflows/external-e3-smoke.yml": "32b7d5f14c15bc40bf9b652b087b1520b07c881711b8381c3e3d64a48f574039",
     "experiments/configs/smollm2-135m-e3-smoke.json": "9c17b38cab7cab5d63af33d291f7c73e74770598108c05a3a104e9b8d5c96778",
     "experiments/datasets/longmemeval-s-cleaned.json": "a790f09d4934b5ecb22988354feeb3489f35a076907233794516cf6eb3ef19b0",
