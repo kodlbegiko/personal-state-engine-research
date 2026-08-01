@@ -1,0 +1,38 @@
+{
+  "blinded_response_id": "response-ad2f09b0eff8051f",
+  "error": null,
+  "provider": "local-fallback",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 8465.992547000002,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a correct answer, and a response from a model. Please answer yes if the response contains the correct answer. Otherwise, answer no. If the response is equivalent to the correct answer or contains all the intermediate steps to get the correct answer, you should also answer yes. If the response only contains a subset of the information required by the answer, answer no.\n\nQuestion: How many times did I ride rollercoasters across all the events I attended from July to October?\n\nCorrect Answer: 10 times\n\nModel Response: I'm sorry, but I don't have access to a specific list of rides or events you've attended in this timeframe. The information provided doesn't include any details about your experiences on roller coasters. Therefore, it's not possible for me to provide an accurate answer based solely on the given conversation history.\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "evaluator-v2:response-ad2f09b0eff8051f:1ec39929-17a8-4d21-9c3b-1e17ffd49c1b",
+    "text": "No",
+    "usage": {
+      "input_tokens": 220,
+      "output_tokens": 1,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "evaluator-v2:response-ad2f09b0eff8051f:1ec39929-17a8-4d21-9c3b-1e17ffd49c1b",
+  "schema_version": "longmemeval-raw-judge-output-v2"
+}

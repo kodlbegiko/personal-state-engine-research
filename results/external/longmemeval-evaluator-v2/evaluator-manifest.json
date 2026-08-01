@@ -1,0 +1,47 @@
+{
+  "schema_version": "longmemeval-evaluator-v2",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "source_type": "custom-calibrated",
+  "source_repository": "https://github.com/xiaowu0162/LongMemEval",
+  "source_commit": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+  "source_path": "src/evaluation/evaluate_qa.py",
+  "source_license": "MIT",
+  "selection_policy": "Use official gpt-4o-2024-08-06 when OPENAI_API_KEY is present before inference; otherwise use the exact-pinned local 3B fallback. Never switch based on answer or calibration results.",
+  "official_model_id": "gpt-4o-2024-08-06",
+  "official_runtime": "openai-python==1.35.1",
+  "local_model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "local_model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "local_model_license": "llama3.2",
+  "local_runtime": "@huggingface/transformers==4.2.0",
+  "local_dtype": "q4",
+  "prompt_sha256": "be177cbb0e82bf279ad8c24e8d553ef80222464dd51c39ef7bea7231623d28e6",
+  "parser_sha256": "975e659fd3a109a40c8316fc532bf010a0dbf71208bcbb97978146e9d917f0e2",
+  "temperature": 0,
+  "sampling": false,
+  "seed": 17,
+  "max_output_tokens": 10,
+  "baseline_blinding": true,
+  "output_schema": {
+    "type": "enum",
+    "allowed": ["yes", "no"],
+    "parser": "case-insensitive exact yes/no with optional terminal period or exclamation mark"
+  },
+  "invalid_output_policy": "retain_and_exclude_from_correctness",
+  "abstention_policy": "Accept only an explicit identification that the requested information is unavailable or insufficient.",
+  "partial_answer_policy": "Reject when required information is materially incomplete, except preference questions follow the official rubric rule.",
+  "contradiction_policy": "Reject a response that adds a materially wrong or contradictory fact.",
+  "calibration_thresholds": {
+    "raw_agreement_minimum": 0.8,
+    "cohen_kappa_minimum": 0.6,
+    "invalid_output_rate_maximum": 0.05
+  },
+  "fixed_inputs": {
+    "evidence_directory": "results/external/longmemeval-development-matrix-30676516785",
+    "raw_answer_count": 40,
+    "case_count": 20,
+    "case_id_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+    "answer_model_rerun": false,
+    "sealed_final_access": false
+  },
+  "formal_result_gate": "Formal correctness summaries may be generated only when all calibration thresholds and evidence-integrity checks pass."
+}

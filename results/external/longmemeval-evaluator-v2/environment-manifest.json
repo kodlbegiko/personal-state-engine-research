@@ -1,0 +1,22 @@
+{
+  "archive_verification": {
+    "artifact_count": 59,
+    "registry_sha256": "e16e76fac2c3a54872072fdaebde188cd4b26e9dd15903c13c4ecaf68e8324dc",
+    "status": "PASS"
+  },
+  "judge_ready": {
+    "cache_directory": ".external-data/evaluator-v2-hf-cache",
+    "dtype": "q4",
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "runtime": "@huggingface/transformers",
+    "status": "ready"
+  },
+  "official_source_commit": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+  "parser_sha256": "975e659fd3a109a40c8316fc532bf010a0dbf71208bcbb97978146e9d917f0e2",
+  "prompt_sha256": "be177cbb0e82bf279ad8c24e8d553ef80222464dd51c39ef7bea7231623d28e6",
+  "provider": "local-fallback",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "schema_version": "longmemeval-evaluator-environment-v2",
+  "selection_reason": "No confirmed usable OpenAI API credential; fixed local 3B fallback selected before inference"
+}

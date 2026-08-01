@@ -1,0 +1,25 @@
+{
+  "commit": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+  "license": "MIT",
+  "local_deviation": {
+    "model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "parser": "hardened from substring matching to exact enum validation",
+    "prompt_semantics": "official templates preserved",
+    "reason": "official GPT-4o requires a separate paid API credential; official local 70B path exceeds GitHub-hosted CPU runner resources",
+    "revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f"
+  },
+  "official_models": [
+    "gpt-4o-2024-08-06",
+    "gpt-4o-mini-2024-07-18",
+    "meta-llama/Meta-Llama-3.1-70B-Instruct"
+  ],
+  "official_runtime_requirements": {
+    "backoff": "2.2.1",
+    "numpy": "1.26.3",
+    "openai": "1.35.1",
+    "tqdm": "4.66.4"
+  },
+  "path": "src/evaluation/evaluate_qa.py",
+  "repository": "https://github.com/xiaowu0162/LongMemEval",
+  "schema_version": "longmemeval-official-evaluator-source-audit-v1"
+}

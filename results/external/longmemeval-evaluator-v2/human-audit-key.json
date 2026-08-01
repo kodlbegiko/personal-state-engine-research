@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "case_id": "gpt4_93159ced",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "031748ae_abs",
+      "mapping": {
+        "A": "EXT-B0",
+        "B": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "18dcd5a5",
+      "mapping": {
+        "A": "EXT-B0",
+        "B": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "09ba9854_abs",
+      "mapping": {
+        "A": "EXT-B0",
+        "B": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "gpt4_93159ced_abs",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "51b23612",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "d7c942c3",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "d23cf73b",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "gpt4_e05b82a6",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "1903aded",
+      "mapping": {
+        "A": "EXT-B5",
+        "B": "EXT-B0"
+      }
+    }
+  ],
+  "schema_version": "human-audit-key-v1",
+  "warning": "Open only after human decisions are recorded."
+}

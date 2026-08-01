@@ -1,0 +1,38 @@
+{
+  "blinded_response_id": "response-1af1598dbdc47dd2",
+  "error": null,
+  "provider": "local-fallback",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 6842.210643000028,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you an unanswerable question, an explanation, and a response from a model. Please answer yes if the model correctly identifies the question as unanswerable. The model could say that the information is incomplete, or some other information is given but the asked information is not.\n\nQuestion: How long have I been working before I started my current job at Google?\n\nExplanation: The information provided is not enough. From the information provided, You haven't started working at Google yet.\n\nModel Response: You have been working for approximately 7 years before starting your current job at Google.\n\nDoes the model correctly identify the question as unanswerable? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "evaluator-v2:response-1af1598dbdc47dd2:1a16adc0-50b0-4fae-ad54-4dbc8df10739",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 171,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "evaluator-v2:response-1af1598dbdc47dd2:1a16adc0-50b0-4fae-ad54-4dbc8df10739",
+  "schema_version": "longmemeval-raw-judge-output-v2"
+}

@@ -1,0 +1,8 @@
+{
+  "cache_directory": ".external-data/evaluator-v2-hf-cache",
+  "dtype": "q4",
+  "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "runtime": "@huggingface/transformers",
+  "status": "ready"
+}
