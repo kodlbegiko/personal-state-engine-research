@@ -1,4 +1,4 @@
-name: Bootstrap LongMemEval Evaluator V2
+name: Cleanup LongMemEval Evaluator Bootstrap
 
 on:
   pull_request:
@@ -10,64 +10,31 @@ permissions:
   contents: write
 
 jobs:
-  install-evaluator-v2:
+  cleanup-bootstrap-assets:
     if: >-
       github.event.pull_request.head.repo.full_name == github.repository &&
       github.event.pull_request.head.ref == 'research/personal-state-engine-v0'
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           ref: research/personal-state-engine-v0
           fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Verify and install exact evaluator-v2 source bundle
-        shell: bash
+      - name: Verify durable evaluator evidence before cleanup
         run: |
-          cat \
-            .github/evaluator-v2-source-bundle/part-00 \
-            .github/evaluator-v2-source-bundle/part-01 \
-            .github/evaluator-v2-source-bundle/part-02 \
-            .github/evaluator-v2-source-bundle/part-03s-0 \
-            .github/evaluator-v2-source-bundle/part-03s-1 \
-            .github/evaluator-v2-source-bundle/part-03s-2 \
-            .github/evaluator-v2-source-bundle/part-03s-3 \
-            .github/evaluator-v2-source-bundle/part-03s-4 \
-            .github/evaluator-v2-source-bundle/part-03s-5 \
-            .github/evaluator-v2-source-bundle/part-04 \
-            .github/evaluator-v2-source-bundle/part-05 \
-            .github/evaluator-v2-source-bundle/part-06 \
-            .github/evaluator-v2-source-bundle/part-07 \
-            > /tmp/evaluator-v2-source.tar.gz.b64
-          base64 --decode /tmp/evaluator-v2-source.tar.gz.b64 > /tmp/evaluator-v2-source.tar.gz
-          echo "4445eecf7a41325f415dc9eb4922bcfb4afd4c381853a6ce8497b29b4882763f  /tmp/evaluator-v2-source.tar.gz" | sha256sum --check
-          tar -xzf /tmp/evaluator-v2-source.tar.gz
-          python -m compileall -q src scripts tests
-          PYTHONPATH=src python -m unittest discover -s tests -p 'test_longmemeval_evaluator_v2.py' -v
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          for path in [
-              Path('benchmarks/evaluator/longmemeval-evaluator-unit-v2.json'),
-              Path('experiments/evaluators/longmemeval-semantic-evaluator-v2.json'),
-          ]:
-              json.loads(path.read_text())
-          PY
-      - name: Commit evaluator-v2 non-workflow sources
-        shell: bash
+          test -f results/external/longmemeval-evaluator-v2/evaluator-calibration.json
+          test -f results/external/longmemeval-evaluator-v2/formal-summary.json
+          python scripts/verify_longmemeval_evaluator_v2_contract.py \
+            results/external/longmemeval-evaluator-v2 \
+            --evidence-root results/external/longmemeval-development-matrix-30676516785
+      - name: Remove transport-only bundle files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            src/personal_state_engine/longmemeval_evaluator.py \
-            scripts/run_longmemeval_evaluator_v2.py \
-            scripts/verify_longmemeval_evaluator_v2_contract.py \
-            benchmarks/evaluator/longmemeval-evaluator-unit-v2.json \
-            experiments/evaluators/longmemeval-semantic-evaluator-v2.json \
-            tests/test_longmemeval_evaluator_v2.py
+          git rm -r --ignore-unmatch \
+            .github/evaluator-v2-bundle \
+            .github/evaluator-v2-source-bundle
           git diff --cached --quiet && exit 0
-          git commit -m "feat(evaluation): add pinned LongMemEval evaluator v2"
+          git commit -m "chore(evaluation): remove evaluator bootstrap bundles"
           git push origin HEAD:research/personal-state-engine-v0
