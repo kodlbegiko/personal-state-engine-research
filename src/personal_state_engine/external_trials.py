@@ -101,13 +101,51 @@ def bm25_sessions(
     return tuple(item[2] for item in ranked)
 
 
-def _render_sessions(sessions: Iterable[LongMemEvalSession]) -> str:
+def _truncate_at_token_boundary(text: str, token_budget: int) -> tuple[str, int, bool]:
+    if isinstance(token_budget, bool) or not isinstance(token_budget, int) or token_budget <= 0:
+        raise ExternalTrialError("token budget must be a positive integer")
+    matches = list(_TOKEN_RE.finditer(text))
+    if len(matches) <= token_budget:
+        return text, len(matches), False
+    cutoff = matches[token_budget - 1].end()
+    return text[:cutoff].rstrip(), token_budget, True
+
+
+def _render_sessions(
+    sessions: Iterable[LongMemEvalSession],
+    *,
+    token_budget: int,
+) -> tuple[str, tuple[str, ...], int, bool]:
+    session_list = tuple(sessions)
+    remaining = token_budget
     blocks: list[str] = []
-    for session in sessions:
+    included_ids: list[str] = []
+    truncated = False
+    for index, session in enumerate(session_list):
+        if remaining <= 0:
+            truncated = True
+            break
         lines = [f"Session {session.session_id} at {session.timestamp}"]
         lines.extend(f"{turn.role}: {turn.content}" for turn in session.turns)
-        blocks.append("\n".join(lines))
-    return "\n\n".join(blocks)
+        block = "\n".join(lines)
+        rendered, used, block_truncated = _truncate_at_token_boundary(block, remaining)
+        if rendered:
+            blocks.append(rendered)
+            included_ids.append(session.session_id)
+            remaining -= used
+        if block_truncated:
+            truncated = True
+            break
+        if index < len(session_list) - 1 and remaining <= 0:
+            truncated = True
+            break
+    if len(included_ids) < len(session_list):
+        truncated = True
+    history = "\n\n".join(blocks)
+    actual_tokens = len(_tokens(history))
+    if actual_tokens > token_budget:
+        raise ExternalTrialError("rendered history exceeded deterministic token budget")
+    return history, tuple(included_ids), actual_tokens, truncated
 
 
 @dataclass(frozen=True, slots=True)
@@ -317,7 +355,11 @@ def build_request(
             k=config.retrieval_item_limit,
         )
 
-    history = _render_sessions(selected)
+    effective_history_budget = min(config.retrieval_token_budget, config.memory_token_budget)
+    history, context_session_ids, history_tokens, history_truncated = _render_sessions(
+        selected,
+        token_budget=effective_history_budget,
+    ) if selected else ("", (), 0, False)
     system_prompt = (
         "Answer the user's question using only the supplied conversation history. "
         "If the history is insufficient, say that the answer is unknown. "
@@ -332,7 +374,12 @@ def build_request(
         "question_date": example.question_date,
         "selected_session_ids": [session.session_id for session in selected],
         "selected_session_timestamps": [session.timestamp for session in selected],
+        "context_session_ids": list(context_session_ids),
         "history": history,
+        "history_lexical_tokens": history_tokens,
+        "history_token_budget": effective_history_budget,
+        "history_truncated": history_truncated,
+        "truncation_policy": "ranked-session concatenation with deterministic prefix truncation at lexical-token boundary",
     }
     request = ModelRequest(
         request_id=request_id,
@@ -423,7 +470,7 @@ def execute_trial(
         temperature=float(manifest.temperature),
         top_p=1.0,
         max_output_tokens=manifest.token_budget,
-        context_limit=config.retrieval_token_budget + config.memory_token_budget,
+        context_limit=min(config.retrieval_token_budget, config.memory_token_budget),
         retrieval_item_limit=config.retrieval_item_limit,
         retrieval_token_budget=config.retrieval_token_budget,
         memory_token_budget=config.memory_token_budget,
@@ -446,7 +493,7 @@ def execute_trial(
         output_tokens=output_tokens,
         total_tokens=input_tokens + output_tokens,
         ingestion_tokens=0,
-        retrieval_tokens=0,
+        retrieval_tokens=int(reconstruction["history_lexical_tokens"]),
         summary_tokens=0,
         latency_ms=latency_ms,
         estimated_cost=None,
