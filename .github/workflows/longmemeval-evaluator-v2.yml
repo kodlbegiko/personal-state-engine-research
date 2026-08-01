@@ -83,7 +83,10 @@ jobs:
           test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
           test -z "$(git status --short -- .external-data)"
 
-      - name: Run complete engineering tests
+      - name: Refresh benchmark lock for new executable surface
+        run: python scripts/freeze_pilot_benchmark.py
+
+      - name: Run complete engineering tests against refreshed lock
         run: |
           python -m compileall -q src scripts experiments/runners tests
           python -m unittest discover -s tests -v
@@ -92,9 +95,6 @@ jobs:
           python scripts/run_benchmark.py
           python scripts/run_redteam.py
           python scripts/analyze_component_results.py
-
-      - name: Refresh benchmark lock for new executable surface
-        run: python scripts/freeze_pilot_benchmark.py
 
       - name: Commit durable evaluator evidence and refreshed lock
         run: |
