@@ -1,0 +1,52 @@
+name: Freeze LongMemEval Development Matrix
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - .github/workflows/freeze-longmemeval-development-matrix.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: freeze-longmemeval-development-matrix-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  freeze-development-subset:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download and verify pinned LongMemEval-S
+        run: |
+          python scripts/fetch_longmemeval.py \
+            --manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --output-directory .external-data/longmemeval
+      - name: Freeze 20-case development subset without inference
+        run: |
+          python scripts/freeze_longmemeval_development_matrix.py \
+            .external-data/longmemeval/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --parent-split-manifest results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/splits/longmemeval-s-development.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --output results/development-freeze/longmemeval-development-matrix-v1.json
+      - name: Verify no dataset payload entered Git
+        if: always()
+        run: |
+          test -z "$(git status --short -- .external-data)"
+      - name: Upload frozen manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: longmemeval-development-freeze-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/development-freeze/**
+          if-no-files-found: error
+          retention-days: 14
