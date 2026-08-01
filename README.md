@@ -142,3 +142,18 @@ See [`docs/progress.md`](docs/progress.md), the [development matrix evidence](re
 ## License
 
 MIT. Cite exact code, dataset, answer-model and evaluator revisions together with the commit SHA.
+
+<!-- longmemeval-faithful-port-v3-preparation -->
+## LongMemEval faithful-port v3 preparation
+
+The repository now contains an independent official-source faithful-port v3 preparation. It preserves evaluator v1/v2 evidence, re-verifies the immutable 40-answer development matrix and all 59 archived artifacts, uses a strict JSON parser, identity-free deterministic blinding, and a separate 24-case synthetic corpus.
+
+```text
+Evaluator: longmemeval-official-faithful-port-v3
+Source type: faithful-port
+Official runtime: BLOCKED BY ENVIRONMENT
+v3 calibration: NOT YET ESTABLISHED
+v3 formal correctness use: PROHIBITED
+Research completion: 30%
+Sealed-final accessed: false
+```

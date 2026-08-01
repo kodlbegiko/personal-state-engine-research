@@ -1,0 +1,35 @@
+{
+  "accepted_schema": {
+    "additionalProperties": false,
+    "enum": [
+      "CORRECT",
+      "INCORRECT"
+    ],
+    "required": [
+      "label"
+    ],
+    "type": "object"
+  },
+  "fuzzy_matching": false,
+  "invalid_conditions": [
+    "empty output",
+    "non-text output",
+    "non-JSON output",
+    "non-object JSON",
+    "missing or extra keys",
+    "label outside enum",
+    "conflicting labels",
+    "timeout",
+    "provider error",
+    "truncated output",
+    "parser exception"
+  ],
+  "invalid_default": null,
+  "parser_sha256": "21b6bdf67be269bf57885478897f8ce95817da751a6192977e68f7c56603d9fe",
+  "results": [
+    "CORRECT",
+    "INCORRECT",
+    "INVALID"
+  ],
+  "schema_version": "longmemeval-faithful-port-parser-manifest-v3"
+}

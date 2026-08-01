@@ -1,0 +1,25 @@
+{
+  "answer_originated_identity_leakage": [],
+  "blinded_input_count": 40,
+  "blinded_inputs_sha256": "5b1bbc02c880f27109dfcfdca92026ce8a9f1911ed6c6f4c1101e4b22dc5b1e6",
+  "forbidden_identity_keys_absent": true,
+  "forbidden_terms": [
+    "ext-b0",
+    "ext-b5",
+    "no-memory",
+    "retrieval",
+    "control",
+    "treatment",
+    "baseline",
+    "bm25",
+    "history budget",
+    "token cost",
+    "latency"
+  ],
+  "key_separated": true,
+  "schema_version": "longmemeval-faithful-port-blinding-manifest-v3",
+  "seed": 17,
+  "unblinding_key_count": 40,
+  "unblinding_key_sha256": "749d7aae1dfc5d7ab73914761ecb62b98c13f9073f8716653116b3e63bb51db6",
+  "verdict": "PASS"
+}

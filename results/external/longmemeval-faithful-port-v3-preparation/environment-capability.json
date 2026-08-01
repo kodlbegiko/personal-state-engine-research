@@ -1,0 +1,16 @@
+{
+  "api_key_recorded": false,
+  "chosen_execution_path": "official-runtime-not-executed",
+  "estimated_or_actual_cost_usd": null,
+  "exact_official_model": "gpt-4o-2024-08-06",
+  "exact_official_model_callable": false,
+  "local_70b_model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+  "local_70b_runtime_callable": false,
+  "local_70b_runtime_endpoint_present": false,
+  "missing_dependencies": [
+    "OPENAI_API_KEY with paid API access",
+    "exact-pinned local 70B serving endpoint"
+  ],
+  "openai_api_credential_present": false,
+  "schema_version": "longmemeval-faithful-port-environment-capability-v3"
+}
