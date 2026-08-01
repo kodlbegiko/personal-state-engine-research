@@ -1,4 +1,4 @@
-name: Freeze LongMemEval Development Matrix
+name: Freeze and Archive LongMemEval Development Matrix
 
 on:
   push:
@@ -12,7 +12,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  actions: read
+  contents: write
 
 concurrency:
   group: freeze-longmemeval-development-matrix-${{ github.ref }}
@@ -54,3 +55,61 @@ jobs:
           path: results/development-freeze/**
           if-no-files-found: error
           retention-days: 14
+
+  archive-completed-evidence:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'research/personal-state-engine-v0'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - name: Download completed matrix artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: longmemeval-development-matrix-30676516785-1
+          path: .artifact
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 30676516785
+      - name: Re-verify original evidence contract
+        run: |
+          python scripts/verify_development_matrix_contract.py \
+            .artifact/results/development-matrix/development-matrix-30676516785-attempt-1
+      - name: Build durable evidence archive and calibration
+        run: |
+          python .github/scripts/archive_longmemeval_development_evidence.py \
+            --artifact-root .artifact \
+            --output results/external/longmemeval-development-matrix-30676516785 \
+            --source-head d705b1724c5a206f41db506d6c72c35d03e1cb13
+      - name: Verify archive hashes and exclusions
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('results/external/longmemeval-development-matrix-30676516785')
+          registry = json.loads((root / 'archive-registry.json').read_text())
+          assert registry['artifact_count'] == 59
+          for row in registry['artifacts']:
+              path = root / row['path']
+              assert path.is_file(), path
+              assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], path
+          assert len(list((root / 'raw-trials').glob('*.json'))) == 40
+          calibration = json.loads((root / 'evaluator-calibration.json').read_text())
+          assert calibration['calibration_verdict'] == 'FAIL'
+          assert calibration['use_for_formal_correctness'] == 'PROHIBITED'
+          PY
+          test -z "$(find results/external/longmemeval-development-matrix-30676516785 -type f \( -name '*.onnx' -o -name '*.safetensors' -o -name '*.bin' \) -print)"
+          test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
+      - name: Commit durable evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/external/longmemeval-development-matrix-30676516785
+          git diff --cached --quiet && exit 0
+          git commit -m "evidence(e3): archive blocked LongMemEval development matrix"
+          git push origin HEAD:research/personal-state-engine-v0
