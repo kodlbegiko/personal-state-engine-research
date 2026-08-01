@@ -47,6 +47,15 @@ jobs:
           python scripts/fetch_longmemeval.py \
             --manifest experiments/datasets/longmemeval-s-cleaned.json \
             --output-directory .external-data/longmemeval
+      - name: Extract verified minimal execution subset before loading model
+        run: |
+          python scripts/extract_longmemeval_execution_subset.py \
+            .external-data/longmemeval/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+            --output .external-data/longmemeval/development-execution-subset.json \
+            --output-manifest results/development-matrix/execution-subset-manifest.json
       - name: Preload pinned answer and judge model
         env:
           PSE_MODEL_ID: onnx-community/Qwen2.5-0.5B-Instruct
@@ -58,12 +67,15 @@ jobs:
             > results/development-matrix/model-preload.stdout.jsonl \
             2> results/development-matrix/model-preload.stderr.log
           grep '"status":"ready"' results/development-matrix/model-preload.stdout.jsonl
-      - name: Run fixed 20-case paired development matrix
+      - name: Run fixed 20-case paired development matrix from verified subset
         env:
           TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+          PSE_SOURCE_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          python scripts/run_longmemeval_development_matrix.py \
+          python scripts/run_longmemeval_development_subset.py \
             .external-data/longmemeval/longmemeval_s_cleaned.json \
+            .external-data/longmemeval/development-execution-subset.json \
+            --execution-subset-manifest results/development-matrix/execution-subset-manifest.json \
             --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
             --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
             --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
