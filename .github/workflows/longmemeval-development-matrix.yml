@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: longmemeval-development-matrix-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   paired-development-matrix:
@@ -52,7 +52,7 @@ jobs:
           python scripts/extract_longmemeval_execution_subset.py \
             .external-data/longmemeval/longmemeval_s_cleaned.json \
             --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
-            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v2.json \
             --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
             --output .external-data/longmemeval/development-execution-subset.json \
             --output-manifest results/development-matrix/execution-subset-manifest.json
@@ -77,11 +77,11 @@ jobs:
             .external-data/longmemeval/development-execution-subset.json \
             --execution-subset-manifest results/development-matrix/execution-subset-manifest.json \
             --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
-            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v2.json \
             --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
             --model-manifest experiments/models/qwen2.5-0.5b-instruct-transformersjs.json \
             --run-manifest experiments/configs/qwen2.5-0.5b-development-matrix.json \
-            --matrix-config experiments/configs/longmemeval-development-matrix-v1.json \
+            --matrix-config experiments/configs/longmemeval-development-matrix-v2.json \
             --model-server scripts/transformersjs_model_server.mjs \
             --cache-directory .external-data/hf-cache \
             --output-root results/development-matrix \
@@ -106,10 +106,12 @@ jobs:
           path: |
             results/development-matrix/**
             experiments/protocols/longmemeval-development-matrix-v1.json
+            experiments/protocols/longmemeval-development-matrix-v2.json
             experiments/splits/longmemeval-development-matrix-v1.json
             experiments/models/qwen2.5-0.5b-instruct-transformersjs.json
             experiments/configs/qwen2.5-0.5b-development-matrix.json
             experiments/configs/longmemeval-development-matrix-v1.json
+            experiments/configs/longmemeval-development-matrix-v2.json
             experiments/runtime/package-lock.json
           if-no-files-found: warn
           retention-days: 14
