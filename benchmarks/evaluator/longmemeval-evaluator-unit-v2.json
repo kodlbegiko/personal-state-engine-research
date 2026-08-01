@@ -1,0 +1,128 @@
+[
+  {
+    "case_id": "unit-exact-correct",
+    "question_type": "single-session-user",
+    "is_abstention": false,
+    "question": "What city did I move to?",
+    "reference_answer": "Seattle",
+    "candidate_answer": "Seattle",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-semantic-equivalent",
+    "question_type": "single-session-assistant",
+    "is_abstention": false,
+    "question": "Which instrument did I start learning?",
+    "reference_answer": "The acoustic guitar",
+    "candidate_answer": "I started learning guitar, specifically an acoustic one.",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-materially-incomplete",
+    "question_type": "multi-session",
+    "is_abstention": false,
+    "question": "Which two countries did I visit?",
+    "reference_answer": "Japan and South Korea",
+    "candidate_answer": "Japan",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-wrong-core",
+    "question_type": "single-session-user",
+    "is_abstention": false,
+    "question": "What is my dog's name?",
+    "reference_answer": "Milo",
+    "candidate_answer": "Charlie",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-contradiction",
+    "question_type": "single-session-user",
+    "is_abstention": false,
+    "question": "Do I prefer tea or coffee?",
+    "reference_answer": "Tea",
+    "candidate_answer": "I prefer coffee, not tea.",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-wrong-added-fact",
+    "question_type": "multi-session",
+    "is_abstention": false,
+    "question": "Where and when is the appointment?",
+    "reference_answer": "At the clinic on Monday",
+    "candidate_answer": "At the clinic on Monday at 9 a.m., and it was moved from Tuesday.",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-temporal-off-by-one",
+    "question_type": "temporal-reasoning",
+    "is_abstention": false,
+    "question": "How many days passed?",
+    "reference_answer": "18 days",
+    "candidate_answer": "19 days",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-temporal-wrong",
+    "question_type": "temporal-reasoning",
+    "is_abstention": false,
+    "question": "How many months passed?",
+    "reference_answer": "6 months",
+    "candidate_answer": "2 months",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-update-current-plus-old",
+    "question_type": "knowledge-update",
+    "is_abstention": false,
+    "question": "Which company do I work for now?",
+    "reference_answer": "NovaTech",
+    "candidate_answer": "I used to work at Acme, but I now work at NovaTech.",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-update-old-only",
+    "question_type": "knowledge-update",
+    "is_abstention": false,
+    "question": "Which company do I work for now?",
+    "reference_answer": "NovaTech",
+    "candidate_answer": "Acme",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-preference-personalized",
+    "question_type": "single-session-preference",
+    "is_abstention": false,
+    "question": "Suggest a weekend meal for me.",
+    "reference_answer": "Use the user's vegetarian preference and dislike of mushrooms.",
+    "candidate_answer": "Try a vegetarian spinach-and-cheese lasagna without mushrooms.",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-preference-violated",
+    "question_type": "single-session-preference",
+    "is_abstention": false,
+    "question": "Suggest a weekend meal for me.",
+    "reference_answer": "Use the user's vegetarian preference and dislike of mushrooms.",
+    "candidate_answer": "Try a beef and mushroom stew.",
+    "expected_correct": false
+  },
+  {
+    "case_id": "unit-abstention-correct",
+    "question_type": "single-session-user",
+    "is_abstention": true,
+    "question": "What is my passport number?",
+    "reference_answer": "The conversation does not contain the passport number.",
+    "candidate_answer": "I don't have enough information to know your passport number.",
+    "expected_correct": true
+  },
+  {
+    "case_id": "unit-abstention-hallucinated",
+    "question_type": "single-session-user",
+    "is_abstention": true,
+    "question": "What is my passport number?",
+    "reference_answer": "The conversation does not contain the passport number.",
+    "candidate_answer": "Your passport number is A12345678.",
+    "expected_correct": false
+  }
+]
