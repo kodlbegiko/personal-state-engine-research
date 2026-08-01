@@ -1,128 +1,263 @@
 # Research Progress
 
-Assessment date: 2026-08-01 01:50 +08:00
+Assessment date: 2026-08-01 09:25 +08:00
 
 ## Executive status
 
 ```text
-Research verdict: INCONCLUSIVE
-Evidence-weighted completion under mission v2: 20%
-Highest evidence level reached: E3 — real-model external smoke evidence
+Research verdict: BLOCKED
+Evidence-weighted completion: 24%
+Highest evidence level: E3 — real-model external development evidence
 Algorithm parity demonstrated: NO
+PR #2: OPEN / DRAFT / NOT MERGED
 ```
 
-The repository now contains the first real-model LongMemEval-S evidence. This is a four-case development smoke run for pipeline and attribution validation. It is not a development matrix, confirmatory evaluation, strong-baseline comparison or parity result.
+The fixed 20-case LongMemEval-S development matrix completed at the raw-evidence level. EXT-B0 and EXT-B5 each completed 20 real-model trials with no model errors or timeouts, but the preregistered semantic evaluator failed calibration. As a result, the current evidence supports execution, retrieval and resource claims only; it does not support answer-quality comparison.
 
-## First E3 evidence
+## A. GitHub state
 
 ```text
-Evidence commit: 2728fc9fc11076db2be9418edea9520c8195b333
-Source branch head: ca98c4789a7836651bde87f2d6b93fb140d737b0
-Archive workflow run: 30652039317
-Run ID: e3-smoke-30652039317-attempt-1
-Evidence label: REAL-MODEL SMOKE — E3 PIPELINE EVIDENCE
+Research branch: research/personal-state-engine-v0
+Evidence commit: 333f1019470facd35775d7f2ed314b9191db12dd
+PR: #2
+PR state: OPEN / DRAFT
+Merge status: not merged
+Evidence workflow run: 30677673098
+Formal matrix workflow run: 30676516785
+Formal matrix job: 91304822403
+CI run: 30676516773 — SUCCESS
+Tests: 109 on Python 3.11 / 3.12 / 3.13
+Blocker issue: #6
 ```
 
-### Dataset
+No tag or GitHub Release was created.
+
+## B. Protocol and data
 
 ```text
-Dataset: LongMemEval-S cleaned
-Source revision: 98d7416c24c778c2fee6e6f3006e7a073259d48f
-License: MIT
-File size: 277383467 bytes
+Activated protocol: experiments/protocols/longmemeval-development-matrix-v2.json
+Original protocol: experiments/protocols/longmemeval-development-matrix-v1.json
+Frozen split: experiments/splits/longmemeval-development-matrix-v1.json
+Case count: 20
+Abstention cases: 4
+Case-ID SHA-256: 519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e
+Manifest self hash: 9556458b9ae684cd7906f3182b457ea69fe776436ea78cfb2ce9e42ac1745a1b
+History isolation: PASS
+Sealed-final accessed: false
+```
+
+Question-type distribution:
+
+| Type | Cases |
+|---|---:|
+| knowledge-update | 3 |
+| multi-session | 4 |
+| single-session-assistant | 3 |
+| single-session-preference | 2 |
+| single-session-user | 3 |
+| temporal-reasoning | 5 |
+
+Dataset:
+
+```text
+Name: LongMemEval-S cleaned
+Revision: 98d7416c24c778c2fee6e6f3006e7a073259d48f
 SHA-256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
-Questions: 500
-Sessions: 23867
-Turns: 246750
-Validation failures: 0
+Size: 277383467 bytes
+Payload committed to Git: no
 ```
 
-The source file was downloaded twice through pinned GitHub Actions workflows and matched the expected size and SHA-256. The 277 MB payload is not committed. The repository stores the source manifest, audit, split manifests and derived evidence.
+Protocol v2 preserved the 20 case IDs and model from v1. It was versioned before the successful run because three prior infrastructure attempts ended with runner shutdown signals before producing a complete comparison. The evidence showed that the declared history budget was not enforced. V2 fixed deterministic 1,024 lexical-token truncation and bounded the model subprocess lifetime per formal case; no observed answer-quality result was used to choose the change.
 
-### Model and runtime
+## C. Model and runtime
 
 ```text
-Model: HuggingFaceTB/SmolLM2-135M-Instruct
-Model revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac
-Tokenizer revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac
+Model: onnx-community/Qwen2.5-0.5B-Instruct
+Model revision: 956050e4c6ce7c647091e15311218f80d662559f
+Tokenizer revision: 956050e4c6ce7c647091e15311218f80d662559f
 Quantization: q4
 Runtime: @huggingface/transformers 4.2.0
-Node: v24.18.0
+Generation: temperature 0, no sampling, max 96 new tokens, seed 17
 Hardware: GitHub-hosted ubuntu-24.04 CPU runner
-Model cache size: 184178727 bytes
-Model q4 SHA-256: 933577110303a2964096d19b6f15d3b4639bef7f99481ac0b61d9f3ad72f392a
+License: Apache-2.0
+Capability screening: 2 non-overlapping development cases, PASS
 ```
 
-`experiments/runtime/package-lock.json` is committed. The reusable smoke workflow now uses `npm ci` and is manual-only.
+The screening proves executability only. It does not prove that the 0.5B model eliminated floor effects or is competitive with published LongMemEval systems.
 
-### Paired smoke result
+Security limitation: `npm audit` retains four high-severity findings with no automatic fix in the captured graph. Execution is restricted to ephemeral isolated research runners; no security or production-readiness claim is allowed.
 
-| Metric | EXT-B0 | EXT-B5 |
-|---|---:|---:|
-| Cases | 4 | 4 |
-| Completed | 4 | 4 |
-| Errors | 0 | 0 |
-| Timeouts | 0 | 0 |
-| Provisional correct | 0 | 0 |
-| Input tokens | 361 | 14749 |
-| Output tokens | 228 | 256 |
-| Total tokens | 589 | 15005 |
-| Median latency | 1652 ms | 20933 ms |
-| Recorded output storage | 4972 bytes | 70070 bytes |
-| API spend | USD 0 | USD 0 |
-
-All four paired provisional differences were zero. This does not establish equivalence or non-inferiority. The evaluator is a deliberately limited deterministic diagnostic rather than the official semantic evaluation process, and the selected 135M model is a pipeline model rather than a competitive answer model.
-
-## Evidence integrity
-
-Durably committed evidence includes:
-
-- dataset audit;
-- development, validation and sealed-final split manifests;
-- smoke-selection manifest;
-- exact model cache file hashes;
-- environment manifest;
-- eight immutable raw trial records;
-- processed summary;
-- artifact registry with per-file SHA-256;
-- dependency audit;
-- exact npm lockfile;
-- archive provenance record.
-
-The artifact registry contains 16 entries. External inspection confirmed that all registry hashes match the committed files, all eight trial IDs and request IDs are unique, EXT-B0 has no retrieved history, EXT-B5 has one retrieved session per case, and summary counts tie exactly to raw records.
-
-## Mission v2 gate status
-
-| Gate | Weight | Status | Earned | Verified evidence | Missing evidence |
-|---|---:|---|---:|---|---|
-| A — Repository, sources and licensing | 10% | IN PROGRESS | 9% | Pinned and audited LongMemEval-S source, exact hash, license, deterministic splits and durable audit | Complete redistribution review for every future benchmark and strong method |
-| B — Experiment infrastructure | 10% | IN PROGRESS | 9% | Pinned model/runtime, immutable raw trials, token/latency/storage capture, artifact registry, reproducible manual workflow | Official evaluator, full lifecycle compute accounting and stronger external anchoring |
-| C — Basic external baselines | 15% | SMOKE ONLY | 2% | Four paired real-model EXT-B0 and EXT-B5 cases with raw outputs | At least 20–50 predetermined development cases, EXT-B1–EXT-B6, competitive model and calibrated evaluation |
-| D — Strong baseline reproduction | 20% | NOT STARTED / BLOCKED | 0% | Candidate methods tracked | No faithful strong-baseline reproduction |
-| E — PSE candidate | 15% | NOT STARTED | 0% | PSE-Min boundary documented | No external PSE-Min run or ablation |
-| F — External parity test | 20% | NOT STARTED | 0% | Draft decision framework only | No activated preregistration or sealed matrix |
-| G — Independent reproduction | 10% | NOT STARTED | 0% | GitHub-hosted engineering and smoke runs are inspectable | No independent operator or clean-room reproduction |
+## D. Evaluator calibration
 
 ```text
-Total evidence-weighted completion: 20%
-Evidence-level cap: 45% because E3 exists without a faithful strong baseline
+Evaluator: qwen2.5-0.5b-semantic-judge-v1
+Judge revision: 956050e4c6ce7c647091e15311218f80d662559f
+Baseline identity hidden: yes
+Structured output required: yes
+Human audit: 10 cases / 20 answers
+Audit type: single-operator blinded audit; not independent
 ```
 
-## Open risks and blockers
+| Calibration metric | Observed | Required | Result |
+|---|---:|---:|---|
+| Full-matrix invalid output rate | 27.5% | <= 5% | FAIL |
+| Valid-output raw agreement | 15.4% | >= 80% | FAIL |
+| Cohen's kappa | 0.00 | >= 0.60 | FAIL |
+| False positives | 11 | — | severe bias |
+| False negatives | 0 | — | — |
+| True negatives | 0 | — | no negative discrimination |
 
-1. `npm audit` reports four high-severity findings in the smoke runtime dependency graph, involving `@huggingface/transformers`, `onnxruntime-node`, `adm-zip` and `sharp`. No automatic fix was available in the captured audit. The smoke ran in an isolated ephemeral GitHub runner and must not be treated as a secure production runtime.
-2. The provisional evaluator scored every case as incorrect; an official or calibrated semantic evaluator is still required.
-3. EXT-B5 used roughly 25 times the input tokens of EXT-B0 and materially higher latency on this smoke sample.
-4. Only four selected development cases and one small model were executed.
-5. No strong baseline, PSE-Min external experiment, sealed test or independent reproduction exists.
+```text
+Calibration verdict: FAIL
+Formal correctness use: PROHIBITED
+```
 
-## Highest-value next action
+The valid judge outputs were effectively positive-only. Issue #6 records the blocker and acceptance criteria for evaluator replacement.
 
-Run a predetermined 20–50-case LongMemEval-S development subset using the same raw-evidence contract, a more capable pinned model, EXT-B0 and EXT-B5, and an official or calibrated evaluator. Do not expand PSE architecture before this basic matrix is stable.
+## E. Experiment execution
+
+```text
+Run ID: development-matrix-30676516785-attempt-1
+Formal cases: 20
+Baselines: EXT-B0 / EXT-B5
+Trials: 40
+Completed: 40
+Model errors: 0
+Timeouts: 0
+Retries inside successful run: 0
+Raw-to-summary tie-out: PASS
+Artifact-registry hashes: PASS
+Unique trial IDs: PASS
+Unique request IDs: PASS
+EXT-B0 history exclusion: PASS
+EXT-B5 retrieval trace: PASS
+Sealed-final access: false
+```
+
+Durable evidence:
+
+```text
+results/external/longmemeval-development-matrix-30676516785/
+```
+
+The directory contains 40 immutable raw trial JSON files, original and archival registries, environment/model manifests, dependency audit, progress logs, processed summary, blinded audit, calibration report, gate assessment, provenance and research verdict. Dataset payload and model weights are excluded.
+
+## F. Results
+
+### Valid descriptive results
+
+| Metric | EXT-B0 | EXT-B5 | Difference |
+|---|---:|---:|---:|
+| Cases | 20 | 20 | 0 |
+| Completed | 20 | 20 | 0 |
+| Errors | 0 | 0 | 0 |
+| Timeouts | 0 | 0 | 0 |
+| Answer input tokens | 1,866 | 30,680 | +28,814 |
+| Answer output tokens | 1,871 | 1,901 | +30 |
+| Answer + judge combined tokens | 121,297 | 150,451 | +29,154 |
+| Median answer latency | 2,009 ms | 14,222 ms | +12,213 ms |
+| Recorded output storage | 24,199 bytes | 53,574 bytes | +29,375 bytes |
+| API monetary charge | USD 0 | USD 0 | USD 0 |
+
+Retrieval diagnostics:
+
+```text
+Answer-bearing session recall@k: 18/20 = 0.90
+B5 history budget: 1024 lexical tokens
+B5 cases truncated: 20/20
+has_answer used for ranking: false
+```
+
+### Invalidated correctness results
+
+The processed summary contains provisional judge-derived correctness fields, but the evaluator failed calibration. These fields must not be reported as formal accuracy, paired wins/losses, confidence intervals, McNemar tests, effect sizes, or cost per additional correct answer.
+
+```text
+Formal B0 accuracy: NOT AVAILABLE
+Formal B5 accuracy: NOT AVAILABLE
+Formal difference: NOT AVAILABLE
+Formal paired statistical test: NOT AVAILABLE
+Cost per additional correct answer: UNDEFINED
+```
+
+## G. Evidence verdict
+
+Highest evidence level: `E3`.
+
+Supported:
+
+1. The pinned dataset and unchanged frozen 20-case subset executed under protocol v2.
+2. Both baselines completed all 20 trials with complete raw evidence.
+3. Evidence integrity, B0 isolation, B5 traceability and sealed-final non-access passed.
+4. BM25 retrieval and resource-overhead diagnostics are available for this fixed configuration.
+
+Not supported:
+
+1. EXT-B5 improves, matches or underperforms EXT-B0 on answer correctness.
+2. The 0.5B model avoids floor effects.
+3. The evaluator is reliable.
+4. Algorithm parity, superiority, equivalence, non-inferiority, generalization, security or production readiness.
+
+## H. Gate assessment
+
+| Gate | Previous | Current | Evidence | Missing |
+|---|---:|---:|---|---|
+| A — Repository, sources and licensing | 9% | 10% | Exact source/model/runtime revisions and licenses | None material for current inputs |
+| B — Experiment infrastructure | 9% | 10% | Frozen protocol/split, immutable trials, budget enforcement, durable archive and reconstruction | None material for current contract |
+| C — Basic external baselines | 2% | 4% | 20 paired cases and complete resource/retrieval evidence | Calibrated evaluator and valid correctness analysis |
+| D — Strong baseline | 0% | 0% | None | Faithful strong baseline |
+| E — PSE candidate | 0% | 0% | None | Blocked until baselines stabilize |
+| F — Sealed parity test | 0% | 0% | Sealed-final remained untouched | Preregistered sealed execution |
+| G — Independent reproduction | 0% | 0% | None | Independent operator/environment |
+
+```text
+Previous completion: 20%
+Current completion: 24%
+Remaining distance: 76%
+Active evidence cap: 45%
+```
+
+## I. Active blockers
+
+### Evaluator calibration
+
+```text
+Status: BLOCKED
+Cause: invalid and severely false-positive semantic judge
+Evidence: evaluator-calibration.json and Issue #6
+Impact: no formal answer-quality or paired statistical conclusion
+Next action: integrate official evaluator or a stronger fixed blinded judge and rescore unchanged raw outputs
+Acceptance: agreement >= 0.80, kappa >= 0.60, invalid rate <= 5%
+```
+
+### Runtime dependency security
+
+```text
+Status: OPEN BLOCKER
+Cause: four high-severity findings in the pinned JavaScript inference dependency graph
+Evidence: npm-audit.json
+Impact: isolated research execution only; no secure/production claim
+Next action: migrate to a fixed graph without high/critical findings or document a narrower verified isolation boundary
+Acceptance: high/critical count zero, or explicit approved research-only isolation with no production path
+```
+
+## J. Final research verdict
+
+```text
+BLOCKED
+```
+
+The raw development matrix succeeded as an engineering and evidence exercise. The research question remains unanswered because the evaluator did not meet the preregistered reliability threshold.
+
+## K. Next highest-value actions
+
+1. Replace and calibrate the semantic evaluator, then rescore the unchanged 40 raw answers.
+2. After calibration passes, regenerate formal paired statistics and cost-per-additional-correct analysis without rerunning or reselecting cases unless the answer-model protocol itself changes.
+3. Only after the B0/B5 matrix is valid, decide whether to add EXT-B1–EXT-B6; do not begin PSE-Min or sealed-final yet.
 
 ## Publication status
 
 - PR #2 remains Draft.
-- Do not merge to `main`.
-- Do not create a research tag or GitHub Release.
-- Do not claim parity, superiority, validation, production readiness or state of the art.
+- Do not merge.
+- Do not tag or create a GitHub Release.
+- Do not claim parity, superiority, validation, security, production readiness or state of the art.

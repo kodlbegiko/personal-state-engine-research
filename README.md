@@ -1,140 +1,109 @@
 # Personal State Engine Research
 
-A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability compared with no memory, full-history replay, rolling summaries and retrieval baselines.
+A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability under fixed model, context, tool, token and cost constraints.
 
-> **Current status:** engineering and external-evaluation preparation. The repository contains a tested reference architecture, deterministic component benchmark, model-run integrity controls, persistence and deletion tests, recovery controls, a LongMemEval adapter, trial schemas, scoring utilities and a small memory-write red team. It does **not** yet establish improved real-LLM task performance or algorithm parity.
-
-```text
-Research verdict: INCONCLUSIVE
-Evidence-weighted completion under mission v2: 13%
-Highest evidence level reached: E2 — engineering verification
-```
-
-## Research question
-
-Can a Personal State Engine combining selective memory, temporal versioning, commitment tracking, controlled proactive intervention and evidence-backed completion outperform or match strong memory baselines under fixed model, tool, token and cost constraints?
-
-## Implemented
-
-- Working, episodic, semantic and procedural memory types
-- Provenance, confidence, validity intervals and supersession
-- Conservative durable-memory write policy with Unicode normalization
-- In-memory and SQLite user-scoped stores
-- Temporal filtering, hybrid retrieval and token-budget selection
-- SQLite schema/integrity checks, concurrent writers and compacted deletion of implemented indexes
-- Commitment ledger, proactive threshold and duplicate suppression
-- Optional trusted completion evidence, digest validation and false-completion rejection
-- Verified rollback before alternative recovery actions
-- Deterministic B0–B7 component baselines
-- Nine split-labelled pilot scenarios and 72 observations
-- Benchmark tamper detection and execution-boundary regression tests
-- Strict replay and subprocess model adapters
-- Validated model-run manifests and immutable trial records
-- Independent structured scorer, Wilson intervals and exact paired-comparison utilities
-- Official-shape LongMemEval parsing, validation, history rendering and hypothesis JSONL support
-- 23-case multilingual memory-write red team with benign controls
-- **90 automated tests**
-
-## What the evidence means
-
-The internal B0–B7 component benchmark checks whether each architecture exposes specific capabilities under controlled deterministic scenarios. It is useful for regression and architectural validation. Because capabilities are intentionally added across B4–B7, the scores are architecture-sensitive and are **not** proof that B7 is superior in real model use.
-
-The memory-write red team currently passes all 23 frozen cases: 15 malicious-or-secret cases are rejected and 8 benign controls are accepted. This is performance on a small curated corpus, not a real-world attack coverage estimate.
-
-The LongMemEval adapter has been tested against official-shape fixtures, but the actual benchmark has not yet been downloaded, license-reviewed, hash-verified or executed with a real model. No LongMemEval result currently exists.
-
-No efficacy hypothesis is marked `SUPPORTED`. A valid parity result still requires pinned models, real external benchmark runs, faithful strong-baseline reproduction, an activated preregistration, sealed testing, cost and latency evidence, evaluator calibration and independent reproduction.
-
-## Quick start
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-python -m compileall -q src scripts experiments/runners tests
-python -m unittest discover -s tests -v
-python scripts/verify_benchmark_lock.py
-python scripts/run_benchmark.py
-python scripts/run_redteam.py
-python scripts/analyze_component_results.py
-```
-
-Validate an authorized LongMemEval dataset copy:
-
-```bash
-python scripts/validate_longmemeval.py /path/to/longmemeval_s.json
-```
-
-Generated internal evidence:
+> **Current status:** the fixed LongMemEval-S EXT-B0/EXT-B5 development matrix completed at the raw-evidence level, but the semantic evaluator failed calibration. Formal answer-quality comparison is blocked.
 
 ```text
-results/raw/component_benchmark.jsonl
-results/processed/component_benchmark_summary.json
-results/processed/component_benchmark_statistics.json
-results/raw/memory_write_redteam.jsonl
-results/processed/memory_write_redteam_summary.json
+Research verdict: BLOCKED
+Evidence-weighted completion: 24%
+Highest evidence level: E3 — real-model external development evidence
+Algorithm parity demonstrated: NO
+PR state: OPEN / DRAFT
 ```
 
-## Current component benchmark
+## Current external evidence
 
-| Baseline | Description | Passed | Total | Pass rate |
-|---|---|---:|---:|---:|
-| B0 | No cross-session memory | 4 | 9 | 44.44% |
-| B1 | Full replay with finite context | 2 | 9 | 22.22% |
-| B2 | Rolling summary | 4 | 9 | 44.44% |
-| B3 | Similarity-only retrieval | 3 | 9 | 33.33% |
-| B4 | Structured user-scoped state | 6 | 9 | 66.67% |
-| B5 | B4 plus temporal validity | 7 | 9 | 77.78% |
-| B6 | B5 plus commitments and proactive control | 8 | 9 | 88.89% |
-| B7 | B6 plus completion verification | 9 | 9 | 100.00% |
+- Dataset: LongMemEval-S cleaned
+- Dataset revision: `98d7416c24c778c2fee6e6f3006e7a073259d48f`
+- Dataset SHA-256: `d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442`
+- Frozen development cases: 20
+- Baselines: EXT-B0 and EXT-B5
+- Answer model: `onnx-community/Qwen2.5-0.5B-Instruct`
+- Model/tokenizer revision: `956050e4c6ce7c647091e15311218f80d662559f`
+- Runtime: `@huggingface/transformers 4.2.0`, q4, GitHub-hosted Ubuntu CPU runner
+- Formal trials: 40 completed, 0 model errors, 0 timeouts
+- Sealed-final accessed: no
+- Durable evidence commit: `333f1019470facd35775d7f2ed314b9191db12dd`
+- Evidence directory: `results/external/longmemeval-development-matrix-30676516785/`
 
-The statistics output contains an explicit warning that its intervals and exact paired tests describe only this fixed case set.
+The raw evidence contract passed: unique trial/request IDs, EXT-B0 history exclusion, EXT-B5 retrieval trace, raw-to-summary reconstruction, artifact hashes, failure retention and sealed-final non-access.
 
-## Latest validation
+## Evaluator blocker
 
-GitHub Actions run **#56** passed on Python 3.11, 3.12 and 3.13 at implementation head `8178b9cb0f90893a9aa882fc84d9b8b7b0203ca4`.
+The semantic judge cannot be used for formal correctness:
 
-Each job ran compilation, all 90 tests, pilot-lock verification, internal benchmark and red-team regeneration, descriptive analysis and a clean committed-results diff check.
+```text
+Full-matrix invalid output rate: 27.5%   (required <= 5%)
+Blinded-audit raw agreement: 15.4%       (required >= 80%)
+Cohen's kappa: 0.0                       (required >= 0.60)
+Valid-output confusion: TP=2 TN=0 FP=11 FN=0
+Calibration verdict: FAIL
+Formal correctness use: PROHIBITED
+```
+
+Therefore this repository does **not** report formal B0/B5 accuracy, paired wins/losses, McNemar results, effect size, parity, superiority, equivalence or non-inferiority. Issue #6 tracks the required evaluator replacement and calibration.
+
+## Supported findings
+
+- The pinned dataset, model, runtime and unchanged frozen 20-case subset can execute end to end.
+- EXT-B0 and EXT-B5 each produced 20 immutable raw answer trials.
+- BM25 retrieved at least one answer-bearing session in 18/20 cases as a post-hoc retrieval diagnostic.
+- EXT-B5 used a fixed 1,024 lexical-token history budget; all 20 B5 cases required truncation.
+- EXT-B5 added 28,814 answer-input tokens and about 12.2 seconds median answer latency relative to EXT-B0 in this configuration.
+
+These are engineering, retrieval and resource observations only. Correctness-denominated cost ratios are undefined until an evaluator passes calibration.
+
+## Validation
+
+GitHub Actions run `30676516773` passed on Python 3.11, 3.12 and 3.13 with 109 tests, benchmark-lock verification, existing E3 contract verification, deterministic benchmark regeneration and red-team regeneration.
+
+The evidence archive workflow re-downloaded Actions artifact `8810812462`, re-ran the development evidence contract, verified 59 archived artifacts and 40 raw trials, excluded dataset payload/model weights, and committed the durable archive.
 
 ## Repository map
 
 ```text
-src/personal_state_engine/   implementation, persistence, adapters, records and scoring
-benchmarks/synthetic/        internal component scenarios
-benchmarks/redteam/          memory-write safety corpus
-benchmarks/pilot/            pilot benchmark lock
-experiments/                 run configuration, selection and preregistration drafts
-scripts/                     reproducible runners and dataset validators
-results/raw/                 machine-readable internal observations
-results/processed/           summaries and descriptive analysis
-reports/                     pilot and algorithm-parity reports
-tests/                       unit, integration, persistence, adapter, recovery and security tests
-docs/                        protocol, architecture, audits, governance and progress status
+src/personal_state_engine/   implementation, persistence, adapters and evidence records
+benchmarks/                  deterministic component and red-team corpora
+experiments/                 protocols, model/config manifests and frozen splits
+scripts/                     dataset, experiment and evidence verification runners
+results/external/            durable external model evidence
+reports/                     research reports
+Tests/                       not used; tests live in tests/
+tests/                       unit, integration, persistence and security regressions
+docs/                        governance, architecture and progress status
 ```
 
 ## Current gate status
 
-The mission-v2 evidence-weighted completion estimate is **13%**. Engineering verification has reached E2, while real-model external baselines, strong-method reproduction, sealed parity testing and independent reproduction have not started.
+| Gate | Previous | Current | Status |
+|---|---:|---:|---|
+| A — Repository, sources and licensing | 9% | 10% | Complete for current sources |
+| B — Experiment infrastructure | 9% | 10% | Complete for current development contract |
+| C — Basic external baselines | 2% | 4% | Raw matrix complete; evaluator blocked |
+| D — Strong baseline | 0% | 0% | Not started |
+| E — PSE candidate | 0% | 0% | Prohibited until baseline stability |
+| F — Sealed parity test | 0% | 0% | Not started; sealed-final untouched |
+| G — Independent reproduction | 0% | 0% | Not started |
 
-See:
-
-- [`docs/progress.md`](docs/progress.md)
-- [`reports/algorithm-parity-report.md`](reports/algorithm-parity-report.md)
-- [`docs/algorithm-reproduction-matrix.md`](docs/algorithm-reproduction-matrix.md)
-- [`experiments/preregistration.md`](experiments/preregistration.md)
+```text
+Evidence-weighted completion: 24%
+Remaining distance: 76%
+Active evidence cap: 45%
+```
 
 ## Highest-value next action
 
-Acquire and hash an authorized copy of LongMemEval-S, validate it, then execute EXT-B0 and EXT-B5 with one pinned model on a development subset while preserving raw outputs, manifests, token usage, latency and failures.
+Replace the failed semantic evaluator with the official pinned LongMemEval evaluator or a stronger blinded judge, then rescore the unchanged 40 raw outputs and pass the preregistered calibration thresholds. Do not expand to EXT-B1–EXT-B6, PSE-Min or sealed-final before that gate passes.
 
-## Security and privacy
+## Security and publication status
 
-Do not place real credentials, private conversations, medical records, precise addresses, identity documents or other high-risk personal data in the benchmark. See [`SECURITY.md`](SECURITY.md), [`docs/data-governance.md`](docs/data-governance.md) and [`docs/security-threat-model.md`](docs/security-threat-model.md).
+The captured JavaScript dependency graph still contains four unresolved high-severity findings. It is restricted to isolated ephemeral research runners and is not a secure production runtime.
 
-## Publication status
+PR #2 remains Draft. Do not merge, tag or release. Do not claim parity, superiority, validation, production readiness, security or state of the art.
 
-PR #2 remains Draft. Do not merge, tag, release or claim parity until the model-backed and independent-reproduction acceptance criteria are met.
+See [`docs/progress.md`](docs/progress.md), [Issue #6](../../issues/6), and the [durable development evidence](results/external/longmemeval-development-matrix-30676516785/).
 
 ## License
 
-MIT. Cite exact code and data versions using [`CITATION.cff`](CITATION.cff) and the commit SHA.
+MIT. Cite exact code, dataset, model and evaluator revisions together with the commit SHA.
