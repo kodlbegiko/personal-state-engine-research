@@ -105,7 +105,6 @@ B5 produced two additional correct answers in this development sample. The recor
 - Model weights committed: no
 - Sealed-final accessed: no
 - Evaluator workflow: `30688327468`, success
-- Final branch CI: `30689035166`, success
 - Complete engineering tests in evaluator workflow: 118 passed
 
 The evaluator and completed freeze/archive workflows are manual-only after successful evidence generation. Temporary transport bundles and the bootstrap workflow were removed.
