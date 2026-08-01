@@ -18,12 +18,13 @@ The fixed 20-case LongMemEval-S EXT-B0/EXT-B5 development matrix has now been re
 
 ```text
 Research branch: research/personal-state-engine-v0
+Final branch head: 3d509d296650f74cd2b3e5ea61b2c687d05f0994
 Development evidence commit: 333f1019470facd35775d7f2ed314b9191db12dd
 Evaluator v2 evidence commit: 0fb95bd7d6a01f1553cfab7a28a4ca2c84bd7948
 Formal matrix workflow run: 30676516785
 Evaluator v2 workflow run: 30688327468
 Evaluator v2 job: 91338369889
-Final documentation CI run: 30688848469 — SUCCESS
+Final CI run: 30688945305 — SUCCESS
 PR: #2
 PR state: OPEN / DRAFT
 Merge status: not merged
@@ -32,7 +33,7 @@ Tag: none
 Release: none
 ```
 
-Evaluator workflow run `30688327468` passed source-evidence verification, evaluator execution, calibration, formal rescoring, evidence-contract verification, benchmark-lock refresh, 118 automated tests, complete engineering checks, evidence commit and artifact upload.
+Evaluator workflow run `30688327468` passed source-evidence verification, evaluator execution, calibration, formal rescoring, evidence-contract verification, benchmark-lock refresh, 118 automated tests, complete engineering checks, evidence commit and artifact upload. Final branch CI run `30688945305` passed after documentation and workflow closeout.
 
 ## B. Fixed protocol and evidence
 
