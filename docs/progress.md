@@ -1,263 +1,290 @@
 # Research Progress
 
-Assessment date: 2026-08-01 09:25 +08:00
+Assessment date: 2026-08-01 14:58 +08:00
 
 ## Executive status
 
 ```text
-Research verdict: BLOCKED
-Evidence-weighted completion: 24%
-Highest evidence level: E3 — real-model external development evidence
+Research verdict: INCONCLUSIVE
+Evidence-weighted completion: 30%
+Highest evidence level: E3 — calibrated real-model external development evidence
 Algorithm parity demonstrated: NO
 PR #2: OPEN / DRAFT / NOT MERGED
 ```
 
-The fixed 20-case LongMemEval-S development matrix completed at the raw-evidence level. EXT-B0 and EXT-B5 each completed 20 real-model trials with no model errors or timeouts, but the preregistered semantic evaluator failed calibration. As a result, the current evidence supports execution, retrieval and resource claims only; it does not support answer-quality comparison.
+The fixed 20-case LongMemEval-S EXT-B0/EXT-B5 development matrix has now been rescored with evaluator v2. The evaluator passed the preregistered calibration thresholds, so formal development-set correctness statistics are permitted. EXT-B5 scored higher than EXT-B0, but the sample contains only four discordant pairs and the exact paired test is not significant. The result is directional but inconclusive, not evidence of parity or superiority.
 
 ## A. GitHub state
 
 ```text
 Research branch: research/personal-state-engine-v0
-Evidence commit: 333f1019470facd35775d7f2ed314b9191db12dd
+Development evidence commit: 333f1019470facd35775d7f2ed314b9191db12dd
+Evaluator v2 evidence commit: 0fb95bd7d6a01f1553cfab7a28a4ca2c84bd7948
+Formal matrix workflow run: 30676516785
+Evaluator v2 workflow run: 30688327468
+Evaluator v2 job: 91338369889
 PR: #2
 PR state: OPEN / DRAFT
 Merge status: not merged
-Evidence workflow run: 30677673098
-Formal matrix workflow run: 30676516785
-Formal matrix job: 91304822403
-CI run: 30676516773 — SUCCESS
-Tests: 109 on Python 3.11 / 3.12 / 3.13
-Blocker issue: #6
+Issue #6: evaluator blocker resolved; pending final closeout update
+Tag: none
+Release: none
 ```
 
-No tag or GitHub Release was created.
+Evaluator workflow run `30688327468` passed source-evidence verification, evaluator execution, calibration, formal rescoring, evidence-contract verification, benchmark-lock refresh, 118 automated tests, complete engineering checks, evidence commit and artifact upload.
 
-## B. Protocol and data
+## B. Fixed protocol and evidence
 
 ```text
-Activated protocol: experiments/protocols/longmemeval-development-matrix-v2.json
-Original protocol: experiments/protocols/longmemeval-development-matrix-v1.json
+Development protocol: experiments/protocols/longmemeval-development-matrix-v2.json
 Frozen split: experiments/splits/longmemeval-development-matrix-v1.json
 Case count: 20
 Abstention cases: 4
 Case-ID SHA-256: 519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e
-Manifest self hash: 9556458b9ae684cd7906f3182b457ea69fe776436ea78cfb2ce9e42ac1745a1b
-History isolation: PASS
+Answer trials: 40
+Answer-model rerun: false
+Case IDs changed: false
 Sealed-final accessed: false
 ```
 
-Question-type distribution:
-
-| Type | Cases |
-|---|---:|
-| knowledge-update | 3 |
-| multi-session | 4 |
-| single-session-assistant | 3 |
-| single-session-preference | 2 |
-| single-session-user | 3 |
-| temporal-reasoning | 5 |
-
-Dataset:
+Dataset and answer model:
 
 ```text
-Name: LongMemEval-S cleaned
-Revision: 98d7416c24c778c2fee6e6f3006e7a073259d48f
-SHA-256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
-Size: 277383467 bytes
-Payload committed to Git: no
+Dataset: LongMemEval-S cleaned
+Dataset revision: 98d7416c24c778c2fee6e6f3006e7a073259d48f
+Dataset SHA-256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
+Answer model: onnx-community/Qwen2.5-0.5B-Instruct
+Answer-model revision: 956050e4c6ce7c647091e15311218f80d662559f
+Runtime: @huggingface/transformers 4.2.0, q4
 ```
 
-Protocol v2 preserved the 20 case IDs and model from v1. It was versioned before the successful run because three prior infrastructure attempts ended with runner shutdown signals before producing a complete comparison. The evidence showed that the declared history budget was not enforced. V2 fixed deterministic 1,024 lexical-token truncation and bounded the model subprocess lifetime per formal case; no observed answer-quality result was used to choose the change.
-
-## C. Model and runtime
-
-```text
-Model: onnx-community/Qwen2.5-0.5B-Instruct
-Model revision: 956050e4c6ce7c647091e15311218f80d662559f
-Tokenizer revision: 956050e4c6ce7c647091e15311218f80d662559f
-Quantization: q4
-Runtime: @huggingface/transformers 4.2.0
-Generation: temperature 0, no sampling, max 96 new tokens, seed 17
-Hardware: GitHub-hosted ubuntu-24.04 CPU runner
-License: Apache-2.0
-Capability screening: 2 non-overlapping development cases, PASS
-```
-
-The screening proves executability only. It does not prove that the 0.5B model eliminated floor effects or is competitive with published LongMemEval systems.
-
-Security limitation: `npm audit` retains four high-severity findings with no automatic fix in the captured graph. Execution is restricted to ephemeral isolated research runners; no security or production-readiness claim is allowed.
-
-## D. Evaluator calibration
-
-```text
-Evaluator: qwen2.5-0.5b-semantic-judge-v1
-Judge revision: 956050e4c6ce7c647091e15311218f80d662559f
-Baseline identity hidden: yes
-Structured output required: yes
-Human audit: 10 cases / 20 answers
-Audit type: single-operator blinded audit; not independent
-```
-
-| Calibration metric | Observed | Required | Result |
-|---|---:|---:|---|
-| Full-matrix invalid output rate | 27.5% | <= 5% | FAIL |
-| Valid-output raw agreement | 15.4% | >= 80% | FAIL |
-| Cohen's kappa | 0.00 | >= 0.60 | FAIL |
-| False positives | 11 | — | severe bias |
-| False negatives | 0 | — | — |
-| True negatives | 0 | — | no negative discrimination |
-
-```text
-Calibration verdict: FAIL
-Formal correctness use: PROHIBITED
-```
-
-The valid judge outputs were effectively positive-only. Issue #6 records the blocker and acceptance criteria for evaluator replacement.
-
-## E. Experiment execution
-
-```text
-Run ID: development-matrix-30676516785-attempt-1
-Formal cases: 20
-Baselines: EXT-B0 / EXT-B5
-Trials: 40
-Completed: 40
-Model errors: 0
-Timeouts: 0
-Retries inside successful run: 0
-Raw-to-summary tie-out: PASS
-Artifact-registry hashes: PASS
-Unique trial IDs: PASS
-Unique request IDs: PASS
-EXT-B0 history exclusion: PASS
-EXT-B5 retrieval trace: PASS
-Sealed-final access: false
-```
-
-Durable evidence:
+The 40 original answer records remain under:
 
 ```text
 results/external/longmemeval-development-matrix-30676516785/
 ```
 
-The directory contains 40 immutable raw trial JSON files, original and archival registries, environment/model manifests, dependency audit, progress logs, processed summary, blinded audit, calibration report, gate assessment, provenance and research verdict. Dataset payload and model weights are excluded.
+The evaluator v2 evidence is under:
 
-## F. Results
+```text
+results/external/longmemeval-evaluator-v2/
+```
 
-### Valid descriptive results
+The v2 archive contains blinded inputs, a deterministic unblinding key, 54 raw judge outputs, parsed judgments, the original blinded human audit, calibration metrics, formal rescoring, paired analysis, source/runtime manifests and a 74-file artifact registry. The old failed v1 evaluator evidence remains unchanged.
+
+## C. Evaluator source and selection
+
+Priority investigation found the official LongMemEval evaluator in:
+
+```text
+Repository: https://github.com/xiaowu0162/LongMemEval
+Commit: 9e0b455f4ef0e2ab8f2e582289761153549043fc
+Path: src/evaluation/evaluate_qa.py
+License: MIT
+Official judge: gpt-4o-2024-08-06
+Official runtime: openai-python 1.35.1
+```
+
+No confirmed usable OpenAI API credential was available before inference, and a CPU runner cannot reasonably reproduce the official local 70B path. The selection policy therefore activated the exact-pinned local fallback before any formal result was observed:
+
+```text
+Evaluator ID: longmemeval-official-prompt-priority-v2
+Source type: custom-calibrated using official prompt semantics
+Provider: local-fallback
+Judge: onnx-community/Llama-3.2-3B-Instruct-ONNX
+Judge revision: cab364e7d0e1de7aa09e3abc932be92361c5b55f
+Judge license: llama3.2
+Runtime: @huggingface/transformers 4.2.0
+Quantization: q4
+Temperature: 0
+Sampling: false
+Seed: 17
+Max output tokens: 10
+Prompt SHA-256: be177cbb0e82bf279ad8c24e8d553ef80222464dd51c39ef7bea7231623d28e6
+Parser SHA-256: 975e659fd3a109a40c8316fc532bf010a0dbf71208bcbb97978146e9d917f0e2
+```
+
+The parser accepts only an exact case-insensitive `yes` or `no`, with an optional final period or exclamation mark. Any other output is retained as `INVALID`; invalid outputs are not silently converted to correct or incorrect.
+
+## D. Separate evaluator unit corpus
+
+The 14-case evaluator-development corpus was separate from the 40 fixed formal answers.
+
+```text
+Cases: 14
+Valid outputs: 14
+Invalid outputs: 0
+Correct classifications: 13
+Accuracy on valid outputs: 92.86%
+```
+
+The one miss was a response containing the correct core answer plus a materially wrong added fact. This remains a known evaluator limitation even though the formal blinded calibration passed.
+
+## E. Blinded calibration
+
+```text
+Audit scope: 10 cases / 20 answers
+Audit status: single-operator blinded calibration; not independent reproduction
+Baseline identity hidden: true
+Scorable answers: 20
+Unscorable answers: 0
+Judge valid outputs: 20
+Judge invalid outputs: 0
+```
+
+| Calibration metric | Observed | Required | Result |
+|---|---:|---:|---|
+| Raw agreement | 95.0% | >= 80% | PASS |
+| Cohen's kappa | 0.7727 | >= 0.60 | PASS |
+| Full-matrix invalid-output rate | 0.0% | <= 5% | PASS |
+| Abstention accuracy on valid audit outputs | 100% | — | — |
+| Sensitivity | 66.7% | — | limited positive recall |
+| Specificity | 100% | — | — |
+| Positive predictive value | 100% | — | — |
+| Negative predictive value | 94.4% | — | — |
+
+Confusion matrix:
+
+```text
+TP = 2
+TN = 17
+FP = 0
+FN = 1
+```
+
+```text
+Calibration verdict: PASS
+Formal correctness use: PERMITTED
+```
+
+The calibration meets every fixed gate. However, it contains only three human-positive examples and is not an independent second-operator replication. This limits confidence in sensitivity and generalization.
+
+## F. Formal rescoring
 
 | Metric | EXT-B0 | EXT-B5 | Difference |
 |---|---:|---:|---:|
-| Cases | 20 | 20 | 0 |
-| Completed | 20 | 20 | 0 |
-| Errors | 0 | 0 | 0 |
-| Timeouts | 0 | 0 | 0 |
+| Correct | 2 | 4 | +2 |
+| Valid | 20 | 20 | 0 |
+| Invalid | 0 | 0 | 0 |
+| Accuracy | 10.0% | 20.0% | +10.0 percentage points |
+| Wilson 95% interval | 2.8%–30.1% | 8.1%–41.6% | wide and overlapping |
+
+Paired result:
+
+```text
+B5 wins: 3
+B5 losses: 1
+Both correct: 1
+Both incorrect: 15
+Discordant pairs: 4
+Exact McNemar two-sided p-value: 0.625
+Effect interpretation: directional but inconclusive improvement
+```
+
+The small number of discordant pairs gives very low statistical power. `p = 0.625` is not evidence of equivalence, non-inferiority or no effect. It means the fixed development sample does not establish a reliable difference.
+
+## G. Resource comparison
+
+The resource values below come from the original answer trials, not the evaluator inference.
+
+| Metric | EXT-B0 | EXT-B5 | B5 minus B0 |
+|---|---:|---:|---:|
 | Answer input tokens | 1,866 | 30,680 | +28,814 |
-| Answer output tokens | 1,871 | 1,901 | +30 |
-| Answer + judge combined tokens | 121,297 | 150,451 | +29,154 |
+| Answer output tokens | 605 | 977 | +372 |
+| Answer total tokens | 2,471 | 31,657 | +29,186 |
 | Median answer latency | 2,009 ms | 14,222 ms | +12,213 ms |
-| Recorded output storage | 24,199 bytes | 53,574 bytes | +29,375 bytes |
-| API monetary charge | USD 0 | USD 0 | USD 0 |
+| Recorded output storage | 22,785 bytes | 157,328 bytes | +134,543 bytes |
+| Recorded monetary charge | USD 0 | USD 0 | USD 0 |
 
-Retrieval diagnostics:
+B5 produced two additional correct answers in this fixed sample. The recorded monetary cost per additional correct answer is USD 0 because the answer runs used local inference and recorded no API charge. This is not evidence that B5 is economically free: it required substantially more tokens, latency and storage.
 
-```text
-Answer-bearing session recall@k: 18/20 = 0.90
-B5 history budget: 1024 lexical tokens
-B5 cases truncated: 20/20
-has_answer used for ranking: false
-```
-
-### Invalidated correctness results
-
-The processed summary contains provisional judge-derived correctness fields, but the evaluator failed calibration. These fields must not be reported as formal accuracy, paired wins/losses, confidence intervals, McNemar tests, effect sizes, or cost per additional correct answer.
+## H. Evidence integrity
 
 ```text
-Formal B0 accuracy: NOT AVAILABLE
-Formal B5 accuracy: NOT AVAILABLE
-Formal difference: NOT AVAILABLE
-Formal paired statistical test: NOT AVAILABLE
-Cost per additional correct answer: UNDEFINED
+Original raw trials present: 40/40
+Original archive artifacts verified: 59/59
+Evaluator v2 artifacts verified: 74/74
+Raw judge outputs preserved: yes
+Formal parsed judgments: 40
+Unit parsed judgments: 14
+Baseline blinding: PASS
+Raw-to-summary reconstruction: PASS
+Original v1 failure evidence preserved: PASS
+Dataset payload committed: no
+Model weights committed: no
+Sealed-final accessed: false
 ```
 
-## G. Evidence verdict
+The evaluator workflow used a temporary compatibility symlink tree only to let the original evidence verifier resolve its archived registry paths. The symlink tree was deleted immediately after verification; no evidence bytes were altered.
 
-Highest evidence level: `E3`.
-
-Supported:
-
-1. The pinned dataset and unchanged frozen 20-case subset executed under protocol v2.
-2. Both baselines completed all 20 trials with complete raw evidence.
-3. Evidence integrity, B0 isolation, B5 traceability and sealed-final non-access passed.
-4. BM25 retrieval and resource-overhead diagnostics are available for this fixed configuration.
-
-Not supported:
-
-1. EXT-B5 improves, matches or underperforms EXT-B0 on answer correctness.
-2. The 0.5B model avoids floor effects.
-3. The evaluator is reliable.
-4. Algorithm parity, superiority, equivalence, non-inferiority, generalization, security or production readiness.
-
-## H. Gate assessment
+## I. Gate assessment
 
 | Gate | Previous | Current | Evidence | Missing |
 |---|---:|---:|---|---|
-| A — Repository, sources and licensing | 9% | 10% | Exact source/model/runtime revisions and licenses | None material for current inputs |
-| B — Experiment infrastructure | 9% | 10% | Frozen protocol/split, immutable trials, budget enforcement, durable archive and reconstruction | None material for current contract |
-| C — Basic external baselines | 2% | 4% | 20 paired cases and complete resource/retrieval evidence | Calibrated evaluator and valid correctness analysis |
-| D — Strong baseline | 0% | 0% | None | Faithful strong baseline |
-| E — PSE candidate | 0% | 0% | None | Blocked until baselines stabilize |
-| F — Sealed parity test | 0% | 0% | Sealed-final remained untouched | Preregistered sealed execution |
-| G — Independent reproduction | 0% | 0% | None | Independent operator/environment |
+| A — Repository, sources and licensing | 10% | 10% | Exact dataset, answer-model, evaluator-source and runtime revisions | None material for current inputs |
+| B — Experiment infrastructure | 10% | 10% | Frozen protocol, immutable answers, blinded evaluator, reconstruction and durable archives | None material for current contract |
+| C — Basic external baselines | 4% | 10% | Calibrated 20-case B0/B5 formal comparison and paired analysis | Larger sample, stronger answer model and additional baselines |
+| D — Strong baseline reproduction | 0% | 0% | None | Faithful published strong baseline |
+| E — PSE candidate | 0% | 0% | None | External PSE-Min implementation and ablation |
+| F — Sealed parity test | 0% | 0% | Sealed-final remained untouched | Activated preregistration and sealed execution |
+| G — Independent reproduction | 0% | 0% | None | Independent operator and environment |
 
 ```text
-Previous completion: 20%
-Current completion: 24%
-Remaining distance: 76%
+Previous completion: 24%
+Current completion: 30%
+Remaining distance: 70%
 Active evidence cap: 45%
 ```
 
-## I. Active blockers
+Completion increased only for the now-valid development comparison. It did not increase for code volume, workflow count or documentation.
 
-### Evaluator calibration
+## J. Active blockers
+
+### Statistical and model adequacy
 
 ```text
-Status: BLOCKED
-Cause: invalid and severely false-positive semantic judge
-Evidence: evaluator-calibration.json and Issue #6
-Impact: no formal answer-quality or paired statistical conclusion
-Next action: integrate official evaluator or a stronger fixed blinded judge and rescore unchanged raw outputs
-Acceptance: agreement >= 0.80, kappa >= 0.60, invalid rate <= 5%
+Cause: only 20 paired cases, four discordant pairs and a 0.5B answer model with low absolute accuracy
+Evidence: B0 2/20, B5 4/20, exact McNemar p=0.625
+Impact: no supported efficacy or parity conclusion
+Next action: preregister a larger development comparison with a more capable fixed answer model before any sealed test
+Acceptance: adequate power or explicitly justified sample, floor-effect screening, calibrated evaluator and preserved pairing
+```
+
+### Strong-baseline gap
+
+```text
+Cause: no faithful published strong memory baseline has been reproduced
+Impact: evidence cap remains 45%; parity cannot be assessed
+Next action: select and reproduce one pinned strong baseline after the basic B0/B5 protocol is reviewed
+Acceptance: exact source/method version, fixed resources, raw evidence and successful reproduction checks
+```
+
+### Independent reproduction
+
+```text
+Cause: the calibration audit is single-operator and all experiments ran within the project-controlled GitHub environment
+Impact: no independent-reproduction credit
+Next action: clean-room rerun by an independent operator after the development protocol stabilizes
 ```
 
 ### Runtime dependency security
 
 ```text
-Status: OPEN BLOCKER
-Cause: four high-severity findings in the pinned JavaScript inference dependency graph
-Evidence: npm-audit.json
-Impact: isolated research execution only; no secure/production claim
-Next action: migrate to a fixed graph without high/critical findings or document a narrower verified isolation boundary
-Acceptance: high/critical count zero, or explicit approved research-only isolation with no production path
+Cause: four high-severity findings remain in the pinned JavaScript inference dependency graph
+Impact: isolated research execution only; no secure or production claim
+Acceptance: zero high/critical findings or a separately approved and verified isolation boundary
 ```
 
-## J. Final research verdict
+## K. Final verdict and publication status
 
 ```text
-BLOCKED
+Research verdict: INCONCLUSIVE
 ```
 
-The raw development matrix succeeded as an engineering and evidence exercise. The research question remains unanswered because the evaluator did not meet the preregistered reliability threshold.
+The evaluator blocker is resolved, and formal development correctness is now available. The observed direction favors EXT-B5, but the current evidence does not establish improvement, parity, superiority, equivalence or non-inferiority.
 
-## K. Next highest-value actions
-
-1. Replace and calibrate the semantic evaluator, then rescore the unchanged 40 raw answers.
-2. After calibration passes, regenerate formal paired statistics and cost-per-additional-correct analysis without rerunning or reselecting cases unless the answer-model protocol itself changes.
-3. Only after the B0/B5 matrix is valid, decide whether to add EXT-B1–EXT-B6; do not begin PSE-Min or sealed-final yet.
-
-## Publication status
-
-- PR #2 remains Draft.
+- Keep PR #2 Draft.
 - Do not merge.
-- Do not tag or create a GitHub Release.
-- Do not claim parity, superiority, validation, security, production readiness or state of the art.
+- Do not create a tag or GitHub Release.
+- Do not begin sealed-final.
+- Do not claim security, production readiness or state of the art.
