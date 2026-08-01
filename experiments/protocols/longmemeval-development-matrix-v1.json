@@ -1,0 +1,86 @@
+{
+  "protocol_id": "longmemeval-development-matrix-v1",
+  "status": "activated-development-only",
+  "activated_at": "2026-08-01T00:00:00Z",
+  "research_question": "On a fixed LongMemEval-S development subset, under one pinned answer model, identical prompt contract, and one evaluator contract, does deterministic BM25 cross-session retrieval (EXT-B5) produce observable answer-quality improvement over no cross-session memory (EXT-B0), and at what token, latency, storage, and execution cost?",
+  "dataset": {
+    "name": "LongMemEval-S cleaned",
+    "revision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "source_manifest": "experiments/datasets/longmemeval-s-cleaned.json"
+  },
+  "allowed_splits": ["development", "validation"],
+  "forbidden_split": "sealed-final",
+  "target_case_count": 20,
+  "minimum_case_count": 20,
+  "baseline_ids": ["EXT-B0", "EXT-B5"],
+  "primary_metric": "paired semantic correctness difference EXT-B5 minus EXT-B0",
+  "secondary_metrics": [
+    "deterministic exact-or-substring diagnostic",
+    "paired wins losses and ties",
+    "input output and total tokens",
+    "latency_ms",
+    "storage_bytes",
+    "retrieval evidence-session recall@k",
+    "error timeout and invalid-evaluator rates"
+  ],
+  "selection": {
+    "parent_split_seed": "longmemeval-e3-v1",
+    "selection_seed": "longmemeval-development-matrix-v1-selection",
+    "algorithm": "hash-ranked fixed quotas by question_type, with four abstention cases selected first without reading reference answers or model outputs",
+    "question_type_targets": {
+      "knowledge-update": 3,
+      "multi-session": 4,
+      "single-session-assistant": 3,
+      "single-session-preference": 2,
+      "single-session-user": 3,
+      "temporal-reasoning": 5
+    },
+    "minimum_abstention_cases": 4,
+    "forbidden_fields": ["answer", "reference_answer", "has_answer"]
+  },
+  "answer_model": {
+    "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "model_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "tokenizer_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "tokenizer_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "runtime": "@huggingface/transformers",
+    "runtime_version": "4.2.0",
+    "quantization": "q4",
+    "generation": {
+      "do_sample": false,
+      "temperature": 0.0,
+      "max_new_tokens": 96,
+      "seed": 17,
+      "timeout_seconds": 420
+    },
+    "capability_status": "development candidate; must pass non-overlapping screening and must not be described as competitive or parity-capable before evidence"
+  },
+  "evaluator": {
+    "required_layers": ["deterministic-diagnostic", "semantic-judge", "single-operator-blinded-audit"],
+    "semantic_status": "must calibrate before formal correctness claims",
+    "calibration_sample_size": 10,
+    "minimum_raw_agreement": 0.8,
+    "minimum_cohens_kappa": 0.6,
+    "maximum_invalid_output_rate": 0.05,
+    "baseline_identity_hidden": true
+  },
+  "stopping_rules": [
+    "Stop before inference if the committed development manifest is absent or its hash differs.",
+    "Stop and retain evidence if dataset or model revision cannot be verified.",
+    "Do not stop because observed results favor either baseline.",
+    "A run with fewer than 20 paired cases is expanded smoke only."
+  ],
+  "failure_policy": "Retain every timeout, crash, malformed output, dependency error, and invalid evaluator output as an immutable attempt record.",
+  "retry_policy": "At most one infrastructure retry; attempt 1 is never overwritten, and analysis follows the terminal-attempt policy declared before rerun.",
+  "exclusion_policy": "No post-inference exclusions. Dataset-invalid cases may only be excluded by a versioned pre-inference manifest with preserved rationale.",
+  "analysis_plan": "Report paired correctness, exact confidence interval, McNemar test when applicable, question-type breakdown, retrieval diagnostics, and incremental token latency storage and monetary cost per additional correct answer.",
+  "claim_limits": [
+    "development-only",
+    "no parity claim",
+    "no superiority claim",
+    "no equivalence or non-inferiority claim",
+    "no production-readiness or security claim",
+    "sealed-final must remain unexecuted"
+  ]
+}
