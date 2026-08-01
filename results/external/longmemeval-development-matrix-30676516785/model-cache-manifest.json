@@ -1,0 +1,39 @@
+{
+  "cache_directory": ".external-data/hf-cache",
+  "file_count": 6,
+  "files": [
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/956050e4c6ce7c647091e15311218f80d662559f/config.json",
+      "sha256": "777e01f0fbb3346eb229cb6fb278ed6533c1e4dcb9ebf4bed0f6e94ef17fa1b5",
+      "size_bytes": 678
+    },
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/956050e4c6ce7c647091e15311218f80d662559f/generation_config.json",
+      "sha256": "f7e7ce458658b2d40d9eb213b91b77a8bf698845ab89360976722d7ac46928a3",
+      "size_bytes": 242
+    },
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/956050e4c6ce7c647091e15311218f80d662559f/onnx/model_q4.onnx",
+      "sha256": "09235a3b1c135cd04ef570e5053b5c079e028078a2cc5f76ba6a251e91bf3296",
+      "size_bytes": 786156820
+    },
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/956050e4c6ce7c647091e15311218f80d662559f/tokenizer.json",
+      "sha256": "a8506e7111b80c6d8635951a02eab0f4e1a8e4e5772da83846579e97b16f61bf",
+      "size_bytes": 7031673
+    },
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/956050e4c6ce7c647091e15311218f80d662559f/tokenizer_config.json",
+      "sha256": "7e88129d9769a0b14b1587a7d5e829fe93ac0e1511636471fdfc0811951418e6",
+      "size_bytes": 7306
+    },
+    {
+      "path": "onnx-community/Qwen2.5-0.5B-Instruct/config.json",
+      "sha256": "777e01f0fbb3346eb229cb6fb278ed6533c1e4dcb9ebf4bed0f6e94ef17fa1b5",
+      "size_bytes": 678
+    }
+  ],
+  "files_sha256": "2b9db6367908bacf88f81694e1bd90c05b5005e08a1f4480e4e7b7f2866c358c",
+  "schema_version": "model-cache-manifest-v1",
+  "total_size_bytes": 793197397
+}

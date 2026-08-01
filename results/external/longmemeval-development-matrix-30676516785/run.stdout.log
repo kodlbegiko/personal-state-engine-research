@@ -1,0 +1,205 @@
+{"case_id": "gpt4_372c3eed", "event": "screening_start"}
+{"case_id": "gpt4_372c3eed", "event": "screening_complete", "status": "completed"}
+{"case_id": "4dfccbf7", "event": "screening_start"}
+{"case_id": "4dfccbf7", "event": "screening_complete", "status": "completed"}
+{"case_count": 20, "case_id": "031748ae_abs", "case_index": 1, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "031748ae_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "031748ae_abs", "event": "answer_complete", "history_truncated": false, "input_tokens": 93, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "031748ae_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "031748ae_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "031748ae_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "031748ae_abs", "event": "answer_complete", "history_truncated": true, "input_tokens": 1429, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "031748ae_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "031748ae_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"case_id": "031748ae_abs", "case_index": 1, "event": "formal_case_complete", "trials_written": 2}
+{"case_count": 20, "case_id": "0862e8bf_abs", "case_index": 2, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "0862e8bf_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "0862e8bf_abs", "event": "answer_complete", "history_truncated": false, "input_tokens": 84, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "0862e8bf_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "0862e8bf_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "0862e8bf_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "0862e8bf_abs", "event": "answer_complete", "history_truncated": true, "input_tokens": 1414, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "0862e8bf_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "0862e8bf_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"case_id": "0862e8bf_abs", "case_index": 2, "event": "formal_case_complete", "trials_written": 4}
+{"case_count": 20, "case_id": "09ba9854_abs", "case_index": 3, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "09ba9854_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "09ba9854_abs", "event": "answer_complete", "history_truncated": false, "input_tokens": 95, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "09ba9854_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "09ba9854_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "09ba9854_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "09ba9854_abs", "event": "answer_complete", "history_truncated": true, "input_tokens": 1685, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "09ba9854_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "09ba9854_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"case_id": "09ba9854_abs", "case_index": 3, "event": "formal_case_complete", "trials_written": 6}
+{"case_count": 20, "case_id": "18dcd5a5", "case_index": 4, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "18dcd5a5", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "18dcd5a5", "event": "answer_complete", "history_truncated": false, "input_tokens": 110, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "18dcd5a5", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "18dcd5a5", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "18dcd5a5", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "18dcd5a5", "event": "answer_complete", "history_truncated": true, "input_tokens": 1640, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "18dcd5a5", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "18dcd5a5", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "18dcd5a5", "case_index": 4, "event": "formal_case_complete", "trials_written": 8}
+{"case_count": 20, "case_id": "1903aded", "case_index": 5, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "1903aded", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "1903aded", "event": "answer_complete", "history_truncated": false, "input_tokens": 104, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "1903aded", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "1903aded", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "1903aded", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "1903aded", "event": "answer_complete", "history_truncated": true, "input_tokens": 1648, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "1903aded", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "1903aded", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "1903aded", "case_index": 5, "event": "formal_case_complete", "trials_written": 10}
+{"case_count": 20, "case_id": "21436231", "case_index": 6, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "21436231", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "21436231", "event": "answer_complete", "history_truncated": false, "input_tokens": 91, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "21436231", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "21436231", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "21436231", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "21436231", "event": "answer_complete", "history_truncated": true, "input_tokens": 1514, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "21436231", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "21436231", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "21436231", "case_index": 6, "event": "formal_case_complete", "trials_written": 12}
+{"case_count": 20, "case_id": "26bdc477", "case_index": 7, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "26bdc477", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "26bdc477", "event": "answer_complete", "history_truncated": false, "input_tokens": 91, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "26bdc477", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "26bdc477", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "26bdc477", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "26bdc477", "event": "answer_complete", "history_truncated": true, "input_tokens": 1610, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "26bdc477", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "26bdc477", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "26bdc477", "case_index": 7, "event": "formal_case_complete", "trials_written": 14}
+{"case_count": 20, "case_id": "35a27287", "case_index": 8, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "35a27287", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "35a27287", "event": "answer_complete", "history_truncated": false, "input_tokens": 88, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "35a27287", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "35a27287", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "35a27287", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "35a27287", "event": "answer_complete", "history_truncated": true, "input_tokens": 1507, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "35a27287", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "35a27287", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "35a27287", "case_index": 8, "event": "formal_case_complete", "trials_written": 16}
+{"case_count": 20, "case_id": "51b23612", "case_index": 9, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "51b23612", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "51b23612", "event": "answer_complete", "history_truncated": false, "input_tokens": 108, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "51b23612", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "51b23612", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "51b23612", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "51b23612", "event": "answer_complete", "history_truncated": true, "input_tokens": 1335, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "51b23612", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "51b23612", "event": "judge_complete", "judge_status": "INVALID"}
+{"case_id": "51b23612", "case_index": 9, "event": "formal_case_complete", "trials_written": 18}
+{"case_count": 20, "case_id": "71017277", "case_index": 10, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "71017277", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "71017277", "event": "answer_complete", "history_truncated": false, "input_tokens": 86, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "71017277", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "71017277", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "71017277", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "71017277", "event": "answer_complete", "history_truncated": true, "input_tokens": 1436, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "71017277", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "71017277", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "71017277", "case_index": 10, "event": "formal_case_complete", "trials_written": 20}
+{"case_count": 20, "case_id": "7527f7e2", "case_index": 11, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "7527f7e2", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "7527f7e2", "event": "answer_complete", "history_truncated": false, "input_tokens": 86, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "7527f7e2", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "7527f7e2", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "7527f7e2", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "7527f7e2", "event": "answer_complete", "history_truncated": true, "input_tokens": 1508, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "7527f7e2", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "7527f7e2", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "7527f7e2", "case_index": 11, "event": "formal_case_complete", "trials_written": 22}
+{"case_count": 20, "case_id": "caf03d32", "case_index": 12, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "caf03d32", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "caf03d32", "event": "answer_complete", "history_truncated": false, "input_tokens": 92, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "caf03d32", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "caf03d32", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "caf03d32", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "caf03d32", "event": "answer_complete", "history_truncated": true, "input_tokens": 1570, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "caf03d32", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "caf03d32", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "caf03d32", "case_index": 12, "event": "formal_case_complete", "trials_written": 24}
+{"case_count": 20, "case_id": "d23cf73b", "case_index": 13, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "d23cf73b", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "d23cf73b", "event": "answer_complete", "history_truncated": false, "input_tokens": 94, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "d23cf73b", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "d23cf73b", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "d23cf73b", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "d23cf73b", "event": "answer_complete", "history_truncated": true, "input_tokens": 1719, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "d23cf73b", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "d23cf73b", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "d23cf73b", "case_index": 13, "event": "formal_case_complete", "trials_written": 26}
+{"case_count": 20, "case_id": "d7c942c3", "case_index": 14, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "d7c942c3", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "d7c942c3", "event": "answer_complete", "history_truncated": false, "input_tokens": 87, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "d7c942c3", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "d7c942c3", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "d7c942c3", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "d7c942c3", "event": "answer_complete", "history_truncated": true, "input_tokens": 1495, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "d7c942c3", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "d7c942c3", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "d7c942c3", "case_index": 14, "event": "formal_case_complete", "trials_written": 28}
+{"case_count": 20, "case_id": "dcfa8644", "case_index": 15, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "dcfa8644", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "dcfa8644", "event": "answer_complete", "history_truncated": false, "input_tokens": 105, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "dcfa8644", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "dcfa8644", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "dcfa8644", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "dcfa8644", "event": "answer_complete", "history_truncated": true, "input_tokens": 1414, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "dcfa8644", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "dcfa8644", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "dcfa8644", "case_index": 15, "event": "formal_case_complete", "trials_written": 30}
+{"case_count": 20, "case_id": "gpt4_7de946e7", "case_index": 16, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_7de946e7", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_7de946e7", "event": "answer_complete", "history_truncated": false, "input_tokens": 93, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_7de946e7", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_7de946e7", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_7de946e7", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_7de946e7", "event": "answer_complete", "history_truncated": true, "input_tokens": 1507, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_7de946e7", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_7de946e7", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "gpt4_7de946e7", "case_index": 16, "event": "formal_case_complete", "trials_written": 32}
+{"case_count": 20, "case_id": "gpt4_93159ced", "case_index": 17, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced", "event": "answer_complete", "history_truncated": false, "input_tokens": 91, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced", "event": "answer_complete", "history_truncated": true, "input_tokens": 1479, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "gpt4_93159ced", "case_index": 17, "event": "formal_case_complete", "trials_written": 34}
+{"case_count": 20, "case_id": "gpt4_93159ced_abs", "case_index": 18, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced_abs", "event": "answer_complete", "history_truncated": false, "input_tokens": 90, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_93159ced_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced_abs", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced_abs", "event": "answer_complete", "history_truncated": true, "input_tokens": 1655, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced_abs", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_93159ced_abs", "event": "judge_complete", "judge_status": "INVALID"}
+{"case_id": "gpt4_93159ced_abs", "case_index": 18, "event": "formal_case_complete", "trials_written": 36}
+{"case_count": 20, "case_id": "gpt4_a56e767c", "case_index": 19, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_a56e767c", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_a56e767c", "event": "answer_complete", "history_truncated": false, "input_tokens": 83, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_a56e767c", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_a56e767c", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_a56e767c", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_a56e767c", "event": "answer_complete", "history_truncated": true, "input_tokens": 1598, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_a56e767c", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_a56e767c", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "gpt4_a56e767c", "case_index": 19, "event": "formal_case_complete", "trials_written": 38}
+{"case_count": 20, "case_id": "gpt4_e05b82a6", "case_index": 20, "event": "formal_case_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_e05b82a6", "event": "answer_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_e05b82a6", "event": "answer_complete", "history_truncated": false, "input_tokens": 95, "retrieval_tokens": 0, "status": "completed"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_e05b82a6", "event": "judge_start"}
+{"baseline_id": "EXT-B0", "case_id": "gpt4_e05b82a6", "event": "judge_complete", "judge_status": "VALID"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_e05b82a6", "event": "answer_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_e05b82a6", "event": "answer_complete", "history_truncated": true, "input_tokens": 1517, "retrieval_tokens": 1024, "status": "completed"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_e05b82a6", "event": "judge_start"}
+{"baseline_id": "EXT-B5", "case_id": "gpt4_e05b82a6", "event": "judge_complete", "judge_status": "VALID"}
+{"case_id": "gpt4_e05b82a6", "case_index": 20, "event": "formal_case_complete", "trials_written": 40}
+{"artifact_registry": "results/development-matrix/development-matrix-30676516785-attempt-1/artifact-registry.json", "cases": 20, "completed": 40, "errors": 0, "event": "development_matrix_complete", "run_id": "development-matrix-30676516785-attempt-1", "timeouts": 0, "trials": 40}

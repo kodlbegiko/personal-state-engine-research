@@ -1,0 +1,26 @@
+{
+  "blocking_reason": "The preregistered semantic evaluator failed calibration: full-matrix invalid output rate 27.5%, valid-output raw agreement 15.4%, Cohen kappa 0.0, and 11 false positives with zero true negatives in the blinded audit sample.",
+  "descriptive_only": {
+    "b5_history_token_budget_lexical": 1024,
+    "b5_history_truncated_case_count": 20,
+    "incremental_answer_input_tokens_b5_minus_b0": 28814,
+    "incremental_median_answer_latency_ms_b5_minus_b0": 12213.216133,
+    "retrieval_evidence_session_recall_at_k": 0.9
+  },
+  "final_research_verdict": "BLOCKED",
+  "highest_evidence_level": "E3",
+  "not_supported": [
+    "Any formal correctness, accuracy, win/loss, statistical, parity, superiority, equivalence, non-inferiority, or production-readiness conclusion for EXT-B5 versus EXT-B0.",
+    "That the 0.5B model eliminated floor effects.",
+    "That the evaluator is reliable or calibrated.",
+    "That the runtime dependency graph is secure."
+  ],
+  "run_id": "development-matrix-30676516785-attempt-1",
+  "schema_version": "development-matrix-research-verdict-v1",
+  "supported": [
+    "The pinned dataset and unchanged frozen 20-case development subset were executed under protocol v2.",
+    "EXT-B0 and EXT-B5 each completed 20 trials with zero model errors and zero timeouts.",
+    "Raw-to-summary reconstruction, artifact hashes, unique IDs, B0 history exclusion, B5 retrieval tracing, and sealed-final non-access passed.",
+    "BM25 retrieved at least one answer-bearing session for 18 of 20 cases as a post-hoc diagnostic."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "criteria": "runtime success and non-blank output only",
+  "formal_matrix_overlap": false,
+  "limitation": "Executability only; not proof that floor effect is absent.",
+  "rows": [
+    {
+      "case_id": "gpt4_372c3eed",
+      "error_message": null,
+      "error_type": null,
+      "latency_ms": 801.517765,
+      "non_blank_output": true,
+      "status": "completed"
+    },
+    {
+      "case_id": "4dfccbf7",
+      "error_message": null,
+      "error_type": null,
+      "latency_ms": 754.7878289999999,
+      "non_blank_output": true,
+      "status": "completed"
+    }
+  ],
+  "schema_version": "model-capability-screening-v1",
+  "sealed_final_accessed": false,
+  "selection_rule": "frozen 20 formal cases plus two deterministic hash-ranked non-overlapping development screening cases",
+  "verdict": "PASS"
+}

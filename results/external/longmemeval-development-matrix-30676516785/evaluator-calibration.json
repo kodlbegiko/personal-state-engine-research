@@ -1,0 +1,231 @@
+{
+  "abstention_errors_human": 5,
+  "audit_status": "single-operator audit; not independent",
+  "blinding_status": "human decisions recorded before baseline mapping key was opened",
+  "by_baseline_human_audit": {
+    "EXT-B0": {
+      "audited": 10,
+      "correct": 2
+    },
+    "EXT-B5": {
+      "audited": 10,
+      "correct": 1
+    }
+  },
+  "calibration_verdict": "FAIL",
+  "cohens_kappa_valid_outputs": 0.0,
+  "confusion_valid_outputs": {
+    "false_negative": 0,
+    "false_positive": 11,
+    "true_negative": 0,
+    "true_positive": 2
+  },
+  "evaluator_id": "qwen2.5-0.5b-semantic-judge-v1",
+  "failure_reasons": [
+    "full-matrix invalid output rate 27.5% exceeds 5% maximum",
+    "valid-output raw agreement is below 80%",
+    "Cohen kappa is below 0.60",
+    "judge produced only positive valid classifications, causing severe false-positive bias"
+  ],
+  "full_matrix_invalid_output_count": 11,
+  "full_matrix_invalid_output_rate": 0.275,
+  "full_matrix_output_count": 40,
+  "invalid_evaluator_outputs_in_audit": 7,
+  "invalid_output_rate_in_audit": 0.35,
+  "negative_agreement_valid_outputs": 0.0,
+  "positive_agreement_valid_outputs": 0.26666666666666666,
+  "raw_agreement_all_audited_answers_invalid_as_failure": 0.1,
+  "raw_agreement_valid_outputs": 0.15384615384615385,
+  "rows_unblinded_after_decision": [
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_93159ced",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_93159ced",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "031748ae_abs",
+      "disagreement_category": "hallucinated_specific_value_on_insufficient_information",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "031748ae_abs",
+      "disagreement_category": "hallucinated_specific_value_on_insufficient_information",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "18dcd5a5",
+      "disagreement_category": "wrong_numeric_answer",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "18dcd5a5",
+      "disagreement_category": "correct",
+      "evaluator_score": 1,
+      "human_decision": true,
+      "label": "B",
+      "outcome": "TP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "09ba9854_abs",
+      "disagreement_category": "hallucinated_specific_value_on_insufficient_information",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "09ba9854_abs",
+      "disagreement_category": "hallucinated_specific_value_on_insufficient_information",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_93159ced_abs",
+      "disagreement_category": "hallucinated_specific_value_on_insufficient_information",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_93159ced_abs",
+      "disagreement_category": "acceptable_explicit_uncertainty",
+      "evaluator_score": null,
+      "human_decision": true,
+      "label": "B",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "51b23612",
+      "disagreement_category": "correct_core_with_materially_false_additions",
+      "evaluator_score": null,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "INVALID"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "51b23612",
+      "disagreement_category": "does_not_identify_reference_answer",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "d7c942c3",
+      "disagreement_category": "correct_core_with_materially_unsupported_additions",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "d7c942c3",
+      "disagreement_category": "correct",
+      "evaluator_score": 1,
+      "human_decision": true,
+      "label": "B",
+      "outcome": "TP"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "d23cf73b",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "d23cf73b",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_e05b82a6",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_e05b82a6",
+      "disagreement_category": "incorrect_unknown_response_on_answerable_case",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B5",
+      "case_id": "1903aded",
+      "disagreement_category": "wrong_list_item",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "A",
+      "outcome": "FP"
+    },
+    {
+      "baseline_id": "EXT-B0",
+      "case_id": "1903aded",
+      "disagreement_category": "wrong_list_item",
+      "evaluator_score": 1,
+      "human_decision": false,
+      "label": "B",
+      "outcome": "FP"
+    }
+  ],
+  "sample_size_answers": 20,
+  "sample_size_cases": 10,
+  "schema_version": "evaluator-calibration-v1",
+  "thresholds": {
+    "maximum_invalid_output_rate": 0.05,
+    "minimum_cohens_kappa": 0.6,
+    "minimum_raw_agreement": 0.8
+  },
+  "use_for_formal_correctness": "PROHIBITED",
+  "valid_evaluator_outputs_in_audit": 13
+}
