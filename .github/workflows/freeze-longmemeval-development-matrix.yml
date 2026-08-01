@@ -1,14 +1,6 @@
 name: Freeze and Archive LongMemEval Development Matrix
 
 on:
-  push:
-    branches: [research/personal-state-engine-v0]
-    paths:
-      - .github/workflows/freeze-longmemeval-development-matrix.yml
-  pull_request:
-    branches: [main]
-    paths:
-      - .github/workflows/freeze-longmemeval-development-matrix.yml
   workflow_dispatch:
 
 permissions:
@@ -45,8 +37,7 @@ jobs:
             --output results/development-freeze/longmemeval-development-matrix-v1.json
       - name: Verify no dataset payload entered Git
         if: always()
-        run: |
-          test -z "$(git status --short -- .external-data)"
+        run: test -z "$(git status --short -- .external-data)"
       - name: Upload frozen manifest
         if: always()
         uses: actions/upload-artifact@v4
@@ -57,10 +48,6 @@ jobs:
           retention-days: 14
 
   archive-completed-evidence:
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      github.event.pull_request.head.ref == 'research/personal-state-engine-v0'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
