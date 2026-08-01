@@ -52,12 +52,22 @@ jobs:
           ln -s experiments/runtime/node_modules node_modules
 
       - name: Confirm fixed source evidence before judging
+        shell: bash
         run: |
-          python scripts/verify_development_matrix_contract.py \
-            results/external/longmemeval-development-matrix-30676516785
-          test "$(find results/external/longmemeval-development-matrix-30676516785/raw-trials -type f -name '*.json' | wc -l)" -eq 40
-          test -f results/external/longmemeval-development-matrix-30676516785/evaluator-calibration.json
-          test -f results/external/longmemeval-development-matrix-30676516785/research-verdict.json
+          EVIDENCE_ROOT="$GITHUB_WORKSPACE/results/external/longmemeval-development-matrix-30676516785"
+          COMPAT_ROOT="$GITHUB_WORKSPACE/.contract-compat"
+          rm -rf "$COMPAT_ROOT"
+          mkdir -p "$COMPAT_ROOT/results/development-matrix"
+          ln -s "$EVIDENCE_ROOT" \
+            "$COMPAT_ROOT/results/development-matrix/development-matrix-30676516785-attempt-1"
+          (
+            cd "$COMPAT_ROOT"
+            python "$GITHUB_WORKSPACE/scripts/verify_development_matrix_contract.py" "$EVIDENCE_ROOT"
+          )
+          rm -rf "$COMPAT_ROOT"
+          test "$(find "$EVIDENCE_ROOT/raw-trials" -type f -name '*.json' | wc -l)" -eq 40
+          test -f "$EVIDENCE_ROOT/evaluator-calibration.json"
+          test -f "$EVIDENCE_ROOT/research-verdict.json"
 
       - name: Run fixed evaluator selection, calibration and conditional rescoring
         env:
