@@ -109,6 +109,8 @@ class ExternalTrialTests(unittest.TestCase):
         )
         self.assertEqual(selected, ())
         self.assertEqual(reconstruction["selected_session_ids"], [])
+        self.assertEqual(reconstruction["context_session_ids"], [])
+        self.assertEqual(reconstruction["history_lexical_tokens"], 0)
         self.assertNotIn("favorite color is blue", request.messages[0]["content"])
         self.assertIn("What is my favorite color?", request.messages[0]["content"])
 
@@ -119,6 +121,36 @@ class ExternalTrialTests(unittest.TestCase):
             k=1,
         )
         self.assertEqual([session.session_id for session in selected], ["s1"])
+
+    def test_b5_history_budget_is_enforced_and_auditable(self):
+        config = ExternalTrialConfig(
+            run_id="run-budget",
+            dataset_name="LongMemEval-S",
+            dataset_version="test-revision",
+            dataset_sha256="dataset-sha256",
+            split_name="development",
+            split_manifest_sha256="split-sha256",
+            baseline_id="EXT-B5",
+            baseline_version="external-baseline-v2",
+            retrieval_item_limit=2,
+            retrieval_token_budget=8,
+            memory_token_budget=8,
+            code_commit="commit-sha",
+        )
+        request, selected, reconstruction = build_request(
+            self.example(),
+            self.manifest(),
+            config,
+            request_id="request-budget",
+        )
+        self.assertEqual([session.session_id for session in selected], ["s1", "s2"])
+        self.assertLessEqual(reconstruction["history_lexical_tokens"], 8)
+        self.assertTrue(reconstruction["history_truncated"])
+        self.assertEqual(
+            reconstruction["truncation_policy"],
+            "ranked-session concatenation with deterministic prefix truncation at lexical-token boundary",
+        )
+        self.assertIn("Conversation history:", request.messages[0]["content"])
 
     def test_completed_trial_preserves_attribution_and_accounting(self):
         times = iter((100.0, 100.01))
@@ -135,6 +167,7 @@ class ExternalTrialTests(unittest.TestCase):
         self.assertEqual(record.request_id, "request-1")
         self.assertEqual(record.model_revision, "revision-1")
         self.assertEqual(record.retrieved_items, ("s1",))
+        self.assertGreater(record.retrieval_tokens, 0)
         self.assertEqual(record.total_tokens, 11)
         self.assertEqual(record.parsed_answer, "blue")
 
