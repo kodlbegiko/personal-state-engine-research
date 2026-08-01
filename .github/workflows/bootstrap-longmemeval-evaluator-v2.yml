@@ -1,0 +1,67 @@
+name: Bootstrap LongMemEval Evaluator V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .github/workflows/bootstrap-longmemeval-evaluator-v2.yml
+
+permissions:
+  contents: write
+
+jobs:
+  install-evaluator-v2:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'research/personal-state-engine-v0'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify and install exact evaluator-v2 bundle
+        shell: bash
+        run: |
+          cat \
+            .github/evaluator-v2-bundle/part-00 \
+            .github/evaluator-v2-bundle/part-01-0 \
+            .github/evaluator-v2-bundle/part-01-1 \
+            .github/evaluator-v2-bundle/part-02 \
+            .github/evaluator-v2-bundle/part-03 \
+            .github/evaluator-v2-bundle/part-04-0 \
+            .github/evaluator-v2-bundle/part-04-1 \
+            > /tmp/evaluator-v2.tar.gz.b64
+          base64 --decode /tmp/evaluator-v2.tar.gz.b64 > /tmp/evaluator-v2.tar.gz
+          echo "4081ef35df3ac867fab241da619d677d5e5aada42ded63f98bb47102118ba5c0  /tmp/evaluator-v2.tar.gz" | sha256sum --check
+          tar -xzf /tmp/evaluator-v2.tar.gz
+          python -m compileall -q src scripts tests
+          PYTHONPATH=src python -m unittest discover -s tests -p 'test_longmemeval_evaluator_v2.py' -v
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path('benchmarks/evaluator/longmemeval-evaluator-unit-v2.json'),
+              Path('experiments/evaluators/longmemeval-semantic-evaluator-v2.json'),
+          ]:
+              json.loads(path.read_text())
+          PY
+      - name: Commit evaluator-v2 implementation
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            src/personal_state_engine/longmemeval_evaluator.py \
+            scripts/run_longmemeval_evaluator_v2.py \
+            scripts/verify_longmemeval_evaluator_v2_contract.py \
+            benchmarks/evaluator/longmemeval-evaluator-unit-v2.json \
+            experiments/evaluators/longmemeval-semantic-evaluator-v2.json \
+            tests/test_longmemeval_evaluator_v2.py
+          git diff --cached --quiet && exit 0
+          git commit -m "feat(evaluation): add pinned LongMemEval evaluator v2"
+          git push origin HEAD:research/personal-state-engine-v0
