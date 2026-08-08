@@ -31,12 +31,12 @@ The blocker is not a paid-API requirement: exact-pinned A-MEM provides an offici
 
 ## Engineering completed
 
-- 24 independent synthetic cases, SHA-256 `96a4cc28c2a2bd86a277eac2c06c495ccedb3aae75b5a57026c6d15ba6ddf245`.
+- 24 independent synthetic cases, SHA-256 `6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9`.
 - Mechanical upstream adapter that delegates semantics to exact A-MEM rather than reimplementing them.
 - PSE-compatible retrieval metric reconstruction for Recall@1/3/5, MRR, nDCG@5 and irrelevant retrieval rate.
 - Three deterministic unit checks, repeated three times: PASS.
 - 20-artifact registry verifier: PASS.
-- Dedicated Python 3.11/3.12/3.13 lightweight CI.
+- Dedicated Python 3.11/3.12/3.13 lightweight CI; a post-addition validation commit intentionally triggers it.
 - Manual zero-cost A-MEM smoke workflow, pinned to the upstream commit and Ollama `qwen2.5:3b`; it is manual-only so standard CI does not download multi-GB model weights.
 
 ## Integrity boundaries

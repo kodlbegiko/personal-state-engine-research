@@ -96,9 +96,9 @@
       "sha256": "f64c1c836cf465f490902163afd7da63019dcbec66fce7bb94de96ef4a2df9d0"
     },
     {
-      "bytes": 3363,
+      "bytes": 3424,
       "path": "docs/strong-baseline-status-2026-08-08.md",
-      "sha256": "858630f3eba9922397a0435a4e271c686d09878b2f759613c8c0cbfe490eaf4c"
+      "sha256": "09dcb084fe0b3c978e792f87c0b5d4c9efc6806b9fe60b7d591a7e04879fc7b5"
     }
   ],
   "schema_version": "strong-baseline-artifact-registry-v1"
