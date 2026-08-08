@@ -1,0 +1,23 @@
+{
+  "schema_version": "pse-abstention-gate-v1-preregistration",
+  "benchmark_freeze_commit": "2b327acbc6df0c1518245133aae83ad7e0835cee",
+  "base_ranker": "pse_candidate_v2_rank (source/config already frozen before its own withheld evaluation)",
+  "selection_constraint": "development answerable recall >= 0.90, then maximize no-evidence abstention accuracy, then prefer simpler gate",
+  "selected_system": "lexical similarity threshold plus question-echo veto",
+  "similarity_threshold": 0.22,
+  "similarity": "max(word cosine overlap, CJK character-bigram Jaccard)",
+  "development_result": {
+    "answerable_recall": 1.0,
+    "abstention_accuracy": 0.4444444444444444,
+    "false_abstention_rate": 0.0,
+    "false_retrieval_rate": 0.5555555555555556
+  },
+  "always_retrieve_development": {"answerable_recall": 1.0, "abstention_accuracy": 0.0},
+  "margin_gate_incremental_value": "none observed under the same >=0.90 answerable-recall constraint",
+  "chronology_note": "The originally frozen validation split was inspected once after development selection but before this durable config commit; it is therefore descriptive only. A new post-freeze withheld set is required for clean generalization evidence.",
+  "observed_validation_descriptive_only": {"answerable_recall": 1.0, "abstention_accuracy": 0.6666666666666667},
+  "fresh_withheld_required": true,
+  "candidate_v2_modified": false,
+  "sealed_final_accessed": false,
+  "claim_boundary": "Auxiliary abstention research only; not Gate E completion or parity evidence."
+}
