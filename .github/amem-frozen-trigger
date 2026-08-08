@@ -1,0 +1,6 @@
+triggered-at=2026-08-09T01:31:00+08:00
+purpose=exact-pinned-amem-frozen-24-d3
+source=0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+embedding_snapshot=1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+ollama_digest=357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+corpus_sha256=6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9
