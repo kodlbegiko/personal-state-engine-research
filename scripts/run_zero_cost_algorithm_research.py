@@ -21,6 +21,12 @@ DEV_PATH = ROOT / "benchmarks/strong-baseline/synthetic-memory-cases-v1.json"
 SPEC_PATH = ROOT / "benchmarks/algorithm-development/specification-v2.json"
 EXT_PATH = ROOT / "benchmarks/algorithm-development/withheld-extension-v2.json"
 FREEZE_PATH = ROOT / "benchmarks/algorithm-development/freeze-manifest-v2.json"
+AMEM_D3_ROOT = ROOT / "results/strong-baseline/amem-frozen-24-v1"
+AMEM_D3_COMPARISON = AMEM_D3_ROOT / "comparison-run1.json"
+AMEM_D3_REGISTRY = AMEM_D3_ROOT / "artifact-registry.json"
+EXPECTED_AMEM_SOURCE_COMMIT = "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+EXPECTED_AMEM_CORPUS_SHA256 = "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9"
+EXPECTED_AMEM_RUN_ID = 31269598248
 OUT = ROOT / "results/zero-cost-algorithm"
 FIXED_GENERATED_AT = "2026-08-08T16:40:00Z"
 
@@ -48,6 +54,49 @@ def verify_freeze() -> dict[str, Any]:
     if not all(checks.values()):
         raise RuntimeError(f"benchmark freeze verification failed: {checks}")
     return {"status": "PASS", "checks": checks}
+
+
+def verify_amem_d3() -> dict[str, Any]:
+    if not AMEM_D3_COMPARISON.is_file() or not AMEM_D3_REGISTRY.is_file():
+        raise RuntimeError("durable A-MEM D3 evidence is missing")
+    comparison = load_json(AMEM_D3_COMPARISON)
+    registry = load_json(AMEM_D3_REGISTRY)
+    if comparison.get("corpus_sha256") != EXPECTED_AMEM_CORPUS_SHA256:
+        raise RuntimeError("A-MEM D3 corpus hash mismatch")
+    if comparison.get("sealed_final_accessed") is not False:
+        raise RuntimeError("A-MEM D3 comparison sealed-final flag is not false")
+    identity = comparison.get("a_mem", {})
+    if identity.get("source_commit") != EXPECTED_AMEM_SOURCE_COMMIT:
+        raise RuntimeError("A-MEM D3 source commit mismatch")
+    if int(identity.get("run", -1)) != EXPECTED_AMEM_RUN_ID:
+        raise RuntimeError("A-MEM D3 run identity mismatch")
+    if registry.get("source_run_id") != EXPECTED_AMEM_RUN_ID:
+        raise RuntimeError("A-MEM D3 artifact registry run mismatch")
+    if registry.get("sealed_final_accessed") is not False:
+        raise RuntimeError("A-MEM D3 registry sealed-final flag is not false")
+    if float(registry.get("paid_api_cost_usd", -1)) != 0.0 or float(registry.get("cloud_gpu_cost_usd", -1)) != 0.0:
+        raise RuntimeError("A-MEM D3 violates zero-cost boundary")
+    for row in registry.get("artifacts", []):
+        path = ROOT / row["path"]
+        if not path.is_file():
+            raise RuntimeError(f"A-MEM D3 artifact missing: {row['path']}")
+        if path.stat().st_size != int(row["bytes"]) or sha256(path) != row["sha256"]:
+            raise RuntimeError(f"A-MEM D3 artifact mismatch: {row['path']}")
+    system = comparison.get("systems", {}).get("a_mem_exact_run1")
+    if not isinstance(system, dict):
+        raise RuntimeError("A-MEM D3 comparison system row missing")
+    return {
+        "status": "EXECUTED_FROZEN_24_UNDERPOWERED",
+        "run_id": EXPECTED_AMEM_RUN_ID,
+        "source_commit": EXPECTED_AMEM_SOURCE_COMMIT,
+        "corpus_sha256": EXPECTED_AMEM_CORPUS_SHA256,
+        "metrics": system.get("metrics"),
+        "case_count": system.get("case_count"),
+        "answerable_case_count": system.get("answerable_case_count"),
+        "abstention_case_count": system.get("abstention_case_count"),
+        "statistical_interpretation": comparison.get("statistical_interpretation"),
+        "claim_boundary": comparison.get("claim_boundary"),
+    }
 
 
 def split_cases() -> dict[str, list[dict[str, Any]]]:
@@ -177,8 +226,9 @@ def robustness(cases: list[dict[str, Any]]) -> dict[str, Any]:
 
 def main() -> int:
     freeze = verify_freeze()
+    amem_d3 = verify_amem_d3()
     splits = split_cases()
-    baseline_results = {"schema_version": "zero-cost-baseline-results-v1", "generated_at": FIXED_GENERATED_AT, "benchmark_freeze": freeze, "systems": {}, "claims_boundary": {"A-MEM": {"status": "NOT_EXECUTED", "metrics": None}, "algorithm_parity": "NO", "sealed_final_accessed": False}}
+    baseline_results = {"schema_version": "zero-cost-baseline-results-v1", "generated_at": FIXED_GENERATED_AT, "benchmark_freeze": freeze, "systems": {}, "claims_boundary": {"A-MEM": amem_d3, "algorithm_parity": "NO", "sealed_final_accessed": False}}
     for name, ranker in RANKERS.items():
         baseline_results["systems"][name] = {split: round_metrics(evaluate_cases(cases, ranker)) for split, cases in splits.items()}
     ablation_results = {"schema_version": "pse-ablation-results-v1", "generated_at": FIXED_GENERATED_AT, "ablations": {name: {split: round_metrics(evaluate_cases(cases, ranker)) for split, cases in splits.items()} for name, ranker in ABLATIONS.items()}, "interpretation": {"update_bonus": "SUPPORTED_ON_THIS_SYNTHETIC_CORPUS", "query_recency_term": "NO_OBSERVED_INCREMENTAL_VALUE", "naive_abstention": "REJECTED_DUE_TO_RECALL_REGRESSION_ON_DEVELOPMENT", "exact_dedup": "REJECTED_DUE_TO_RECALL_REGRESSION_ON_DUPLICATE-RELEVANT_CASES"}}
@@ -187,7 +237,7 @@ def main() -> int:
     robust = {"schema_version": "zero-cost-robustness-results-v1", "generated_at": FIXED_GENERATED_AT, "development": robustness(splits["development"]), "validation": robustness(splits["validation"]), "hidden_generated": robustness(splits["hidden-generated"])}
     determinism_payload = json.dumps({name: {split: [ranker(case, 5) for case in cases] for split, cases in splits.items()} for name, ranker in RANKERS.items()}, sort_keys=True, ensure_ascii=False).encode("utf-8")
     determinism = {"schema_version": "zero-cost-determinism-v1", "generated_at": FIXED_GENERATED_AT, "reruns_required": 3, "algorithmic_output_sha256": hashlib.sha256(determinism_payload).hexdigest(), "status": "PASS", "note": "Rankers are deterministic by construction; CI reruns the generator and requires zero diff."}
-    reproduction = {"schema_version": "zero-cost-reproduction-status-v1", "generated_at": FIXED_GENERATED_AT, "zero_cost_work": "PARTIAL", "A_MEM_D1": "COMPLETE", "A_MEM_D2": "NOT_COMPLETE", "A_MEM_D3": "NOT_EXECUTED", "A_MEM_D4": "NOT_EXECUTED", "A_MEM_verdict": "BLOCKED_BY_COMPUTE", "algorithm_parity": "NO", "paid_api_used": False, "cloud_gpu_used": False, "sealed_final_accessed": False, "formal_completion_percent": 30}
+    reproduction = {"schema_version": "zero-cost-reproduction-status-v1", "generated_at": FIXED_GENERATED_AT, "zero_cost_work": "PARTIAL", "A_MEM_D1": "COMPLETE", "A_MEM_D2": "COMPLETE", "A_MEM_D3": "COMPLETE", "A_MEM_D4": "NOT_COMPLETE", "A_MEM_verdict": "D3_COMPLETE_D4_PENDING", "A_MEM_D3_run_id": EXPECTED_AMEM_RUN_ID, "algorithm_parity": "NO", "paid_api_used": False, "cloud_gpu_used": False, "sealed_final_accessed": False, "formal_completion_percent": 30, "formal_completion_note": "Unchanged until the repository rubric recognizes a completed formal gate; durable D2/D3 evidence alone does not justify inventing a new percentage."}
     outputs = {"baseline-results.json": baseline_results, "ablation-results.json": ablation_results, "statistical-analysis.json": statistical, "failure-analysis.json": failure, "robustness-results.json": robust, "determinism-report.json": determinism, "reproduction-status.json": reproduction}
     for name, value in outputs.items():
         write_json(OUT / name, value)
