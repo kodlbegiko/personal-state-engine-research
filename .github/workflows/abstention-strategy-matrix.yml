@@ -1,0 +1,89 @@
+name: Abstention Strategy Matrix
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/abstention-strategy-trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Verify frozen benchmark, candidate, and zero-cost boundary
+        run: |
+          set -euo pipefail
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          git merge-base --is-ancestor d627f61d0888306a97f3ef0b78aa29dc00c444bb HEAD
+          test "$(sha256sum benchmarks/algorithm-development/abstention-dev-v1/development.json | awk '{print $1}')" = "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807"
+          test "$(sha256sum benchmarks/algorithm-development/abstention-dev-v1/validation.json | awk '{print $1}')" = "f396fa3cbc2dbb46fb7003fb7a359e7392469e45cb3abb07c0c9f7c6f01b08fa"
+          test "$(sha256sum benchmarks/algorithm-development/abstention-dev-v1/withheld.json | awk '{print $1}')" = "0f7f04afd9e968df657b89b30316802cd8cb789b3f45d54e959ea2a52099882c"
+          python - <<'PY'
+          import json
+          p=json.load(open('experiments/protocols/abstention-strategy-matrix-v1.json'))
+          assert p['status']=='FROZEN_BEFORE_MULTI_STRATEGY_RESULTS'
+          assert p['selection_rule']['data']=='development only'
+          assert p['candidate']['candidate_changed'] is False
+          assert p['integrity']['sealed_final_accessed'] is False
+          assert p['integrity']['new_monetary_cost_usd']==0.0
+          assert 'PREVIOUSLY_OBSERVED' in p['benchmark']['withheld_status_for_this_new_matrix']
+          PY
+      - name: Select on development and evaluate validation plus observed withheld
+        run: |
+          set -euo pipefail
+          python scripts/evaluate_abstention_strategy_matrix.py \
+            --root benchmarks/algorithm-development/abstention-dev-v1 \
+            --protocol experiments/protocols/abstention-strategy-matrix-v1.json \
+            --output-root results/abstention-strategy-matrix-v1
+          cat results/abstention-strategy-matrix-v1/results.json
+      - name: Verify no answerable development rejection and artifacts
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib
+          root=pathlib.Path('results/abstention-strategy-matrix-v1')
+          r=json.load(open(root/'results.json'))
+          reg=json.load(open(root/'artifact-registry.json'))
+          assert set(r['strategies'])=={'always_retrieve','absolute_score_threshold','top1_top2_margin','evidence_coverage_gate','combined_confidence_gate'}
+          for name,row in r['strategies'].items():
+              assert row['development']['false_abstention_rate']==0.0, name
+              assert row['development']['answerable_recall_at_1']==r['strategies']['always_retrieve']['development']['answerable_recall_at_1'], name
+              assert row['development']['answerable_recall_at_5']==r['strategies']['always_retrieve']['development']['answerable_recall_at_5'], name
+          assert r['candidate_changed'] is False
+          assert r['validation_retuning'] is False
+          assert r['withheld_retuning'] is False
+          assert r['algorithm_parity']=='NO'
+          assert r['sealed_final_accessed'] is False
+          for row in reg['artifacts']:
+              p=pathlib.Path(row['path'])
+              assert p.is_file(), p
+              assert p.stat().st_size==row['bytes']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
+          PY
+      - name: Persist auxiliary abstention evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/abstention-strategy-matrix-v1
+          if git diff --cached --quiet; then
+            echo "No new abstention evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record abstention strategy matrix evidence"
+          git push origin HEAD:research/personal-state-engine-v0
