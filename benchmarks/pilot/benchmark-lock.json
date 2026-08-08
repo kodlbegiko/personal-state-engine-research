@@ -9,6 +9,7 @@
     "scripts/freeze_longmemeval_development_matrix.py": "2b680063f53598ee078b72f5f3534bf9ea959d1c",
     "scripts/freeze_pilot_benchmark.py": "c2ae7ae9dac411d23099f14a20da141b449a8c3e",
     "scripts/prepare_longmemeval_faithful_port.py": "e99028e5a1fa53edd5704e7df0ebd6ee548a3f34",
+    "scripts/run_amem_frozen_development.py": "eff0e3ffa7652741527850e4e139bd335e707180",
     "scripts/run_amem_frozen_synthetic.py": "61b9552bae60ad62c63c89e7bff3874d9cfe1293",
     "scripts/run_benchmark.py": "08da9baa17c79fcd702db19709f50184b8a1ab14",
     "scripts/run_external_trial.py": "73a5882298814e194df70c8b9a6c9f2929480388",
