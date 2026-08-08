@@ -2,9 +2,9 @@
   "artifact_count": 13,
   "artifacts": [
     {
-      "bytes": 13180,
+      "bytes": 14165,
       "path": "results/zero-cost-algorithm/baseline-results.json",
-      "sha256": "321aa429ca89563e1f6dec9c5dcee5135bc53861c6645172d304e22c58793ce1"
+      "sha256": "01fecbac220cdbe8095b12f97d40838a0fcb47a998b0f7843a6daf2c44cffdcb"
     },
     {
       "bytes": 9877,
@@ -32,9 +32,9 @@
       "sha256": "db1177daff50d2fed895132d7b204b2ef1a046265e9ecc732cb078102cc8fad1"
     },
     {
-      "bytes": 439,
+      "bytes": 648,
       "path": "results/zero-cost-algorithm/reproduction-status.json",
-      "sha256": "5701745f30888c0bc53f073912b61e4fc07d9607a8eeb03e5e65925e5a6cfc77"
+      "sha256": "467460426d4916f9264e77351759a935487866d0af259b28e3534f2e126d4b8e"
     },
     {
       "bytes": 6105,
@@ -67,8 +67,8 @@
       "sha256": "0f7958b41a40017edf1c9066ca78b1dbec790fac83dbefef7d8555e8a0b5d13c"
     }
   ],
-  "generated_at": "2026-08-08T16:12:00Z",
-  "generation_command": "python scripts/run_zero_cost_algorithm_research.py plus environment/resource audit",
+  "generated_at": "2026-08-08T23:40:00Z",
+  "generation_command": "python scripts/run_zero_cost_algorithm_research.py && python scripts/refresh_zero_cost_artifact_registry.py",
   "hash_algorithm": "sha256",
   "paid_api_cost_usd": 0.0,
   "schema_version": "zero-cost-algorithm-artifact-registry-v1",
