@@ -1,0 +1,70 @@
+{
+  "schema_version": "candidate-robustness-suite-protocol-v1",
+  "status": "FROZEN_BEFORE_SUITE_RESULTS",
+  "base_benchmark": {
+    "path": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json",
+    "manifest": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json",
+    "sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+    "case_count": 24,
+    "answerable_case_count": 22,
+    "abstention_case_count": 2
+  },
+  "candidate_lock": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+    "candidate_changes_after_suite": false
+  },
+  "systems": [
+    "pse_current_reconstruction",
+    "pse_candidate_v1",
+    "pse_candidate_v2"
+  ],
+  "perturbations": [
+    "capitalization",
+    "punctuation",
+    "whitespace",
+    "memory_shuffle",
+    "timestamp_missing",
+    "timestamp_malformed",
+    "same_timestamp",
+    "fresh_irrelevant_distractor",
+    "stale_distractor",
+    "lexical_copy",
+    "same_name_entity",
+    "duplicate_distractor_cluster",
+    "keyword_stuffing"
+  ],
+  "transformation_contract": {
+    "capitalization": "Uppercase query only.",
+    "punctuation": "Wrap query with repeated punctuation without changing words.",
+    "whitespace": "Replace single query spaces with deterministic triple spaces.",
+    "memory_shuffle": "Deterministically shuffle each case's memory list with seed 31000 + case index.",
+    "timestamp_missing": "Remove timestamp from every memory.",
+    "timestamp_malformed": "Replace every memory timestamp with literal malformed-timestamp.",
+    "same_timestamp": "Set every memory timestamp to 2026-01-01.",
+    "fresh_irrelevant_distractor": "Append one semantically unrelated memory dated 2099-01-01.",
+    "stale_distractor": "Append one high-overlap obsolete distractor formed from the query, dated 1999-01-01.",
+    "lexical_copy": "Append one distractor containing an exact query copy plus an explicit unrelated marker.",
+    "same_name_entity": "Append one high-overlap distractor stating it concerns a different same-name entity.",
+    "duplicate_distractor_cluster": "Append three duplicate high-overlap irrelevant distractors.",
+    "keyword_stuffing": "Append one distractor containing query tokens repeated three times plus an unrelated marker."
+  },
+  "metrics": [
+    "mrr",
+    "recall_at_1",
+    "recall_at_5",
+    "ndcg_at_5",
+    "irrelevant_retrieval_rate",
+    "abstention_accuracy",
+    "mrr_delta_vs_base",
+    "recall_at_1_delta_vs_base",
+    "top1_flip_rate"
+  ],
+  "integrity": {
+    "operator_designed": true,
+    "independent_reproduction": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0
+  },
+  "claim_boundary": "Auxiliary robustness evidence for frozen candidates; no candidate tuning from suite results without creating a new candidate version."
+}
