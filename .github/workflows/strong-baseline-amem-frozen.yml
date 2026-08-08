@@ -82,11 +82,14 @@ jobs:
           if observed != expected:
               raise SystemExit(f'Embedding snapshot mismatch: expected {expected}, got {observed}')
           open('amem-frozen-artifact/embedding-snapshot.txt','w').write(observed+'\n')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
+              handle.write(f'EMBEDDING_MODEL_PATH={path}\n')
           PY
       - name: Execute exact A-MEM shard
         env:
           PYTHONHASHSEED: "17"
         run: |
+          test -n "$EMBEDDING_MODEL_PATH"
           /usr/bin/time -v -o amem-frozen-artifact/time-shard-${{ matrix.shard }}.txt \
             python scripts/run_amem_frozen_synthetic.py \
               --corpus benchmarks/strong-baseline/synthetic-memory-cases-v1.json \
@@ -95,7 +98,8 @@ jobs:
               --shard-index ${{ matrix.shard }} \
               --shard-count 6 \
               --model qwen2.5:3b \
-              --backend ollama
+              --backend ollama \
+              --embedding-model "$EMBEDDING_MODEL_PATH"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
