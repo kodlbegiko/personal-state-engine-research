@@ -1,0 +1,28 @@
+{
+  "artifact_count": 17,
+  "artifacts": [
+    {"bytes": 13180, "path": "results/zero-cost-algorithm/baseline-results.json", "sha256": "321aa429ca89563e1f6dec9c5dcee5135bc53861c6645172d304e22c58793ce1"},
+    {"bytes": 9877, "path": "results/zero-cost-algorithm/ablation-results.json", "sha256": "ffabfef614fb4017c34ec639b5da461811f2424297473e6abfdff32c60b668de"},
+    {"bytes": 842, "path": "results/zero-cost-algorithm/statistical-analysis.json", "sha256": "b43145ee6327880deac6ae7a951b5f8f35a73f6b52da959ec76fbebb4933882d"},
+    {"bytes": 3426, "path": "results/zero-cost-algorithm/failure-analysis.json", "sha256": "e30ad28a4ac2abbfb11abd9bdb86acf24e0750965df591d002af740be03164d9"},
+    {"bytes": 12322, "path": "results/zero-cost-algorithm/robustness-results.json", "sha256": "f3210569da02622715bba9048b5a08c3017c407d1017ace5326f0a66ed7264fc"},
+    {"bytes": 344, "path": "results/zero-cost-algorithm/determinism-report.json", "sha256": "c33121d8b43403e3f566e6359cf63bb19632a5ba0b18b1cfe08793c2e69264dc"},
+    {"bytes": 439, "path": "results/zero-cost-algorithm/reproduction-status.json", "sha256": "5701745f30888c0bc53f073912b61e4fc07d9607a8eeb03e5e65925e5a6cfc77"},
+    {"bytes": 6105, "path": "benchmarks/strong-baseline/synthetic-memory-cases-v1.json", "sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9"},
+    {"bytes": 1024, "path": "benchmarks/algorithm-development/specification-v2.json", "sha256": "8a4bd4dc7c0cfb702066d396623bbe5a05ee230e813821d769a0f26911c5f1a9"},
+    {"bytes": 3999, "path": "benchmarks/algorithm-development/withheld-extension-v2.json", "sha256": "6da06a92f94f827f6cff04294a8e3032af1116c0423318e67180cb397111a7a0"},
+    {"bytes": 662, "path": "benchmarks/algorithm-development/freeze-manifest-v2.json", "sha256": "a516aa8dc85edfda4b3cbb3b98fc5ddbdfa3b6b8ff7d940b79d63943792aea1f"},
+    {"bytes": 11729, "path": "src/personal_state_engine/zero_cost_baselines.py", "sha256": "2bc23fb4e8de1b36b286ebc8ce0a62bdc7ee26ef9099a77fd8d989014996d8ed"},
+    {"bytes": 12532, "path": "scripts/run_zero_cost_algorithm_research.py", "sha256": "cd721a529b6e0bba3dba2fe1a0617d4434d857f5ea518e8ba9c13bbb827eca0c"},
+    {"bytes": 1268, "path": "results/current-environment-audit.json", "sha256": "e100268c6467bc4e0716beb1ee34b6fc66f14aef64f16f9cd52731d9cad95c12"},
+    {"bytes": 1641, "path": "results/zero-cost-algorithm/resource-accounting.json", "sha256": "0f7958b41a40017edf1c9066ca78b1dbec790fac83dbefef7d8555e8a0b5d13c"},
+    {"bytes": 2829, "path": "docs/pse-algorithm-current.md", "sha256": "e4ca3c33902ce1b88fe537d5a67dd564d3a8830fd812fe5792a444fa6246ddd3"},
+    {"bytes": 2812, "path": "docs/zero-cost-algorithm-status-2026-08-08.md", "sha256": "c9eaf569c513a61f3e6f5605d54235156c274efad6b914b1a42f13898a47bf88"}
+  ],
+  "generated_at": "2026-08-08T16:10:00Z",
+  "generation_command": "python scripts/run_zero_cost_algorithm_research.py plus environment/resource audit",
+  "hash_algorithm": "sha256",
+  "paid_api_cost_usd": 0.0,
+  "schema_version": "zero-cost-algorithm-artifact-registry-v1",
+  "sealed_final_accessed": false
+}
