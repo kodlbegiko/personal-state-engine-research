@@ -1,0 +1,396 @@
+{
+  "schema_version": "pse-adversarial-v4-postfreeze-v1",
+  "generation_note": "Post-candidate-freeze discrimination benchmark. Designed after adversarial-v3 exposed weak baseline separation; candidate v1/v2 source/config remained frozen and were not tuned on v4. Operator-designed; not independent reproduction.",
+  "design": {
+    "case_count": 24,
+    "answerable_case_count": 22,
+    "abstention_case_count": 2,
+    "categories": [
+      "ambiguous_no_evidence",
+      "contradictory_high_overlap",
+      "duplicate_irrelevant_cluster",
+      "fresh_irrelevant_memory",
+      "keyword_stuffing",
+      "lexical_copy_distractor",
+      "partial_truth_distractor",
+      "revoked_preference",
+      "same_name_entity_confusion",
+      "stale_high_overlap",
+      "superseded_project_status",
+      "wrong_entity_high_overlap"
+    ],
+    "cases_per_category": 2,
+    "memory_count_per_case": 10,
+    "answerable_relevant_count_per_case": 1,
+    "distractors_per_answerable_case": 9,
+    "generation_seed": 20260809,
+    "case_memory_shuffle_seed_rule": "17000 + 1-based case index",
+    "candidate_tuning_after_generation": false,
+    "sealed_final_accessed": false
+  },
+  "cases": [
+    {
+      "id": "ADV4-PF-001",
+      "category": "lexical_copy_distractor",
+      "memories": [
+        {"id":"d1","text":"Where is the backup studio key? backup studio key location answer backup key.","timestamp":"2026-08-02"},
+        {"id":"d9","text":"The reception drawer inventory was counted this morning.","timestamp":"2026-02-14"},
+        {"id":"d5","text":"Reception closes at 21:00 on weekdays.","timestamp":"2026-08-06"},
+        {"id":"d2","text":"The studio backup schedule is printed beside reception.","timestamp":"2026-08-03"},
+        {"id":"d7","text":"The studio key policy was reviewed last month.","timestamp":"2026-06-28"},
+        {"id":"d8","text":"The main entrance key is held by facilities.","timestamp":"2026-01-22"},
+        {"id":"rel","text":"The backup studio key is taped beneath the blue reception drawer.","timestamp":"2026-05-15"},
+        {"id":"d6","text":"The backup camera battery is in locker six.","timestamp":"2026-06-05"},
+        {"id":"d4","text":"A spare microphone keycap is in the equipment box.","timestamp":"2026-08-05"},
+        {"id":"d3","text":"The blue rehearsal room key was returned yesterday.","timestamp":"2026-08-04"}
+      ],
+      "query": "Where is the backup studio key?",
+      "relevant_memory_ids": ["rel"]
+    },
+    {
+      "id":"ADV4-PF-002","category":"lexical_copy_distractor",
+      "memories":[
+        {"id":"d8","text":"Shelf D4 was cleared for stationery.","timestamp":"2026-02-08"},
+        {"id":"d1","text":"Which shelf holds the tax archive drive? tax archive drive shelf answer.","timestamp":"2026-08-02"},
+        {"id":"d6","text":"Tax receipts are scanned every Friday.","timestamp":"2026-06-22"},
+        {"id":"d4","text":"The records room dehumidifier was serviced.","timestamp":"2026-08-05"},
+        {"id":"d2","text":"The tax archive folder naming policy changed in June.","timestamp":"2026-08-03"},
+        {"id":"d9","text":"The tax filing deadline is noted on the calendar.","timestamp":"2026-03-03"},
+        {"id":"rel","text":"The tax archive drive is stored on shelf C4 in the records room.","timestamp":"2026-05-15"},
+        {"id":"d5","text":"An archive drive for photos is in the media cabinet.","timestamp":"2026-08-06"},
+        {"id":"d7","text":"The records room key is with administration.","timestamp":"2026-01-15"},
+        {"id":"d3","text":"Shelf C2 contains old payroll binders.","timestamp":"2026-08-04"}
+      ],"query":"Which shelf holds the tax archive drive?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-003","category":"keyword_stuffing",
+      "memories":[
+        {"id":"d8","text":"Equipment cleaning is scheduled monthly.","timestamp":"2026-02-25"},
+        {"id":"d6","text":"The extended-support brochure mentions warranty coverage.","timestamp":"2026-01-10"},
+        {"id":"d5","text":"The service desk handles warranty paperwork.","timestamp":"2026-08-06"},
+        {"id":"d2","text":"The equipment serial number begins with AX4.","timestamp":"2026-08-03"},
+        {"id":"rel","text":"The equipment warranty expires on 2027-02-18.","timestamp":"2026-03-12"},
+        {"id":"d9","text":"The purchase order was approved last winter.","timestamp":"2026-03-20"},
+        {"id":"d1","text":"equipment warranty expire expiry date warranty equipment when date 2026 maybe answer warranty","timestamp":"2026-08-02"},
+        {"id":"d7","text":"A different laptop warranty ends in September.","timestamp":"2026-02-02"},
+        {"id":"d3","text":"Warranty claims require a purchase receipt.","timestamp":"2026-08-04"},
+        {"id":"d4","text":"The equipment arrived in February.","timestamp":"2026-08-05"}
+      ],"query":"When does the equipment warranty expire?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-004","category":"keyword_stuffing",
+      "memories":[
+        {"id":"d9","text":"Phone extensions use four digits.","timestamp":"2026-04-06"},
+        {"id":"d2","text":"The emergency evacuation map is near the stairs.","timestamp":"2026-08-03"},
+        {"id":"d7","text":"The building manager uses extension 7301.","timestamp":"2026-02-19"},
+        {"id":"d4","text":"The security desk extension is 7110.","timestamp":"2026-08-05"},
+        {"id":"d6","text":"Emergency drills happen twice a year.","timestamp":"2026-01-27"},
+        {"id":"d1","text":"current emergency contact extension phone extension current emergency answer 1000 2000 contact","timestamp":"2026-08-02"},
+        {"id":"rel","text":"The current emergency contact extension is 7426.","timestamp":"2026-03-12"},
+        {"id":"d5","text":"An old phone directory is in the drawer.","timestamp":"2026-08-06"},
+        {"id":"d8","text":"Contact details are reviewed quarterly.","timestamp":"2026-03-14"},
+        {"id":"d3","text":"Contact details are reviewed quarterly.","timestamp":"2026-08-04"}
+      ],"query":"What is the current emergency contact extension?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-005","category":"wrong_entity_high_overlap",
+      "memories":[
+        {"id":"d5","text":"Atlas has a design review on Tuesday.","timestamp":"2026-05-28"},
+        {"id":"d6","text":"The Singapore office hosts the support team.","timestamp":"2026-06-20"},
+        {"id":"d3","text":"The Atlas project deployment checklist was updated.","timestamp":"2026-03-11"},
+        {"id":"d9","text":"A legacy Atlas sandbox ran in Oregon.","timestamp":"2026-05-05"},
+        {"id":"d2","text":"The Atlas training dataset is mirrored in Tokyo.","timestamp":"2026-02-16"},
+        {"id":"rel","text":"The Atlas project deploys to the Singapore region.","timestamp":"2026-05-15"},
+        {"id":"d1","text":"The Apollo project deploys to the Singapore region.","timestamp":"2026-01-24"},
+        {"id":"d8","text":"The Atlas project owner is Mei.","timestamp":"2026-04-12"},
+        {"id":"d7","text":"Deployment regions are reviewed each quarter.","timestamp":"2026-03-29"},
+        {"id":"d4","text":"The Beacon project deploys to Frankfurt.","timestamp":"2026-04-03"}
+      ],"query":"What is the Atlas project deployment region?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-006","category":"wrong_entity_high_overlap",
+      "memories":[
+        {"id":"d9","text":"Vega and Orion share a cost center.","timestamp":"2026-05-22"},
+        {"id":"d8","text":"The Orion project manager is Lina.","timestamp":"2026-04-29"},
+        {"id":"d4","text":"Priya Shah approves the Atlas budget.","timestamp":"2026-04-20"},
+        {"id":"d5","text":"Orion uses the finance template version 3.","timestamp":"2026-05-13"},
+        {"id":"d1","text":"Marta Chen approves the Vega budget.","timestamp":"2026-02-10"},
+        {"id":"rel","text":"Marta Chen approves the Orion budget.","timestamp":"2026-05-15"},
+        {"id":"d7","text":"The budget approval deadline is Friday.","timestamp":"2026-04-06"},
+        {"id":"d6","text":"Marta Chen joined the quarterly review.","timestamp":"2026-03-14"},
+        {"id":"d2","text":"Diego Ruiz owns the Orion roadmap.","timestamp":"2026-03-04"},
+        {"id":"d3","text":"The Orion budget review occurs monthly.","timestamp":"2026-03-27"}
+      ],"query":"Who approves the Orion budget?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-007","category":"stale_high_overlap",
+      "memories":[
+        {"id":"d8","text":"A delivery truck waited at Gate 3 last year.","timestamp":"2026-05-16"},
+        {"id":"d1","text":"The warehouse pickup gate used to be Gate 3.","timestamp":"2025-10-01"},
+        {"id":"d4","text":"Gate 5 is for employee parking.","timestamp":"2026-04-17"},
+        {"id":"d7","text":"The current visitor entrance is Gate 2.","timestamp":"2026-04-23"},
+        {"id":"d6","text":"Pickup gate signage will be replaced.","timestamp":"2026-03-31"},
+        {"id":"d5","text":"The warehouse loading team changed shifts.","timestamp":"2026-03-08"},
+        {"id":"rel","text":"The warehouse pickup gate changed to Gate 8.","timestamp":"2026-07-20"},
+        {"id":"d9","text":"Warehouse pickup requires an ID card.","timestamp":"2026-06-08"},
+        {"id":"d2","text":"Gate 3 warehouse pickup instructions are printed on an old poster.","timestamp":"2026-01-10"},
+        {"id":"d3","text":"The warehouse pickup schedule starts at 08:00.","timestamp":"2026-03-25"}
+      ],"query":"What is the current warehouse pickup gate?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-008","category":"stale_high_overlap",
+      "memories":[
+        {"id":"d2","text":"An old runbook still says database backup at 01:00 UTC.","timestamp":"2026-01-10"},
+        {"id":"d8","text":"Backup alerts go to the infrastructure channel.","timestamp":"2026-06-02"},
+        {"id":"d4","text":"The backup retention period is 30 days.","timestamp":"2026-05-03"},
+        {"id":"d3","text":"Database maintenance happens on Sundays.","timestamp":"2026-04-10"},
+        {"id":"d7","text":"The current log rotation window is 05:00 UTC.","timestamp":"2026-05-10"},
+        {"id":"d9","text":"Database snapshots are encrypted.","timestamp":"2026-06-25"},
+        {"id":"rel","text":"The database backup window changed to 02:30–03:15 UTC.","timestamp":"2026-07-20"},
+        {"id":"d1","text":"The database backup window was 01:00–01:45 UTC before the migration.","timestamp":"2025-10-01"},
+        {"id":"d5","text":"A staging database backup runs at 04:00 UTC.","timestamp":"2026-05-26"},
+        {"id":"d6","text":"The migration completed in May.","timestamp":"2026-04-02"}
+      ],"query":"What is the current database backup window?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-009","category":"contradictory_high_overlap",
+      "memories":[
+        {"id":"d9","text":"Invoices use the customer legal name.","timestamp":"2026-01-28"},
+        {"id":"d1","text":"Monthly invoices should be emailed to the old billing address.","timestamp":"2025-10-01"},
+        {"id":"d5","text":"The finance team archives invoice PDFs.","timestamp":"2026-01-23"},
+        {"id":"d2","text":"The old billing address remains in a 2025 onboarding document.","timestamp":"2026-01-10"},
+        {"id":"d6","text":"Email notifications still announce invoice creation.","timestamp":"2026-02-15"},
+        {"id":"d8","text":"Billing contacts were reviewed in July.","timestamp":"2026-05-27"},
+        {"id":"rel","text":"No. Monthly invoices must now be sent to the new billing portal, not the old email address.","timestamp":"2026-07-20"},
+        {"id":"d7","text":"The old address receives unrelated vendor notices.","timestamp":"2026-03-10"},
+        {"id":"d4","text":"The billing portal requires two-factor authentication.","timestamp":"2026-04-12"},
+        {"id":"d3","text":"Monthly invoices are generated on the first business day.","timestamp":"2026-03-20"}
+      ],"query":"Should monthly invoices still be emailed to the old billing address?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-010","category":"contradictory_high_overlap",
+      "memories":[
+        {"id":"d8","text":"The project review is on Thursday.","timestamp":"2026-06-13"},
+        {"id":"d9","text":"The meeting facilitator rotates weekly.","timestamp":"2026-01-05"},
+        {"id":"d2","text":"A copied agenda still lists Friday 09:00.","timestamp":"2026-01-10"},
+        {"id":"rel","text":"No. The Friday status meeting was moved to 15:30.","timestamp":"2026-07-20"},
+        {"id":"d3","text":"The Friday meeting covers delivery risks.","timestamp":"2026-04-06"},
+        {"id":"d5","text":"The 15:30 room booking was confirmed.","timestamp":"2026-05-22"},
+        {"id":"d7","text":"Friday office hours end at 17:00.","timestamp":"2026-05-21"},
+        {"id":"d1","text":"The Friday status meeting is at 09:00 according to the old calendar.","timestamp":"2025-10-01"},
+        {"id":"d4","text":"The team has a stand-up at 09:15 on Monday.","timestamp":"2026-04-29"},
+        {"id":"d6","text":"Status notes are posted after the meeting.","timestamp":"2026-02-08"}
+      ],"query":"Is the Friday status meeting still at 09:00?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-011","category":"same_name_entity_confusion",
+      "memories":[
+        {"id":"d4","text":"Platform owns the data cutover checklist.","timestamp":"2026-05-16"},
+        {"id":"rel","text":"Alex Kim from the Platform team owns the Mercury migration.","timestamp":"2026-05-15"},
+        {"id":"d9","text":"The Mercury visual refresh has a different owner.","timestamp":"2026-01-22"},
+        {"id":"d3","text":"The Mercury migration starts next month.","timestamp":"2026-04-23"},
+        {"id":"d1","text":"Alex Kim from the Design team owns the Mercury visual refresh.","timestamp":"2026-02-24"},
+        {"id":"d2","text":"Alex Kim from Sales manages the Mercury account renewal.","timestamp":"2026-03-19"},
+        {"id":"d8","text":"Sales will be notified after migration.","timestamp":"2026-03-27"},
+        {"id":"d7","text":"The migration owner presents on Tuesday.","timestamp":"2026-03-04"},
+        {"id":"d5","text":"The Design team has a separate Alex Kim.","timestamp":"2026-06-08"},
+        {"id":"d6","text":"Mercury uses the shared staging cluster.","timestamp":"2026-01-15"}
+      ],"query":"Which Alex Kim owns the Mercury migration?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-012","category":"same_name_entity_confusion",
+      "memories":[
+        {"id":"d6","text":"The finance team tracks cloud spend.","timestamp":"2026-02-01"},
+        {"id":"d2","text":"Sam Lee in Finance reviews Nimbus spend.","timestamp":"2026-04-05"},
+        {"id":"d8","text":"Nimbus alerts page the on-call engineer.","timestamp":"2026-04-20"},
+        {"id":"d7","text":"A different Sam Lee joined the postmortem.","timestamp":"2026-03-28"},
+        {"id":"d5","text":"The Nimbus feature lead runs roadmap reviews.","timestamp":"2026-01-09"},
+        {"id":"rel","text":"Sam Lee in Site Reliability is the Nimbus incident commander.","timestamp":"2026-05-15"},
+        {"id":"d4","text":"Site Reliability rotates incident commanders.","timestamp":"2026-06-14"},
+        {"id":"d1","text":"Sam Lee in Product is the Nimbus feature lead.","timestamp":"2026-03-13"},
+        {"id":"d9","text":"Incident commanders declare severity levels.","timestamp":"2026-05-12"},
+        {"id":"d3","text":"The Nimbus incident channel is archived after resolution.","timestamp":"2026-04-28"}
+      ],"query":"Which Sam Lee is the incident commander for Nimbus?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-013","category":"fresh_irrelevant_memory",
+      "memories":[
+        {"id":"d8","text":"The loading dock badge is gray.","timestamp":"2026-05-13"},
+        {"id":"d5","text":"Secure storage closes at 18:00.","timestamp":"2026-08-06"},
+        {"id":"d2","text":"A fresh notice says secure storage access is logged.","timestamp":"2026-08-03"},
+        {"id":"d6","text":"The storage inventory was updated today.","timestamp":"2026-01-26"},
+        {"id":"d9","text":"Security replaced a card reader this morning.","timestamp":"2026-06-05"},
+        {"id":"d3","text":"The visitor badge is orange.","timestamp":"2026-08-04"},
+        {"id":"rel","text":"The secure storage badge is violet.","timestamp":"2026-02-10"},
+        {"id":"d1","text":"The secure storage door was inspected this morning.","timestamp":"2026-08-02"},
+        {"id":"d7","text":"A new badge policy was posted today.","timestamp":"2026-02-18"},
+        {"id":"d4","text":"Badge printers received new labels today.","timestamp":"2026-08-05"}
+      ],"query":"What color is the secure storage badge?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-014","category":"fresh_irrelevant_memory",
+      "memories":[
+        {"id":"d7","text":"The cold room target is 2 °C.","timestamp":"2026-03-05"},
+        {"id":"d8","text":"Freezer samples were inventoried this morning.","timestamp":"2026-03-28"},
+        {"id":"d1","text":"The lab freezer was defrosted today.","timestamp":"2026-08-02"},
+        {"id":"d6","text":"A new alarm dashboard was deployed.","timestamp":"2026-02-10"},
+        {"id":"d4","text":"Lab temperature logs were uploaded today.","timestamp":"2026-08-05"},
+        {"id":"d2","text":"A fresh maintenance note mentions the freezer compressor.","timestamp":"2026-08-03"},
+        {"id":"d9","text":"The lab alarm speaker was tested.","timestamp":"2026-04-20"},
+        {"id":"d3","text":"The refrigerator alarm threshold is 4 °C.","timestamp":"2026-08-04"},
+        {"id":"rel","text":"The lab freezer alarm threshold is −68 °C.","timestamp":"2026-02-10"},
+        {"id":"d5","text":"The freezer door gasket was replaced.","timestamp":"2026-08-06"}
+      ],"query":"What is the lab freezer alarm threshold?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-015","category":"duplicate_irrelevant_cluster",
+      "memories":[
+        {"id":"d5","text":"Projector PIN for Cedar room question.","timestamp":"2026-08-06"},
+        {"id":"d8","text":"Meeting room PIN policy is documented.","timestamp":"2026-06-01"},
+        {"id":"rel","text":"The Cedar room projector PIN is 5814.","timestamp":"2026-05-15"},
+        {"id":"d2","text":"Cedar projector PIN projector room PIN what is it?","timestamp":"2026-08-03"},
+        {"id":"d4","text":"Cedar projector access PIN requested.","timestamp":"2026-08-05"},
+        {"id":"d9","text":"The Cedar room calendar is shared.","timestamp":"2026-01-15"},
+        {"id":"d6","text":"The Cedar room seats twelve people.","timestamp":"2026-01-09"},
+        {"id":"d3","text":"Need Cedar room projector PIN answer.","timestamp":"2026-08-04"},
+        {"id":"d1","text":"What is the Cedar room projector PIN?","timestamp":"2026-08-02"},
+        {"id":"d7","text":"The projector lamp was replaced.","timestamp":"2026-05-09"}
+      ],"query":"What is the Cedar room projector PIN?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-016","category":"duplicate_irrelevant_cluster",
+      "memories":[
+        {"id":"d4","text":"Phoenix token where stored recovery token.","timestamp":"2026-08-05"},
+        {"id":"d6","text":"The Phoenix service restarts automatically.","timestamp":"2026-01-26"},
+        {"id":"d3","text":"Need recovery token Phoenix location answer.","timestamp":"2026-08-04"},
+        {"id":"rel","text":"The Phoenix recovery token is stored in the red offline safe.","timestamp":"2026-05-15"},
+        {"id":"d1","text":"Where is the Phoenix recovery token stored?","timestamp":"2026-08-02"},
+        {"id":"d5","text":"Recovery token storage for Phoenix query.","timestamp":"2026-08-06"},
+        {"id":"d8","text":"A blue safe stores paper contracts.","timestamp":"2026-06-16"},
+        {"id":"d9","text":"Phoenix has a separate API token rotation process.","timestamp":"2026-01-09"},
+        {"id":"d2","text":"Phoenix recovery token storage location?","timestamp":"2026-08-03"},
+        {"id":"d7","text":"The offline safe inventory was audited.","timestamp":"2026-02-18"}
+      ],"query":"Where is the Phoenix recovery token stored?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-017","category":"partial_truth_distractor",
+      "memories":[
+        {"id":"d4","text":"A different October 22 briefing starts at 10:00.","timestamp":"2026-01-13"},
+        {"id":"d6","text":"The facilitator arrives before the start.","timestamp":"2026-02-28"},
+        {"id":"rel","text":"The October 22 workshop starts at 14:40.","timestamp":"2026-05-15"},
+        {"id":"d3","text":"Workshop registration closes October 18.","timestamp":"2026-06-13"},
+        {"id":"d2","text":"The October 22 workshop is in Room 5.","timestamp":"2026-05-21"},
+        {"id":"d9","text":"The agenda was revised yesterday.","timestamp":"2026-03-29"},
+        {"id":"d1","text":"The workshop is on October 22.","timestamp":"2026-04-28"},
+        {"id":"d5","text":"The workshop ends at 16:30.","timestamp":"2026-02-05"},
+        {"id":"d7","text":"Room 5 opens at 14:00.","timestamp":"2026-03-23"},
+        {"id":"d8","text":"The workshop date is October 22 and attendance is capped.","timestamp":"2026-03-06"}
+      ],"query":"What time does the October 22 workshop start?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-018","category":"partial_truth_distractor",
+      "memories":[
+        {"id":"d7","text":"Floor 7 access requires a badge.","timestamp":"2026-04-09"},
+        {"id":"d4","text":"A different support desk is on floor 4.","timestamp":"2026-01-30"},
+        {"id":"d2","text":"Delta support operates weekdays.","timestamp":"2026-06-07"},
+        {"id":"d1","text":"The Delta support desk is in the north wing.","timestamp":"2026-05-15"},
+        {"id":"rel","text":"The Delta support desk is on floor 7.","timestamp":"2026-05-15"},
+        {"id":"d9","text":"Support hours were extended.","timestamp":"2026-04-22"},
+        {"id":"d5","text":"Delta support uses queue D.","timestamp":"2026-02-22"},
+        {"id":"d3","text":"The north wing has elevators near reception.","timestamp":"2026-06-30"},
+        {"id":"d8","text":"The Delta desk is near the north stairwell.","timestamp":"2026-05-02"},
+        {"id":"d6","text":"The desk phone was replaced.","timestamp":"2026-03-17"}
+      ],"query":"Which floor hosts the Delta support desk?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-019","category":"revoked_preference",
+      "memories":[
+        {"id":"d4","text":"Release alerts include version and severity.","timestamp":"2026-02-16"},
+        {"id":"d1","text":"Release alerts should be sent through Slack.","timestamp":"2025-10-01"},
+        {"id":"d9","text":"A test alert was posted in Slack last month.","timestamp":"2026-05-31"},
+        {"id":"d2","text":"An old preference note says Slack for release alerts.","timestamp":"2026-01-10"},
+        {"id":"d7","text":"The release process has four stages.","timestamp":"2026-04-22"},
+        {"id":"d3","text":"Signal is installed on the on-call phone.","timestamp":"2026-01-24"},
+        {"id":"d8","text":"Notification preferences were reviewed recently.","timestamp":"2026-05-15"},
+        {"id":"d5","text":"Slack remains used for casual team chat.","timestamp":"2026-03-11"},
+        {"id":"rel","text":"Release alerts should now be sent through Signal; Slack alerts were revoked.","timestamp":"2026-07-20"},
+        {"id":"d6","text":"Email is used for monthly reports.","timestamp":"2026-03-30"}
+      ],"query":"What notification channel should be used for release alerts now?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-020","category":"revoked_preference",
+      "memories":[
+        {"id":"d9","text":"The setup guide is scheduled for revision.","timestamp":"2026-06-17"},
+        {"id":"d4","text":"VS Code remains installed for legacy projects.","timestamp":"2026-03-05"},
+        {"id":"rel","text":"New project templates should use Zed; the previous VS Code preference was revoked.","timestamp":"2026-07-20"},
+        {"id":"d6","text":"The editor preference was revisited in June.","timestamp":"2026-04-20"},
+        {"id":"d1","text":"New project templates should use VS Code.","timestamp":"2025-10-01"},
+        {"id":"d7","text":"A different team uses Neovim.","timestamp":"2026-05-13"},
+        {"id":"d2","text":"An old setup guide recommends VS Code.","timestamp":"2026-01-10"},
+        {"id":"d8","text":"Template generation runs in CI.","timestamp":"2026-06-05"},
+        {"id":"d3","text":"Zed settings are stored in the template repository.","timestamp":"2026-03-28"},
+        {"id":"d5","text":"Project templates include lint settings.","timestamp":"2026-03-15"}
+      ],"query":"Which editor should new project templates use now?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-021","category":"superseded_project_status",
+      "memories":[
+        {"id":"d3","text":"Lumen has a completed prototype.","timestamp":"2026-03-12"},
+        {"id":"d8","text":"The launch team is on standby.","timestamp":"2026-05-30"},
+        {"id":"d2","text":"The old launch checklist marks Lumen ready.","timestamp":"2026-01-10"},
+        {"id":"d1","text":"Project Lumen is approved for launch according to the superseded May plan.","timestamp":"2025-10-01"},
+        {"id":"d4","text":"Regulatory review documents were submitted.","timestamp":"2026-04-04"},
+        {"id":"d9","text":"The May plan is archived.","timestamp":"2026-06-22"},
+        {"id":"rel","text":"Project Lumen is paused pending regulatory review.","timestamp":"2026-07-20"},
+        {"id":"d7","text":"The project status page was edited recently.","timestamp":"2026-05-07"},
+        {"id":"d6","text":"Lumen budget remains allocated.","timestamp":"2026-04-14"},
+        {"id":"d5","text":"A different project, Sol, launches next week.","timestamp":"2026-04-27"}
+      ],"query":"What is the current status of Project Lumen?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-022","category":"superseded_project_status",
+      "memories":[
+        {"id":"d4","text":"The deployment window was Saturday.","timestamp":"2026-04-21"},
+        {"id":"d1","text":"Aurora deployment completed successfully according to the superseded release note.","timestamp":"2025-10-01"},
+        {"id":"d5","text":"A staging Aurora instance remains online.","timestamp":"2026-05-14"},
+        {"id":"d8","text":"Aurora version 4.2 was the attempted release.","timestamp":"2026-06-12"},
+        {"id":"d2","text":"An old dashboard snapshot shows Aurora healthy.","timestamp":"2026-01-10"},
+        {"id":"rel","text":"Aurora deployment was rolled back and is currently halted.","timestamp":"2026-07-20"},
+        {"id":"d7","text":"The on-call team opened an incident.","timestamp":"2026-05-20"},
+        {"id":"d3","text":"Aurora rollback logs are retained.","timestamp":"2026-03-29"},
+        {"id":"d9","text":"A different service completed deployment.","timestamp":"2026-01-18"},
+        {"id":"d6","text":"The release note has not yet been corrected.","timestamp":"2026-04-11"}
+      ],"query":"What is the current deployment status of Aurora?","relevant_memory_ids":["rel"]
+    },
+    {
+      "id":"ADV4-PF-023","category":"ambiguous_no_evidence",
+      "memories":[
+        {"id":"d4","text":"A maintenance ticket mentions the air purifier.","timestamp":"2026-02-18"},
+        {"id":"d5","text":"The conference-room purifier serial number is CR-4402.","timestamp":"2026-03-13"},
+        {"id":"d1","text":"The lobby air purifier filter was replaced.","timestamp":"2026-05-20"},
+        {"id":"d7","text":"Air purifier filters are stocked in storage.","timestamp":"2026-04-28"},
+        {"id":"d9","text":"The east entrance sensor was replaced.","timestamp":"2026-06-13"},
+        {"id":"d10","text":"Maintenance records list service dates but no lobby purifier serial number.","timestamp":"2026-02-01"},
+        {"id":"d2","text":"The lobby air purifier is near the east entrance.","timestamp":"2026-06-12"},
+        {"id":"d8","text":"The lobby cleaning schedule was updated.","timestamp":"2026-05-21"},
+        {"id":"d6","text":"The lobby thermostat serial number is TH-1198.","timestamp":"2026-04-05"},
+        {"id":"d3","text":"The lobby air purifier runs during office hours.","timestamp":"2026-01-25"}
+      ],"query":"What is the serial number of the lobby air purifier?","relevant_memory_ids":[]
+    },
+    {
+      "id":"ADV4-PF-024","category":"ambiguous_no_evidence",
+      "memories":[
+        {"id":"d8","text":"Gate 4 access opens at 07:00.","timestamp":"2026-06-30"},
+        {"id":"d7","text":"Vehicle insurance renews in October.","timestamp":"2026-06-07"},
+        {"id":"d5","text":"A different service car has registration ZX-2041.","timestamp":"2026-04-22"},
+        {"id":"d3","text":"The van parks near Gate 4.","timestamp":"2026-04-11"},
+        {"id":"d1","text":"The delivery van inspection is scheduled for August 20.","timestamp":"2026-03-29"},
+        {"id":"d6","text":"The delivery van mileage was recorded.","timestamp":"2026-05-15"},
+        {"id":"d10","text":"The van driver changed last month.","timestamp":"2026-02-24"},
+        {"id":"d2","text":"The delivery van is white.","timestamp":"2026-04-28"},
+        {"id":"d4","text":"A fuel receipt mentions the delivery van.","timestamp":"2026-05-05"},
+        {"id":"d9","text":"The fleet spreadsheet lists service dates.","timestamp":"2026-01-18"}
+      ],"query":"What is the registration number of the delivery van?","relevant_memory_ids":[]
+    }
+  ]
+}
