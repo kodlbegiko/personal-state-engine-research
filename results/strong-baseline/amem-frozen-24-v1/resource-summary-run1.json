@@ -1,0 +1,53 @@
+{
+  "cloud_gpu_cost_usd": 0.0,
+  "corpus_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "max_peak_rss_kib": 1386620,
+  "max_shard_wall_seconds": 135.2,
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "paid_api_cost_usd": 0.0,
+  "run_id": 31269598248,
+  "schema_version": "amem-frozen-24-resource-run1-v1",
+  "sealed_final_accessed": false,
+  "serialized_inference_wall_seconds": 636.21,
+  "sharding": "6 independent case-level shards; no algorithm change",
+  "shards": [
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1367912,
+      "shard": 0,
+      "wall_seconds": 105.1
+    },
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1364276,
+      "shard": 1,
+      "wall_seconds": 135.2
+    },
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1386620,
+      "shard": 2,
+      "wall_seconds": 111.81
+    },
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1294240,
+      "shard": 3,
+      "wall_seconds": 70.95
+    },
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1380080,
+      "shard": 4,
+      "wall_seconds": 93.12
+    },
+    {
+      "case_count": 4,
+      "peak_rss_kib": 1372692,
+      "shard": 5,
+      "wall_seconds": 120.03
+    }
+  ],
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+}

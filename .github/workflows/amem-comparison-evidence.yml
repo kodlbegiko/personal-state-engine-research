@@ -1,0 +1,80 @@
+name: A-MEM Frozen Comparison Evidence
+
+on:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - "scripts/compare_amem_pse_frozen.py"
+      - "results/strong-baseline/amem-frozen-24-v1/predictions-run1.json"
+
+permissions:
+  contents: write
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install project
+        run: python -m pip install -e .
+      - name: Generate apples-to-apples comparison
+        run: |
+          python scripts/compare_amem_pse_frozen.py \
+            --corpus benchmarks/strong-baseline/synthetic-memory-cases-v1.json \
+            --predictions results/strong-baseline/amem-frozen-24-v1/predictions-run1.json \
+            --output results/strong-baseline/amem-frozen-24-v1/comparison-run1.json
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('results/strong-baseline/amem-frozen-24-v1')
+          paths = [
+              root / 'predictions-run1.json',
+              root / 'retrieval-results-run1-legacy.json',
+              root / 'resource-summary-run1.json',
+              root / 'comparison-run1.json',
+          ]
+          rows = []
+          for path in paths:
+              data = path.read_bytes()
+              rows.append({'path': str(path), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
+          registry = {
+              'schema_version': 'amem-frozen-24-artifact-registry-v1',
+              'artifact_count': len(rows),
+              'artifacts': rows,
+              'source_run_id': 31269598248,
+              'paid_api_cost_usd': 0.0,
+              'cloud_gpu_cost_usd': 0.0,
+              'sealed_final_accessed': False,
+          }
+          (root / 'artifact-registry.json').write_text(json.dumps(registry, indent=2, sort_keys=True)+'\n')
+          PY
+      - name: Fail closed on claim boundary and exact pins
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('results/strong-baseline/amem-frozen-24-v1/comparison-run1.json').read_text())
+          assert p['algorithm_parity'] == 'NO'
+          assert p['sealed_final_accessed'] is False
+          assert p['corpus_sha256'] == '6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9'
+          a=p['a_mem']
+          assert a['source_commit'] == '0c8039f28fdcc08189a23c07a3437d9d2482f9c2'
+          assert a['embedding_snapshot'] == '1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
+          assert a['ollama_digest'] == '357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b'
+          PY
+      - name: Commit deterministic comparison evidence
+        run: |
+          if git diff --quiet -- results/strong-baseline/amem-frozen-24-v1; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/strong-baseline/amem-frozen-24-v1/comparison-run1.json results/strong-baseline/amem-frozen-24-v1/artifact-registry.json
+          git commit -m "research: record apples-to-apples A-MEM PSE comparison"
+          git push origin HEAD:research/personal-state-engine-v0

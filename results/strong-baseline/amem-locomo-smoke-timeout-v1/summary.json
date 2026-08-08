@@ -1,0 +1,24 @@
+{
+  "artifact_digest": "sha256:c0432652e4ac5ad129408ced635f1449ceef615708849e4f521d2f78e35b9e2e",
+  "artifact_id": 9025213202,
+  "bootstrap_status": {
+    "exact_source_checkout": "PASS",
+    "ollama_install": "PASS",
+    "qwen2.5:3b_pull": "PASS",
+    "upstream_dependencies": "PASS"
+  },
+  "cloud_gpu_cost_usd": 0.0,
+  "d4_status": "NOT_COMPLETE",
+  "decision": "Do not repeat the same ratio=0.1 brute-force without a new runtime/workload hypothesis. D2 and D3 are evaluated separately.",
+  "inference_status": "CANCELLED_AT_JOB_TIMEOUT",
+  "job_id": 93127148646,
+  "oom_observed": false,
+  "paid_api_cost_usd": 0.0,
+  "run_id": 31267193959,
+  "schema_version": "amem-locomo-timeout-v1",
+  "sealed_final_accessed": false,
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "status": "BLOCKED_BY_WALL_CLOCK",
+  "timeout_minutes": 60,
+  "workload": "upstream test_advanced_robust.py LoCoMo ratio=0.1, retrieve_k=10"
+}

@@ -1,0 +1,230 @@
+{
+  "aggregate": {
+    "irrelevant_retrieval_rate": 0.34722222222222227,
+    "mrr": 0.8055555555555555,
+    "ndcg_at_5": 0.8759882922619097,
+    "recall_at_1": 0.6736111111111112,
+    "recall_at_3": 0.9583333333333334,
+    "recall_at_5": 0.9583333333333334
+  },
+  "case_count": 24,
+  "details": [
+    {
+      "case_id": "SB-SYN-001",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-002",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-003",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-004",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-005",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-006",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-007",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.6309297535714575,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-008",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 0.5,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-009",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-010",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-011",
+      "irrelevant_retrieval_rate": 1.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 0.0,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.0,
+      "recall_at_5": 0.0
+    },
+    {
+      "case_id": "SB-SYN-012",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 0.3333333333333333,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-013",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 0.3333333333333333,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-014",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.6309297535714575,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-015",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-016",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 0.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-017",
+      "irrelevant_retrieval_rate": 0.6666666666666666,
+      "mrr": 0.3333333333333333,
+      "ndcg_at_5": 0.5,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-018",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.6309297535714575,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-019",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 0.5,
+      "ndcg_at_5": 0.6309297535714575,
+      "recall_at_1": 0.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-020",
+      "irrelevant_retrieval_rate": 0.5,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-021",
+      "irrelevant_retrieval_rate": 0.6666666666666666,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-022",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-023",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    {
+      "case_id": "SB-SYN-024",
+      "irrelevant_retrieval_rate": 0.0,
+      "mrr": 1.0,
+      "ndcg_at_5": 1.0,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    }
+  ],
+  "schema_version": "strong-baseline-retrieval-results-v1"
+}
