@@ -14,6 +14,7 @@
     "scripts/freeze_pilot_benchmark.py": "c2ae7ae9dac411d23099f14a20da141b449a8c3e",
     "scripts/prepare_longmemeval_faithful_port.py": "e99028e5a1fa53edd5704e7df0ebd6ee548a3f34",
     "scripts/refresh_zero_cost_artifact_registry.py": "455cb030abecebb85aa0a2e7416fb802db5bd7e3",
+    "scripts/run_amem_adversarial_v4.py": "34a0f4f49e5cd4ed055965fde0c673c1fdd8cf51",
     "scripts/run_amem_adversarial_withheld.py": "999f174f3024f54490ce6cdc69dc1f6cb190610e",
     "scripts/run_amem_d4_development.py": "734590ed7f8c54e0da4fff915328fd727c7105e7",
     "scripts/run_amem_frozen_development.py": "eff0e3ffa7652741527850e4e139bd335e707180",
