@@ -1,0 +1,40 @@
+{
+  "categories": [
+    "lexical_copy_distractor",
+    "keyword_stuffing",
+    "stale_lexical_match",
+    "contradictory_high_overlap",
+    "duplicate_distractor",
+    "temporal_bait",
+    "preference_bait",
+    "same_name_entity",
+    "partial_truth_distractor",
+    "update_with_noise",
+    "abstention_misleading"
+  ],
+  "claim_boundary": "Results are exploratory/auxiliary and do not establish strong-baseline parity or Gate E completion.",
+  "created_before_withheld_evaluation": true,
+  "development_case_count": 12,
+  "integrity_rules": [
+    "do not modify development or validation cases after this freeze",
+    "do not use existing algorithm-development hidden-generated v2 as fresh v2 withheld evidence",
+    "generate a new procedural withheld set only after candidate-v2 source/config freeze",
+    "never access sealed-final"
+  ],
+  "metrics": [
+    "Recall@1",
+    "Recall@3",
+    "Recall@5",
+    "Precision@1",
+    "Precision@3",
+    "Precision@5",
+    "MRR",
+    "nDCG@5",
+    "irrelevant_retrieval_rate",
+    "abstention_accuracy"
+  ],
+  "purpose": "Auxiliary CPU-only adversarial retrieval benchmark for PSE candidate v2; not LongMemEval and not formal sealed-final evidence.",
+  "schema_version": "pse-adversarial-v3-specification-v1",
+  "validation_case_count": 8,
+  "withheld_status": "NOT_GENERATED_AT_PREREGISTRATION"
+}

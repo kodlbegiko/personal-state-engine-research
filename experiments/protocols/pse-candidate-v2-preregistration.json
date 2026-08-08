@@ -1,0 +1,61 @@
+{
+  "adversarial_cues": [
+    "ignore",
+    "query",
+    "question",
+    "discuss",
+    "discussed",
+    "keyword",
+    "keywords",
+    "stuffing",
+    "decoy",
+    "unrelated",
+    "fake",
+    "fabricated",
+    "wrong",
+    "answer",
+    "instruction",
+    "prompt"
+  ],
+  "algorithm": "deterministic CPU-only ranker; no embeddings, no case IDs, no benchmark-specific strings",
+  "claim_boundary": "Auxiliary algorithm evidence only until formal methodology and strong-baseline gates permit otherwise.",
+  "components": {
+    "adversarial_cue_penalty": 0.2,
+    "base_constant": 0.2,
+    "base_similarity_weight": 0.45,
+    "cosine_similarity_cap": 0.72,
+    "echo_anchor_coverage_threshold": 0.75,
+    "echo_novel_token_max": 1,
+    "echo_penalty": 0.28,
+    "echo_query_only_fraction_threshold": 0.8,
+    "echo_repetition_threshold": 0.15,
+    "novel_evidence_bonus_per_token": 0.02,
+    "novel_evidence_bonus_token_cap": 3,
+    "rare_anchor_coverage_weight": 0.12,
+    "recency_weight": 0.1,
+    "strong_update_bonus": 0.18,
+    "weak_update_bonus": 0.05
+  },
+  "schema_version": "pse-candidate-v2-preregistration-v1",
+  "selection_rule": "Keep v2 only if adversarial development and validation improve MRR over v1 without reducing Recall@5 on those sets; abstention remains a separate research track and is not claimed solved.",
+  "status": "FROZEN_BEFORE_WITHHELD_GENERATION",
+  "strong_update_cues": [
+    "updated",
+    "replace",
+    "replaced",
+    "changed",
+    "stopped",
+    "correction",
+    "corrected",
+    "moved",
+    "rescheduled",
+    "revoked"
+  ],
+  "target_failure": "lexical-copy and keyword-stuffing distractors that exploit query overlap while preserving state-transition retrieval",
+  "weak_update_cues": [
+    "new",
+    "current",
+    "now"
+  ],
+  "withheld_rule": "After source/config freeze, generate a new operator-designed procedural withheld set and evaluate exactly once without tuning to it."
+}

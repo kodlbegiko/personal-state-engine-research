@@ -1,0 +1,28 @@
+{
+  "artifacts": [
+    {
+      "bytes": 3916,
+      "path": "development.json",
+      "sha256": "b7b03ec2d084a55bde2069284db87982bc1a0ab0895060e4d31d8ce2f4cdf669"
+    },
+    {
+      "bytes": 2667,
+      "path": "validation.json",
+      "sha256": "4113b7d2b2f90271351398c3fb6d77439fd1ea862c93801fa89a658f4ccd2c26"
+    },
+    {
+      "bytes": 1343,
+      "path": "specification.json",
+      "sha256": "2dcf6b1dcee54a69940ba964a8a276e3dc249720f557dfbb2599ac0acf971dca"
+    },
+    {
+      "bytes": 1932,
+      "path": "experiments/protocols/pse-candidate-v2-preregistration.json",
+      "sha256": "de5ac5c84de70ea81affb15998d1063809d17329cf797aab3a162782c990f066"
+    }
+  ],
+  "frozen_at": "2026-08-09T00:38:00+08:00",
+  "schema_version": "pse-adversarial-v3-freeze-manifest-v1",
+  "sealed_final_accessed": false,
+  "withheld_generated": false
+}
