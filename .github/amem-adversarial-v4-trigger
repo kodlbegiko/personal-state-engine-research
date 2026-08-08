@@ -1,0 +1,5 @@
+triggered-by=continuation-mission
+scope=all-24-adversarial-v4
+protocol=experiments/protocols/amem-adversarial-v4-full-v1.json
+sealed-final=false
+paid-cost-usd=0
