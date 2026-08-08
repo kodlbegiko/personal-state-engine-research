@@ -21,6 +21,11 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install repository package for split preflight
+        run: python -m pip install -e .
       - name: Enforce development-only source and fetch pinned dataset
         run: |
           set -euo pipefail
@@ -34,6 +39,31 @@ jobs:
             --manifest experiments/datasets/longmemeval-s-cleaned.json \
             --output-directory data
           test "$(sha256sum data/longmemeval_s_cleaned.json | awk '{print $1}')" = "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+      - name: Reproduce original development split before model downloads
+        run: |
+          set -euo pipefail
+          python scripts/freeze_longmemeval_development_matrix.py \
+            data/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --parent-split-manifest results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/splits/longmemeval-s-development.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --output /tmp/recomputed-development-freeze.json
+          python - <<'PY'
+          import json
+          expected=json.load(open('experiments/splits/longmemeval-development-matrix-v1.json'))
+          actual=json.load(open('/tmp/recomputed-development-freeze.json'))
+          assert actual['case_ids']==expected['case_ids']
+          assert actual['case_ids_sha256']==expected['case_ids_sha256']
+          assert actual['history_fingerprint_sha256']==expected['history_fingerprint_sha256']
+          assert [
+              (r['case_id'],r['question_type'],r['is_abstention'],r['history_fingerprint'])
+              for r in actual['records']
+          ] == [
+              (r['case_id'],r['question_type'],r['is_abstention'],r['history_fingerprint'])
+              for r in expected['records']
+          ]
+          print('FROZEN_DEVELOPMENT_PREFLIGHT_PASS')
+          PY
       - uses: actions/upload-artifact@v4
         with:
           name: pinned-longmemeval-development-source
@@ -57,6 +87,9 @@ jobs:
       EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - uses: actions/download-artifact@v4
         with:
           name: pinned-longmemeval-development-source
@@ -64,6 +97,7 @@ jobs:
       - name: Fail closed on frozen development identity and zero-cost boundary
         run: |
           set -euo pipefail
+          test "$(python --version | awk '{print $2}' | cut -d. -f1-2)" = "3.11"
           test "$(sha256sum data/longmemeval_s_cleaned.json | awk '{print $1}')" = "$EXPECTED_DATASET_SHA256"
           test -z "${OPENAI_API_KEY:-}"
           test -z "${ANTHROPIC_API_KEY:-}"
@@ -76,7 +110,7 @@ jobs:
           assert p['case_ids_sha256']==os.environ['EXPECTED_CASE_IDS_SHA256']
           PY
           mkdir -p amem-development-artifact
-          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false,"sealed_final_accessed":false}\n' > amem-development-artifact/cost.json
+          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false,"sealed_final_accessed":false,"python":"3.11"}\n' > amem-development-artifact/cost.json
       - name: Install and pin Ollama model
         run: |
           set -euo pipefail
@@ -152,6 +186,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - uses: actions/download-artifact@v4
         with:
           pattern: amem-development-shard-*
