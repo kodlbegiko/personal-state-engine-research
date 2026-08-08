@@ -16,6 +16,7 @@
     "scripts/run_longmemeval_evaluator_v2.py": "93d638418cb52245cb69a1d4b73dfea06d72e61d",
     "scripts/run_memory_baseline_comparison.py": "318f7ce4f7af07568c6f08925f6fbb28c2cd9c43",
     "scripts/run_redteam.py": "7ccfd16b9d53f94417a68ec80930ef5cc3c802fe",
+    "scripts/run_zero_cost_algorithm_research.py": "632fa567357ed174bbd4d798b8e8fd8e41c2aba8",
     "scripts/validate_longmemeval.py": "3b71ee690aa30b513c2b8966e0f674c4d1ce006e",
     "scripts/verify_benchmark_lock.py": "6f660bbfa5e31238da32b76be44568c5eeed42ff",
     "scripts/verify_development_matrix_contract.py": "161c63f75414d278c2f95f81f818e78affaaa9c6",
@@ -46,7 +47,8 @@
     "src/personal_state_engine/scoring.py": "933160127b342b50072097213dab3ab9654beb24",
     "src/personal_state_engine/store.py": "4f87b24d5684914e9f8f7e6af0e811bba73142b4",
     "src/personal_state_engine/strong_baseline.py": "406a57d3ff07f78270f0b75484d2037d95ced64b",
-    "src/personal_state_engine/verification.py": "fd6322fa1f9660ef7507ea4de7e715c5a7312fdb"
+    "src/personal_state_engine/verification.py": "fd6322fa1f9660ef7507ea4de7e715c5a7312fdb",
+    "src/personal_state_engine/zero_cost_baselines.py": "137e6cfcd0d8f945f32a1ef2bf84eb70c041aa86"
   },
   "hash_algorithm": "git_blob_sha1",
   "scenario_count": 9,
