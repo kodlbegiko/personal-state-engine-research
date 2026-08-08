@@ -1,0 +1,15 @@
+{
+  "A_MEM_D1": "COMPLETE",
+  "A_MEM_D2": "NOT_COMPLETE",
+  "A_MEM_D3": "NOT_EXECUTED",
+  "A_MEM_D4": "NOT_EXECUTED",
+  "A_MEM_verdict": "BLOCKED_BY_COMPUTE",
+  "algorithm_parity": "NO",
+  "cloud_gpu_used": false,
+  "formal_completion_percent": 30,
+  "generated_at": "2026-08-08T16:40:00Z",
+  "paid_api_used": false,
+  "schema_version": "zero-cost-reproduction-status-v1",
+  "sealed_final_accessed": false,
+  "zero_cost_work": "PARTIAL"
+}

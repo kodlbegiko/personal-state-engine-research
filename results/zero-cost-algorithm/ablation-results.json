@@ -1,0 +1,330 @@
+{
+  "ablations": {
+    "candidate_with_exact_dedup": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.395348837209,
+          "ndcg@5": 0.982415781489,
+          "precision@1": 1.0,
+          "precision@3": 0.393939393939,
+          "precision@5": 0.236363636364,
+          "recall@1": 0.916666666667,
+          "recall@3": 0.977272727273,
+          "recall@5": 0.977272727273
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "candidate_with_naive_abstention": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.863636363636,
+          "abstention_accuracy": 1.0,
+          "irrelevant_retrieval_rate": 0.444444444444,
+          "ndcg@5": 0.863636363636,
+          "precision@1": 0.863636363636,
+          "precision@3": 0.30303030303,
+          "precision@5": 0.181818181818,
+          "recall@1": 0.840909090909,
+          "recall@3": 0.863636363636,
+          "recall@5": 0.863636363636
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "candidate_without_query_recency": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "candidate_without_update_bonus": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.901515151515,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 0.926944966396,
+          "precision@1": 0.818181818182,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.734848484848,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "pse_candidate_v1": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "pse_current_reconstruction": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.901515151515,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 0.926944966396,
+          "precision@1": 0.818181818182,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.734848484848,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    }
+  },
+  "generated_at": "2026-08-08T16:40:00Z",
+  "interpretation": {
+    "exact_dedup": "REJECTED_DUE_TO_RECALL_REGRESSION_ON_DUPLICATE-RELEVANT_CASES",
+    "naive_abstention": "REJECTED_DUE_TO_RECALL_REGRESSION_ON_DEVELOPMENT",
+    "query_recency_term": "NO_OBSERVED_INCREMENTAL_VALUE",
+    "update_bonus": "SUPPORTED_ON_THIS_SYNTHETIC_CORPUS"
+  },
+  "schema_version": "pse-ablation-results-v1"
+}

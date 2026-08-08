@@ -1,0 +1,8 @@
+{
+  "algorithmic_output_sha256": "63e5f57a74c6a25ab4bc0819325ff99a778f4c31ef097c1c5312aed1b78d29b2",
+  "generated_at": "2026-08-08T16:40:00Z",
+  "note": "Rankers are deterministic by construction; CI reruns the generator and requires zero diff.",
+  "reruns_required": 3,
+  "schema_version": "zero-cost-determinism-v1",
+  "status": "PASS"
+}

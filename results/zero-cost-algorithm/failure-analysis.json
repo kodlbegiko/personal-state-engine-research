@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-08-08T16:40:00Z",
+  "known_remaining_failure": "Candidate v1 does not solve abstention and remains vulnerable to lexical adversaries.",
+  "schema_version": "zero-cost-failure-analysis-v1",
+  "splits": {
+    "development": [
+      {
+        "candidate_top1": "m2",
+        "candidate_top1_correct": true,
+        "case_id": "SB-SYN-004",
+        "category": "knowledge_update",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      },
+      {
+        "candidate_retrieved": [
+          "m1"
+        ],
+        "case_id": "SB-SYN-011",
+        "category": "abstention",
+        "current_retrieved": [
+          "m1"
+        ],
+        "failure_type": "abstention_failure"
+      },
+      {
+        "candidate_top1": "m2",
+        "candidate_top1_correct": true,
+        "case_id": "SB-SYN-014",
+        "category": "memory_deletion_replacement",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      },
+      {
+        "candidate_retrieved": [],
+        "case_id": "SB-SYN-016",
+        "category": "empty_memory",
+        "current_retrieved": [],
+        "failure_type": "abstention_pass"
+      },
+      {
+        "candidate_top1": "m3",
+        "candidate_top1_correct": true,
+        "case_id": "SB-SYN-017",
+        "category": "conflicting_memories",
+        "current_top1": "m2",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m3"
+        ]
+      },
+      {
+        "candidate_top1": "m2",
+        "candidate_top1_correct": true,
+        "case_id": "SB-SYN-018",
+        "category": "recent_update",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      }
+    ],
+    "hidden-generated": [
+      {
+        "candidate_top1": "m2",
+        "candidate_top1_correct": true,
+        "case_id": "ADV-PREF-HID-01",
+        "category": "preference",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      },
+      {
+        "candidate_top1": "m1",
+        "candidate_top1_correct": false,
+        "case_id": "ADV-TIE-HID-01",
+        "category": "ranking_tie",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_top1_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      }
+    ],
+    "validation": [
+      {
+        "candidate_retrieved": [
+          "m1"
+        ],
+        "case_id": "ADV-ABS-VAL-01",
+        "category": "abstention",
+        "current_retrieved": [
+          "m1"
+        ],
+        "failure_type": "abstention_failure"
+      },
+      {
+        "candidate_top1": "m2",
+        "candidate_top1_correct": true,
+        "case_id": "ADV-SUP-VAL-01",
+        "category": "supersession",
+        "current_top1": "m1",
+        "current_top1_correct": false,
+        "failure_type": "candidate_fixed_current_miss",
+        "relevant_memory_ids": [
+          "m2"
+        ]
+      }
+    ]
+  }
+}
