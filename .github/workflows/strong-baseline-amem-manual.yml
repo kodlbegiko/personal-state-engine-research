@@ -7,6 +7,11 @@ on:
         description: "LoCoMo fraction for upstream smoke (keep small)"
         required: false
         default: "0.1"
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/amem-trigger"
 
 permissions:
   contents: read
@@ -50,14 +55,22 @@ jobs:
         env:
           PYTHONHASHSEED: "17"
         run: |
-          /usr/bin/time -v -o ../amem-smoke-artifact/time.txt             python test_advanced_robust.py               --backend ollama               --model qwen2.5:3b               --dataset data/locomo10.json               --ratio "${{ inputs.ratio }}"               --retrieve_k 10               --output ../amem-smoke-artifact/upstream-results.json
+          /usr/bin/time -v -o ../amem-smoke-artifact/time.txt \
+            python test_advanced_robust.py \
+              --backend ollama \
+              --model qwen2.5:3b \
+              --dataset data/locomo10.json \
+              --ratio "0.1" \
+              --retrieve_k 10 \
+              --output ../amem-smoke-artifact/upstream-results.json
       - name: Zero-cost boundary check
         run: |
           test -z "${OPENAI_API_KEY:-}"
           test -z "${ANTHROPIC_API_KEY:-}"
           printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false}\n' > amem-smoke-artifact/cost.json
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: amem-zero-cost-smoke
           path: amem-smoke-artifact/
-          if-no-files-found: error
+          if-no-files-found: warn
