@@ -1,0 +1,14 @@
+{
+  "schema_version": "pse-abstention-withheld-manifest-v1",
+  "gate_preregistration_commit": "68717d2fee56dd014e09338e04f5ee780fd60904",
+  "path": "benchmarks/algorithm-development/abstention-dev-v1/withheld.json",
+  "bytes": 3047,
+  "sha256": "0f7f04afd9e968df657b89b30316802cd8cb789b3f45d54e959ea2a52099882c",
+  "git_blob_sha1": "10d80987b245ee1401349717a8b1dbbd86829dd4",
+  "case_count": 12,
+  "answerable_cases": 6,
+  "no_evidence_cases": 6,
+  "evaluated_at_commit_time": false,
+  "tuning_after_evaluation": false,
+  "sealed_final_accessed": false
+}

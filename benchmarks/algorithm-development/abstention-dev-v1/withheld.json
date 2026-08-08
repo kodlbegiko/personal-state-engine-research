@@ -1,0 +1,19 @@
+{
+  "schema_version": "pse-abstention-withheld-v1",
+  "generation_note": "Generated after abstention-gate-v1 preregistration commit 68717d2fee56dd014e09338e04f5ee780fd60904; evaluate once without tuning.",
+  "cases": [
+    {"id":"ABS1-HID-A01","category":"direct_fact","memories":[{"id":"m1","text":"The storage locker key is in drawer seven","timestamp":"2026-01-01"},{"id":"m2","text":"Bike tire was repaired","timestamp":"2026-02-01"}],"query":"Where is the storage locker key?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-HID-A02","category":"update","memories":[{"id":"m1","text":"Workshop room is 114","timestamp":"2026-01-01"},{"id":"m2","text":"Workshop room changed to 630","timestamp":"2026-06-01"}],"query":"What is the current workshop room?","relevant_memory_ids":["m2"]},
+    {"id":"ABS1-HID-A03","category":"entity","memories":[{"id":"m1","text":"Leo on Nimbus owns security review","timestamp":"2026-01-01"},{"id":"m2","text":"Leo on Quartz owns branding","timestamp":"2026-01-02"}],"query":"Who owns the security review on Nimbus?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-HID-A04","category":"old_fact","memories":[{"id":"m1","text":"Legacy safe hint is birch","timestamp":"2020-01-01"}],"query":"What is the legacy safe hint?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-HID-A05","category":"unicode_fact","memories":[{"id":"m1","text":"固定取貨地點是東門櫃台","timestamp":"2026-01-01"}],"query":"固定取貨地點在哪裡？","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-HID-A06","category":"paraphrase","memories":[{"id":"m1","text":"Subscription ends December 15","timestamp":"2026-01-01"}],"query":"When does the subscription expire?","relevant_memory_ids":["m1"]},
+
+    {"id":"ABS1-HID-N01","category":"unrelated","memories":[{"id":"m1","text":"User enjoys hiking","timestamp":"2026-01-01"}],"query":"What is the user's passport number?","relevant_memory_ids":[]},
+    {"id":"ABS1-HID-N02","category":"same_entity_wrong_field","memories":[{"id":"m1","text":"Contract 18 owner is Luis","timestamp":"2026-01-01"}],"query":"What is the value of contract 18?","relevant_memory_ids":[]},
+    {"id":"ABS1-HID-N03","category":"question_echo","memories":[{"id":"m1","text":"What is the emergency access code?","timestamp":"2026-07-01"}],"query":"What is the emergency access code?","relevant_memory_ids":[]},
+    {"id":"ABS1-HID-N04","category":"partial_topic_only","memories":[{"id":"m1","text":"Insurance renewal meeting is Monday","timestamp":"2026-01-01"}],"query":"What is the insurance policy number?","relevant_memory_ids":[]},
+    {"id":"ABS1-HID-N05","category":"keyword_stuffing_no_evidence","memories":[{"id":"m1","text":"account number account number answer account number query","timestamp":"2026-07-01"}],"query":"What is the account number?","relevant_memory_ids":[]},
+    {"id":"ABS1-HID-N06","category":"unicode_missing","memories":[{"id":"m1","text":"會員卡更新日期是九月一日","timestamp":"2026-01-01"}],"query":"會員卡號碼是多少？","relevant_memory_ids":[]}
+  ]
+}
