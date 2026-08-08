@@ -34,13 +34,20 @@ def load_upstream_class(upstream_dir: Path):
     return module.RobustAgenticMemorySystem
 
 
-def run_case(case: dict[str, Any], upstream_class, adapter_class, model: str, backend: str) -> dict[str, Any]:
+def run_case(
+    case: dict[str, Any],
+    upstream_class,
+    adapter_class,
+    model: str,
+    backend: str,
+    embedding_model: str,
+) -> dict[str, Any]:
     memories = list(case["memories"])
     if not memories:
         return {"case_id": case["id"], "retrieved_memory_ids": [], "written_memory_count": 0}
 
     upstream = upstream_class(
-        model_name="all-MiniLM-L6-v2",
+        model_name=embedding_model,
         llm_backend=backend,
         llm_model=model,
     )
@@ -78,6 +85,7 @@ def main() -> int:
     parser.add_argument("--shard-count", type=int, required=True)
     parser.add_argument("--model", default="qwen2.5:3b")
     parser.add_argument("--backend", default="ollama")
+    parser.add_argument("--embedding-model", default="all-MiniLM-L6-v2")
     args = parser.parse_args()
 
     observed_sha = sha256_file(args.corpus)
@@ -94,7 +102,14 @@ def main() -> int:
 
     upstream_class = load_upstream_class(args.upstream_dir)
     predictions = [
-        run_case(case, upstream_class, AMemUpstreamAdapter, args.model, args.backend)
+        run_case(
+            case,
+            upstream_class,
+            AMemUpstreamAdapter,
+            args.model,
+            args.backend,
+            args.embedding_model,
+        )
         for case in cases
     ]
     result = {
@@ -103,7 +118,7 @@ def main() -> int:
         "corpus_sha256": observed_sha,
         "model": args.model,
         "backend": args.backend,
-        "embedding_model": "all-MiniLM-L6-v2",
+        "embedding_model": args.embedding_model,
         "shard_index": args.shard_index,
         "shard_count": args.shard_count,
         "case_count": len(cases),
