@@ -1,0 +1,26 @@
+{
+  "schema_version": "algorithm-development-benchmark-v2",
+  "created_at": "2026-08-08T15:55:00Z",
+  "purpose": "zero-cost retrieval algorithm development; synthetic only; not LongMemEval and not sealed-final",
+  "development_source": {
+    "path": "benchmarks/strong-baseline/synthetic-memory-cases-v1.json",
+    "case_count": 24,
+    "sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+    "immutable": true
+  },
+  "withheld_extension": {
+    "path": "benchmarks/algorithm-development/withheld-extension-v2.json",
+    "validation_cases": 6,
+    "hidden_generated_cases": 6
+  },
+  "anti_overfitting": {
+    "freeze_before_candidate_evaluation": true,
+    "validation_not_for_threshold_search": true,
+    "hidden_generated_not_for_iterative_tuning": true,
+    "sealed_final": false
+  },
+  "categories": [
+    "temporal", "preference", "contradiction", "entity", "duplicate", "distractor",
+    "long_term_dependency", "multi_memory", "abstention", "supersession", "formatting", "ranking_tie"
+  ]
+}
