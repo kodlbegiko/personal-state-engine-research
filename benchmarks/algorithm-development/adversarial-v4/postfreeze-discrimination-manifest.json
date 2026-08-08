@@ -1,0 +1,181 @@
+{
+  "abstention_case_count": 2,
+  "answerable_case_count": 22,
+  "candidate_source_changed_for_v4": false,
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+  "case_count": 24,
+  "cases": [
+    {
+      "case_id": "ADV4-PF-001",
+      "category": "lexical_copy_distractor",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-002",
+      "category": "lexical_copy_distractor",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-003",
+      "category": "keyword_stuffing",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-004",
+      "category": "keyword_stuffing",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-005",
+      "category": "wrong_entity_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-006",
+      "category": "wrong_entity_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-007",
+      "category": "stale_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-008",
+      "category": "stale_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-009",
+      "category": "contradictory_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-010",
+      "category": "contradictory_high_overlap",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-011",
+      "category": "same_name_entity_confusion",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-012",
+      "category": "same_name_entity_confusion",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-013",
+      "category": "fresh_irrelevant_memory",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-014",
+      "category": "fresh_irrelevant_memory",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-015",
+      "category": "duplicate_irrelevant_cluster",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-016",
+      "category": "duplicate_irrelevant_cluster",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-017",
+      "category": "partial_truth_distractor",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-018",
+      "category": "partial_truth_distractor",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-019",
+      "category": "revoked_preference",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-020",
+      "category": "revoked_preference",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-021",
+      "category": "superseded_project_status",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-022",
+      "category": "superseded_project_status",
+      "memory_count": 10,
+      "relevant_count": 1
+    },
+    {
+      "case_id": "ADV4-PF-023",
+      "category": "ambiguous_no_evidence",
+      "memory_count": 10,
+      "relevant_count": 0
+    },
+    {
+      "case_id": "ADV4-PF-024",
+      "category": "ambiguous_no_evidence",
+      "memory_count": 10,
+      "relevant_count": 0
+    }
+  ],
+  "categories": {
+    "ambiguous_no_evidence": 2,
+    "contradictory_high_overlap": 2,
+    "duplicate_irrelevant_cluster": 2,
+    "fresh_irrelevant_memory": 2,
+    "keyword_stuffing": 2,
+    "lexical_copy_distractor": 2,
+    "partial_truth_distractor": 2,
+    "revoked_preference": 2,
+    "same_name_entity_confusion": 2,
+    "stale_high_overlap": 2,
+    "superseded_project_status": 2,
+    "wrong_entity_high_overlap": 2
+  },
+  "claim_boundary": "Post-candidate-freeze benchmark-discrimination evidence; candidate source/config cannot be changed after observing v4 results without creating a new candidate version.",
+  "corpus_bytes": 29699,
+  "corpus_path": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json",
+  "corpus_sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+  "distractors_per_answerable_case": 9,
+  "independent_reproduction": false,
+  "memory_count_per_case": 10,
+  "new_monetary_cost_usd": 0.0,
+  "operator_designed": true,
+  "schema_version": "pse-adversarial-v4-postfreeze-manifest-v1",
+  "sealed_final_accessed": false,
+  "source_commit": "a614f78652b13f5d4135fd82dd417443c45e9c74",
+  "status": "FROZEN_BEFORE_ANY_V4_SYSTEM_EVALUATION"
+}
