@@ -2,6 +2,7 @@
   "files": {
     "benchmarks/redteam/memory-write-policy.jsonl": "a11d02b4dfffd8a95d56b0031f12cfada1ee25bf",
     "benchmarks/synthetic/scenarios.jsonl": "ed1c5ae2af645db372acc1c1799886fb9c57918f",
+    "scripts/aggregate_amem_adversarial_v4.py": "198df11b9737f4587c8f5aff709c0561f115b41b",
     "scripts/aggregate_amem_adversarial_withheld.py": "5fdee5ab292e16a55b5f3c16c4d095a03b1cad1f",
     "scripts/aggregate_amem_frozen_development.py": "b6d80e9af9e008a4ef9adbc004f3850ad481d04d",
     "scripts/analyze_component_results.py": "58773a39032eebaca1b3aa034cc466922e016cc4",
