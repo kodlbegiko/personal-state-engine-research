@@ -1,0 +1,120 @@
+{
+  "claim_boundary": "Auxiliary abstention evidence only; validation is descriptive because observed before durable config commit; withheld is the clean post-freeze generalization set.",
+  "gate_source_commit": "68717d2fee56dd014e09338e04f5ee780fd60904",
+  "schema_version": "pse-abstention-gate-v1-results",
+  "sealed_final_accessed": false,
+  "splits": {
+    "development": {
+      "abstention_gate_v1": {
+        "abstention_accuracy": 0.4444444444444444,
+        "answerable_cases": 9,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-DEV-N02",
+          "ABS1-DEV-N04",
+          "ABS1-DEV-N06",
+          "ABS1-DEV-N07",
+          "ABS1-DEV-N08"
+        ],
+        "false_retrieval_rate": 0.5555555555555556,
+        "no_evidence_cases": 9
+      },
+      "always_retrieve": {
+        "abstention_accuracy": 0.0,
+        "answerable_cases": 9,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-DEV-N01",
+          "ABS1-DEV-N02",
+          "ABS1-DEV-N03",
+          "ABS1-DEV-N04",
+          "ABS1-DEV-N05",
+          "ABS1-DEV-N06",
+          "ABS1-DEV-N07",
+          "ABS1-DEV-N08",
+          "ABS1-DEV-N09"
+        ],
+        "false_retrieval_rate": 1.0,
+        "no_evidence_cases": 9
+      }
+    },
+    "validation": {
+      "abstention_gate_v1": {
+        "abstention_accuracy": 0.6666666666666667,
+        "answerable_cases": 6,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-VAL-N02",
+          "ABS1-VAL-N04"
+        ],
+        "false_retrieval_rate": 0.3333333333333333,
+        "no_evidence_cases": 6
+      },
+      "always_retrieve": {
+        "abstention_accuracy": 0.0,
+        "answerable_cases": 6,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-VAL-N01",
+          "ABS1-VAL-N02",
+          "ABS1-VAL-N03",
+          "ABS1-VAL-N04",
+          "ABS1-VAL-N05",
+          "ABS1-VAL-N06"
+        ],
+        "false_retrieval_rate": 1.0,
+        "no_evidence_cases": 6
+      }
+    },
+    "withheld": {
+      "abstention_gate_v1": {
+        "abstention_accuracy": 0.5,
+        "answerable_cases": 6,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-HID-N02",
+          "ABS1-HID-N04",
+          "ABS1-HID-N05"
+        ],
+        "false_retrieval_rate": 0.5,
+        "no_evidence_cases": 6
+      },
+      "always_retrieve": {
+        "abstention_accuracy": 0.0,
+        "answerable_cases": 6,
+        "answerable_recall@1": 1.0,
+        "answerable_recall@5": 1.0,
+        "false_abstention_ids": [],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_ids": [
+          "ABS1-HID-N01",
+          "ABS1-HID-N02",
+          "ABS1-HID-N03",
+          "ABS1-HID-N04",
+          "ABS1-HID-N05",
+          "ABS1-HID-N06"
+        ],
+        "false_retrieval_rate": 1.0,
+        "no_evidence_cases": 6
+      }
+    }
+  },
+  "threshold": 0.22,
+  "tuning_after_withheld": false,
+  "withheld_commit": "83696ea30bfbb1504211beb70fd65e35e742df4e"
+}
