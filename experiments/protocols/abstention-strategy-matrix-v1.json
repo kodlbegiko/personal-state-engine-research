@@ -1,0 +1,65 @@
+{
+  "schema_version": "abstention-strategy-matrix-protocol-v1",
+  "status": "FROZEN_BEFORE_MULTI_STRATEGY_RESULTS",
+  "candidate": {
+    "system": "pse_candidate_v2",
+    "freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+    "candidate_changed": false
+  },
+  "benchmark": {
+    "root": "benchmarks/algorithm-development/abstention-dev-v1",
+    "development_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+    "validation_sha256": "f396fa3cbc2dbb46fb7003fb7a359e7392469e45cb3abb07c0c9f7c6f01b08fa",
+    "withheld_sha256": "0f7f04afd9e968df657b89b30316802cd8cb789b3f45d54e959ea2a52099882c",
+    "withheld_status_for_this_new_matrix": "PREVIOUSLY_OBSERVED_BY_OPERATOR_FOR_GATE_V1; AUXILIARY_ONLY"
+  },
+  "strategies": [
+    "always_retrieve",
+    "absolute_score_threshold",
+    "top1_top2_margin",
+    "evidence_coverage_gate",
+    "combined_confidence_gate"
+  ],
+  "development_only_grids": {
+    "absolute_score_threshold": [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7],
+    "top1_top2_margin": [0.0,0.025,0.05,0.075,0.1,0.15,0.2,0.3],
+    "evidence_coverage_gate": [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7],
+    "combined_confidence_gate": {
+      "absolute_score_threshold": [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7],
+      "top1_top2_margin": [0.0,0.025,0.05,0.075,0.1,0.15,0.2,0.3],
+      "evidence_coverage_gate": [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7]
+    }
+  },
+  "selection_rule": {
+    "data": "development only",
+    "hard_guardrail": "false_abstention_rate must equal 0 on development; therefore no answerable development query may be rejected",
+    "objective_order": [
+      "maximize abstention_accuracy",
+      "minimize false_retrieval_rate",
+      "maximize minimum confidence threshold sum",
+      "lexicographically smallest parameter tuple for deterministic tie break"
+    ],
+    "validation": "evaluate exactly once after development selection; no retuning",
+    "withheld": "report once with selected parameters, descriptive auxiliary only; no retuning"
+  },
+  "confidence_features": {
+    "absolute_score": "exact frozen candidate-v2 top-1 retrieval score before timestamp/index tie-break",
+    "margin": "top-1 score minus top-2 score, or top-1 score if only one memory exists",
+    "evidence_coverage": "IDF-weighted coverage of non-stopword query content tokens by the top-1 memory, using the same query-IDF construction as candidate v2"
+  },
+  "metrics": [
+    "abstention_accuracy",
+    "false_retrieval_rate",
+    "false_abstention_rate",
+    "answerable_recall_at_1",
+    "answerable_recall_at_5",
+    "overall_decision_accuracy"
+  ],
+  "integrity": {
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "independent_reproduction": false
+  },
+  "claim_boundary": "Auxiliary abstention-layer research. Does not modify candidate v2, complete Gate E, establish parity, or restore hidden status to previously observed withheld cases."
+}
