@@ -12,6 +12,7 @@ from typing import Any
 EXPECTED_DATASET_SHA256 = "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
 EXPECTED_CASE_IDS_SHA256 = "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e"
 UPSTREAM_COMMIT = "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+EXPECTED_OLLAMA_MODEL = "qwen2.5:3b"
 
 
 def sha256_file(path: Path) -> str:
@@ -80,6 +81,32 @@ def parse_time(path: Path) -> dict[str, float | int | None]:
         hours = int(wall.group(1) or 0)
         wall_seconds = hours * 3600 + int(wall.group(2)) * 60 + float(wall.group(3))
     return {"wall_seconds": wall_seconds, "peak_rss_kib": int(rss.group(1)) if rss else None}
+
+
+def read_ollama_model_metadata(shards: Path, expected_digest: str) -> dict[str, Any]:
+    tags_path = shards / "ollama-tags.json"
+    if not tags_path.is_file():
+        return {
+            "model": EXPECTED_OLLAMA_MODEL,
+            "digest": expected_digest,
+            "size_bytes": None,
+            "status": "MODEL_SIZE_NOT_AVAILABLE_IN_MERGED_SHARD_ARTIFACT",
+        }
+    payload = json.loads(tags_path.read_text(encoding="utf-8"))
+    matches = [
+        row for row in payload.get("models", [])
+        if row.get("name") == EXPECTED_OLLAMA_MODEL and row.get("digest") == expected_digest
+    ]
+    if len(matches) != 1:
+        raise SystemExit("Ollama model metadata missing or ambiguous for exact expected digest")
+    row = matches[0]
+    size = row.get("size")
+    return {
+        "model": EXPECTED_OLLAMA_MODEL,
+        "digest": expected_digest,
+        "size_bytes": int(size) if size is not None else None,
+        "status": "VERIFIED_FROM_OLLAMA_TAGS",
+    }
 
 
 def main() -> int:
@@ -181,6 +208,8 @@ def main() -> int:
 
     walls = [float(row["wall_seconds"]) for row in shard_meta if row["wall_seconds"] is not None]
     rss = [int(row["peak_rss_kib"]) for row in shard_meta if row["peak_rss_kib"] is not None]
+    serialized_wall = sum(walls) if walls else None
+    ollama_model = read_ollama_model_metadata(args.shards, args.ollama_digest)
     resources = {
         "schema_version": "amem-longmemeval-development-resource-run1-v1",
         "run_id": args.run_id,
@@ -188,8 +217,17 @@ def main() -> int:
         "dataset_sha256": EXPECTED_DATASET_SHA256,
         "embedding_snapshot": args.embedding_snapshot,
         "ollama_digest": args.ollama_digest,
+        "ollama_model": ollama_model,
         "sharding": f"{len(shard_meta)} independent deterministic case shards; no algorithm change",
-        "serialized_inference_wall_seconds": sum(walls) if walls else None,
+        "serialized_inference_wall_seconds": serialized_wall,
+        "mean_end_to_end_case_wall_seconds": (serialized_wall / 20) if serialized_wall is not None else None,
+        "mean_end_to_end_case_wall_interpretation": "Includes A-MEM memory ingestion, local LLM work, embedding and retrieval for each development case; not a pure query-latency measurement.",
+        "pure_query_latency_ms": None,
+        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED",
+        "index_build_time_seconds": None,
+        "index_build_time_status": "NOT_SEPARATELY_MEASURED_FROM_CASE_EXECUTION",
+        "disk_use_bytes": ollama_model.get("size_bytes"),
+        "disk_use_scope": "Pinned Ollama qwen2.5:3b model size only when exposed by ollama-tags; excludes Python packages and embedding cache.",
         "max_shard_wall_seconds": max(walls) if walls else None,
         "max_peak_rss_kib": max(rss) if rss else None,
         "shards": shard_meta,
