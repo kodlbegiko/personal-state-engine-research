@@ -1,4 +1,6 @@
 triggered-by=continuation-mission
 purpose=frozen-development-retrieval
+attempt=2
+runtime=python-3.11
 sealed-final=false
 paid-cost-usd=0
