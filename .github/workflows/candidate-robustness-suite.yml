@@ -1,0 +1,85 @@
+name: Candidate Robustness Suite
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/candidate-robustness-trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Verify candidate and benchmark freeze
+        run: |
+          set -euo pipefail
+          test "$(sha256sum benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json | awk '{print $1}')" = "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d"
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          git merge-base --is-ancestor d627f61d0888306a97f3ef0b78aa29dc00c444bb HEAD
+          python - <<'PY'
+          import json
+          m=json.load(open('benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json'))
+          p=json.load(open('experiments/protocols/candidate-robustness-suite-v1.json'))
+          assert m['status']=='FROZEN_BEFORE_ANY_V4_SYSTEM_EVALUATION'
+          assert m['candidate_source_changed_for_v4'] is False
+          assert p['status']=='FROZEN_BEFORE_SUITE_RESULTS'
+          assert len(p['perturbations'])==13
+          assert p['candidate_lock']['candidate_changes_after_suite'] is False
+          assert p['integrity']['sealed_final_accessed'] is False
+          assert p['integrity']['new_monetary_cost_usd']==0.0
+          PY
+      - name: Execute complete perturbation matrix
+        run: |
+          set -euo pipefail
+          python scripts/evaluate_candidate_robustness_suite.py \
+            --corpus benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json \
+            --manifest benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json \
+            --protocol experiments/protocols/candidate-robustness-suite-v1.json \
+            --output-root results/candidate-robustness-suite-v1
+          cat results/candidate-robustness-suite-v1/results.json
+      - name: Verify artifacts
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib
+          root=pathlib.Path('results/candidate-robustness-suite-v1')
+          r=json.load(open(root/'results.json'))
+          reg=json.load(open(root/'artifact-registry.json'))
+          assert r['case_count']==24
+          assert len(r['perturbations'])==13
+          assert r['candidate_changed_for_suite'] is False
+          assert r['algorithm_parity']=='NO'
+          assert r['sealed_final_accessed'] is False
+          for row in reg['artifacts']:
+              p=pathlib.Path(row['path'])
+              assert p.is_file(), p
+              assert p.stat().st_size==row['bytes']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
+          PY
+      - name: Persist robustness evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/candidate-robustness-suite-v1
+          if git diff --cached --quiet; then
+            echo "No new robustness evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record complete candidate robustness evidence"
+          git push origin HEAD:research/personal-state-engine-v0
