@@ -1,0 +1,17 @@
+{
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "bytes": 22553,
+      "generation_command": "python scripts/evaluate_candidate_robustness_suite.py ...",
+      "path": "results/candidate-robustness-suite-v1/results.json",
+      "sha256": "6cd1bf60965efbe52835912422b8a61cd402048db77b68693a7fb895d64ef167"
+    }
+  ],
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "corpus_sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "3335b2e7c6ce82a7f119297cc25b31040b7d152c2f92ad2ff4b6e3d1387450f1",
+  "schema_version": "candidate-robustness-suite-artifact-registry-v1",
+  "sealed_final_accessed": false
+}
