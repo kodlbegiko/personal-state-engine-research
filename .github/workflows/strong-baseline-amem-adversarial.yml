@@ -1,0 +1,188 @@
+name: A-MEM Adversarial-v3 Withheld
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/amem-adversarial-trigger"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: amem-adversarial-v3-withheld
+  cancel-in-progress: false
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    env:
+      A_MEM_SOURCE_COMMIT: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+      EXPECTED_CORPUS_SHA256: 7e23df3b4f1bdac6b8999ffe56bea97dcd825fb5ab8536a3acec1ea702aded56
+      EXPECTED_EMBEDDING_SNAPSHOT: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+      EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify pre-result protocol, frozen corpus, and zero-cost boundary
+        run: |
+          set -euo pipefail
+          test "$(sha256sum benchmarks/algorithm-development/adversarial-v3/withheld.json | awk '{print $1}')" = "$EXPECTED_CORPUS_SHA256"
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          python - <<'PY'
+          import json, os
+          p=json.load(open('experiments/protocols/amem-adversarial-v3-withheld-v1.json'))
+          c=json.load(open('benchmarks/algorithm-development/adversarial-v3/withheld.json'))
+          m=json.load(open('benchmarks/algorithm-development/adversarial-v3/withheld-manifest.json'))
+          assert p['status']=='FROZEN_BEFORE_A_MEM_WITHHELD_RESULT'
+          assert p['benchmark']['scope']=='ALL_WITHHELD_CASES'
+          assert p['benchmark']['sha256']==os.environ['EXPECTED_CORPUS_SHA256']
+          assert p['sealed_final_accessed'] is False
+          assert p['execution']['new_monetary_cost_usd']==0.0
+          assert len(c['cases'])==12
+          assert m['sha256']==os.environ['EXPECTED_CORPUS_SHA256']
+          assert m['case_count']==12
+          assert m['sealed_final_accessed'] is False
+          PY
+          mkdir -p amem-adversarial-artifact
+          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false,"sealed_final_accessed":false}\n' > amem-adversarial-artifact/cost.json
+      - name: Install and pin Ollama model
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > amem-adversarial-artifact/ollama.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull qwen2.5:3b
+          curl -fsS http://127.0.0.1:11434/api/tags > amem-adversarial-artifact/ollama-tags.json
+          python - <<'PY'
+          import json, os
+          tags=json.load(open('amem-adversarial-artifact/ollama-tags.json'))
+          model=next(row for row in tags['models'] if row['name']=='qwen2.5:3b')
+          assert model['digest']==os.environ['EXPECTED_OLLAMA_DIGEST']
+          PY
+      - name: Clone exact-pinned A-MEM and install runtime
+        run: |
+          set -euo pipefail
+          git clone https://github.com/WujiangXu/A-mem.git upstream-amem
+          cd upstream-amem
+          git checkout "$A_MEM_SOURCE_COMMIT"
+          test "$(git rev-parse HEAD)" = "$A_MEM_SOURCE_COMMIT"
+          cd ..
+          python -m pip install -e .
+          python -m pip install -r upstream-amem/requirements.txt
+          python -m pip freeze > amem-adversarial-artifact/pip-freeze.txt
+      - name: Preload and verify exact embedding snapshot
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import snapshot_download
+          expected=os.environ['EXPECTED_EMBEDDING_SNAPSHOT']
+          path=snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision=expected)
+          observed=path.rstrip('/').split('/')[-1]
+          assert observed==expected, (observed, expected)
+          open('amem-adversarial-artifact/embedding-snapshot.txt','w').write(observed+'\n')
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as handle:
+              handle.write(f'EMBEDDING_MODEL_PATH={path}\n')
+          PY
+      - name: Execute exact A-MEM adversarial shard
+        env:
+          PYTHONHASHSEED: "17"
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o amem-adversarial-artifact/time-shard-${{ matrix.shard }}.txt \
+            python scripts/run_amem_adversarial_withheld.py \
+              --corpus benchmarks/algorithm-development/adversarial-v3/withheld.json \
+              --upstream-dir upstream-amem \
+              --output amem-adversarial-artifact/shard-${{ matrix.shard }}.json \
+              --shard-index ${{ matrix.shard }} \
+              --shard-count 4 \
+              --model qwen2.5:3b \
+              --backend ollama \
+              --embedding-model "$EMBEDDING_MODEL_PATH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amem-adversarial-shard-${{ matrix.shard }}
+          path: amem-adversarial-artifact/
+          if-no-files-found: error
+          retention-days: 7
+
+  aggregate-and-persist:
+    runs-on: ubuntu-latest
+    needs: shard
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: amem-adversarial-shard-*
+          path: downloaded-shards
+          merge-multiple: true
+      - name: Install package and aggregate fail-closed comparison
+        run: |
+          set -euo pipefail
+          python -m pip install -e .
+          python scripts/aggregate_amem_adversarial_withheld.py \
+            --corpus benchmarks/algorithm-development/adversarial-v3/withheld.json \
+            --protocol experiments/protocols/amem-adversarial-v3-withheld-v1.json \
+            --shards downloaded-shards \
+            --output-root results/strong-baseline/amem-adversarial-v3-withheld-v1 \
+            --run-id "$GITHUB_RUN_ID" \
+            --embedding-snapshot 1110a243fdf4706b3f48f1d95db1a4f5529b4d41 \
+            --ollama-digest 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+          cat results/strong-baseline/amem-adversarial-v3-withheld-v1/comparison-run1.json
+      - name: Verify durable comparison contract
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, pathlib
+          root=pathlib.Path('results/strong-baseline/amem-adversarial-v3-withheld-v1')
+          comp=json.load(open(root/'comparison-run1.json'))
+          reg=json.load(open(root/'artifact-registry.json'))
+          assert comp['case_count']==12
+          assert set(comp['systems'])=={'pse_current','pse_candidate_v1','pse_candidate_v2','a_mem_exact','bm25','tfidf','random'}
+          assert comp['algorithm_parity']=='NO'
+          assert comp['sealed_final_accessed'] is False
+          assert comp['new_monetary_cost_usd']==0.0
+          for row in reg['artifacts']:
+              p=pathlib.Path(row['path'])
+              assert p.is_file(), p
+              assert p.stat().st_size==row['bytes']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
+          PY
+      - name: Persist exact A-MEM adversarial evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/strong-baseline/amem-adversarial-v3-withheld-v1
+          if git diff --cached --quiet; then
+            echo "No new adversarial evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record exact A-MEM adversarial withheld evidence"
+          git push origin HEAD:research/personal-state-engine-v0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amem-adversarial-v3-withheld-aggregate
+          path: results/strong-baseline/amem-adversarial-v3-withheld-v1/
+          if-no-files-found: error
+          retention-days: 30
