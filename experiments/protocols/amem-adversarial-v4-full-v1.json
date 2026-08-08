@@ -1,0 +1,70 @@
+{
+  "schema_version": "amem-adversarial-v4-full-protocol-v1",
+  "status": "FROZEN_BEFORE_A_MEM_V4_RESULTS",
+  "decision_basis": {
+    "preregistered_parent_protocol": "experiments/protocols/adversarial-v4-evaluation-v1.json",
+    "parent_rule": "If v4 discrimination is sufficient, run exact-pinned A-MEM on a scope frozen before A-MEM v4 results; full 24 cases preferred if zero-cost compute remains feasible.",
+    "observed_v4_discrimination_status": "SUFFICIENT_FOR_EXACT_A_MEM_FOLLOWUP",
+    "scope_selection": "FULL_24_CASE_CORPUS",
+    "result_dependent_case_selection": false
+  },
+  "benchmark": {
+    "path": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json",
+    "manifest": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json",
+    "sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+    "case_count": 24,
+    "answerable_case_count": 22,
+    "abstention_case_count": 2,
+    "scope": "ALL_CASES"
+  },
+  "a_mem": {
+    "repository": "WujiangXu/A-mem",
+    "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "top_k": 5,
+    "ranking_semantics": "EXACT_UPSTREAM_VIA_AMemUpstreamAdapter"
+  },
+  "comparison_systems": [
+    "pse_current_reconstruction",
+    "pse_candidate_v1",
+    "pse_candidate_v2",
+    "a_mem_exact",
+    "bm25_local",
+    "tfidf_local",
+    "random",
+    "recency"
+  ],
+  "execution": {
+    "shard_count": 8,
+    "expected_cases_per_shard": 3,
+    "fail_closed": true,
+    "exactly_all_24_cases_required": true,
+    "no_missing_duplicate_or_extra_cases": true,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_allowed": false,
+    "cloud_gpu_allowed": false
+  },
+  "statistics": {
+    "paired_mrr_bootstrap_iterations": 5000,
+    "comparisons": [
+      "a_mem_vs_pse_current",
+      "a_mem_vs_pse_candidate_v1",
+      "a_mem_vs_pse_candidate_v2",
+      "pse_candidate_v2_vs_a_mem"
+    ],
+    "win_tie_loss": true,
+    "underpowered_if_answerable_n_below": 30
+  },
+  "integrity": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+    "candidate_changed_for_v4": false,
+    "operator_designed_benchmark": true,
+    "independent_reproduction": false,
+    "sealed_final_accessed": false
+  },
+  "claim_boundary": "Auxiliary post-candidate-freeze adversarial comparison only; n=22 answerable remains underpowered for formal parity/superiority and does not authorize sealed-final."
+}
