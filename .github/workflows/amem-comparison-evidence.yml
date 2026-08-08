@@ -7,6 +7,7 @@ on:
     paths:
       - "scripts/compare_amem_pse_frozen.py"
       - "results/strong-baseline/amem-frozen-24-v1/predictions-run1.json"
+      - ".github/workflows/amem-comparison-evidence.yml"
 
 permissions:
   contents: write
@@ -70,7 +71,7 @@ jobs:
           PY
       - name: Commit deterministic comparison evidence
         run: |
-          if git diff --quiet -- results/strong-baseline/amem-frozen-24-v1; then
+          if [ -z "$(git status --porcelain -- results/strong-baseline/amem-frozen-24-v1)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
