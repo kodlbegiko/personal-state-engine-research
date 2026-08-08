@@ -1,0 +1,191 @@
+{
+  "a_mem": {
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "run": 31269598248,
+    "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+  },
+  "algorithm_parity": "NO",
+  "claim_boundary": "Observed frozen synthetic retrieval comparison only. It does not establish general algorithm parity, superiority, equivalence, non-inferiority, production readiness, or SOTA.",
+  "corpus_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+  "paired_comparisons": {
+    "pse_candidate_v1_vs_a_mem": {
+      "bootstrap_mrr": {
+        "answerable_cases": 22,
+        "ci95": [
+          0.030303030303030307,
+          0.21969696969696972
+        ],
+        "delta": 0.12121212121212123,
+        "iterations": 5000,
+        "status": "UNDERPOWERED"
+      },
+      "delta_definition": "pse_candidate_v1 minus a_mem_exact_run1",
+      "win_tie_loss": {
+        "right_losses": 0,
+        "right_wins": 5,
+        "ties": 17
+      }
+    },
+    "pse_candidate_v2_vs_a_mem": {
+      "bootstrap_mrr": {
+        "answerable_cases": 22,
+        "ci95": [
+          0.0,
+          0.13636363636363635
+        ],
+        "delta": 0.06818181818181818,
+        "iterations": 5000,
+        "status": "UNDERPOWERED"
+      },
+      "delta_definition": "pse_candidate_v2 minus a_mem_exact_run1",
+      "win_tie_loss": {
+        "right_losses": 0,
+        "right_wins": 3,
+        "ties": 19
+      }
+    },
+    "pse_current_reconstruction_vs_a_mem": {
+      "bootstrap_mrr": {
+        "answerable_cases": 22,
+        "ci95": [
+          -0.045454545454545456,
+          0.09090909090909091
+        ],
+        "delta": 0.022727272727272728,
+        "iterations": 5000,
+        "status": "UNDERPOWERED"
+      },
+      "delta_definition": "pse_current_reconstruction minus a_mem_exact_run1",
+      "win_tie_loss": {
+        "right_losses": 1,
+        "right_wins": 2,
+        "ties": 19
+      }
+    }
+  },
+  "schema_version": "amem-pse-frozen-24-comparison-v1",
+  "sealed_final_accessed": false,
+  "statistical_interpretation": "UNDERPOWERED; paired point estimates are descriptive.",
+  "systems": {
+    "a_mem_exact_run1": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.8787878787878788,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 0.9101690461039014,
+        "precision@1": 0.7727272727272727,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.6893939393939393,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "bm25_local": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.7045454545454546,
+        "abstention_accuracy": 1.0,
+        "irrelevant_retrieval_rate": 0.3448275862068966,
+        "ndcg@5": 0.7343022167207859,
+        "precision@1": 0.5909090909090909,
+        "precision@3": 0.28787878787878785,
+        "precision@5": 0.17272727272727273,
+        "recall@1": 0.5681818181818182,
+        "recall@3": 0.8181818181818182,
+        "recall@5": 0.8181818181818182
+      }
+    },
+    "pse_candidate_v1": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 1.0,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 1.0,
+        "precision@1": 1.0,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.9166666666666667,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "pse_candidate_v2": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.9469696969696969,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 0.9604968069805208,
+        "precision@1": 0.9090909090909091,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.8257575757575758,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "pse_current_reconstruction": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.9015151515151515,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 0.9269449663961079,
+        "precision@1": 0.8181818181818182,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.7348484848484849,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "random": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.8333333333333333,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 0.8766172055194885,
+        "precision@1": 0.6818181818181818,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.5984848484848485,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "tfidf_local": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 0.7045454545454546,
+        "abstention_accuracy": 1.0,
+        "irrelevant_retrieval_rate": 0.3448275862068966,
+        "ndcg@5": 0.7343022167207859,
+        "precision@1": 0.5909090909090909,
+        "precision@3": 0.28787878787878785,
+        "precision@5": 0.17272727272727273,
+        "recall@1": 0.5681818181818182,
+        "recall@3": 0.8181818181818182,
+        "recall@5": 0.8181818181818182
+      }
+    }
+  }
+}
