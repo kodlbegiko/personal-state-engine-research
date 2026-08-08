@@ -1,0 +1,87 @@
+{
+  "schema_version": "gate-e-assessment-v1",
+  "assessed_at": "2026-08-09T07:30:00+08:00",
+  "gate": "E",
+  "formal_status": "NOT_COMPLETE",
+  "formal_credit_change": 0,
+  "engineering_evidence_status": "SUBSTANTIAL_BUT_AUXILIARY",
+  "selected_candidate": null,
+  "candidate_v1_status": "RETAINS_NORMAL_BENCHMARK_LEAD_OVER_V2",
+  "candidate_v2_status": "FROZEN_ROBUSTNESS_SPECIALIST_NOT_DROP_IN_REPLACEMENT",
+  "candidate_v2": {
+    "freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+    "withheld_commit": "fd73449462e6285a4e5aec095e0c84d565d83fbc",
+    "freeze_precedes_withheld": true,
+    "determinism_reruns": 3,
+    "determinism_status": "PASS",
+    "leakage_audit": "PASS",
+    "tuning_after_withheld": false,
+    "independent_reproduction": false
+  },
+  "normal_benchmark": {
+    "case_count": 24,
+    "interpretation": "UNDERPOWERED",
+    "pse_current_mrr": 0.9015151515151515,
+    "pse_candidate_v1_mrr": 1.0,
+    "pse_candidate_v2_mrr": 0.9469696969696969,
+    "pse_candidate_v1_recall_at_1": 0.9166666666666667,
+    "pse_candidate_v2_recall_at_1": 0.8257575757575758,
+    "pse_candidate_v1_recall_at_5": 1.0,
+    "pse_candidate_v2_recall_at_5": 1.0,
+    "v2_vs_v1_paired_mrr_delta": -0.05303030303030303,
+    "v2_vs_v1_bootstrap_95_ci": [-0.13636363636363635, 0.0],
+    "v2_vs_v1_win_tie_loss": {"v2_wins": 0, "ties": 20, "v2_losses": 2}
+  },
+  "adversarial_withheld": {
+    "answerable_case_count": 11,
+    "interpretation": "UNDERPOWERED",
+    "pse_current_mrr": 0.5606060606060607,
+    "pse_candidate_v1_mrr": 0.6666666666666666,
+    "pse_candidate_v2_mrr": 0.9090909090909091,
+    "pse_candidate_v2_recall_at_1": 0.8181818181818182,
+    "pse_candidate_v2_recall_at_5": 1.0,
+    "pse_candidate_v2_ndcg_at_5": 0.9328963188311742,
+    "v2_vs_v1_paired_mrr_delta": 0.24242424242424246,
+    "v2_vs_v1_bootstrap_95_ci": [0.09090909090909091, 0.4090909090909091],
+    "v2_vs_v1_win_tie_loss": {"v2_wins": 5, "ties": 6, "v2_losses": 0}
+  },
+  "ablation": {
+    "withheld_full_v2_mrr": 0.9090909090909091,
+    "without_adversarial_cue_mrr": 0.8181818181818182,
+    "without_echo_mrr": 0.7727272727272727,
+    "without_update_mrr": 0.7727272727272727,
+    "original24_without_anchor_mrr": 0.9696969696969696,
+    "interpretation": "Adversarial-cue, echo, and update terms have measurable withheld contribution; the anchor term trades some normal-benchmark MRR for the robustness design. These small-set estimates remain underpowered."
+  },
+  "robustness": {
+    "original24_reverse_order_mrr": 0.9469696969696969,
+    "adversarial_development_missing_timestamp_mrr": 0.9545454545454546,
+    "adversarial_withheld_base_mrr": 0.9090909090909091,
+    "adversarial_withheld_missing_timestamp_mrr": 0.9545454545454546
+  },
+  "acceptance_checklist": {
+    "candidate_formally_frozen": true,
+    "development_complete": true,
+    "validation_complete": true,
+    "withheld_complete": true,
+    "ablation_complete": true,
+    "robustness_complete_for_recorded_suite": true,
+    "no_leakage_evidence": true,
+    "statistical_interpretation_documented": true,
+    "independent_reproduction": false,
+    "strong_baseline_adversarial_comparison_complete": false,
+    "repository_claim_boundary_allows_gate_e_complete": false
+  },
+  "reasons_not_complete": [
+    "The durable candidate-v2 summary explicitly defines its evidence as auxiliary exploratory robustness evidence and explicitly excludes Gate E completion.",
+    "Independent reproduction is false.",
+    "The requested adversarial comparison does not yet contain an exact A-MEM strong-baseline run on the frozen adversarial set.",
+    "Candidate v2 is not a justified universal replacement for v1 because it loses normal-benchmark MRR while gaining adversarial robustness.",
+    "The principal paired comparisons are still labeled UNDERPOWERED."
+  ],
+  "decision": "DO_NOT_AUTO_PROMOTE_V2; retain v1 and v2 as distinct candidate hypotheses until the remaining Gate E evidence boundary is satisfied.",
+  "algorithm_parity": "NO",
+  "sealed_final_accessed": false,
+  "new_monetary_cost_usd": 0.0
+}
