@@ -29,6 +29,7 @@
     "src/personal_state_engine/_persistence_support.py": "dfc68cb69d8f099fcc2685d88bf753737c2d65d4",
     "src/personal_state_engine/baselines.py": "bded19a22f900074311d1f6d6ae4e3e15a28ecab",
     "src/personal_state_engine/benchmark_lock.py": "7ad5b7da1d5d3d30e1498efd4eb3d25e569a67ee",
+    "src/personal_state_engine/candidate_v2.py": "3a66ac539acce1b6c95cd7ff3f768756c9720b90",
     "src/personal_state_engine/commitments.py": "6d05555b71c175a4b993fbcaa53eeb0c74f8beb6",
     "src/personal_state_engine/engine.py": "ceeee9c32272ef52f08ee4a5a1580bdf71dd4e41",
     "src/personal_state_engine/evaluation.py": "3383e26e238ca3d93a22819b2d1fa96995daffa0",
