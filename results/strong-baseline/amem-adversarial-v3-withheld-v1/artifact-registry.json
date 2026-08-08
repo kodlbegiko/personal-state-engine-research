@@ -1,0 +1,33 @@
+{
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "bytes": 2648,
+      "generation_command": "python scripts/aggregate_amem_adversarial_withheld.py ...",
+      "path": "results/strong-baseline/amem-adversarial-v3-withheld-v1/predictions-run1.json",
+      "sha256": "d1c742c9321e54c426d4eccc2b6c6240621a2c0b657f4e57518cf5b451cdaebe",
+      "source_workflow_run": 31284365924
+    },
+    {
+      "bytes": 6219,
+      "generation_command": "python scripts/aggregate_amem_adversarial_withheld.py ...",
+      "path": "results/strong-baseline/amem-adversarial-v3-withheld-v1/comparison-run1.json",
+      "sha256": "47d050bfd73426e8fe925ad67d141e712671c3eb54558e6032e04a5aa83622bb",
+      "source_workflow_run": 31284365924
+    },
+    {
+      "bytes": 1155,
+      "generation_command": "python scripts/aggregate_amem_adversarial_withheld.py ...",
+      "path": "results/strong-baseline/amem-adversarial-v3-withheld-v1/resource-summary-run1.json",
+      "sha256": "b0054e1630ca93b1cf29deffa845db5c8e6dc3cd3b4843878dbd3549251c292c",
+      "source_workflow_run": 31284365924
+    }
+  ],
+  "corpus_sha256": "7e23df3b4f1bdac6b8999ffe56bea97dcd825fb5ab8536a3acec1ea702aded56",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "20d29b826bd8bdea7bfea5de2a9e816ed09f5d2fd5f8376ff20057f5f71b7138",
+  "schema_version": "amem-adversarial-v3-withheld-artifact-registry-v1",
+  "sealed_final_accessed": false,
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "source_run_id": 31284365924
+}
