@@ -1,0 +1,25 @@
+{
+  "baseline": "A-MEM",
+  "cloud_gpu_used": false,
+  "context_tokens": null,
+  "cpu": {
+    "architecture": "x86_64",
+    "logical_cpus": 5
+  },
+  "disk_free_gib": 38,
+  "embedding_time_seconds": null,
+  "gpu": null,
+  "index_size_bytes": null,
+  "index_time_seconds": null,
+  "measured_scope": "source pinning, manifest generation, mechanical adapter tests and verifier preparation only",
+  "memory_count": 0,
+  "model_size_bytes": null,
+  "new_monetary_cost_usd": 0.0,
+  "paid_api_used": false,
+  "peak_ram_bytes": null,
+  "ram_gib": 5.9,
+  "retrieval_latency_ms_p50": null,
+  "retrieval_latency_ms_p95": null,
+  "schema_version": "strong-baseline-resource-accounting-v1",
+  "wall_clock_runtime_seconds": null
+}

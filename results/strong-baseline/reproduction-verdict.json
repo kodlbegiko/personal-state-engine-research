@@ -1,0 +1,14 @@
+{
+  "baseline": "A-MEM",
+  "d1_source_reproduction_preparation": "COMPLETE",
+  "d2_memory_algorithm_execution": "NOT COMPLETE",
+  "d3_retrieval_level_benchmark": "NOT EXECUTED",
+  "d4_end_to_end_development_reproduction": "NOT EXECUTED",
+  "end_to_end_execution": false,
+  "formal_answer_accuracy_permitted": false,
+  "next_exact_action": "Run the pinned A-MEM robust pipeline with Ollama qwen2.5:3b and all-MiniLM-L6-v2 in a zero-cost environment with sufficient RAM, first on the 24-case synthetic corpus, then the frozen development retrieval pilot.",
+  "schema_version": "strong-baseline-reproduction-verdict-v1",
+  "sealed_final_accessed": false,
+  "verdict": "BLOCKED BY COMPUTE",
+  "why": "Exact-pinned upstream source/protocol and zero-cost local path are established, but this runner lacks the required embedding/LLM packages and model weights. A mechanically adapted wrapper is tested without substituting a different semantic algorithm."
+}

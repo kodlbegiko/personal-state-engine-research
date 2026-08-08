@@ -1,0 +1,61 @@
+name: Strong Baseline Evidence
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - "benchmarks/strong-baseline/**"
+      - "docs/strong-baseline-**"
+      - "experiments/baselines/strong-baseline-**"
+      - "references/strong-baseline-**"
+      - "results/strong-baseline/**"
+      - "scripts/run_memory_baseline_comparison.py"
+      - "scripts/verify_strong_baseline_reproduction.py"
+      - "src/personal_state_engine/strong_baseline.py"
+      - "tests/test_strong_baseline_harness.py"
+      - ".github/workflows/strong-baseline-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "benchmarks/strong-baseline/**"
+      - "docs/strong-baseline-**"
+      - "experiments/baselines/strong-baseline-**"
+      - "references/strong-baseline-**"
+      - "results/strong-baseline/**"
+      - "scripts/run_memory_baseline_comparison.py"
+      - "scripts/verify_strong_baseline_reproduction.py"
+      - "src/personal_state_engine/strong_baseline.py"
+      - "tests/test_strong_baseline_harness.py"
+      - ".github/workflows/strong-baseline-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install project only
+        run: python -m pip install -e .
+      - name: Compile strong-baseline code
+        run: python -m compileall -q src/personal_state_engine/strong_baseline.py scripts/run_memory_baseline_comparison.py scripts/verify_strong_baseline_reproduction.py tests/test_strong_baseline_harness.py
+      - name: Run strong-baseline unit tests
+        run: python -m unittest discover -s tests -p 'test_strong_baseline_harness.py' -v
+      - name: Verify strong-baseline evidence registry
+        run: python scripts/verify_strong_baseline_reproduction.py
+      - name: Verify no model weights are committed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find results/strong-baseline benchmarks/strong-baseline -type f \( -name '*.bin' -o -name '*.gguf' -o -name '*.onnx' -o -name '*.safetensors' -o -name '*.pt' -o -name '*.pth' \) | grep -q .; then
+            echo "model weights detected in strong-baseline evidence" >&2
+            exit 1
+          fi

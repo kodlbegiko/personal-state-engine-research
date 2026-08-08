@@ -1,0 +1,38 @@
+{
+  "baseline": "A-MEM",
+  "commit_date": "2026-03-05T11:33:11Z",
+  "commit_sha": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "evolution_neighbor_k": 5,
+  "exact_upstream_reproducibility": "SOURCE_AND_PROTOCOL_PINNED_RUNTIME_NOT_EXECUTED",
+  "important_source_sha256": {
+    "memory_layer_robust.py": "1c5cd36b50c9113440db0523b1f3d781aebc3711ff9b86b72b20e0f9bc981aef",
+    "requirements.txt": "cf293493dd357c6bce7a30fee5df0e6ebe55bea4fe00c90972e8ca11ece9a169"
+  },
+  "license": "MIT",
+  "local_answer_memory_backend": "Ollama qwen2.5:3b (official robust README path)",
+  "paper_id": "arXiv:2502.12110",
+  "paper_publication": "NeurIPS 2025",
+  "paper_title": "A-MEM: Agentic Memory for LLM Agents",
+  "randomness_note": "upstream LLM calls use temperature defaults; formal reproduction must pin backend seed/settings where supported",
+  "repository": "https://github.com/WujiangXu/A-mem",
+  "retrieval_top_k_default": 10,
+  "retriever_model": "all-MiniLM-L6-v2",
+  "schema_version": "strong-baseline-primary-source-v1",
+  "sha256_scope_note": "SHA-256 calculated for locally materialized exact-pinned robust memory layer and exact requirements text; other upstream files retain Git blob IDs in this preparation stage.",
+  "source_paths": {
+    "dataset": "data/locomo10.json",
+    "evaluation": "test_advanced_robust.py",
+    "memory_layer": "memory_layer.py",
+    "requirements": "requirements.txt",
+    "robust_memory_layer": "memory_layer_robust.py",
+    "robust_parser": "llm_text_parsers.py"
+  },
+  "upstream_blob_sha256_or_git_blob": {
+    "data/locomo10.json": "d95b872480b413d935821fdc3c84f8a8f5f29e73",
+    "llm_text_parsers.py": "355119beb3df7b13f639fb7e53fea63dafcb03a8",
+    "memory_layer.py": "c9744d9244a39dae782c98fb1f3b71c50be9b592",
+    "memory_layer_robust.py": "5f47127d0b1c245a7958b25deb85a7a6a712814c",
+    "requirements.txt": "30329f1713c5424b7e7192020cbdd750188096f7",
+    "test_advanced_robust.py": "01eaf44a6d600b75f3ec06954e31ed5d91a7cbca"
+  }
+}
