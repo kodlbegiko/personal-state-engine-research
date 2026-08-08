@@ -1,0 +1,170 @@
+name: A-MEM D4 End-to-End Development
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/amem-d4-trigger"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: amem-d4-end-to-end-development
+  cancel-in-progress: false
+
+jobs:
+  d4-development:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      EXPECTED_DATASET_SHA256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
+      EXPECTED_CASE_IDS_SHA256: 519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Fail closed on required D4 retrieval evidence and zero-cost boundary
+        run: |
+          set -euo pipefail
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          test -f results/strong-baseline/amem-development-v1/predictions-run1.json
+          python - <<'PY'
+          import json, os
+          r=json.load(open('results/strong-baseline/amem-development-v1/predictions-run1.json'))
+          assert r['case_count']==20
+          assert r['case_ids_sha256']==os.environ['EXPECTED_CASE_IDS_SHA256']
+          assert r['dataset_sha256']==os.environ['EXPECTED_DATASET_SHA256']
+          assert r['sealed_final_accessed'] is False
+          assert len(r['predictions'])==20
+          assert len({row['case_id'] for row in r['predictions']})==20
+          p=json.load(open('experiments/protocols/amem-d4-development-v2.json'))
+          assert p['status']=='FROZEN_BEFORE_D4_RETRIEVAL_RESULT'
+          assert p['sealed_final_accessed'] is False
+          assert p['paid_api_allowed'] is False
+          assert p['answer_model']['retrieval_item_limit']==3
+          assert p['answer_model']['retrieval_token_budget']==1024
+          assert p['answer_model']['memory_token_budget']==1024
+          PY
+      - name: Install Python package
+        run: python -m pip install -e .
+      - name: Install exact Transformers.js runtime
+        working-directory: experiments/runtime
+        run: npm ci --ignore-scripts
+      - name: Expose exact runtime to model server
+        run: ln -s experiments/runtime/node_modules node_modules
+      - name: Record dependency audit
+        run: |
+          mkdir -p results/strong-baseline/amem-d4-development-v1
+          cd experiments/runtime
+          npm audit --json > ../../results/strong-baseline/amem-d4-development-v1/npm-audit.json || true
+      - name: Download and verify pinned LongMemEval-S
+        run: |
+          python scripts/fetch_longmemeval.py \
+            --manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --output-directory .external-data/longmemeval
+          test "$(sha256sum .external-data/longmemeval/longmemeval_s_cleaned.json | awk '{print $1}')" = "$EXPECTED_DATASET_SHA256"
+      - name: Preload pinned answer model
+        env:
+          PSE_MODEL_ID: onnx-community/Qwen2.5-0.5B-Instruct
+          PSE_MODEL_REVISION: 956050e4c6ce7c647091e15311218f80d662559f
+          PSE_MODEL_DTYPE: q4
+          PSE_HF_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          node scripts/transformersjs_model_server.mjs </dev/null \
+            > results/strong-baseline/amem-d4-development-v1/answer-model-preload.stdout.jsonl \
+            2> results/strong-baseline/amem-d4-development-v1/answer-model-preload.stderr.log
+          grep '"status":"ready"' results/strong-baseline/amem-d4-development-v1/answer-model-preload.stdout.jsonl
+      - name: Preload pinned calibrated evaluator-v2 judge
+        env:
+          PSE_MODEL_ID: onnx-community/Llama-3.2-3B-Instruct-ONNX
+          PSE_MODEL_REVISION: cab364e7d0e1de7aa09e3abc932be92361c5b55f
+          PSE_MODEL_DTYPE: q4
+          PSE_HF_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          node scripts/transformersjs_model_server.mjs </dev/null \
+            > results/strong-baseline/amem-d4-development-v1/judge-model-preload.stdout.jsonl \
+            2> results/strong-baseline/amem-d4-development-v1/judge-model-preload.stderr.log
+          grep '"status":"ready"' results/strong-baseline/amem-d4-development-v1/judge-model-preload.stdout.jsonl
+      - name: Execute D4 end-to-end development reproduction
+        env:
+          TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+          PSE_FORCE_LOCAL_JUDGE: "1"
+        run: |
+          set -euo pipefail
+          python scripts/run_amem_d4_development.py \
+            --dataset .external-data/longmemeval/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+            --protocol experiments/protocols/amem-d4-development-v2.json \
+            --retrieval-predictions results/strong-baseline/amem-development-v1/predictions-run1.json \
+            --model-manifest experiments/models/qwen2.5-0.5b-instruct-transformersjs.json \
+            --run-manifest experiments/configs/qwen2.5-0.5b-development-matrix.json \
+            --model-server scripts/transformersjs_model_server.mjs \
+            --cache-directory .external-data/hf-cache \
+            --output-root results/strong-baseline/amem-d4-development-v1 \
+            | tee results/strong-baseline/amem-d4-development-v1/run.stdout.log
+      - name: Verify D4 artifact contract
+        run: |
+          set -euo pipefail
+          RUN_DIR="$(find results/strong-baseline/amem-d4-development-v1 -mindepth 1 -maxdepth 1 -type d -name 'amem-d4-*' | sort | tail -n 1)"
+          test -n "$RUN_DIR"
+          python - "$RUN_DIR" <<'PY'
+          import hashlib, json, pathlib, sys
+          root=pathlib.Path(sys.argv[1])
+          summary=json.load(open(root/'summary.json'))
+          registry=json.load(open(root/'artifact-registry.json'))
+          assert summary['case_count']==20
+          assert summary['completed_answer_trials']==20
+          assert summary['judge_invalid_count']==0
+          assert summary['judge_invalid_rate']==0.0
+          assert summary['new_monetary_cost_usd']==0.0
+          assert summary['sealed_final_accessed'] is False
+          assert registry['new_monetary_cost_usd']==0.0
+          assert registry['sealed_final_accessed'] is False
+          for row in registry['artifacts']:
+              p=root/row['path']
+              assert p.is_file(), p
+              h=hashlib.sha256(p.read_bytes()).hexdigest()
+              assert h==row['sha256'], (p,h,row['sha256'])
+              assert p.stat().st_size==row['bytes']
+          answers=list((root/'raw-answers').glob('*.json'))
+          judges=list((root/'raw-judge-outputs').glob('*.json'))
+          assert len(answers)==20
+          assert len(judges)==20
+          print(json.dumps({'status':'AMEM_D4_VERIFIED','run_dir':str(root),'accuracy':summary['answer_accuracy']}))
+          PY
+      - name: Verify no dataset/model weights entered Git
+        if: always()
+        run: |
+          git status --short
+          test -z "$(git status --short -- .external-data)"
+          test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
+      - name: Persist durable D4 evidence without merging PR
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/strong-baseline/amem-d4-development-v1
+          if git diff --cached --quiet; then
+            echo "No new D4 evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record A-MEM D4 development evidence"
+          git push origin HEAD:research/personal-state-engine-v0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amem-d4-development-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/strong-baseline/amem-d4-development-v1/
+          if-no-files-found: error
+          retention-days: 30
