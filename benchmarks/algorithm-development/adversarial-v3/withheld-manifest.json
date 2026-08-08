@@ -1,0 +1,16 @@
+{
+  "schema_version": "pse-adversarial-v3-withheld-manifest-v1",
+  "generated_after_candidate_source_freeze": true,
+  "candidate_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+  "candidate_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "withheld_commit": "fd73449462e6285a4e5aec095e0c84d565d83fbc",
+  "path": "benchmarks/algorithm-development/adversarial-v3/withheld.json",
+  "bytes": 4282,
+  "sha256": "7e23df3b4f1bdac6b8999ffe56bea97dcd825fb5ab8536a3acec1ea702aded56",
+  "case_count": 12,
+  "independent_reproduction": false,
+  "operator_designed_procedural_withheld": true,
+  "tuning_after_first_withheld_evaluation": false,
+  "sealed_final_accessed": false,
+  "claim_boundary": "Withheld results are auxiliary generalization evidence only, not independent reproduction or formal parity evidence."
+}
