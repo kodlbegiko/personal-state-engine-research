@@ -1,0 +1,73 @@
+{
+  "schema_version": "continuation-mission-current-state-audit-v1",
+  "audited_at": "2026-08-09T07:10:00+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "starting_head": "1d810f5b9e6a458f84765a274f64e3a72327c0b1",
+  "remote_head_at_audit_start": "1d810f5b9e6a458f84765a274f64e3a72327c0b1",
+  "pull_request": {
+    "number": 2,
+    "state": "OPEN",
+    "draft": true,
+    "merged": false
+  },
+  "gate_d": {
+    "D1": "COMPLETE",
+    "D2": "COMPLETE",
+    "D3": "COMPLETE",
+    "D4": "NOT_COMPLETE",
+    "basis": "D2/D3 durable A-MEM frozen-24 artifacts exist and match pinned source/model/corpus identity; D4 end-to-end development reproduction has not yet been completed."
+  },
+  "gate_e": {
+    "status": "NOT_COMPLETE",
+    "engineering_evidence": "PARTIAL",
+    "reason": "Candidate-v2 has frozen development/validation/withheld, ablation, robustness, statistics and leakage evidence, but the repository claim boundary explicitly excludes Gate E completion and independent reproduction is false."
+  },
+  "candidate": {
+    "latest": "pse_candidate_v2",
+    "v2_status": "FROZEN",
+    "v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "withheld_commit": "fd73449462e6285a4e5aec095e0c84d565d83fbc",
+    "freeze_precedes_withheld": true,
+    "selection_status": "ROBUSTNESS_SPECIALIST_NOT_DROP_IN_V1_REPLACEMENT"
+  },
+  "benchmark_freezes": {
+    "strong_baseline_24_case_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+    "adversarial_v3": "FROZEN",
+    "abstention_dev_v1": "FROZEN"
+  },
+  "amem_d3": {
+    "run_id": 31269598248,
+    "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "artifact_registry_verified_by_metadata": true,
+    "rerun_required": false
+  },
+  "ci_at_audit_start": {
+    "main_ci": "ACTION_REQUIRED",
+    "strong_baseline_evidence": "ACTION_REQUIRED",
+    "acceptance": "NOT_SUCCESS"
+  },
+  "github_status_consistency": {
+    "issue_6": "STALE_REQUIRES_RECONCILIATION",
+    "issue_7": "STALE_REQUIRES_RECONCILIATION",
+    "strong_baseline_status_doc": "STALE_REQUIRES_RECONCILIATION"
+  },
+  "integrity": {
+    "twenty_frozen_development_cases_changed": false,
+    "forty_immutable_answers_changed": false,
+    "original_24_case_corpus_changed": false,
+    "sealed_final_content_accessed": false,
+    "sealed_final_case_or_error_viewed": false,
+    "sealed_final_path_metadata_exposed_by_repository_tree_listing": true,
+    "note": "A repository tree metadata query surfaced a sealed_final path name only. No sealed file content, case, answer, error, hash payload, or tuning signal was fetched or viewed. Subsequent inspection is path-scoped."
+  },
+  "cost": {
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "paid_gpu_used": false
+  },
+  "algorithm_parity": "NO",
+  "next_evidence_gate": "D4 frozen development retrieval pilot followed by end-to-end development reproduction"
+}
