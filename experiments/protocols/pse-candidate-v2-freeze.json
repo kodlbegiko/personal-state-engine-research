@@ -1,0 +1,17 @@
+{
+  "schema_version": "pse-candidate-v2-freeze-v1",
+  "frozen_at": "2026-08-09T00:40:00+08:00",
+  "status": "FROZEN_BEFORE_WITHHELD_GENERATION",
+  "source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+  "source_path": "src/personal_state_engine/candidate_v2.py",
+  "source_git_blob_sha1": "3a66ac539acce1b6c95cd7ff3f768756c9720b90",
+  "source_sha256": "de269b280bc5bb5b93a6de338906670d4c6337d1f30827ab8964e8dae9578a80",
+  "preregistration_path": "experiments/protocols/pse-candidate-v2-preregistration.json",
+  "preregistration_sha256": "de5ac5c84de70ea81affb15998d1063809d17329cf797aab3a162782c990f066",
+  "adversarial_development_sha256": "b7b03ec2d084a55bde2069284db87982bc1a0ab0895060e4d31d8ce2f4cdf669",
+  "adversarial_validation_sha256": "4113b7d2b2f90271351398c3fb6d77439fd1ea862c93801fa89a658f4ccd2c26",
+  "original_24_case_corpus_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+  "withheld_generated": false,
+  "sealed_final_accessed": false,
+  "claim_boundary": "Exploratory auxiliary algorithm evidence only; no Gate E or strong-baseline parity claim."
+}
