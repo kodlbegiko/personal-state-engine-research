@@ -1,0 +1,11 @@
+triggered-by=zero-cost-d4-recovery-mission
+source-cancelled-run=31284023872
+salvaged-cases=0
+recovery-case-shards=20
+shard-count=20
+timeout-minutes=350
+algorithm-change=false
+model-change=false
+benchmark-change=false
+sealed-final=false
+paid-cost-usd=0
