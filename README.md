@@ -2,7 +2,7 @@
 
 A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability under fixed model, context, tool, token and cost constraints.
 
-> **Current status:** exact-pinned A-MEM has been reproduced at retrieval level under a zero-monetary-cost path. D1/D2/D3 are complete; D4 end-to-end frozen development reproduction is not yet complete. Candidate-v2 is descriptively competitive with exact A-MEM on the frozen adversarial-v4 benchmark, but the paired result is underpowered and abstention remains unresolved.
+> **Current status:** exact-pinned A-MEM has been reproduced at retrieval level under a zero-monetary-cost path. D1/D2/D3 are complete; D4 end-to-end frozen development reproduction is not yet complete. The first frozen-development retrieval run timed out; a case-level zero-cost recovery is active. Candidate-v2 is descriptively competitive with exact A-MEM on the frozen adversarial-v4 benchmark, but the paired result is underpowered and abstention remains unresolved.
 
 ```text
 Research verdict: INCONCLUSIVE
@@ -49,7 +49,7 @@ Paid GPU: false
 | D3 — frozen retrieval benchmark | COMPLETE |
 | D4 — end-to-end frozen development reproduction | NOT COMPLETE |
 
-The historical `BLOCKED BY COMPUTE` status is superseded. Exact A-MEM has executed successfully on GitHub-hosted zero-cost research runs.
+The historical `BLOCKED BY COMPUTE` status is superseded for D2/D3. Exact A-MEM has executed successfully on GitHub-hosted zero-cost research runs.
 
 ### Frozen 24-case retrieval comparison
 
@@ -103,22 +103,25 @@ false abstention rate on answerable development = 0
 
 This negative result is retained. Previously observed withheld data is not treated as hidden for further threshold tuning.
 
-## Current active D4 precursor
+## Current D4 precursor — case-level recovery
 
-A-MEM Frozen Development Retrieval run `31284023872` is the current precursor to D4.
+Original A-MEM Frozen Development Retrieval run `31284023872` is **CANCELLED_BY_EXECUTION_TIMEOUT**. It passed Python 3.11, frozen split, dataset, source, Ollama and embedding checks, but all 10 two-case shard jobs hit the 180-minute execution timeout. All 10 artifacts were inspected and none contained a completed shard JSON, so formally salvageable cases = **0/20**.
 
-Verified before shard execution:
+Forensic evidence is stored under:
 
-- Python 3.11
-- development split reproduction: PASS
-- dataset identity: PASS
-- exact A-MEM source pin: PASS
-- Ollama identity/digest: PASS
-- embedding snapshot: PASS
+`results/strong-baseline/amem-development-recovery-v1/`
 
-Scope: 20 frozen development cases / 4 abstention cases / 10 exact A-MEM shards.
+Active recovery workflow:
 
-If and only if durable retrieval evidence completes and validates, the next action is the preregistered end-to-end protocol `experiments/protocols/amem-d4-development-v2.json` through `.github/workflows/strong-baseline-amem-d4.yml`.
+`.github/workflows/strong-baseline-amem-development-recovery.yml`
+
+Active recovery run:
+
+`31292999631`
+
+Recovery preserves the same 20 frozen development cases / 4 abstention cases and all A-MEM/model/dataset/embedding identities. The existing runner is unchanged; execution is split into `shard-count = 20`, one frozen case per job, with a 350-minute timeout and max parallelism 10. Recovery dataset preparation and frozen split reproduction passed.
+
+If and only if all 20 retrieval outputs complete and validate with no missing/duplicate/invalid cases, the next action is the preregistered end-to-end protocol `experiments/protocols/amem-d4-development-v2.json` through the repository's frozen D4 workflow.
 
 ## Current gate status
 
