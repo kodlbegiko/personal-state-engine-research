@@ -2,11 +2,6 @@ name: Reconcile Zero-Cost A-MEM Status
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - research/personal-state-engine-v0
-    paths:
-      - ".github/reconcile-zero-cost-trigger"
 
 permissions:
   contents: write
