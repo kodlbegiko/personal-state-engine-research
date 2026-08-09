@@ -1,0 +1,12 @@
+{
+  "cpu_count": 4,
+  "github_run_attempt": "1",
+  "github_run_id": "31316152994",
+  "github_sha": "4441fb12055ab22274365e7cb043beea27ffa84c",
+  "new_monetary_cost_usd": 0.0,
+  "node": "v24.18.0",
+  "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "schema_version": "amem-d4-environment-v1",
+  "sealed_final_accessed": false
+}

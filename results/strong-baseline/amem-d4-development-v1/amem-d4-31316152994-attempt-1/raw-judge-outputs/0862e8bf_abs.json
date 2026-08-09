@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "0862e8bf_abs",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 5643.546445000002,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you an unanswerable question, an explanation, and a response from a model. Please answer yes if the model correctly identifies the question as unanswerable. The model could say that the information is incomplete, or some other information is given but the asked information is not.\n\nQuestion: What is the name of my hamster?\n\nExplanation: You did not mention this information. You mentioned your cat Luna but not your hamster.\n\nModel Response: The name of your hamster is not mentioned in the conversation provided.\n\nDoes the model correctly identify the question as unanswerable? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "Yes.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:0862e8bf_abs:d304a4be-e9fb-45ac-b79a-9e77dad0865d",
+    "text": "Yes.",
+    "usage": {
+      "input_tokens": 159,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:0862e8bf_abs:d304a4be-e9fb-45ac-b79a-9e77dad0865d",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}

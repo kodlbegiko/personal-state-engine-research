@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "d23cf73b",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 8029.035782000006,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a correct answer, and a response from a model. Please answer yes if the response contains the correct answer. Otherwise, answer no. If the response is equivalent to the correct answer or contains all the intermediate steps to get the correct answer, you should also answer yes. If the response only contains a subset of the information required by the answer, answer no.\n\nQuestion: How many different cuisines have I learned to cook or tried out in the past few months?\n\nCorrect Answer: 4\n\nModel Response: Based on the information provided in our conversation, we haven't specifically mentioned which cuisines I've learned to cook or tried out recently. However, the conversation indicates that I've done a lot of rice and roasted vegetables, which suggests I've had a broad range of cooking experiences. To provide a more accurate count, we would need to look back into my profile or recent activity logs.\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:d23cf73b:6bf73d34-f977-4b08-a4a8-68b3cb51d58d",
+    "text": "No",
+    "usage": {
+      "input_tokens": 233,
+      "output_tokens": 1,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:d23cf73b:6bf73d34-f977-4b08-a4a8-68b3cb51d58d",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}

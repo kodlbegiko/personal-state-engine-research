@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "35a27287",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 10642.032079000004,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a rubric for desired personalized response, and a response from a model. Please answer yes if the response satisfies the desired response. Otherwise, answer no. The model does not need to reflect all the points in the rubric. The response is correct as long as it recalls and utilizes the user's personal information correctly.\n\nQuestion: Can you recommend some interesting cultural events happening around me this weekend?\n\nRubric: The user would prefer responses that suggest cultural events where they can practice their language skills, particularly Spanish and French. They would also appreciate if the event has a focus on language learning resources. They would not prefer events that do not provide opportunities for language practice or cultural exchange.\n\nModel Response: Sure, here are some interesting cultural events happening around you this weekend:\n\n1. **Singles' Day** - This day marks the beginning of the month and is dedicated to celebrating singles. Many venues host special events such as concerts, dance performances, and other entertainment activities.\n\n2. **Asian Cultural Festival** - This event showcases various Asian cultures and traditions, featuring music, dance, theater, and other forms of performance.\n\n3. **International Film Festival** - This festival features\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:35a27287:78d4ff29-10b3-4312-9d2f-8145ac67e6d8",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 290,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:35a27287:78d4ff29-10b3-4312-9d2f-8145ac67e6d8",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}

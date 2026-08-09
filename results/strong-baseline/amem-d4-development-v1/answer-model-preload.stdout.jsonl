@@ -1,0 +1,1 @@
+{"status":"ready","model_id":"onnx-community/Qwen2.5-0.5B-Instruct","model_revision":"956050e4c6ce7c647091e15311218f80d662559f","dtype":"q4","cache_directory":"/home/runner/work/personal-state-engine-research/personal-state-engine-research/.external-data/hf-cache","runtime":"@huggingface/transformers"}

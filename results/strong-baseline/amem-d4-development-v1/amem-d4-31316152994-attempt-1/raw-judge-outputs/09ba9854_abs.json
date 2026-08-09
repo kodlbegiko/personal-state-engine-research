@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "09ba9854_abs",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 6576.449575999999,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you an unanswerable question, an explanation, and a response from a model. Please answer yes if the model correctly identifies the question as unanswerable. The model could say that the information is incomplete, or some other information is given but the asked information is not.\n\nQuestion: How much will I save by taking the bus from the airport to my hotel instead of a taxi?\n\nExplanation: The information provided is not enough. You did not mention how much will the bus take.\n\nModel Response: You will save approximately INR 500-700 (US$ 7-10) by taking the bus from the airport to your hotel instead of a taxi.\n\nDoes the model correctly identify the question as unanswerable? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:09ba9854_abs:a60dec68-c3e1-4225-a1b8-a1c11ec2ba6e",
+    "text": "No",
+    "usage": {
+      "input_tokens": 189,
+      "output_tokens": 1,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:09ba9854_abs:a60dec68-c3e1-4225-a1b8-a1c11ec2ba6e",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}
