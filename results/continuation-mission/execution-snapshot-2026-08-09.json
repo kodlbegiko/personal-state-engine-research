@@ -1,8 +1,8 @@
 {
-  "schema_version": "continuation-mission-execution-snapshot-v6",
-  "recorded_at": "2026-08-09T22:35:25+08:00",
+  "schema_version": "continuation-mission-execution-snapshot-v7",
+  "recorded_at": "2026-08-10T05:29:46+08:00",
   "branch": "research/personal-state-engine-v0",
-  "branch_head_observed_before_checkpoint": "67f201324f25d27ae2c92ad3e63fba48bf6065c5",
+  "branch_head_observed_before_checkpoint": "082379bd60b8c8216a0dbbd569cae69b3f2e3d5b",
   "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
   "gate_status": {
     "A": "COMPLETE",
@@ -18,11 +18,13 @@
     "G": "NOT_COMPLETE"
   },
   "formal_research_completion_percent": 30,
-  "formal_completion_note": "The previous 30% evidence-weighted completion value is retained rather than inventing a new percentage because the repository does not define an authoritative numeric weight update for D4 in the current continuation artifacts. Gate D completion is recorded separately and should be incorporated by the next formal completion recomputation.",
+  "formal_completion_note": "The previous 30% evidence-weighted completion value is retained rather than inventing a new percentage because the repository still does not define an authoritative numeric weight update for completed Gate D and the new resource evidence. Gate statuses are recorded separately and should be incorporated by the next formal completion recomputation.",
   "algorithm_parity": "NO",
   "a_mem": {
     "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
     "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
     "recovery_run_id": 31292999631,
     "recovery_status": "COMPLETE_ACCEPTED",
     "recovery_valid_unique_cases": 20,
@@ -54,6 +56,23 @@
     "adversarial_v4_candidate_v2_mrr": 0.875,
     "adversarial_v4_v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704]
   },
+  "resource_evidence": {
+    "status": "NEW_DURABLE_ZERO_COST_RESOURCE_EVIDENCE",
+    "evidence_commit": "082379bd60b8c8216a0dbbd569cae69b3f2e3d5b",
+    "local_measurements_path": "results/continuation-mission/local-candidate-resource-measurements-v1.json",
+    "comparison_path": "results/continuation-mission/resource-comparison.json",
+    "benchmark": "adversarial-v4-postfreeze-discrimination",
+    "case_count": 24,
+    "candidate_v2_peak_rss_kib": 22092,
+    "candidate_v2_wall_clock_seconds": 0.010895863999998312,
+    "candidate_v2_per_case_seconds": 0.000453994333333263,
+    "a_mem_adversarial_v4_max_peak_rss_kib": 1426156,
+    "a_mem_adversarial_v4_mean_end_to_end_case_wall_seconds": 364.8379166666666,
+    "a_mem_adversarial_v4_serialized_inference_wall_seconds": 8756.109999999999,
+    "comparison_boundary": "A-MEM serialized inference wall time is not directly comparable with parallel shard wall time or dependency-free local scoring wall time; no missing resource metric is inferred.",
+    "new_monetary_cost_usd": 0.0,
+    "sealed_final_accessed": false
+  },
   "gate_e_evidence": {
     "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
     "candidate_v2_status": "FROZEN_ROBUSTNESS_SPECIALIST_NOT_UNIVERSAL_REPLACEMENT",
@@ -61,6 +80,7 @@
     "exact_a_mem_adversarial_v4": "COMPLETE_AUXILIARY_UNDERPOWERED",
     "abstention_strategy_matrix": "COMPLETE_AUXILIARY_UNRESOLVED",
     "independent_reproduction": false,
+    "resource_evidence_effect": "Resource instrumentation strengthens engineering characterization but does not resolve candidate selection, statistical power, abstention, or independent reproduction.",
     "d4_effect_on_gate_e": "D4 completes Gate D baseline reproduction but does not resolve underpowered candidate comparison, candidate tradeoffs, abstention selection guardrails, or independent reproduction."
   },
   "integrity": {
@@ -72,9 +92,10 @@
     "successful_recovery_jobs_rerun": false,
     "duplicate_recovery_started": false,
     "d4_started_before_recovery_acceptance": false,
-    "d4_protocol_modified_after_recovery_result": false
+    "d4_protocol_modified_after_recovery_result": false,
+    "resource_measurement_changed_ranking_semantics": false
   },
   "cost": {"new_monetary_cost_usd": 0.0, "paid_api_used": false, "paid_gpu_used": false, "paid_inference_used": false},
   "not_yet_claimable": ["Gate E complete", "algorithm parity", "PSE superiority over A-MEM", "equivalence or non-inferiority", "independent reproduction", "sealed-final readiness", "production readiness"],
-  "exact_next_gate_at_snapshot": "Gate D is complete. Continue zero-cost non-sealed Gate E work only where it does not retune frozen candidate-v2 or leak protected evidence: independent reproduction and protocol-consistent abstention/candidate-selection evidence remain unresolved."
+  "exact_next_gate_at_snapshot": "Gate D and zero-cost resource characterization are complete enough for current internal evidence. Continue only non-sealed Gate E/G work that does not retune frozen candidate-v2: protocol-consistent abstention/candidate-selection evidence and a genuinely independent reproduction remain unresolved."
 }
