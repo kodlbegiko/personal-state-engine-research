@@ -1,6 +1,6 @@
 {
-  "schema_version": "continuation-mission-execution-snapshot-v2",
-  "recorded_at": "2026-08-09T09:12:00+08:00",
+  "schema_version": "continuation-mission-execution-snapshot-v3",
+  "recorded_at": "2026-08-09T11:44:33+08:00",
   "branch": "research/personal-state-engine-v0",
   "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
   "gate_status": {
@@ -10,74 +10,51 @@
     "D1": "COMPLETE",
     "D2": "COMPLETE",
     "D3": "COMPLETE",
-    "D4": "IN_PROGRESS_NOT_COMPLETE",
+    "D4": "NOT_COMPLETE_RECOVERY_ACTIVE",
     "E": "NOT_COMPLETE",
     "F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
     "G": "NOT_COMPLETE"
   },
   "formal_research_completion_percent": 30,
-  "formal_completion_basis": "Gate D receives no partial percentage before validated D4 completion; Gate E remains incomplete.",
   "algorithm_parity": "NO",
   "a_mem": {
     "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
     "ollama_model": "qwen2.5:3b",
     "d3_run_id": 31269598248,
     "d3_status": "COMPLETE_DURABLE_UNDERPOWERED",
-    "d4_development_retrieval_run_id": 31284023872,
-    "d4_development_retrieval_status": "IN_PROGRESS_EXACT_A_MEM_SHARDS",
-    "adversarial_v3_run_id": 31284365924,
-    "adversarial_v3_status": "COMPLETE_DURABLE_DISCRIMINATION_LIMITED",
+    "cancelled_development_run_id": 31284023872,
+    "cancelled_development_status": "CANCELLED_BY_180_MINUTE_EXECUTION_TIMEOUT",
+    "cancelled_run_valid_salvaged_cases": 0,
+    "recovery_run_id": 31292999631,
+    "recovery_status": "ACTIVE_CASE_LEVEL_20_SHARDS",
+    "recovery_cases_per_job": 1,
+    "recovery_timeout_minutes": 350,
+    "recovery_prepare_dataset": "SUCCESS",
+    "recovery_frozen_split_preflight": "PASS",
     "adversarial_v4_full_run_id": 31284978045,
     "adversarial_v4_full_status": "COMPLETE_DURABLE_UNDERPOWERED",
     "adversarial_v4_a_mem_mrr": 0.8333333333333333,
     "adversarial_v4_candidate_v2_mrr": 0.875,
-    "adversarial_v4_v2_minus_a_mem_mrr_delta": 0.04166666666666668,
-    "adversarial_v4_v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
-    "adversarial_v4_v2_vs_a_mem_win_tie_loss": [5, 12, 5]
+    "adversarial_v4_v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704]
   },
   "gate_e_evidence": {
     "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
-    "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
     "adversarial_v4_discrimination": "SUFFICIENT",
     "exact_a_mem_adversarial_v4": "COMPLETE_AUXILIARY_UNDERPOWERED",
     "robustness_suite": "COMPLETE_AUXILIARY_13_PERTURBATIONS",
     "abstention_strategy_matrix": "COMPLETE_AUXILIARY_UNRESOLVED",
     "candidate_v2_and_a_mem_v4_abstention_accuracy": 0.0,
     "independent_reproduction": false,
-    "candidate_v2_selected_as_universal_replacement": false,
     "formal_selection": "NO_FORMAL_SELECTION"
-  },
-  "github_reconciliation": {
-    "issue_6": "RECONCILED_TO_V2_RESOLVED_V3_EXTERNAL_RUNTIME_SCOPE",
-    "issue_7": "RECONCILED_TO_CURRENT_DEVELOPMENT_RUN_31284023872",
-    "strong_baseline_status_doc": "RECONCILED_D1_D2_D3_AND_EXACT_V4",
-    "zero_cost_status_doc": "RECONCILED_D1_D2_D3_AND_EXACT_V4",
-    "gate_e_assessment": "RECONCILED_EXACT_V4_COMPLETE"
   },
   "integrity": {
     "twenty_frozen_development_cases_changed": false,
-    "forty_immutable_ext_answers_changed": false,
-    "original_24_case_strong_baseline_corpus_changed": false,
     "candidate_v2_changed_after_v4_results": false,
     "sealed_final_content_accessed": false,
     "sealed_final_case_answer_or_error_viewed": false,
-    "sealed_final_path_name_metadata_previously_exposed_by_recursive_tree_listing": true,
     "benchmark_leakage_detected": false
   },
-  "cost": {
-    "new_monetary_cost_usd": 0.0,
-    "paid_api_used": false,
-    "paid_gpu_used": false,
-    "paid_inference_used": false
-  },
-  "not_yet_claimable": [
-    "Gate D4 complete",
-    "Gate E complete",
-    "algorithm parity",
-    "PSE superiority over A-MEM",
-    "equivalence or non-inferiority",
-    "independent reproduction",
-    "sealed-final readiness"
-  ],
-  "exact_next_gate_at_snapshot": "Complete and verify exact A-MEM frozen development retrieval run 31284023872; only then execute frozen A-MEM D4 end-to-end development protocol v2."
+  "cost": {"new_monetary_cost_usd": 0.0, "paid_api_used": false, "paid_gpu_used": false, "paid_inference_used": false},
+  "not_yet_claimable": ["Gate D4 complete", "Gate E complete", "algorithm parity", "PSE superiority over A-MEM", "equivalence or non-inferiority", "independent reproduction", "sealed-final readiness"],
+  "exact_next_gate_at_snapshot": "Complete and verify recovery run 31292999631 as 20/20 exact A-MEM frozen development retrieval; only then execute frozen A-MEM D4 end-to-end development protocol v2."
 }
