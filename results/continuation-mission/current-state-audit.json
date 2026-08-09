@@ -1,44 +1,28 @@
 {
-  "schema_version": "continuation-mission-current-state-audit-v2",
-  "audited_at": "2026-08-09T09:10:00+08:00",
+  "schema_version": "continuation-mission-current-state-audit-v3",
+  "audited_at": "2026-08-09T11:44:33+08:00",
   "branch": "research/personal-state-engine-v0",
-  "head_observed_before_reconciliation_writes": "312201d77bbc1f22422c865f3244b011157989dd",
-  "head_observed_author": "github-actions[bot]",
-  "head_observed_message": "research: record exact A-MEM adversarial v4 evidence",
-  "pull_request": {
-    "number": 2,
-    "state": "OPEN",
-    "draft": true,
-    "merged": false
-  },
+  "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
   "gate_d": {
     "D1": "COMPLETE",
     "D2": "COMPLETE",
     "D3": "COMPLETE",
     "D4": "NOT_COMPLETE",
     "formal_gate_status": "NOT_COMPLETE",
-    "basis": "D1-D3 have durable exact-pinned A-MEM evidence. Frozen development retrieval run 31284023872 remains in progress, so the preregistered end-to-end D4 run is not yet authorized to start."
+    "basis": "Original frozen development retrieval run 31284023872 was cancelled by the 180-minute execution timeout. All ten artifacts were inspected and contained no completed shard JSON, so 0/20 cases are formally salvageable. Case-level zero-cost recovery run 31292999631 is active."
   },
   "gate_e": {
     "status": "NOT_COMPLETE",
-    "engineering_evidence": "SUBSTANTIAL_BUT_AUXILIARY",
     "formal_selection": "NO_FORMAL_SELECTION",
-    "reason": "Exact A-MEM adversarial-v4 is now complete and candidate-v2 is descriptively competitive, but the paired comparison remains underpowered, abstention remains unsolved, v1/v2 tradeoffs differ across benchmark families, and independent reproduction is false."
+    "reason": "Exact A-MEM adversarial-v4 remains underpowered; abstention remains unresolved; candidate-v1/v2 tradeoffs differ across benchmark families; independent reproduction is false."
   },
   "candidate": {
     "latest": "pse_candidate_v2",
     "v2_status": "FROZEN",
     "v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
-    "withheld_commit": "fd73449462e6285a4e5aec095e0c84d565d83fbc",
-    "freeze_precedes_withheld": true,
     "selection_status": "ROBUSTNESS_SPECIALIST_NOT_DROP_IN_V1_REPLACEMENT"
   },
-  "amem_d3": {
-    "run_id": 31269598248,
-    "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
-    "status": "COMPLETE",
-    "rerun_required": false
-  },
+  "amem_d3": {"run_id": 31269598248, "status": "COMPLETE", "rerun_required": false},
   "amem_adversarial_v4": {
     "run_id": 31284978045,
     "status": "COMPLETE_AUXILIARY_UNDERPOWERED",
@@ -48,46 +32,47 @@
     "pse_candidate_v2_mrr": 0.875,
     "v2_minus_a_mem_mrr_delta": 0.04166666666666668,
     "v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
-    "v2_vs_a_mem_win_tie_loss": [5, 12, 5],
-    "a_mem_abstention_accuracy": 0.0,
-    "pse_candidate_v2_abstention_accuracy": 0.0,
     "algorithm_parity": "NO"
   },
-  "amem_frozen_development_retrieval": {
+  "amem_frozen_development_original_run": {
     "run_id": 31284023872,
-    "status": "IN_PROGRESS",
+    "status": "CANCELLED_BY_EXECUTION_TIMEOUT",
     "prepare_dataset": "SUCCESS",
-    "python_version": "3.11",
     "frozen_split_preflight": "PASS",
     "dataset_identity": "PASS",
     "source_pin": "PASS",
     "ollama_identity": "PASS",
     "embedding_snapshot": "PASS",
-    "shards": 10,
-    "next_if_success": "Validate durable 20-case retrieval evidence, then trigger experiments/protocols/amem-d4-development-v2.json through .github/workflows/strong-baseline-amem-d4.yml."
+    "original_shards": 10,
+    "valid_salvaged_case_count": 0,
+    "expected_case_count": 20,
+    "forensic_evidence": "results/strong-baseline/amem-development-recovery-v1/cancelled-run-artifact-inventory.json"
   },
-  "github_status_consistency": {
-    "issue_6": "RECONCILED_OPEN_FOR_OFFICIAL_FAITHFUL_V3_EXTERNAL_EXTENSION",
-    "issue_7": "RECONCILED_TO_ACTIVE_RUN_31284023872",
-    "strong_baseline_status_doc": "RECONCILED",
-    "zero_cost_algorithm_status_doc": "RECONCILED",
-    "pr_body": "STALE_REQUIRES_RECONCILIATION"
+  "amem_frozen_development_recovery": {
+    "run_id": 31292999631,
+    "status": "ACTIVE_CASE_LEVEL_RECOVERY",
+    "workflow": ".github/workflows/strong-baseline-amem-development-recovery.yml",
+    "case_shard_count": 20,
+    "cases_per_job": 1,
+    "job_timeout_minutes": 350,
+    "max_parallel": 10,
+    "prepare_dataset": "SUCCESS",
+    "frozen_split_preflight": "PASS",
+    "algorithm_changed": false,
+    "model_changed": false,
+    "benchmark_changed": false,
+    "next_if_success": "Validate 20/20 durable retrieval outputs and only then execute experiments/protocols/amem-d4-development-v2.json."
   },
   "formal_evidence_weighted_completion": 30,
   "integrity": {
     "twenty_frozen_development_cases_changed": false,
     "forty_immutable_answers_changed": false,
-    "original_24_case_corpus_changed": false,
+    "candidate_v2_changed": false,
     "sealed_final_content_accessed": false,
     "sealed_final_case_or_error_viewed": false,
-    "sealed_final_path_metadata_exposed_by_repository_tree_listing": true,
-    "note": "Earlier repository tree metadata exposure was path-name-only. This continuation uses path-scoped allow-listed repository reads and has not accessed sealed-final content."
+    "sealed_final_path_metadata_previously_exposed_by_repository_tree_listing": true
   },
-  "cost": {
-    "new_monetary_cost_usd": 0.0,
-    "paid_api_used": false,
-    "paid_gpu_used": false
-  },
+  "cost": {"new_monetary_cost_usd": 0.0, "paid_api_used": false, "paid_gpu_used": false},
   "algorithm_parity": "NO",
-  "next_evidence_gate": "Complete frozen development retrieval and validate durable outputs; then execute preregistered D4 end-to-end development reproduction."
+  "next_evidence_gate": "Complete case-level frozen development recovery; validate 20/20 outputs; then execute frozen D4 end-to-end protocol."
 }
