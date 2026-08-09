@@ -1,0 +1,2631 @@
+{
+  "algorithm_parity": "NO",
+  "benchmark_sha256": {
+    "development": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+    "validation": "f396fa3cbc2dbb46fb7003fb7a359e7392469e45cb3abb07c0c9f7c6f01b08fa",
+    "withheld": "0f7f04afd9e968df657b89b30316802cd8cb789b3f45d54e959ea2a52099882c"
+  },
+  "candidate_changed": false,
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "claim_boundary": "Auxiliary abstention-layer research. Does not modify candidate v2, complete Gate E, establish parity, or restore hidden status to previously observed withheld cases.",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "3d0710879ceef8518f7d7e2619669d5449b5e84cd501e788a95ca08b75b0915f",
+  "schema_version": "abstention-strategy-matrix-results-v1",
+  "sealed_final_accessed": false,
+  "selection_data": "development only",
+  "strategies": {
+    "absolute_score_threshold": {
+      "development": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 9,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 18,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A02",
+            "coverage": 1.0,
+            "margin": 0.05908000000000002,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.695384
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A03",
+            "coverage": 1.0,
+            "margin": 0.421328,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665446
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A04",
+            "coverage": 1.0,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A05",
+            "coverage": 0.40109419654976286,
+            "margin": 0.32940800000000003,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.632492
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A06",
+            "coverage": 0.32272511267611165,
+            "margin": 0.011828000000000005,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.403275
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A07",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A08",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A09",
+            "coverage": 1.0,
+            "margin": 0.14765899999999998,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.657659
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545343,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545343
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N03",
+            "coverage": 1.0,
+            "margin": 0.394612,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.394612
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.397229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.397229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.366993
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N06",
+            "coverage": 0.22798287521786023,
+            "margin": 0.449406,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.449406
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N07",
+            "coverage": 0.5415435405682275,
+            "margin": 0.563509,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.563509
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N08",
+            "coverage": 1.0,
+            "margin": 0.432309,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.432309
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N09",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 9,
+        "overall_decision_accuracy": 0.5
+      },
+      "eligible_configuration_count": 3,
+      "selected_params": [
+        0.2
+      ],
+      "validation": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A02",
+            "coverage": 1.0,
+            "margin": 0.09995700000000007,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.727573
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A03",
+            "coverage": 1.0000000000000002,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A04",
+            "coverage": 1.0,
+            "margin": 0.676048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A05",
+            "coverage": 1.0,
+            "margin": 0.665754,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665754
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N01",
+            "coverage": 0.0,
+            "margin": 0.291598,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.291598
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.468733,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.468733
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.370137
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      },
+      "withheld_observed_auxiliary": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A01",
+            "coverage": 1.0,
+            "margin": 0.482287,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.696048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A02",
+            "coverage": 1.0,
+            "margin": 0.1073130000000001,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.734929
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A03",
+            "coverage": 1.0,
+            "margin": 0.228819,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A04",
+            "coverage": 1.0,
+            "margin": 0.665229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A05",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A06",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N04",
+            "coverage": 0.22798287521786023,
+            "margin": 0.463723,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.463723
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N05",
+            "coverage": 1.0,
+            "margin": 0.474118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.474118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      }
+    },
+    "always_retrieve": {
+      "development": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 9,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 18,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A02",
+            "coverage": 1.0,
+            "margin": 0.05908000000000002,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.695384
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A03",
+            "coverage": 1.0,
+            "margin": 0.421328,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665446
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A04",
+            "coverage": 1.0,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A05",
+            "coverage": 0.40109419654976286,
+            "margin": 0.32940800000000003,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.632492
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A06",
+            "coverage": 0.32272511267611165,
+            "margin": 0.011828000000000005,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.403275
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A07",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A08",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A09",
+            "coverage": 1.0,
+            "margin": 0.14765899999999998,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.657659
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545343,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545343
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N03",
+            "coverage": 1.0,
+            "margin": 0.394612,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.394612
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.397229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.397229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.366993
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N06",
+            "coverage": 0.22798287521786023,
+            "margin": 0.449406,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.449406
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N07",
+            "coverage": 0.5415435405682275,
+            "margin": 0.563509,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.563509
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N08",
+            "coverage": 1.0,
+            "margin": 0.432309,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.432309
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N09",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 9,
+        "overall_decision_accuracy": 0.5
+      },
+      "eligible_configuration_count": 1,
+      "selected_params": [],
+      "validation": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A02",
+            "coverage": 1.0,
+            "margin": 0.09995700000000007,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.727573
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A03",
+            "coverage": 1.0000000000000002,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A04",
+            "coverage": 1.0,
+            "margin": 0.676048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A05",
+            "coverage": 1.0,
+            "margin": 0.665754,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665754
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N01",
+            "coverage": 0.0,
+            "margin": 0.291598,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.291598
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.468733,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.468733
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.370137
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      },
+      "withheld_observed_auxiliary": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A01",
+            "coverage": 1.0,
+            "margin": 0.482287,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.696048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A02",
+            "coverage": 1.0,
+            "margin": 0.1073130000000001,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.734929
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A03",
+            "coverage": 1.0,
+            "margin": 0.228819,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A04",
+            "coverage": 1.0,
+            "margin": 0.665229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A05",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A06",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N04",
+            "coverage": 0.22798287521786023,
+            "margin": 0.463723,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.463723
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N05",
+            "coverage": 1.0,
+            "margin": 0.474118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.474118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      }
+    },
+    "combined_confidence_gate": {
+      "development": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 9,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 18,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A02",
+            "coverage": 1.0,
+            "margin": 0.05908000000000002,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.695384
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A03",
+            "coverage": 1.0,
+            "margin": 0.421328,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665446
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A04",
+            "coverage": 1.0,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A05",
+            "coverage": 0.40109419654976286,
+            "margin": 0.32940800000000003,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.632492
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A06",
+            "coverage": 0.32272511267611165,
+            "margin": 0.011828000000000005,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.403275
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A07",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A08",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A09",
+            "coverage": 1.0,
+            "margin": 0.14765899999999998,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.657659
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545343,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545343
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N03",
+            "coverage": 1.0,
+            "margin": 0.394612,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.394612
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.397229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.397229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.366993
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N06",
+            "coverage": 0.22798287521786023,
+            "margin": 0.449406,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.449406
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N07",
+            "coverage": 0.5415435405682275,
+            "margin": 0.563509,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.563509
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N08",
+            "coverage": 1.0,
+            "margin": 0.432309,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.432309
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N09",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 9,
+        "overall_decision_accuracy": 0.5
+      },
+      "eligible_configuration_count": 3,
+      "selected_params": [
+        0.2,
+        0.0,
+        0.0
+      ],
+      "validation": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A02",
+            "coverage": 1.0,
+            "margin": 0.09995700000000007,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.727573
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A03",
+            "coverage": 1.0000000000000002,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A04",
+            "coverage": 1.0,
+            "margin": 0.676048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A05",
+            "coverage": 1.0,
+            "margin": 0.665754,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665754
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N01",
+            "coverage": 0.0,
+            "margin": 0.291598,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.291598
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.468733,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.468733
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.370137
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      },
+      "withheld_observed_auxiliary": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A01",
+            "coverage": 1.0,
+            "margin": 0.482287,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.696048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A02",
+            "coverage": 1.0,
+            "margin": 0.1073130000000001,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.734929
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A03",
+            "coverage": 1.0,
+            "margin": 0.228819,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A04",
+            "coverage": 1.0,
+            "margin": 0.665229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A05",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A06",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N04",
+            "coverage": 0.22798287521786023,
+            "margin": 0.463723,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.463723
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N05",
+            "coverage": 1.0,
+            "margin": 0.474118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.474118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      }
+    },
+    "evidence_coverage_gate": {
+      "development": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 9,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 18,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A02",
+            "coverage": 1.0,
+            "margin": 0.05908000000000002,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.695384
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A03",
+            "coverage": 1.0,
+            "margin": 0.421328,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665446
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A04",
+            "coverage": 1.0,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A05",
+            "coverage": 0.40109419654976286,
+            "margin": 0.32940800000000003,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.632492
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A06",
+            "coverage": 0.32272511267611165,
+            "margin": 0.011828000000000005,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.403275
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A07",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A08",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A09",
+            "coverage": 1.0,
+            "margin": 0.14765899999999998,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.657659
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545343,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545343
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N03",
+            "coverage": 1.0,
+            "margin": 0.394612,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.394612
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.397229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.397229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.366993
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N06",
+            "coverage": 0.22798287521786023,
+            "margin": 0.449406,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.449406
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N07",
+            "coverage": 0.5415435405682275,
+            "margin": 0.563509,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.563509
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N08",
+            "coverage": 1.0,
+            "margin": 0.432309,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.432309
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N09",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 9,
+        "overall_decision_accuracy": 0.5
+      },
+      "eligible_configuration_count": 1,
+      "selected_params": [
+        0.0
+      ],
+      "validation": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A02",
+            "coverage": 1.0,
+            "margin": 0.09995700000000007,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.727573
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A03",
+            "coverage": 1.0000000000000002,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A04",
+            "coverage": 1.0,
+            "margin": 0.676048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A05",
+            "coverage": 1.0,
+            "margin": 0.665754,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665754
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N01",
+            "coverage": 0.0,
+            "margin": 0.291598,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.291598
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.468733,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.468733
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.370137
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      },
+      "withheld_observed_auxiliary": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A01",
+            "coverage": 1.0,
+            "margin": 0.482287,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.696048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A02",
+            "coverage": 1.0,
+            "margin": 0.1073130000000001,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.734929
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A03",
+            "coverage": 1.0,
+            "margin": 0.228819,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A04",
+            "coverage": 1.0,
+            "margin": 0.665229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A05",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A06",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N04",
+            "coverage": 0.22798287521786023,
+            "margin": 0.463723,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.463723
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N05",
+            "coverage": 1.0,
+            "margin": 0.474118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.474118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      }
+    },
+    "top1_top2_margin": {
+      "development": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 9,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 18,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A02",
+            "coverage": 1.0,
+            "margin": 0.05908000000000002,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.695384
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A03",
+            "coverage": 1.0,
+            "margin": 0.421328,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665446
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A04",
+            "coverage": 1.0,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A05",
+            "coverage": 0.40109419654976286,
+            "margin": 0.32940800000000003,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.632492
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A06",
+            "coverage": 0.32272511267611165,
+            "margin": 0.011828000000000005,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.403275
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A07",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A08",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-DEV-A09",
+            "coverage": 1.0,
+            "margin": 0.14765899999999998,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.657659
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545343,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545343
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N03",
+            "coverage": 1.0,
+            "margin": 0.394612,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.394612
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.397229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.397229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.366993
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N06",
+            "coverage": 0.22798287521786023,
+            "margin": 0.449406,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.449406
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N07",
+            "coverage": 0.5415435405682275,
+            "margin": 0.563509,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.563509
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N08",
+            "coverage": 1.0,
+            "margin": 0.432309,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.432309
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-DEV-N09",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 9,
+        "overall_decision_accuracy": 0.5
+      },
+      "eligible_configuration_count": 1,
+      "selected_params": [
+        0.0
+      ],
+      "validation": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A01",
+            "coverage": 1.0,
+            "margin": 0.463951,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A02",
+            "coverage": 1.0,
+            "margin": 0.09995700000000007,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.727573
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A03",
+            "coverage": 1.0000000000000002,
+            "margin": 0.192463,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A04",
+            "coverage": 1.0,
+            "margin": 0.676048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A05",
+            "coverage": 1.0,
+            "margin": 0.665754,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665754
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-VAL-A06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N01",
+            "coverage": 0.0,
+            "margin": 0.291598,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.291598
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N04",
+            "coverage": 0.37131279241563214,
+            "margin": 0.468733,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.468733
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N05",
+            "coverage": 0.1924103884909547,
+            "margin": 0.0,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.370137
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-VAL-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      },
+      "withheld_observed_auxiliary": {
+        "abstention_accuracy": 0.0,
+        "answerable_case_count": 6,
+        "answerable_recall_at_1": 1.0,
+        "answerable_recall_at_5": 1.0,
+        "case_count": 12,
+        "details": [
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A01",
+            "coverage": 1.0,
+            "margin": 0.482287,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.696048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A02",
+            "coverage": 1.0,
+            "margin": 0.1073130000000001,
+            "ranking": [
+              "m2",
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.734929
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A03",
+            "coverage": 1.0,
+            "margin": 0.228819,
+            "ranking": [
+              "m1",
+              "m2"
+            ],
+            "retrieve": true,
+            "top1_score": 0.676048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A04",
+            "coverage": 1.0,
+            "margin": 0.665229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.665229
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A05",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          },
+          {
+            "answerable": true,
+            "case_id": "ABS1-HID-A06",
+            "coverage": 0.37131279241563214,
+            "margin": 0.417229,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.417229
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N01",
+            "coverage": 0.0,
+            "margin": 0.310246,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.310246
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N02",
+            "coverage": 0.5415435405682275,
+            "margin": 0.545225,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.545225
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N03",
+            "coverage": 1.0,
+            "margin": 0.408118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.408118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N04",
+            "coverage": 0.22798287521786023,
+            "margin": 0.463723,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.463723
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N05",
+            "coverage": 1.0,
+            "margin": 0.474118,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.474118
+          },
+          {
+            "answerable": false,
+            "case_id": "ABS1-HID-N06",
+            "coverage": 0.0,
+            "margin": 0.212048,
+            "ranking": [
+              "m1"
+            ],
+            "retrieve": true,
+            "top1_score": 0.212048
+          }
+        ],
+        "false_abstention_rate": 0.0,
+        "false_retrieval_rate": 1.0,
+        "no_evidence_case_count": 6,
+        "overall_decision_accuracy": 0.5
+      }
+    }
+  },
+  "validation_retuning": false,
+  "withheld_retuning": false,
+  "withheld_status": "PREVIOUSLY_OBSERVED_BY_OPERATOR_FOR_GATE_V1; AUXILIARY_ONLY"
+}
