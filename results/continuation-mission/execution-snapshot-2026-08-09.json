@@ -1,7 +1,8 @@
 {
-  "schema_version": "continuation-mission-execution-snapshot-v3",
-  "recorded_at": "2026-08-09T11:44:33+08:00",
+  "schema_version": "continuation-mission-execution-snapshot-v4",
+  "recorded_at": "2026-08-09T12:15:00+08:00",
   "branch": "research/personal-state-engine-v0",
+  "branch_head_observed": "945e68e801d5e9b2ec53d3432574231a2ac05861",
   "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
   "gate_status": {
     "A": "COMPLETE",
@@ -26,11 +27,22 @@
     "cancelled_development_status": "CANCELLED_BY_180_MINUTE_EXECUTION_TIMEOUT",
     "cancelled_run_valid_salvaged_cases": 0,
     "recovery_run_id": 31292999631,
-    "recovery_status": "ACTIVE_CASE_LEVEL_20_SHARDS",
-    "recovery_cases_per_job": 1,
-    "recovery_timeout_minutes": 350,
+    "recovery_run_head_sha": "1fca737831a8e655ce47eee881940e4e572f71c8",
+    "recovery_workflow_level_status_observed": "queued",
     "recovery_prepare_dataset": "SUCCESS",
     "recovery_frozen_split_preflight": "PASS",
+    "recovery_total_case_jobs": 20,
+    "recovery_case_jobs_in_progress": 10,
+    "recovery_case_jobs_queued": 10,
+    "recovery_case_jobs_completed": 0,
+    "recovery_valid_case_artifacts": 0,
+    "recovery_case_artifacts_present": 0,
+    "recovery_source_artifacts_present": 1,
+    "recovery_cases_per_job": 1,
+    "recovery_timeout_minutes": 350,
+    "recovery_max_parallel": 10,
+    "recovery_current_execution_step": "Execute one exact A-MEM frozen development case",
+    "recovery_pre_execution_identity_checks": "PASS_ON_RUNNING_JOBS_OBSERVED",
     "adversarial_v4_full_run_id": 31284978045,
     "adversarial_v4_full_status": "COMPLETE_DURABLE_UNDERPOWERED",
     "adversarial_v4_a_mem_mrr": 0.8333333333333333,
@@ -52,9 +64,11 @@
     "candidate_v2_changed_after_v4_results": false,
     "sealed_final_content_accessed": false,
     "sealed_final_case_answer_or_error_viewed": false,
-    "benchmark_leakage_detected": false
+    "benchmark_leakage_detected": false,
+    "recovery_cancelled_or_duplicated_by_this_checkpoint": false,
+    "d4_started_before_recovery_acceptance": false
   },
   "cost": {"new_monetary_cost_usd": 0.0, "paid_api_used": false, "paid_gpu_used": false, "paid_inference_used": false},
   "not_yet_claimable": ["Gate D4 complete", "Gate E complete", "algorithm parity", "PSE superiority over A-MEM", "equivalence or non-inferiority", "independent reproduction", "sealed-final readiness"],
-  "exact_next_gate_at_snapshot": "Complete and verify recovery run 31292999631 as 20/20 exact A-MEM frozen development retrieval; only then execute frozen A-MEM D4 end-to-end development protocol v2."
+  "exact_next_gate_at_snapshot": "Allow recovery run 31292999631 to continue without cancellation or duplication. Validate each case artifact immediately when it appears. Require 20/20 valid unique recovered cases with zero missing/duplicate/invalid before authorizing frozen A-MEM D4 end-to-end development protocol v2."
 }
