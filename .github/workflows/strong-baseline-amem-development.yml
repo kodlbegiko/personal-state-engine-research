@@ -2,11 +2,6 @@ name: A-MEM Frozen Development Retrieval
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - research/personal-state-engine-v0
-    paths:
-      - ".github/amem-development-trigger"
 
 permissions:
   contents: write
