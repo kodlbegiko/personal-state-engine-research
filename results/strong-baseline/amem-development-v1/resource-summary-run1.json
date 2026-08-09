@@ -1,0 +1,152 @@
+{
+  "cloud_gpu_cost_usd": 0.0,
+  "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "disk_use_bytes": 1929912432,
+  "disk_use_scope": "Pinned Ollama qwen2.5:3b model size only when exposed by ollama-tags; excludes Python packages and embedding cache.",
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "index_build_time_seconds": null,
+  "index_build_time_status": "NOT_SEPARATELY_MEASURED_FROM_CASE_EXECUTION",
+  "max_peak_rss_kib": 2462452,
+  "max_shard_wall_seconds": 16868.0,
+  "mean_end_to_end_case_wall_interpretation": "Includes A-MEM memory ingestion, local LLM work, embedding and retrieval for each development case; not a pure query-latency measurement.",
+  "mean_end_to_end_case_wall_seconds": 14671.8,
+  "new_monetary_cost_usd": 0.0,
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "ollama_model": {
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "model": "qwen2.5:3b",
+    "size_bytes": 1929912432,
+    "status": "VERIFIED_FROM_OLLAMA_TAGS"
+  },
+  "paid_api_cost_usd": 0.0,
+  "pure_query_latency_ms": null,
+  "pure_query_latency_status": "NOT_SEPARATELY_MEASURED",
+  "run_id": "31292999631",
+  "schema_version": "amem-longmemeval-development-resource-run1-v1",
+  "sealed_final_accessed": false,
+  "serialized_inference_wall_seconds": 293436.0,
+  "sharding": "20 independent deterministic case shards; no algorithm change",
+  "shards": [
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462324,
+      "shard_index": 0,
+      "wall_seconds": 15375.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462408,
+      "shard_index": 1,
+      "wall_seconds": 10987.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462152,
+      "shard_index": 10,
+      "wall_seconds": 15255.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462332,
+      "shard_index": 11,
+      "wall_seconds": 14638.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462376,
+      "shard_index": 12,
+      "wall_seconds": 15644.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462172,
+      "shard_index": 13,
+      "wall_seconds": 16510.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462184,
+      "shard_index": 14,
+      "wall_seconds": 13711.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462240,
+      "shard_index": 15,
+      "wall_seconds": 15660.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462364,
+      "shard_index": 16,
+      "wall_seconds": 13238.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462180,
+      "shard_index": 17,
+      "wall_seconds": 14616.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462220,
+      "shard_index": 18,
+      "wall_seconds": 15865.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462092,
+      "shard_index": 19,
+      "wall_seconds": 14120.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462452,
+      "shard_index": 2,
+      "wall_seconds": 7892.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462276,
+      "shard_index": 3,
+      "wall_seconds": 15402.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462072,
+      "shard_index": 4,
+      "wall_seconds": 15062.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462320,
+      "shard_index": 5,
+      "wall_seconds": 16633.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2461940,
+      "shard_index": 6,
+      "wall_seconds": 15356.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462320,
+      "shard_index": 7,
+      "wall_seconds": 16450.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2462372,
+      "shard_index": 8,
+      "wall_seconds": 14154.0
+    },
+    {
+      "case_count": 1,
+      "peak_rss_kib": 2461988,
+      "shard_index": 9,
+      "wall_seconds": 16868.0
+    }
+  ],
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+}

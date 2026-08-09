@@ -1,0 +1,30 @@
+{
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "bytes": 9088,
+      "path": "results/strong-baseline/amem-development-v1/predictions-run1.json",
+      "sha256": "a3a5f6f41e23572156ba04f2290d93551b0a6f733a03e32646ad8ffdab577bbc"
+    },
+    {
+      "bytes": 7350,
+      "path": "results/strong-baseline/amem-development-v1/retrieval-results-run1.json",
+      "sha256": "248a25b9aa67e2720b80e145a3f49caf0224377b02808b2097df61661928c418"
+    },
+    {
+      "bytes": 3986,
+      "path": "results/strong-baseline/amem-development-v1/resource-summary-run1.json",
+      "sha256": "58ec6d2e2405ffd19542b18fba4f061f9fe13416dcb3d886b5fab07ec78d99b7"
+    }
+  ],
+  "case_ids_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+  "cloud_gpu_cost_usd": 0.0,
+  "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "paid_api_cost_usd": 0.0,
+  "schema_version": "amem-longmemeval-development-artifact-registry-v1",
+  "sealed_final_accessed": false,
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "source_run_id": 31292999631
+}
