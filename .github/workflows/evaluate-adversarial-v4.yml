@@ -2,11 +2,6 @@ name: Evaluate Adversarial-v4 Discrimination
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - research/personal-state-engine-v0
-    paths:
-      - ".github/adversarial-v4-eval-trigger"
 
 permissions:
   contents: write
