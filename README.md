@@ -2,158 +2,158 @@
 
 A research prototype for testing whether structured, temporal, provenance-aware personal state management improves long-horizon AI-assistant reliability under fixed model, context, tool, token and cost constraints.
 
-> **Current status:** the fixed 20-case LongMemEval-S EXT-B0/EXT-B5 development matrix was rescored with a calibrated blinded evaluator. EXT-B5 showed a positive direction, but the sample is too small and underpowered to establish improvement.
+> **Current status:** exact-pinned A-MEM has been reproduced at retrieval level under a zero-monetary-cost path. D1/D2/D3 are complete; D4 end-to-end frozen development reproduction is not yet complete. Candidate-v2 is descriptively competitive with exact A-MEM on the frozen adversarial-v4 benchmark, but the paired result is underpowered and abstention remains unresolved.
 
 ```text
 Research verdict: INCONCLUSIVE
 Evidence-weighted completion: 30%
-Highest evidence level: E3 — calibrated real-model external development evidence
 Algorithm parity demonstrated: NO
-PR state: OPEN / DRAFT
+Gate D: D1 COMPLETE / D2 COMPLETE / D3 COMPLETE / D4 NOT COMPLETE
+Gate E: NOT COMPLETE
+PR state: OPEN / DRAFT / NOT MERGED
+New monetary cost: USD 0
+Sealed-final content accessed: no
 ```
 
-## Current external evidence
+## Current external development evidence
 
 - Dataset: LongMemEval-S cleaned
 - Frozen development cases: 20, including 4 abstention cases
-- Answer trials: 40 immutable records, 0 errors, 0 timeouts
-- Baselines: EXT-B0 and EXT-B5
+- Existing EXT-B0/EXT-B5 answer trials: 40 immutable records
 - Answer model: `onnx-community/Qwen2.5-0.5B-Instruct`
 - Answer-model revision: `956050e4c6ce7c647091e15311218f80d662559f`
-- Answer-model rerun for evaluator v2: no
-- Case IDs changed: no
-- Sealed-final accessed: no
-- Development evidence: `results/external/longmemeval-development-matrix-30676516785/`
-- Evaluator v2 evidence: `results/external/longmemeval-evaluator-v2/`
-- Evaluator evidence commit: `0fb95bd7d6a01f1553cfab7a28a4ca2c84bd7948`
+- Evaluator v2: calibrated local fallback using official LongMemEval prompt semantics
+- Evaluator calibration: raw agreement 95.0%, Cohen's kappa 0.7727, invalid-output rate 0.0%
+- Formal development correctness use for evaluator v2: permitted within its development-only claim boundary
+- Independent reproduction: false
 
-## Evaluator v2
+The original EXT-B0/EXT-B5 development comparison remains underpowered: EXT-B0 scored 2/20 and EXT-B5 scored 4/20 under evaluator v2; exact McNemar two-sided p-value was 0.625. This does not establish improvement, parity, equivalence or non-inferiority.
 
-The project first inspected the official LongMemEval evaluator at commit `9e0b455f4ef0e2ab8f2e582289761153549043fc`. No confirmed usable OpenAI credential was available before inference, so the fixed selection policy activated a local 3B fallback while retaining official prompt semantics.
+## Strong baseline — exact A-MEM
 
-```text
-Evaluator ID: longmemeval-official-prompt-priority-v2
-Provider: local-fallback
-Judge: onnx-community/Llama-3.2-3B-Instruct-ONNX
-Judge revision: cab364e7d0e1de7aa09e3abc932be92361c5b55f
-Runtime: @huggingface/transformers 4.2.0
-Quantization: q4
-Prompt SHA-256: be177cbb0e82bf279ad8c24e8d553ef80222464dd51c39ef7bea7231623d28e6
-Parser SHA-256: 975e659fd3a109a40c8316fc532bf010a0dbf71208bcbb97978146e9d917f0e2
-```
-
-Blinded calibration used 10 cases / 20 answers:
-
-| Metric | Observed | Required | Result |
-|---|---:|---:|---|
-| Raw agreement | 95.0% | >= 80% | PASS |
-| Cohen's kappa | 0.7727 | >= 0.60 | PASS |
-| Full-matrix invalid-output rate | 0.0% | <= 5% | PASS |
+Primary strong baseline: **A-MEM**.
 
 ```text
-Confusion matrix: TP=2 TN=17 FP=0 FN=1
-Calibration verdict: PASS
-Formal correctness use: PERMITTED
-Audit status: single-operator blinded calibration; not independent reproduction
+Upstream commit: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+Ollama model path: qwen2.5:3b
+Paid API: false
+Paid GPU: false
 ```
 
-The separate 14-case evaluator-development corpus scored 13/14 with zero invalid outputs. Its one miss involved a correct core answer with a materially wrong added fact, which remains a known evaluator limitation.
+### Gate D state
 
-## Formal development result
+| Layer | Status |
+|---|---|
+| D1 — source/protocol pin | COMPLETE |
+| D2 — exact-pinned A-MEM execution | COMPLETE |
+| D3 — frozen retrieval benchmark | COMPLETE |
+| D4 — end-to-end frozen development reproduction | NOT COMPLETE |
 
-| Metric | EXT-B0 | EXT-B5 | Difference |
-|---|---:|---:|---:|
-| Correct | 2/20 | 4/20 | +2 |
-| Accuracy | 10.0% | 20.0% | +10.0 percentage points |
-| Wilson 95% interval | 2.8%–30.1% | 8.1%–41.6% | wide and overlapping |
+The historical `BLOCKED BY COMPUTE` status is superseded. Exact A-MEM has executed successfully on GitHub-hosted zero-cost research runs.
+
+### Frozen 24-case retrieval comparison
+
+Durable A-MEM run: `31269598248`.
+
+| System | MRR |
+|---|---:|
+| A-MEM exact | 0.878788 |
+| PSE current reconstruction | 0.901515 |
+| PSE candidate-v1 | 1.000000 |
+| PSE candidate-v2 | 0.946970 |
+
+This small frozen comparison is underpowered and is descriptive only.
+
+## Adversarial-v4 exact A-MEM comparison
+
+Exact A-MEM full-corpus workflow run `31284978045` completed successfully and durable outputs are stored under `results/strong-baseline/amem-adversarial-v4-full-v1/`.
+
+The frozen v4 benchmark contains 24 total cases: 22 answerable and 2 no-evidence cases.
+
+| System | MRR | Recall@1 | Recall@5 | Abstention accuracy |
+|---|---:|---:|---:|---:|
+| A-MEM exact | 0.833333 | 0.727273 | 1.000000 | 0.000 |
+| PSE candidate-v2 | 0.875000 | 0.772727 | 1.000000 | 0.000 |
+
+Paired candidate-v2 minus A-MEM MRR delta: `+0.041667`.
+
+95% paired bootstrap CI: `[-0.109848, +0.196970]`.
+
+Candidate-v2 versus A-MEM win/tie/loss: `5 / 12 / 5`.
+
+Interpretation: **UNDERPOWERED**. The systems are descriptively competitive on this operator-designed adversarial benchmark, but the confidence interval crosses zero and n=22 is below the preregistered n=30 threshold. Formal parity, superiority, equivalence and non-inferiority are unsupported.
+
+Both A-MEM and candidate-v2 false-retrieved on both v4 no-evidence cases.
+
+## Candidate evidence
+
+Candidate-v2 was frozen before the protected adversarial-v4 follow-up and was not retuned on v4 results. A completed 13-perturbation robustness suite shows substantially smaller degradation for v2 than current/v1 under the tested distractor stresses. Its worst observed perturbation was `duplicate_distractor_cluster`, at roughly -0.0909 MRR and Recall@1 from the v4 base.
+
+Candidate-v1 still leads candidate-v2 on the normal frozen retrieval benchmark. Therefore there is currently **no formal universal candidate selection**.
+
+## Abstention negative evidence
+
+A development-only strategy matrix tested always-retrieve, absolute-score threshold, top1/top2 margin, evidence-coverage and combined-confidence strategies. Under the hard guardrail that answerable development queries cannot be falsely rejected, the safe configurations did not identify no-evidence cases:
 
 ```text
-B5 wins: 3
-B5 losses: 1
-Both correct: 1
-Both incorrect: 15
-Discordant pairs: 4
-Exact McNemar two-sided p-value: 0.625
-Effect interpretation: directional but inconclusive improvement
+abstention accuracy = 0
+false retrieval rate = 1
+false abstention rate on answerable development = 0
 ```
 
-The result does not establish superiority, parity, equivalence or non-inferiority. The low absolute accuracy also indicates that the 0.5B answer model may still impose a substantial floor effect.
+This negative result is retained. Previously observed withheld data is not treated as hidden for further threshold tuning.
 
-## Resource comparison
+## Current active D4 precursor
 
-| Metric | EXT-B0 | EXT-B5 | B5 minus B0 |
-|---|---:|---:|---:|
-| Answer input tokens | 1,866 | 30,680 | +28,814 |
-| Answer output tokens | 605 | 977 | +372 |
-| Answer total tokens | 2,471 | 31,657 | +29,186 |
-| Median answer latency | 2,009 ms | 14,222 ms | +12,213 ms |
-| Recorded output storage | 22,785 bytes | 157,328 bytes | +134,543 bytes |
-| Recorded monetary charge | USD 0 | USD 0 | USD 0 |
+A-MEM Frozen Development Retrieval run `31284023872` is the current precursor to D4.
 
-B5 produced two additional correct answers in this development sample. The recorded monetary cost per additional correct answer is USD 0 because local inference recorded no API charge; the token, latency and storage overhead remains material.
+Verified before shard execution:
 
-## Evidence integrity and validation
+- Python 3.11
+- development split reproduction: PASS
+- dataset identity: PASS
+- exact A-MEM source pin: PASS
+- Ollama identity/digest: PASS
+- embedding snapshot: PASS
 
-- Original raw answer trials: 40/40
-- Original archive artifacts: 59/59 verified
-- Evaluator v2 artifacts: 74/74 verified
-- Raw judge outputs: preserved
-- Baseline identity: blinded during judging
-- Old failed v1 evaluator evidence: preserved
-- Raw-to-summary reconstruction: PASS
-- Dataset payload committed: no
-- Model weights committed: no
-- Sealed-final accessed: no
-- Evaluator workflow: `30688327468`, success
-- Complete engineering tests in evaluator workflow: 118 passed
+Scope: 20 frozen development cases / 4 abstention cases / 10 exact A-MEM shards.
 
-The evaluator and completed freeze/archive workflows are manual-only after successful evidence generation. Temporary transport bundles and the bootstrap workflow were removed.
+If and only if durable retrieval evidence completes and validates, the next action is the preregistered end-to-end protocol `experiments/protocols/amem-d4-development-v2.json` through `.github/workflows/strong-baseline-amem-d4.yml`.
 
 ## Current gate status
 
-| Gate | Current | Status |
+| Gate | Credit | Status |
 |---|---:|---|
-| A — Repository, sources and licensing | 10% | Complete for current inputs |
-| B — Experiment infrastructure | 10% | Complete for current development contract |
-| C — Basic external baselines | 10% | Calibrated B0/B5 comparison; still underpowered |
-| D — Strong baseline reproduction | 0% | Not started |
-| E — PSE candidate | 0% | Not started |
-| F — Sealed parity test | 0% | Not started; sealed-final untouched |
-| G — Independent reproduction | 0% | Not started |
+| A — repository, sources and licensing | 10 | COMPLETE |
+| B — experiment infrastructure | 10 | COMPLETE |
+| C — basic external baselines | 10 | COMPLETE |
+| D — strong baseline reproduction | 0 | NOT COMPLETE; D1-D3 complete, D4 pending |
+| E — PSE candidate | 0 | NOT COMPLETE |
+| F — sealed parity test | 0 | NOT STARTED; sealed-final prohibited |
+| G — independent reproduction | 0 | NOT COMPLETE |
 
 ```text
 Evidence-weighted completion: 30%
-Remaining distance: 70%
-Active evidence cap: 45%
+Remaining formal distance: 70%
+Algorithm parity demonstrated: NO
 ```
 
-## Highest-value next action
+No partial Gate D or Gate E percentage is invented outside the repository rubric.
 
-Preregister a larger development comparison with a stronger fixed answer model and adequate floor-effect screening. After that protocol is stable, reproduce one pinned strong memory baseline. Do not begin sealed-final or claim algorithm parity.
+## Integrity and publication boundary
 
-## Security and publication status
+- Frozen development cases are unchanged.
+- Existing immutable EXT-B0/EXT-B5 answers are unchanged.
+- Frozen retrieval/adversarial benchmarks are not modified after observing results.
+- Failed evaluator and negative abstention evidence remain preserved.
+- No paid API or paid GPU is used for this continuation.
+- Sealed-final content has not been accessed.
+- PR #2 remains Draft / Open / Not merged.
+- Do not merge, tag or release.
+- Do not claim parity, superiority, equivalence, non-inferiority, validation, production readiness, security or state of the art.
 
-The pinned JavaScript inference dependency graph still contains four unresolved high-severity findings. It remains restricted to isolated ephemeral research runners and is not a secure production runtime.
-
-PR #2 remains Draft. Do not merge, tag or release. Do not claim parity, superiority, validation, production readiness, security or state of the art.
-
-See [`docs/progress.md`](docs/progress.md), the [development matrix evidence](results/external/longmemeval-development-matrix-30676516785/), and the [evaluator v2 evidence](results/external/longmemeval-evaluator-v2/).
+See `docs/strong-baseline-status-2026-08-08.md`, `docs/zero-cost-algorithm-status-2026-08-08.md`, `results/continuation-mission/gate-e-assessment.json`, and the durable strong-baseline result directories for the current evidence boundary.
 
 ## License
 
-MIT. Cite exact code, dataset, answer-model and evaluator revisions together with the commit SHA.
-
-<!-- longmemeval-faithful-port-v3-preparation -->
-## LongMemEval faithful-port v3 preparation
-
-The repository now contains an independent official-source faithful-port v3 preparation. It preserves evaluator v1/v2 evidence, re-verifies the immutable 40-answer development matrix and all 59 archived artifacts, uses a strict JSON parser, identity-free deterministic blinding, and a separate 24-case synthetic corpus.
-
-```text
-Evaluator: longmemeval-official-faithful-port-v3
-Source type: faithful-port
-Official runtime: BLOCKED BY ENVIRONMENT
-v3 calibration: NOT YET ESTABLISHED
-v3 formal correctness use: PROHIBITED
-Research completion: 30%
-Sealed-final accessed: false
-```
+MIT. Cite exact code, dataset, answer-model, evaluator and strong-baseline revisions together with the commit SHA.
