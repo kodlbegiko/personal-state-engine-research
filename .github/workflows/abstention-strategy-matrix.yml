@@ -2,11 +2,6 @@ name: Abstention Strategy Matrix
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - research/personal-state-engine-v0
-    paths:
-      - ".github/abstention-strategy-trigger"
 
 permissions:
   contents: write
