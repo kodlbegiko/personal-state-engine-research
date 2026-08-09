@@ -2,11 +2,6 @@ name: Freeze Adversarial-v4 Discrimination Benchmark
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - research/personal-state-engine-v0
-    paths:
-      - ".github/adversarial-v4-freeze-trigger"
 
 permissions:
   contents: write
