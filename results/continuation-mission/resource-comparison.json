@@ -1,0 +1,103 @@
+{
+  "schema_version": "continuation-resource-comparison-v1",
+  "recorded_at": "2026-08-09T09:20:00+08:00",
+  "scope": "Zero-cost retrieval research resources available in durable evidence as of this checkpoint. Missing per-system measurements are explicitly not inferred.",
+  "new_monetary_cost_usd": 0.0,
+  "sealed_final_accessed": false,
+  "systems": {
+    "bm25_local": {
+      "wall_clock_seconds": null,
+      "per_case_seconds": null,
+      "peak_rss_kib": null,
+      "index_build_latency_ms": null,
+      "pure_query_latency_ms": null,
+      "disk_usage_bytes": null,
+      "model_size_bytes": 0,
+      "measurement_status": "NOT_SEPARATELY_MEASURED",
+      "note": "BM25 participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved."
+    },
+    "tfidf_local": {
+      "wall_clock_seconds": null,
+      "per_case_seconds": null,
+      "peak_rss_kib": null,
+      "index_build_latency_ms": null,
+      "pure_query_latency_ms": null,
+      "disk_usage_bytes": null,
+      "model_size_bytes": 0,
+      "measurement_status": "NOT_SEPARATELY_MEASURED",
+      "note": "TF-IDF participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved."
+    },
+    "pse_current_reconstruction": {
+      "wall_clock_seconds": null,
+      "per_case_seconds": null,
+      "peak_rss_kib": null,
+      "index_build_latency_ms": null,
+      "pure_query_latency_ms": null,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "measurement_status": "NOT_SEPARATELY_MEASURED"
+    },
+    "pse_candidate_v1": {
+      "wall_clock_seconds": null,
+      "per_case_seconds": null,
+      "peak_rss_kib": null,
+      "index_build_latency_ms": null,
+      "pure_query_latency_ms": null,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "measurement_status": "NOT_SEPARATELY_MEASURED"
+    },
+    "pse_candidate_v2": {
+      "wall_clock_seconds": null,
+      "per_case_seconds": null,
+      "peak_rss_kib": null,
+      "index_build_latency_ms": null,
+      "pure_query_latency_ms": null,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "measurement_status": "NOT_SEPARATELY_MEASURED",
+      "note": "Do not substitute historical ad-hoc timings for a dedicated comparable resource run."
+    },
+    "a_mem_exact": {
+      "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+      "ollama_model": "qwen2.5:3b",
+      "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "frozen24": {
+        "run_id": 31269598248,
+        "case_count": 24,
+        "serialized_inference_wall_seconds": 636.21,
+        "max_shard_wall_seconds": 135.2,
+        "max_peak_rss_kib": 1386620,
+        "shard_count": 6,
+        "paid_api_cost_usd": 0.0,
+        "cloud_gpu_cost_usd": 0.0,
+        "pure_query_latency_ms": null,
+        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED"
+      },
+      "adversarial_v4": {
+        "run_id": 31284978045,
+        "case_count": 24,
+        "serialized_inference_wall_seconds": 8756.109999999999,
+        "max_shard_wall_seconds": 1418.65,
+        "mean_end_to_end_case_wall_seconds": 364.8379166666666,
+        "max_peak_rss_kib": 1426156,
+        "shard_count": 8,
+        "new_monetary_cost_usd": 0.0,
+        "paid_api_used": false,
+        "cloud_gpu_used": false,
+        "pure_query_latency_ms": null,
+        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED"
+      }
+    }
+  },
+  "interpretation": [
+    "Serialized A-MEM compute must not be compared directly with parallel observed shard wall time.",
+    "A-MEM includes local LLM/embedding dependencies and materially larger resource demand than the dependency-free local scoring candidates, but dedicated apples-to-apples resource instrumentation for every local candidate has not yet been preserved.",
+    "No missing latency, memory, disk or model-size metric is estimated or invented."
+  ],
+  "sources": [
+    "results/strong-baseline/amem-frozen-24-v1/resource-summary-run1.json",
+    "results/strong-baseline/amem-adversarial-v4-full-v1/resource-summary-run1.json"
+  ]
+}
