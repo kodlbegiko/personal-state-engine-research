@@ -1,4 +1,4 @@
-# Gate D Strong-Baseline Mission Status — 2026-08-09 reconciliation
+# Gate D Strong-Baseline Mission Status — 2026-08-09 recovery reconciliation
 
 ## Current verdict
 
@@ -14,94 +14,99 @@ New monetary cost: USD 0
 Sealed-final accessed: false
 ```
 
-The historical `BLOCKED BY COMPUTE` status is superseded. Exact-pinned A-MEM now executes successfully in the zero-cost GitHub Actions path. Gate D remains incomplete only because the repository-defined D4 end-to-end frozen development reproduction has not yet completed.
+The historical `BLOCKED BY COMPUTE` state is superseded for D2/D3. Exact-pinned A-MEM executes at zero monetary cost, but the first frozen-development retrieval attempt did not complete: run `31284023872` was cancelled at the 180-minute shard timeout boundary.
 
 ## Strong baseline identity
 
 Primary strong baseline: **A-MEM**.
 
 - Upstream commit: `0c8039f28fdcc08189a23c07a3437d9d2482f9c2`
-- License: MIT
-- Ollama path: `qwen2.5:3b`
-- Exact model digest and embedding snapshot are retained in durable run evidence.
+- Ollama model: `qwen2.5:3b`
+- Dataset, case IDs, model digest and embedding snapshot remain pinned.
 - No paid API or paid GPU is used.
 
 ## Reproduction layers
 
 | Layer | Status | Evidence |
 |---|---|---|
-| D1 — source/protocol reproduction preparation | COMPLETE | exact source, license, runtime/model path pinned |
-| D2 — exact A-MEM execution | COMPLETE | successful zero-cost exact-pinned runtime |
-| D3 — frozen retrieval benchmark | COMPLETE | durable 24-case A-MEM evidence, run `31269598248` |
-| D4 — end-to-end frozen development reproduction | NOT COMPLETE | development retrieval precursor run `31284023872` executing |
+| D1 — source/protocol preparation | COMPLETE | exact source, license, runtime/model path pinned |
+| D2 — exact A-MEM execution | COMPLETE | zero-cost exact-pinned runtime |
+| D3 — frozen retrieval benchmark | COMPLETE | durable 24-case evidence, run `31269598248` |
+| D4 — end-to-end frozen development reproduction | NOT COMPLETE | case-level recovery run `31292999631` active |
 
-The repository rubric does not grant partial numerical credit inside Gate D. Therefore D1-D3 completion alone does not move formal completion above 30%.
+The rubric grants no partial numerical credit inside Gate D.
 
-## D3 frozen 24-case result
+## Cancelled frozen-development run
 
-Durable evidence: `results/strong-baseline/amem-frozen-24-v1/`.
+Run `31284023872`:
 
-Observed retrieval MRR on the frozen comparison:
+- prepare-dataset: SUCCESS
+- Python 3.11: PASS
+- frozen split reproduction: PASS
+- dataset identity: PASS
+- exact A-MEM source pin: PASS
+- Ollama digest: PASS
+- embedding snapshot: PASS
+- all 10 original shard jobs reached exact A-MEM execution
+- all 10 were cancelled at the 180-minute job timeout boundary
+- aggregate-and-persist: SKIPPED
+
+All 10 uploaded shard artifacts were downloaded and inspected. None contained a completed `shard-N.json`; therefore valid salvaged retrieval cases = **0/20**. Large artifacts contained runtime logs only, and all `time-shard-N.txt` files were zero bytes.
+
+Durable forensic evidence:
+
+`results/strong-baseline/amem-development-recovery-v1/`
+
+## Active case-level recovery
+
+Workflow:
+
+`.github/workflows/strong-baseline-amem-development-recovery.yml`
+
+Run:
+
+`31292999631`
+
+The recovery changes execution orchestration only:
+
+- same frozen 20 development cases / 4 abstention cases
+- same `scripts/run_amem_frozen_development.py`
+- same A-MEM commit/model/dataset/embedding identities
+- same retrieval and scoring semantics
+- `shard-count = 20`, so one frozen case per job
+- timeout = 350 minutes per case job
+- max parallel = 10
+
+Recovery `prepare-dataset` and frozen split reproduction passed before case execution.
+
+Only after 20/20 retrieval outputs pass completeness, uniqueness, provenance and hash checks may the preregistered end-to-end D4 protocol `experiments/protocols/amem-d4-development-v2.json` run.
+
+## Existing comparative evidence
+
+Frozen D3 MRR:
 
 - A-MEM exact: `0.8787878788`
-- PSE current reconstruction: `0.9015151515`
+- PSE current: `0.9015151515`
 - PSE candidate-v1: `1.0000000000`
 - PSE candidate-v2: `0.9469696970`
 
-This set is underpowered and does not establish parity, superiority, equivalence or non-inferiority.
+Exact adversarial-v4 (24 total / 22 answerable):
 
-## Exact A-MEM adversarial-v4
+- A-MEM MRR: `0.8333333333`
+- candidate-v2 MRR: `0.875`
+- paired delta: `+0.0416666667`
+- 95% bootstrap CI: `[-0.10984848, +0.19696970]`
+- W/T/L: `5/12/5`
 
-Workflow run `31284978045` completed all 8 shards plus aggregate/persist successfully. Durable evidence is committed under:
-
-`results/strong-baseline/amem-adversarial-v4-full-v1/`
-
-On 24 total cases / 22 answerable cases:
-
-| System | MRR | Recall@1 | Recall@5 | Abstention accuracy |
-|---|---:|---:|---:|---:|
-| A-MEM exact | 0.833333 | 0.727273 | 1.000 | 0.000 |
-| PSE candidate-v2 | 0.875000 | 0.772727 | 1.000 | 0.000 |
-
-Paired candidate-v2 minus A-MEM MRR delta: `+0.041667`.
-
-95% paired bootstrap CI: `[-0.109848, +0.196970]`.
-
-Win / tie / loss for candidate-v2 versus A-MEM: `5 / 12 / 5`.
-
-Interpretation: **UNDERPOWERED**. The two systems are descriptively competitive on this operator-designed adversarial set, but the interval crosses zero and the answerable sample is below the preregistered n=30 threshold. Both systems false-retrieve on both no-evidence cases.
-
-## Current D4 precursor
-
-Active workflow:
-
-- `.github/workflows/strong-baseline-amem-development.yml`
-- run ID: `31284023872`
-- Python: 3.11
-- frozen development split reproduction: PASS
-- source/model/embedding identity checks: PASS
-- scope: 20 frozen development cases, including 4 abstention cases
-- 10 exact A-MEM shards: currently executing
-
-Do not rerun, cancel, alter the protocol, alter the frozen manifest, or change model identities while this run remains valid and in progress.
-
-If durable retrieval outputs complete successfully, the next repository-defined action is the already-preregistered end-to-end protocol:
-
-`experiments/protocols/amem-d4-development-v2.json`
-
-Only a validated D4 completion can make Gate D eligible for its 10-point rubric credit.
+Both comparisons are insufficient for formal parity/superiority. Both A-MEM and candidate-v2 fail both v4 no-evidence abstention cases.
 
 ## Integrity boundary
 
-- Frozen LongMemEval development subset unchanged.
-- Existing immutable EXT-B0/EXT-B5 answers unchanged.
-- Frozen retrieval corpora are not modified in response to results.
-- Failed/negative evidence remains preserved.
+- Frozen development subset unchanged.
+- Candidate-v2 unchanged after protected evidence.
+- Failed and negative evidence preserved.
 - New monetary cost: USD 0.
 - Sealed-final content not accessed.
 - PR #2 remains Draft / Open / Not merged.
 - No tag or release.
-
-## Current next gate
-
-Complete and validate frozen development retrieval, then execute and validate D4 end-to-end at zero monetary cost. Gate E work may continue independently, but no result in this document authorizes sealed-final or a parity claim.
+- No parity, superiority, equivalence, non-inferiority, SOTA or production-readiness claim.
