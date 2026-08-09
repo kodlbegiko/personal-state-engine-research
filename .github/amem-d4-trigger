@@ -1,0 +1,5 @@
+Authorized after A-MEM frozen development recovery run 31292999631 passed 20/20 unique valid cases with missing=0, duplicate=0, invalid=0.
+Protocol: experiments/protocols/amem-d4-development-v2.json
+Recovery durable evidence commit: 8b89de7eccfa25b71cbe90f32393aab8a96a8412
+Checkpoint authorization commit parent: e6f4af824e6fe0b67b114adb74d5fc6431505eb8
+Zero-cost only. Sealed-final prohibited.
