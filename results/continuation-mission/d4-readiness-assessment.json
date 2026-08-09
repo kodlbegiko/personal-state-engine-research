@@ -1,0 +1,61 @@
+{
+  "schema_version": "amem-d4-readiness-assessment-v1",
+  "assessed_at": "2026-08-09T11:58:00+08:00",
+  "status": "READY_BUT_NOT_AUTHORIZED_PENDING_RETRIEVAL_RECOVERY",
+  "protocol": {
+    "path": "experiments/protocols/amem-d4-development-v2.json",
+    "schema_version": "amem-d4-development-protocol-v2",
+    "status": "FROZEN_BEFORE_D4_RETRIEVAL_RESULT",
+    "required_retrieval_case_count": 20,
+    "answer_context_top_k": 3,
+    "retrieval_token_budget": 1024,
+    "memory_token_budget": 1024,
+    "paid_api_allowed": false,
+    "paid_gpu_allowed": false,
+    "sealed_final_accessed": false
+  },
+  "workflow": {
+    "path": ".github/workflows/strong-baseline-amem-d4.yml",
+    "timeout_minutes": 360,
+    "retrieval_preflight_fail_closed": true,
+    "requires_predictions_path": "results/strong-baseline/amem-development-v1/predictions-run1.json",
+    "requires_case_count": 20,
+    "requires_unique_case_ids": 20,
+    "requires_dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "requires_case_ids_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+    "persists_raw_answers": true,
+    "persists_raw_judge_outputs": true,
+    "verifies_artifact_registry": true,
+    "verifies_20_answers": true,
+    "verifies_20_judges": true,
+    "requires_judge_invalid_rate_zero": true
+  },
+  "answer_model": {
+    "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "quantization": "q4"
+  },
+  "formal_evaluator": {
+    "evaluator_id": "longmemeval-official-prompt-priority-v2",
+    "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "quantization": "q4",
+    "development_correctness_use": "PERMITTED",
+    "independent_reproduction": false
+  },
+  "blocking_prerequisite": {
+    "recovery_run_id": 31292999631,
+    "required_status": "20_OF_20_VALIDATED_RETRIEVAL_CASES",
+    "current_gate_d4": "NOT_COMPLETE",
+    "d4_trigger_authorized_now": false
+  },
+  "integrity": {
+    "protocol_modified": false,
+    "answer_model_modified": false,
+    "evaluator_threshold_modified": false,
+    "frozen_scope_modified": false,
+    "sealed_final_content_accessed": false
+  },
+  "new_monetary_cost_usd": 0.0,
+  "claim_boundary": "Static readiness only. This assessment is not D4 execution evidence and does not establish Gate D completion, algorithm parity, superiority, equivalence, non-inferiority, independent reproduction, or sealed-final readiness."
+}
