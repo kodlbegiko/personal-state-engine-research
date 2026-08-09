@@ -1,103 +1,125 @@
 {
-  "schema_version": "continuation-resource-comparison-v1",
-  "recorded_at": "2026-08-09T09:20:00+08:00",
-  "scope": "Zero-cost retrieval research resources available in durable evidence as of this checkpoint. Missing per-system measurements are explicitly not inferred.",
-  "new_monetary_cost_usd": 0.0,
-  "sealed_final_accessed": false,
-  "systems": {
-    "bm25_local": {
-      "wall_clock_seconds": null,
-      "per_case_seconds": null,
-      "peak_rss_kib": null,
-      "index_build_latency_ms": null,
-      "pure_query_latency_ms": null,
-      "disk_usage_bytes": null,
-      "model_size_bytes": 0,
-      "measurement_status": "NOT_SEPARATELY_MEASURED",
-      "note": "BM25 participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved."
-    },
-    "tfidf_local": {
-      "wall_clock_seconds": null,
-      "per_case_seconds": null,
-      "peak_rss_kib": null,
-      "index_build_latency_ms": null,
-      "pure_query_latency_ms": null,
-      "disk_usage_bytes": null,
-      "model_size_bytes": 0,
-      "measurement_status": "NOT_SEPARATELY_MEASURED",
-      "note": "TF-IDF participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved."
-    },
-    "pse_current_reconstruction": {
-      "wall_clock_seconds": null,
-      "per_case_seconds": null,
-      "peak_rss_kib": null,
-      "index_build_latency_ms": null,
-      "pure_query_latency_ms": null,
-      "disk_usage_bytes": null,
-      "external_model_dependency": false,
-      "measurement_status": "NOT_SEPARATELY_MEASURED"
-    },
-    "pse_candidate_v1": {
-      "wall_clock_seconds": null,
-      "per_case_seconds": null,
-      "peak_rss_kib": null,
-      "index_build_latency_ms": null,
-      "pure_query_latency_ms": null,
-      "disk_usage_bytes": null,
-      "external_model_dependency": false,
-      "measurement_status": "NOT_SEPARATELY_MEASURED"
-    },
-    "pse_candidate_v2": {
-      "wall_clock_seconds": null,
-      "per_case_seconds": null,
-      "peak_rss_kib": null,
-      "index_build_latency_ms": null,
-      "pure_query_latency_ms": null,
-      "disk_usage_bytes": null,
-      "external_model_dependency": false,
-      "measurement_status": "NOT_SEPARATELY_MEASURED",
-      "note": "Do not substitute historical ad-hoc timings for a dedicated comparable resource run."
-    },
-    "a_mem_exact": {
-      "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
-      "ollama_model": "qwen2.5:3b",
-      "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
-      "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
-      "frozen24": {
-        "run_id": 31269598248,
-        "case_count": 24,
-        "serialized_inference_wall_seconds": 636.21,
-        "max_shard_wall_seconds": 135.2,
-        "max_peak_rss_kib": 1386620,
-        "shard_count": 6,
-        "paid_api_cost_usd": 0.0,
-        "cloud_gpu_cost_usd": 0.0,
-        "pure_query_latency_ms": null,
-        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED"
-      },
-      "adversarial_v4": {
-        "run_id": 31284978045,
-        "case_count": 24,
-        "serialized_inference_wall_seconds": 8756.109999999999,
-        "max_shard_wall_seconds": 1418.65,
-        "mean_end_to_end_case_wall_seconds": 364.8379166666666,
-        "max_peak_rss_kib": 1426156,
-        "shard_count": 8,
-        "new_monetary_cost_usd": 0.0,
-        "paid_api_used": false,
-        "cloud_gpu_used": false,
-        "pure_query_latency_ms": null,
-        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED"
-      }
-    }
-  },
   "interpretation": [
     "Serialized A-MEM compute must not be compared directly with parallel observed shard wall time.",
     "A-MEM includes local LLM/embedding dependencies and materially larger resource demand than the dependency-free local scoring candidates, but dedicated apples-to-apples resource instrumentation for every local candidate has not yet been preserved.",
-    "No missing latency, memory, disk or model-size metric is estimated or invented."
+    "No missing latency, memory, disk or model-size metric is estimated or invented.",
+    "Local dependency-free retrieval systems now have dedicated per-system GitHub Actions measurements on the same frozen 24-case adversarial-v4 corpus; these measurements preserve candidate-v2 and do not alter ranking semantics."
   ],
+  "new_monetary_cost_usd": 0.0,
+  "recorded_at": "2026-08-09T09:20:00+08:00",
+  "schema_version": "continuation-resource-comparison-v1",
+  "scope": "Zero-cost retrieval research resources available in durable evidence as of this checkpoint. Missing per-system measurements are explicitly not inferred.",
+  "sealed_final_accessed": false,
   "sources": [
     "results/strong-baseline/amem-frozen-24-v1/resource-summary-run1.json",
-    "results/strong-baseline/amem-adversarial-v4-full-v1/resource-summary-run1.json"
-  ]
+    "results/strong-baseline/amem-adversarial-v4-full-v1/resource-summary-run1.json",
+    "results/continuation-mission/local-candidate-resource-measurements-v1.json"
+  ],
+  "systems": {
+    "a_mem_exact": {
+      "adversarial_v4": {
+        "case_count": 24,
+        "cloud_gpu_used": false,
+        "max_peak_rss_kib": 1426156,
+        "max_shard_wall_seconds": 1418.65,
+        "mean_end_to_end_case_wall_seconds": 364.8379166666666,
+        "new_monetary_cost_usd": 0.0,
+        "paid_api_used": false,
+        "pure_query_latency_ms": null,
+        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED",
+        "run_id": 31284978045,
+        "serialized_inference_wall_seconds": 8756.109999999999,
+        "shard_count": 8
+      },
+      "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "frozen24": {
+        "case_count": 24,
+        "cloud_gpu_cost_usd": 0.0,
+        "max_peak_rss_kib": 1386620,
+        "max_shard_wall_seconds": 135.2,
+        "paid_api_cost_usd": 0.0,
+        "pure_query_latency_ms": null,
+        "pure_query_latency_status": "NOT_SEPARATELY_MEASURED",
+        "run_id": 31269598248,
+        "serialized_inference_wall_seconds": 636.21,
+        "shard_count": 6
+      },
+      "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "ollama_model": "qwen2.5:3b",
+      "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+    },
+    "bm25_local": {
+      "cpu_seconds": 0.003267837999999995,
+      "disk_usage_bytes": null,
+      "index_build_latency_ms": null,
+      "measurement_benchmark": "adversarial-v4-postfreeze-discrimination",
+      "measurement_case_count": 24,
+      "measurement_scope": "full 24-case frozen adversarial-v4 retrieval evaluation in one isolated process",
+      "measurement_status": "DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT",
+      "model_size_bytes": 0,
+      "note": "BM25 participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved.",
+      "peak_rss_kib": 22088,
+      "per_case_seconds": 0.00013632804166737364,
+      "pure_query_latency_ms": null,
+      "wall_clock_seconds": 0.003271873000016967
+    },
+    "pse_candidate_v1": {
+      "cpu_seconds": 0.006397310999999989,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "index_build_latency_ms": null,
+      "measurement_benchmark": "adversarial-v4-postfreeze-discrimination",
+      "measurement_case_count": 24,
+      "measurement_scope": "full 24-case frozen adversarial-v4 retrieval evaluation in one isolated process",
+      "measurement_status": "DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT",
+      "peak_rss_kib": 21836,
+      "per_case_seconds": 0.0002667345833332983,
+      "pure_query_latency_ms": null,
+      "wall_clock_seconds": 0.006401629999999159
+    },
+    "pse_candidate_v2": {
+      "cpu_seconds": 0.010892278000000005,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "index_build_latency_ms": null,
+      "measurement_benchmark": "adversarial-v4-postfreeze-discrimination",
+      "measurement_case_count": 24,
+      "measurement_scope": "full 24-case frozen adversarial-v4 retrieval evaluation in one isolated process",
+      "measurement_status": "DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT",
+      "note": "Do not substitute historical ad-hoc timings for a dedicated comparable resource run.",
+      "peak_rss_kib": 22092,
+      "per_case_seconds": 0.000453994333333263,
+      "pure_query_latency_ms": null,
+      "wall_clock_seconds": 0.010895863999998312
+    },
+    "pse_current_reconstruction": {
+      "cpu_seconds": 0.0041187609999999986,
+      "disk_usage_bytes": null,
+      "external_model_dependency": false,
+      "index_build_latency_ms": null,
+      "measurement_benchmark": "adversarial-v4-postfreeze-discrimination",
+      "measurement_case_count": 24,
+      "measurement_scope": "full 24-case frozen adversarial-v4 retrieval evaluation in one isolated process",
+      "measurement_status": "DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT",
+      "peak_rss_kib": 21868,
+      "per_case_seconds": 0.00017180154166644238,
+      "pure_query_latency_ms": null,
+      "wall_clock_seconds": 0.004123236999994617
+    },
+    "tfidf_local": {
+      "cpu_seconds": 0.004333599999999993,
+      "disk_usage_bytes": null,
+      "index_build_latency_ms": null,
+      "measurement_benchmark": "adversarial-v4-postfreeze-discrimination",
+      "measurement_case_count": 24,
+      "measurement_scope": "full 24-case frozen adversarial-v4 retrieval evaluation in one isolated process",
+      "measurement_status": "DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT",
+      "model_size_bytes": 0,
+      "note": "TF-IDF participated in frozen retrieval comparisons but dedicated resource instrumentation was not preserved.",
+      "peak_rss_kib": 22080,
+      "per_case_seconds": 0.00018067049999981322,
+      "pure_query_latency_ms": null,
+      "wall_clock_seconds": 0.004336091999995517
+    }
+  }
 }
