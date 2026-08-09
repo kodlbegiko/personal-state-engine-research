@@ -1,8 +1,6 @@
 {
-  "schema_version": "continuation-mission-execution-snapshot-v1",
-  "recorded_at": "2026-08-09T08:10:00+08:00",
-  "starting_head": "1d810f5b9e6a458f84765a274f64e3a72327c0b1",
-  "snapshot_parent_head": "bf6646f926768dcdbd3d6f9665c7ae36c90eb10b",
+  "schema_version": "continuation-mission-execution-snapshot-v2",
+  "recorded_at": "2026-08-09T09:12:00+08:00",
   "branch": "research/personal-state-engine-v0",
   "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
   "gate_status": {
@@ -18,43 +16,43 @@
     "G": "NOT_COMPLETE"
   },
   "formal_research_completion_percent": 30,
-  "formal_completion_basis": "Existing repository rubric gives Gate D credit only after D4 completion; no new percentage is invented for partial D4 or auxiliary Gate E evidence.",
+  "formal_completion_basis": "Gate D receives no partial percentage before validated D4 completion; Gate E remains incomplete.",
   "algorithm_parity": "NO",
   "a_mem": {
     "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
     "ollama_model": "qwen2.5:3b",
-    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
-    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
     "d3_run_id": 31269598248,
     "d3_status": "COMPLETE_DURABLE_UNDERPOWERED",
     "d4_development_retrieval_run_id": 31284023872,
     "d4_development_retrieval_status": "IN_PROGRESS_EXACT_A_MEM_SHARDS",
     "adversarial_v3_run_id": 31284365924,
-    "adversarial_v3_status": "COMPLETE_DURABLE",
+    "adversarial_v3_status": "COMPLETE_DURABLE_DISCRIMINATION_LIMITED",
     "adversarial_v4_full_run_id": 31284978045,
-    "adversarial_v4_full_status": "IN_PROGRESS_EXACT_A_MEM_SHARDS"
+    "adversarial_v4_full_status": "COMPLETE_DURABLE_UNDERPOWERED",
+    "adversarial_v4_a_mem_mrr": 0.8333333333333333,
+    "adversarial_v4_candidate_v2_mrr": 0.875,
+    "adversarial_v4_v2_minus_a_mem_mrr_delta": 0.04166666666666668,
+    "adversarial_v4_v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
+    "adversarial_v4_v2_vs_a_mem_win_tie_loss": [5, 12, 5]
   },
   "gate_e_evidence": {
     "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
     "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
-    "adversarial_v4_discrimination": "SUFFICIENT_FOR_EXACT_A_MEM_FOLLOWUP",
+    "adversarial_v4_discrimination": "SUFFICIENT",
+    "exact_a_mem_adversarial_v4": "COMPLETE_AUXILIARY_UNDERPOWERED",
     "robustness_suite": "COMPLETE_AUXILIARY_13_PERTURBATIONS",
     "abstention_strategy_matrix": "COMPLETE_AUXILIARY_UNRESOLVED",
+    "candidate_v2_and_a_mem_v4_abstention_accuracy": 0.0,
     "independent_reproduction": false,
-    "candidate_v2_selected_as_universal_replacement": false
-  },
-  "ci_evidence": {
-    "main_ci_last_verified_success_before_latest_evidence": 31283646067,
-    "zero_cost_algorithm_evidence_success": 31283646056,
-    "zero_cost_reconciliation_success": 31284450457,
-    "final_head_ci_required_after_all_running_evidence_commits": true
+    "candidate_v2_selected_as_universal_replacement": false,
+    "formal_selection": "NO_FORMAL_SELECTION"
   },
   "github_reconciliation": {
     "issue_6": "RECONCILED_TO_V2_RESOLVED_V3_EXTERNAL_RUNTIME_SCOPE",
-    "issue_7": "RECONCILED_D1_D2_D3_COMPLETE_D4_IN_PROGRESS",
-    "zero_cost_status_generator": "RECONCILED_D2_D3_TRUTH",
-    "zero_cost_artifact_registry": "REGENERATED_AND_VERIFIED",
-    "benchmark_lock": "REFRESHED_FOR_NEW_ZERO_COST_EXECUTABLES"
+    "issue_7": "RECONCILED_TO_CURRENT_DEVELOPMENT_RUN_31284023872",
+    "strong_baseline_status_doc": "RECONCILED_D1_D2_D3_AND_EXACT_V4",
+    "zero_cost_status_doc": "RECONCILED_D1_D2_D3_AND_EXACT_V4",
+    "gate_e_assessment": "RECONCILED_EXACT_V4_COMPLETE"
   },
   "integrity": {
     "twenty_frozen_development_cases_changed": false,
@@ -77,8 +75,9 @@
     "Gate E complete",
     "algorithm parity",
     "PSE superiority over A-MEM",
+    "equivalence or non-inferiority",
     "independent reproduction",
     "sealed-final readiness"
   ],
-  "exact_next_gate_at_snapshot": "Complete and verify exact A-MEM frozen development retrieval run 31284023872; only then execute the already-frozen A-MEM D4 end-to-end development protocol v2."
+  "exact_next_gate_at_snapshot": "Complete and verify exact A-MEM frozen development retrieval run 31284023872; only then execute frozen A-MEM D4 end-to-end development protocol v2."
 }
