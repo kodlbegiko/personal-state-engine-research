@@ -1,103 +1,104 @@
 # Current State Audit
 
-Audit timestamp: 2026-08-01T01:55:00+08:00
+Audit timestamp: 2026-08-09T11:55:00+08:00
 
 ## Repository state
 
 ```yaml
-auditor: OpenAI autonomous research agent
-default_branch: main
 working_branch: research/personal-state-engine-v0
 pull_request: 2
 pr_state: open
 pr_draft: true
-pr_mergeable: true
+pr_merged: false
 research_verdict: INCONCLUSIVE
-highest_evidence: E3_PIPELINE_SMOKE
-evidence_weighted_completion: 20_percent
+evidence_weighted_completion: 30_percent
+algorithm_parity_demonstrated: false
+new_monetary_cost_usd: 0
+sealed_final_content_accessed: false
 ```
 
-The repository, branch, PR, issues, workflow jobs, raw evidence and committed files were inspected through the authenticated GitHub connector. README or progress claims were not accepted without checking workflow output and raw artifacts.
+This audit is evidence-first. Workflow names, README claims and historical status text are not treated as proof without durable artifacts and GitHub Actions state.
 
-## Verified external evidence
-
-The first real-model external smoke is durably committed in:
+## Formal gate state
 
 ```text
-results/external/first-e3-smoke/
+Gate A: COMPLETE
+Gate B: COMPLETE
+Gate C: COMPLETE
+Gate D: NOT COMPLETE
+  D1: COMPLETE
+  D2: COMPLETE
+  D3: COMPLETE
+  D4: NOT COMPLETE — case-level recovery active
+Gate E: NOT COMPLETE
+Gate F: NOT STARTED — sealed-final prohibited
+Gate G: NOT COMPLETE — independent reproduction false
 ```
 
-Provenance:
+Gate D receives no invented partial percentage. Formal completion therefore remains 30% until D4 satisfies its frozen acceptance contract.
+
+## Verified strong-baseline evidence
+
+Exact-pinned A-MEM source commit:
+
+`0c8039f28fdcc08189a23c07a3437d9d2482f9c2`
+
+Frozen 24-case D3 run `31269598248` completed durably. Exact adversarial-v4 run `31284978045` also completed durably.
+
+On adversarial-v4 (24 total / 22 answerable):
+
+- A-MEM MRR: `0.8333333333`
+- PSE candidate-v2 MRR: `0.875`
+- paired delta: `+0.0416666667`
+- 95% bootstrap CI: `[-0.10984848, +0.19696970]`
+- W/T/L: `5/12/5`
+
+The result is underpowered and does not establish parity, superiority, equivalence or non-inferiority. A-MEM and candidate-v2 both failed both no-evidence abstention cases.
+
+## Frozen development retrieval incident and recovery
+
+Original run `31284023872` passed Python 3.11, frozen split, dataset, exact source, Ollama digest and embedding-snapshot checks, but all ten two-case shard jobs hit the 180-minute execution timeout. Aggregate/persist was skipped.
+
+All ten uploaded artifacts were inspected. None contained a completed `shard-N.json`; formally salvageable retrieval cases = `0/20`. The failure is preserved under:
+
+`results/strong-baseline/amem-development-recovery-v1/`
+
+Active recovery run: `31292999631`.
+
+Recovery is execution-only:
+
+- same frozen 20 development cases / 4 abstention cases
+- same A-MEM/model/dataset/embedding identities
+- same existing retrieval runner and scoring semantics
+- 20 case-level shards, one case per job
+- 350-minute job timeout
+- maximum 10 concurrent case jobs
+
+Recovery dataset preparation and frozen split reproduction have passed. D4 cannot start until 20/20 retrieval outputs validate with no missing, duplicate or invalid cases.
+
+## Candidate and evaluator boundary
+
+Candidate-v2 remains frozen and is best described as a robustness specialist, not a formally selected universal replacement for candidate-v1. Candidate-v1 retains the lead on the normal frozen retrieval benchmark.
+
+Evaluator-v2 development calibration remains:
 
 ```text
-Evidence commit: 2728fc9fc11076db2be9418edea9520c8195b333
-Source branch head: ca98c4789a7836651bde87f2d6b93fb140d737b0
-Archive workflow run: 30652039317
-Run ID: e3-smoke-30652039317-attempt-1
+raw agreement: 95.0%
+Cohen kappa: 0.7727
+invalid-output rate: 0.0%
+formal development correctness use: permitted
+independent reproduction: false
 ```
 
-Confirmed facts:
+Abstention remains unresolved negative evidence: under the no-false-abstention guardrail, tested safe confidence strategies have abstention accuracy `0` and false retrieval rate `1`.
 
-- the pinned LongMemEval-S payload was downloaded and matched 277383467 bytes and SHA-256 `d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442`;
-- 500 questions, 23867 sessions and 246750 turns passed structural validation;
-- deterministic development, validation and sealed-final manifests were generated without cross-split history leakage;
-- model and tokenizer revision `12fd25f77366fa6b3b4b768ec3050bf629380bac` were executed with q4 weights and Transformers.js 4.2.0;
-- the q4 ONNX file SHA-256 is `933577110303a2964096d19b6f15d3b4639bef7f99481ac0b61d9f3ad72f392a`;
-- four identical cases were executed under EXT-B0 and EXT-B5;
-- all eight trials completed with no errors or timeouts;
-- raw prompts, raw model outputs, retrieval records, token counts, latency, configuration hashes and request identifiers are committed;
-- all 16 artifact-registry hashes tie to committed files;
-- EXT-B0 records contain no history or retrieved items;
-- EXT-B5 records contain one traceable retrieved session per case;
-- no common API-key or bearer-token pattern was found in the evidence directory.
+## Integrity / publication decision
 
-## Result interpretation
-
-The provisional deterministic evaluator scored:
-
-```text
-EXT-B0: 0/4
-EXT-B5: 0/4
-```
-
-This cannot establish equality, non-inferiority or method failure. The sample is deliberately small, the model is a 135M pipeline model, and the evaluator is not the official semantic evaluator.
-
-The valid conclusion is:
-
-```text
-REAL-MODEL SMOKE — E3 PIPELINE EVIDENCE
-Research verdict: INCONCLUSIVE
-```
-
-## Resource and dependency findings
-
-The successful run used:
-
-```yaml
-runner: GitHub hosted ubuntu-24.04
-cpu_count: 4
-python: 3.11.15
-node: 24.18.0
-model_cache_bytes: 184178727
-api_spend_usd: 0
-```
-
-The committed npm audit reports four high-severity dependency findings. They affect the isolated research runtime and prevent any security or production-readiness claim. No credential was used or committed.
-
-## Remaining blockers
-
-1. No predetermined 20–50-case development comparison exists.
-2. No official or calibrated semantic evaluator is integrated.
-3. EXT-B1–EXT-B4 and EXT-B6 have no real-model results.
-4. No competitive pinned answer model has been evaluated.
-5. No strong baseline has been faithfully reproduced.
-6. PSE-Min has no external run or ablation.
-7. No activated preregistration, sealed final test or independent reproduction exists.
-8. Runtime dependency vulnerabilities remain unresolved.
-
-## Publication decision
-
-- keep PR #2 Draft;
-- do not merge;
-- do not tag or release;
-- do not claim parity, superiority, validation, security or production readiness.
+- frozen development scope unchanged;
+- candidate-v2 not retuned after protected evidence;
+- failed and negative evidence preserved;
+- no paid API or paid GPU used;
+- sealed-final content not accessed;
+- keep PR #2 Draft and Open;
+- do not merge, tag or release;
+- do not claim parity, superiority, validation, security, production readiness or state of the art.
