@@ -1,52 +1,110 @@
-# Zero-cost algorithm research status — 2026-08-08
+# Zero-cost algorithm research status — 2026-08-09 reconciliation
 
 ## Verdict
 
-`ZERO-COST ALGORITHM RESEARCH PARTIAL`
+`ZERO-COST ALGORITHM RESEARCH ACTIVE — D1/D2/D3 COMPLETE, D4 PENDING`
 
-The zero-cost track now has a frozen synthetic benchmark extension, deterministic baseline ladder, current-PSE retrieval reconstruction, candidate v1, ablations, bootstrap intervals, robustness probes, regression tests, and CI-generated evidence. This work does not complete Gate D because exact-pinned A-MEM has not executed.
+The zero-cost track has progressed beyond the historical `A-MEM NOT_EXECUTED / BLOCKED BY COMPUTE` state. Exact-pinned A-MEM now runs successfully under the repository's zero-monetary-cost boundary, and durable D3 plus adversarial-v4 evidence is committed. Formal repository completion remains 30% because Gate D is all-or-nothing under the current rubric and D4 is not yet complete.
 
-## Key retrieval evidence
-
-| Split | System | MRR | nDCG@5 | Recall@1 | Recall@5 |
-|---|---|---:|---:|---:|---:|
-| Development (22 answerable) | PSE current reconstruction | 0.902 | 0.927 | 0.735 | 1.000 |
-| Development | PSE candidate v1 | 1.000 | 1.000 | 0.917 | 1.000 |
-| Validation (5 answerable) | PSE current reconstruction | 0.900 | 0.926 | 0.800 | 1.000 |
-| Validation | PSE candidate v1 | 1.000 | 1.000 | 1.000 | 1.000 |
-| Hidden-generated (6 answerable) | PSE current reconstruction | 0.833 | 0.877 | 0.472 | 1.000 |
-| Hidden-generated | PSE candidate v1 | 0.917 | 0.938 | 0.639 | 1.000 |
-
-The development candidate-current MRR delta is +0.0985 with a descriptive 95% bootstrap interval of [0.0227, 0.1970]. Validation and hidden-generated intervals include zero. Every comparison is marked `UNDERPOWERED`; these values do not establish general superiority.
-
-## Ablation
-
-The explicit update/state-transition bonus is the only candidate component with observed incremental value. The additional current-query recency term adds no observed value on these cases. Naive abstention and exact dedup variants were rejected because they create recall regressions.
-
-## Robustness
-
-Capitalization, punctuation, whitespace, reverse memory order, and missing timestamps did not change candidate MRR on the frozen development set. An irrelevant fresh duplicate reduced development MRR from 1.000 to 0.932. A lexical adversary that repeats the query reduced development MRR to 0.500 and hidden-generated MRR to 0.472. This is a material unresolved failure.
-
-## Integrity boundary
-
-- Original 24-case corpus unchanged and verified by SHA-256.
-- Benchmark v2 extension frozen before candidate evaluation.
-- 20 LongMemEval development cases and 40 raw EXT-B0/EXT-B5 answers were not changed.
-- sealed-final was not accessed.
-- paid API cost: USD 0.00.
-- cloud GPU cost: USD 0.00.
-- A-MEM: `NOT_EXECUTED`.
-- Algorithm parity: `NO`.
-- Formal repository completion remains 30% because the rubric does not assign partial percentage credit for this work.
-
-## Gate D
+## Current Gate D state
 
 ```text
 D1 = COMPLETE
-D2 = NOT COMPLETE
-D3 = NOT EXECUTED
-D4 = NOT EXECUTED
-A-MEM verdict = BLOCKED BY COMPUTE
+D2 = COMPLETE
+D3 = COMPLETE
+D4 = NOT_COMPLETE
+Gate D = NOT_COMPLETE
+Formal completion = 30%
+Algorithm parity = NO
+New monetary cost = USD 0
+Sealed-final accessed = false
 ```
 
-The exact next evidence gate is still a successful zero-cost execution of exact-pinned A-MEM at commit `0c8039f28fdcc08189a23c07a3437d9d2482f9c2`, followed by the unchanged 24-case synthetic retrieval run.
+## Frozen 24-case retrieval evidence
+
+Durable exact A-MEM run: `31269598248`.
+
+| System | MRR |
+|---|---:|
+| A-MEM exact | 0.878788 |
+| PSE current reconstruction | 0.901515 |
+| PSE candidate-v1 | 1.000000 |
+| PSE candidate-v2 | 0.946970 |
+
+The comparison remains underpowered. Numerical ordering on this small frozen benchmark is descriptive only.
+
+## Adversarial-v4 exact A-MEM evidence
+
+The discriminative post-candidate-freeze adversarial-v4 benchmark contains 24 cases, of which 22 are answerable and 2 are no-evidence cases. Exact A-MEM full-corpus run `31284978045` completed successfully and persisted durable evidence.
+
+| System | MRR | R@1 | R@5 | Abstention accuracy | False retrieval rate |
+|---|---:|---:|---:|---:|---:|
+| A-MEM exact | 0.833333 | 0.727273 | 1.000 | 0.000 | 1.000 |
+| PSE candidate-v2 | 0.875000 | 0.772727 | 1.000 | 0.000 | 1.000 |
+| Random | 0.218182 | 0.090909 | 0.500 | 0.000 | 1.000 |
+| Recency | 0.465909 | 0.363636 | 0.636364 | 0.000 | 1.000 |
+
+Candidate-v2 minus A-MEM paired MRR delta: `+0.041667`.
+
+95% paired bootstrap CI: `[-0.109848, +0.196970]`.
+
+Win/tie/loss: `5/12/5`.
+
+Interpretation: **UNDERPOWERED**. Candidate-v2 is descriptively competitive with exact A-MEM on v4, but formal parity, superiority, equivalence and non-inferiority are unsupported.
+
+## Candidate evidence
+
+Candidate-v2 is frozen and was not retuned on adversarial-v4. Its strongest supported interpretation is a robustness-specialist candidate rather than a universal replacement for candidate-v1.
+
+The completed 13-perturbation robustness suite shows candidate-v2 degrades substantially less than current/v1 under the tested distractor stresses. Its worst observed perturbation is `duplicate_distractor_cluster`, with approximately `-0.0909` MRR and R@1 deltas from the v4 base.
+
+Candidate-v1 retains the lead on the normal frozen benchmark, so candidate selection must not cherry-pick a single test family.
+
+## Abstention negative evidence
+
+The development-only abstention strategy matrix tested:
+
+- always retrieve
+- absolute score threshold
+- top1-top2 margin
+- evidence coverage
+- combined confidence
+
+Under the hard guardrail that answerable development queries cannot be falsely rejected, the tested safe configurations do not separate no-evidence cases:
+
+```text
+abstention accuracy = 0
+false retrieval rate = 1
+false abstention rate on answerable development = 0
+```
+
+This is a retained negative result. It is currently one of the main algorithmic gaps and must not be hidden or threshold-tuned against previously observed withheld cases.
+
+## Current active D4 precursor
+
+A-MEM Frozen Development Retrieval:
+
+- workflow run: `31284023872`
+- Python 3.11 preflight: PASS
+- frozen split reproduction: PASS
+- dataset identity: PASS
+- exact A-MEM commit: PASS
+- Ollama model/digest: PASS
+- embedding snapshot: PASS
+- 10 exact A-MEM shards: executing
+- scope: 20 frozen development cases / 4 abstention cases
+
+This retrieval run is not D4 completion. After durable retrieval validation, execute the preregistered end-to-end protocol `experiments/protocols/amem-d4-development-v2.json` without changing the frozen scope or model identities.
+
+## Integrity boundary
+
+- Original frozen development and retrieval corpora are not changed based on results.
+- Candidate-v2 freeze chronology remains before protected follow-up evidence.
+- Failed evaluator and negative abstention evidence remain preserved.
+- No paid API or paid GPU is used.
+- Sealed-final content is not accessed.
+- PR #2 remains Draft / Open / Not merged.
+
+## Formal accounting
+
+The evidence-gate rubric remains authoritative. D1-D3 do not receive invented partial percentage credit. Until D4 satisfies the Gate D contract, formal evidence-weighted completion remains 30%. If and only if D4 completes and validates under the repository contract, Gate D may become eligible for its 10 points and formal completion may move to 40%. Gate E must be assessed separately.
