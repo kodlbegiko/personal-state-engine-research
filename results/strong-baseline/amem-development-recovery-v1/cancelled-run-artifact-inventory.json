@@ -1,0 +1,33 @@
+{
+  "claim_limit": "Forensic inventory of cancelled development retrieval only; no retrieval case is salvageable without a valid completed shard JSON.",
+  "expected_case_count": 20,
+  "forensic_basis": [
+    "prepare-dataset completed successfully",
+    "all 10 shard jobs reached Execute exact A-MEM development shard after provenance preflight",
+    "all 10 shard jobs were cancelled at the execution step",
+    "workflow shard timeout-minutes was 180",
+    "run started 2026-08-08T23:27:46Z and cancellation occurred 2026-08-09T02:28:49Z to 02:28:52Z",
+    "aggregate-and-persist was skipped"
+  ],
+  "forensic_root_cause": "EXECUTION_TIMEOUT_180_MINUTES",
+  "new_monetary_cost_usd": 0.0,
+  "schema_version": "amem-development-cancelled-run-artifact-inventory-v1",
+  "sealed_final_accessed": false,
+  "shards": [
+    {"shard":0,"artifact_id":9031178777,"digest":"sha256:dc5435cf359fa298d18588a31ebf0131d929d293fb934a33e2e6d46cc7a1a976","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":249,"pip-freeze.txt":2160,"time-shard-0.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":1,"artifact_id":9031178950,"digest":"sha256:b0cf3c61dec6c2ec51118c06f91078f78c57645aeb22a1cca07eeb74e276298e","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":249,"pip-freeze.txt":2160,"time-shard-1.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":2,"artifact_id":9031178907,"digest":"sha256:a27db77bc93c5b4faade6e7045777fb72de95379bc0a64cd4f3b986f6c504fb6","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":1591439,"pip-freeze.txt":2160,"time-shard-2.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":3,"artifact_id":9031178739,"digest":"sha256:9a3bec658d83d7c909bb454aaca87302f60753b99d52de868afedf66d8259bd1","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":1481904,"pip-freeze.txt":2160,"time-shard-3.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":4,"artifact_id":9031178737,"digest":"sha256:8715bafc8d8a15f2bb667fae4025a1c5e5a476a4a33359c6e802c7dc339e4562","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":1634017,"pip-freeze.txt":2160,"time-shard-4.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":5,"artifact_id":9031178801,"digest":"sha256:e1c8e254f7e148fbfc4bac97a818b54f2edf7c389bd6fdf557be4ca050eb76ea","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":249,"pip-freeze.txt":2160,"time-shard-5.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":6,"artifact_id":9031178943,"digest":"sha256:23e7f6f86f85d2e6bcad83131489476f1017d7f158055a7fc0907d236c8d524a","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":249,"pip-freeze.txt":2160,"time-shard-6.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":7,"artifact_id":9031178741,"digest":"sha256:80ecceaadcccf969f708dc843f33cacac68920a94da505c5bae688f7373efe53","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":1575604,"pip-freeze.txt":2160,"time-shard-7.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":8,"artifact_id":9031179229,"digest":"sha256:2b2b94ad14fb9192f72b018eead4f97023a98e47e555a08e4d390a8938320bff","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":419,"ollama.log":1507136,"pip-freeze.txt":2160,"time-shard-8.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"},
+    {"shard":9,"artifact_id":9031178730,"digest":"sha256:227d41d2976676a80893c5be962ea84f3abc919a2e713b0aa4b77ad244bcfcc9","artifact_present":true,"files":{"cost.json":121,"embedding-snapshot.txt":41,"ollama-tags.json":418,"ollama.log":1508801,"pip-freeze.txt":2160,"time-shard-9.txt":0},"shard_json_present":false,"shard_json_valid":false,"case_ids":[],"prediction_count":0,"resource_log_present":true,"resource_log_bytes":0,"cost_boundary_valid":true,"embedding_snapshot_valid":true,"ollama_digest_valid":true,"status":"INCOMPLETE"}
+  ],
+  "source_conclusion": "cancelled",
+  "source_head_sha": "5f7f2abdf01ac1f970a05b2f32130f778d052f40",
+  "source_run_id": 31284023872,
+  "source_workflow": "A-MEM Frozen Development Retrieval",
+  "valid_salvaged_case_count": 0
+}
