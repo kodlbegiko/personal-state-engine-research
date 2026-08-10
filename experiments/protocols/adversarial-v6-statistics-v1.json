@@ -1,0 +1,53 @@
+{
+  "schema_version": "adversarial-v6-statistics-v1",
+  "status": "FROZEN_BEFORE_STAGE1_SYSTEM_EXECUTION",
+  "recorded_at": "2026-08-10T21:40:00+08:00",
+  "dataset_sha256": "d5ff2fa4c51ebf09c42c710cd6a8bcf8445060858abf07ed1b34a7ac940471b0",
+  "answerable_n": 60,
+  "no_evidence_n": 30,
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20260810,
+    "paired_unit": "case_id",
+    "metric": "reciprocal_rank_on_answerable_cases",
+    "interval": "percentile_95_percent"
+  },
+  "primary_comparisons": [
+    "candidate-v4-frozen_vs_candidate-v2-frozen",
+    "candidate-v4-frozen_vs_exact-a-mem"
+  ],
+  "secondary_comparisons": [
+    "candidate-v4-frozen_vs_candidate-v3-frozen",
+    "candidate-v2-frozen_vs_exact-a-mem"
+  ],
+  "rate_intervals": {
+    "method": "Wilson score 95% CI",
+    "no_evidence": ["abstention_accuracy", "false_retrieval_rate"],
+    "answerable": ["false_abstention_rate", "answerable_recall"]
+  },
+  "claim_rules": {
+    "mrr_superiority": "May be stated only when the full paired-bootstrap 95% CI for delta MRR is strictly above 0.",
+    "mrr_noninferiority_margin": 0.03,
+    "mrr_noninferiority": "May be stated only when the lower bound of the paired-bootstrap 95% CI for candidate-v4 minus comparator is >= -0.03.",
+    "equivalence": "NOT_PREREGISTERED",
+    "parity": "NOT_PREREGISTERED_AS_A_FORMAL_STATISTICAL_CLAIM",
+    "point_estimate_only_claims_prohibited": true,
+    "algorithm_parity_default": "NO unless a separate preregistered parity/equivalence criterion exists and passes; this protocol does not create one post hoc."
+  },
+  "candidate_v4_gate_e_statistics": {
+    "required": true,
+    "v4_vs_v2": "Report paired MRR delta, 95% CI, W/T/L and retrieval guardrail verdict.",
+    "v4_vs_exact_a_mem": "Report paired MRR delta, 95% CI, W/T/L and frozen non-inferiority/superiority verdicts without inflating claims.",
+    "abstention": "Report case counts and Wilson 95% CIs for v4, v2 and exact A-MEM when outputs exist.",
+    "formal_selection_does_not_override_integrity": true
+  },
+  "integrity": {
+    "statistics_changed_after_results_allowed": false,
+    "bootstrap_iteration_change_after_results_allowed": false,
+    "noninferiority_margin_change_after_results_allowed": false,
+    "benchmark_case_edit_after_results_allowed": false,
+    "candidate_v4_patch_after_results_allowed": false,
+    "sealed_final_content_allowed": false,
+    "new_monetary_cost_usd": 0.0
+  }
+}
