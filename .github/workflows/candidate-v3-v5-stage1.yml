@@ -32,7 +32,7 @@ jobs:
           echo "v5_materializer_sha256=$materializer_sha"
           test "$candidate_sha" = "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284"
           test "$spec_sha" = "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
-          test "$materializer_sha" = "6ca56da4d3ca12bdf3db78bfd0dd12216bfae3f3c468d9c29bc22815d6fb3895"
+          test "$materializer_sha" = "50b51130469a3e6d6f61e45d3e849ff18fbc71719c3966fcea959eeec8d4855d"
       - name: Evaluate frozen v5 stage1
         run: |
           mkdir -p /tmp/v5-stage1
