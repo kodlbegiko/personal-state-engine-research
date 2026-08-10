@@ -1,0 +1,119 @@
+{
+  "schema_version": "maximum-capability-progress-v1",
+  "assessed_at": "2026-08-10T11:16:00+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "source_head_before_checkpoint": "30805a739d8e7b4144053012a5466a8a7b40d78c",
+  "formal_completion": {
+    "percent": 45,
+    "framework": "experiments/protocols/formal-completion-recalculation-v1.json",
+    "weights_percent": {"A": 10, "B": 10, "C": 10, "D": 15, "E": 20, "F": 25, "G": 10},
+    "scoring_rule": "binary formal gate credit",
+    "gate_status": {"A": "COMPLETE", "B": "COMPLETE", "C": "COMPLETE", "D": "COMPLETE", "E": "NOT_COMPLETE", "F": "NOT_STARTED_SEALED_FINAL_PROHIBITED", "G": "NOT_COMPLETE"}
+  },
+  "gate_e": {
+    "formal_selection": "NO_FORMAL_SELECTION",
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_retuned": false,
+    "algorithm_parity": "NO",
+    "abstention_diagnostic": {
+      "status": "CURRENT_CONFIDENCE_FEATURES_NOT_SEPARABLE_UNDER_GUARDRAIL",
+      "source_result": "results/abstention-strategy-matrix-v1/results.json",
+      "source_protocol": "experiments/protocols/abstention-strategy-matrix-v1.json",
+      "selection_data": "development only",
+      "development_case_count": 18,
+      "development_answerable_count": 9,
+      "development_no_evidence_count": 9,
+      "hard_guardrail": "false_abstention_rate == 0",
+      "feature_diagnostics_exploratory": {
+        "top1_score": {
+          "answerable_min_median_max": [0.212048, 0.657659, 0.695384],
+          "no_evidence_min_median_max": [0.212048, 0.397229, 0.563509],
+          "rank_auc_higher_means_answerable": 0.7962962962962963,
+          "maximum_no_evidence_abstentions_while_preserving_all_observed_answerable_cases_with_single_lower_threshold": 0,
+          "maximum_no_evidence_abstention_rate": 0.0
+        },
+        "top1_top2_margin": {
+          "answerable_min_median_max": [0.011828, 0.212048, 0.463951],
+          "no_evidence_min_median_max": [0.0, 0.397229, 0.563509],
+          "rank_auc_higher_means_answerable": 0.3148148148148148,
+          "maximum_no_evidence_abstentions_while_preserving_all_observed_answerable_cases_with_single_lower_threshold": 1,
+          "maximum_no_evidence_abstention_rate": 0.1111111111111111
+        },
+        "evidence_coverage": {
+          "answerable_min_median_max": [0.0, 1.0, 1.0],
+          "no_evidence_min_median_max": [0.0, 0.37131279241563214, 1.0],
+          "rank_auc_higher_means_answerable": 0.6728395061728395,
+          "maximum_no_evidence_abstentions_while_preserving_all_observed_answerable_cases_with_single_lower_threshold": 0,
+          "maximum_no_evidence_abstention_rate": 0.0
+        }
+      },
+      "observed_protocol_result": "All tested development-selected strategies that satisfy the zero-false-abstention guardrail retain answerable recall but fail to establish safe no-evidence separation; the existing formal Gate E assessment records abstention accuracy 0 and false retrieval rate 1 under the guardrail.",
+      "interpretation": "The currently exposed score, margin and evidence-coverage features overlap strongly between answerable and no-evidence development cases. This supports stopping further threshold hunting for frozen candidate-v2. It does not prove that the complete candidate-v2 architecture can never support abstention with a new information source or a separately versioned mechanism.",
+      "candidate_v3_authorization": "NOT_AUTHORIZED_FROM_THIS_DIAGNOSTIC_ALONE"
+    },
+    "statistical_power": {
+      "status": "POWER_BLOCKED_BY_FROZEN_SAMPLE_SIZE",
+      "source_protocol": "experiments/protocols/amem-adversarial-v4-full-v1.json",
+      "benchmark_case_count": 24,
+      "answerable_n": 22,
+      "underpowered_if_answerable_n_below": 30,
+      "minimum_additional_answerable_cases_needed_to_reach_threshold": 8,
+      "benchmark_scope": "ALL_CASES_FROZEN",
+      "post_result_extension_authorized": false,
+      "candidate_v2_mrr": 0.875,
+      "a_mem_exact_mrr": 0.8333333333333333,
+      "paired_delta": 0.04166666666666668,
+      "paired_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
+      "win_tie_loss": {"candidate_v2_wins": 5, "ties": 12, "candidate_v2_losses": 5},
+      "exploratory_ci_width_scaling_only": {
+        "current_half_width": 0.15340909090909094,
+        "approximate_n_for_half_width_0_10": 52,
+        "approximate_n_for_half_width_0_075": 93,
+        "approximate_n_for_half_width_0_05": 208,
+        "approximate_n_for_half_width_0_04": 324,
+        "caveat": "Naive 1/sqrt(n) scaling from the observed paired-bootstrap interval; diagnostic only, not a preregistered power calculation and not authorization to add cases."
+      },
+      "interpretation": "The frozen protocol requires the full 24-case corpus and labels n<30 answerable as underpowered. No pre-result extension rule authorizes adding cases after observing v4 results, so the existing comparison cannot be upgraded to formal parity or superiority evidence by post-hoc sample expansion."
+    }
+  },
+  "gate_g": {
+    "status": "NOT_COMPLETE",
+    "fresh_external_e3": "BLOCKED_BY_CURRENT_TOOL_CAPABILITY",
+    "workflow": ".github/workflows/external-e3-smoke.yml",
+    "workflow_trigger": "workflow_dispatch",
+    "connector_can_read_workflows": true,
+    "connector_can_read_jobs_logs_artifacts": true,
+    "connector_can_targeted_rerun_failed_jobs": true,
+    "connector_can_create_new_workflow_dispatch": false,
+    "local_gh_cli_available": false,
+    "local_github_token_available": false,
+    "container_direct_github_dns_available": false,
+    "python_available": true,
+    "artifact_registry_v2_preparation": "IMPLEMENTED_PENDING_FRESH_RUN",
+    "post_upload_artifact_id_digest_archival": "NOT_COMPLETE",
+    "independent_reproduction": false,
+    "exact_evaluator_reproduction": "BLOCKED_BY_EXACT_EVALUATOR_RUNTIME"
+  },
+  "issue_audit": {
+    "issue_4": "CLOSED_COMPLETED_AFTER_CURRENT_CODE_AND_TEST_EVIDENCE_VERIFICATION",
+    "issue_3": "PARTIALLY_RESOLVED_KEEP_OPEN_VERSION_BUMP_AND_REFRESH_INTEGRITY_ENFORCEMENT_REMAINS",
+    "issue_5": "OPEN_FRESH_E3_AND_POST_UPLOAD_PROVENANCE_REMAIN",
+    "issue_6": "OPEN_EXACT_OFFICIAL_FAITHFUL_RUNTIME_REMAINS",
+    "issue_1": "OPEN_BROAD_MODEL_BACKED_AND_INDEPENDENT_REPRODUCTION_ACCEPTANCE_NOT_FULLY_SATISFIED"
+  },
+  "research_integrity": {
+    "frozen_development_changed": false,
+    "candidate_v2_retuned": false,
+    "failed_evidence_deleted": false,
+    "sealed_final_accessed": false,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "paid_inference_used": false,
+    "new_monetary_cost_usd": 0.0,
+    "pr_merged": false,
+    "tag_or_release_created": false
+  },
+  "research_verdict": "PARTIALLY_BLOCKED_BUT_PROGRESS_AVAILABLE",
+  "formal_completion_change": 0,
+  "claim_boundary": "Auxiliary diagnostic and capability evidence only. Formal completion remains 45% because neither Gate E nor Gate G is formally complete; no parity, superiority, equivalence, non-inferiority, sealed-final readiness, independent reproduction, or production-readiness claim is established."
+}
