@@ -1,0 +1,81 @@
+{
+  "allowed_development_data": [
+    "benchmarks/algorithm-development/abstention-dev-v1/development.json",
+    "already-observed adversarial-v5 aggregate metrics",
+    "post-hoc adversarial-v5 no-evidence failure taxonomy; v5 is historical diagnostic only"
+  ],
+  "architecture": {
+    "answerability_layer": "deterministic proposition and slot coverage with contradiction/uncertainty resolution",
+    "counterfactual_rule": "Do not require multiple supporting memories. Use counterfactual logic only to reject apparent support that is solely query echo, boilerplate, or duplicated non-answer evidence.",
+    "features": [
+      "requested relation/attribute signature",
+      "subject/entity anchor coverage",
+      "explicit temporal qualifier coverage",
+      "current/update resolution cues",
+      "certainty requirement and uncertainty cues",
+      "value-bearing assertion beyond query/relation boilerplate",
+      "cross-memory unresolved contradiction",
+      "query-echo/lexical-copy veto",
+      "fail-closed fallback for unseen requested attributes"
+    ],
+    "integration_rule": "If verdict is SUPPORTED, return the original frozen Candidate-v2 ranking unchanged. Otherwise return [].",
+    "retriever": "pse_candidate_v2_rank frozen comparator; no ranking-semantic modification",
+    "verdicts": ["SUPPORTED", "CONTRADICTED", "INSUFFICIENT"]
+  },
+  "base_head_before_v4": "5d1bd1ecfa8ad05fdfadd6879f119f6bb1436b0c",
+  "branch": "research/personal-state-engine-v0",
+  "candidate_identity": "candidate-v4",
+  "confirmatory_rule": "v5 MUST NOT be reused as Candidate-v4 confirmatory evidence. Only after validation PASS may a new mechanism-agnostic adversarial-v6 benchmark be created and frozen before system execution.",
+  "development_acceptance": {
+    "all_conditions_required": true,
+    "maximum_false_abstention_rate": 0.1,
+    "maximum_false_retrieval_rate": 0.2,
+    "maximum_mrr_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_1_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_3_deficit_vs_candidate_v2": 0.02,
+    "maximum_recall_at_5_deficit_vs_candidate_v2": 0.02,
+    "minimum_abstention_accuracy": 0.8
+  },
+  "forbidden_data": [
+    "sealed-final",
+    "any future adversarial-v6 confirmatory results before v4 freeze",
+    "validation outcomes for tuning after the one-time frozen validation",
+    "paid or external private evaluation data"
+  ],
+  "freeze_rule": "Only after development PASS, freeze one source/config/protocol identity and commit it before the one-time protected validation.",
+  "guardrails": {
+    "candidate_v2_retuning_prohibited": true,
+    "candidate_v3_patching_prohibited": true,
+    "merge_force_push_tag_release_prohibited": true,
+    "post_freeze_v4_patch_prohibited": true,
+    "post_result_benchmark_editing_prohibited": true,
+    "sealed_final_prohibited": true,
+    "zero_cost_usd": 0.0
+  },
+  "negative_result_rule": "If one-time frozen validation fails, Candidate-v4 is REJECTED and must not be patched; any new method becomes Candidate-v5.",
+  "one_time_validation_acceptance": {
+    "all_conditions_required": true,
+    "maximum_false_abstention_rate": 0.1,
+    "maximum_false_retrieval_rate": 0.2,
+    "maximum_mrr_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_1_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_3_deficit_vs_candidate_v2": 0.02,
+    "maximum_recall_at_5_deficit_vs_candidate_v2": 0.02,
+    "minimum_abstention_accuracy": 0.8
+  },
+  "preregistered_at": "2026-08-10T20:51:00+08:00",
+  "primary_metrics": ["abstention_accuracy", "false_retrieval_rate", "false_abstention_rate", "answerable_recall"],
+  "protected_validation": "benchmarks/algorithm-development/abstention-dev-v1/validation.json",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "research_question": "Can a post-retrieval answerability mechanism distinguish relevant-looking evidence from evidence sufficient to answer, while preserving frozen Candidate-v2 retrieval quality?",
+  "retrieval_metrics": ["MRR", "recall@1", "recall@3", "recall@5"],
+  "schema_version": "candidate-v4-design-preregistration-v1",
+  "statistics_rule": "Future v6 primary comparisons use 10,000 paired bootstrap iterations for v4-v2 and v4-exact-A-MEM; abstention/error rates report Wilson 95% CIs.",
+  "tuning_budget": {
+    "maximum_architecture_variants": 4,
+    "maximum_hyperparameter_or_config_variants": 20,
+    "planned_architecture_variants": 1,
+    "planned_config_variants": 1,
+    "preserve_all_failed_variants": true
+  }
+}

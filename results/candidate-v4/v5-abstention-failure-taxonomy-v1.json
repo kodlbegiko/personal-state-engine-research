@@ -1,0 +1,126 @@
+{
+  "aggregate_conclusion": {
+    "required_v4_capabilities": [
+      "attribute_or_relation_coverage",
+      "subject_anchor_coverage",
+      "explicit_temporal_constraint_coverage",
+      "certainty_and_uncertainty_reasoning",
+      "value_bearing_assertion_detection",
+      "unresolved_contradiction_detection",
+      "query_echo_rejection",
+      "fail_closed_fallback_for_unseen_attributes"
+    ],
+    "root_cause": "The systems conflate retrieval relevance with proposition-level answerability. Similar entities, relations, or lexical forms are treated as sufficient evidence without verifying requested attribute, temporal/certainty constraints, or a value-bearing assertion."
+  },
+  "integrity": {
+    "benchmark_modified": false,
+    "candidate_v2_modified": false,
+    "candidate_v3_modified": false,
+    "new_monetary_cost_usd": 0.0,
+    "sealed_final_content_accessed": false,
+    "used_for_confirmatory_claim": false
+  },
+  "recorded_at": "2026-08-10T20:51:00+08:00",
+  "schema_version": "candidate-v4-v5-abstention-failure-taxonomy-v1",
+  "source_benchmark": {
+    "dataset_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+    "name": "adversarial-v5-confirmatory",
+    "no_evidence_case_count": 15,
+    "observed_candidate_v2_false_retrieval_rate": 1.0,
+    "observed_candidate_v3_false_retrieval_rate": 1.0,
+    "observed_exact_a_mem_false_retrieval_rate": 1.0,
+    "role": "historical_diagnostic_only_not_candidate_v4_confirmatory"
+  },
+  "taxonomy": [
+    {
+      "case_id": "ADV5-C-046",
+      "diagnosis": "Entity overlap (Project Nova) is present, but owner-style evidence does not establish budget.",
+      "failure_modes": ["same_subject_wrong_predicate", "no_actual_supporting_proposition"],
+      "source_category": "same_entity_wrong_field"
+    },
+    {
+      "case_id": "ADV5-C-047",
+      "diagnosis": "Account phone evidence is adjacent to, but not evidence for, account email.",
+      "failure_modes": ["same_subject_wrong_predicate", "right_entity_wrong_attribute"],
+      "source_category": "same_entity_wrong_field"
+    },
+    {
+      "case_id": "ADV5-C-048",
+      "diagnosis": "Warranty-expiry evidence does not assert a device serial number.",
+      "failure_modes": ["same_subject_wrong_predicate", "right_entity_wrong_attribute"],
+      "source_category": "same_entity_wrong_field"
+    },
+    {
+      "case_id": "ADV5-C-049",
+      "diagnosis": "Blood donation is topically related but does not entail blood type.",
+      "failure_modes": ["plausible_unsupported_answer", "partial_evidence", "no_actual_supporting_proposition"],
+      "source_category": "plausible_unsupported"
+    },
+    {
+      "case_id": "ADV5-C-050",
+      "diagnosis": "Passport renewal is related context but does not assert a passport number.",
+      "failure_modes": ["plausible_unsupported_answer", "partial_evidence", "no_actual_supporting_proposition"],
+      "source_category": "plausible_unsupported"
+    },
+    {
+      "case_id": "ADV5-C-051",
+      "diagnosis": "Wi-Fi network name is not a Wi-Fi password.",
+      "failure_modes": ["same_subject_wrong_predicate", "plausible_unsupported_answer"],
+      "source_category": "plausible_unsupported"
+    },
+    {
+      "case_id": "ADV5-C-052",
+      "diagnosis": "March sales total cannot answer an April-scoped query.",
+      "failure_modes": ["temporal_near_match", "right_predicate_wrong_value"],
+      "source_category": "temporal_near_match"
+    },
+    {
+      "case_id": "ADV5-C-053",
+      "diagnosis": "January ownership cannot answer a February-scoped query.",
+      "failure_modes": ["temporal_near_match", "right_predicate_wrong_value"],
+      "source_category": "temporal_near_match"
+    },
+    {
+      "case_id": "ADV5-C-054",
+      "diagnosis": "The memory repeats the PIN question and asserts no PIN value.",
+      "failure_modes": ["query_echo", "no_actual_supporting_proposition"],
+      "source_category": "query_echo_only"
+    },
+    {
+      "case_id": "ADV5-C-055",
+      "diagnosis": "The memory repeats the shelf question and asserts no shelf value.",
+      "failure_modes": ["query_echo", "no_actual_supporting_proposition"],
+      "source_category": "query_echo_only"
+    },
+    {
+      "case_id": "ADV5-C-056",
+      "diagnosis": "Travel budget is a money-related attribute but is not salary.",
+      "failure_modes": ["same_subject_wrong_predicate", "right_predicate_wrong_value"],
+      "source_category": "related_domain_wrong_answer"
+    },
+    {
+      "case_id": "ADV5-C-057",
+      "diagnosis": "Morning dose evidence does not satisfy a night/evening dose constraint.",
+      "failure_modes": ["temporal_near_match", "right_predicate_wrong_value", "partial_evidence"],
+      "source_category": "related_domain_wrong_answer"
+    },
+    {
+      "case_id": "ADV5-C-058",
+      "diagnosis": "Repeated Orion-owner evidence does not establish a cost center; duplication cannot create support.",
+      "failure_modes": ["same_subject_wrong_predicate", "duplicate_distractor", "no_actual_supporting_proposition"],
+      "source_category": "duplicate_distractor_no_answer"
+    },
+    {
+      "case_id": "ADV5-C-059",
+      "diagnosis": "Tentative/conflicting room candidates do not establish a confirmed workshop room.",
+      "failure_modes": ["contradiction", "partial_evidence", "uncertain_evidence"],
+      "source_category": "conflict_no_resolution"
+    },
+    {
+      "case_id": "ADV5-C-060",
+      "diagnosis": "Laptop model evidence does not establish keyboard layout; unknown attributes must fail closed.",
+      "failure_modes": ["same_subject_wrong_predicate", "unseen_relation", "no_actual_supporting_proposition"],
+      "source_category": "unseen_relation_hard_no_evidence"
+    }
+  ]
+}
