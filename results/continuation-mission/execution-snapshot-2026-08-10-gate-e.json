@@ -1,0 +1,150 @@
+{
+  "schema_version": "continuation-mission-execution-snapshot-v11",
+  "recorded_at": "2026-08-10T13:36:23+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "branch_head_after_stage2_persist": "36821cd4338319920fad3d5606ee00a544ab3242",
+  "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
+  "gate_status": {
+    "A": "COMPLETE",
+    "B": "COMPLETE",
+    "C": "COMPLETE",
+    "D": "COMPLETE",
+    "E": "NOT_COMPLETE_NO_FORMAL_SELECTION",
+    "F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+    "G": "NOT_COMPLETE"
+  },
+  "formal_research_completion_percent": 45,
+  "algorithm_parity": "NO",
+  "candidate_v2": {
+    "freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "changed": false,
+    "v5_mrr": 0.9037037037037038,
+    "v5_recall_at_1": 0.8111111111111111,
+    "v5_abstention_accuracy": 0.0,
+    "v5_false_retrieval_rate": 1.0
+  },
+  "candidate_v3": {
+    "freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+    "source_sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+    "changed_after_freeze": false,
+    "v5_mrr": 0.8074074074074075,
+    "v5_recall_at_1": 0.7444444444444445,
+    "v5_recall_at_3": 0.8666666666666667,
+    "v5_recall_at_5": 0.8666666666666667,
+    "v5_abstention_accuracy": 0.0,
+    "v5_false_retrieval_rate": 1.0,
+    "retrieval_guardrail": "FAIL",
+    "abstention_requirements": "FAIL",
+    "selection_status": "REJECTED_BY_FROZEN_V5_THRESHOLDS"
+  },
+  "adversarial_v5": {
+    "protocol": "experiments/protocols/adversarial-v5-confirmatory-v1.json",
+    "protocol_sha256": "060aca66ba87d23dce1b1e8e072094bec7559f2d97f9fbfab9fb4fd8514206fc",
+    "dataset_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+    "case_count": 60,
+    "answerable_case_count": 45,
+    "no_evidence_case_count": 15,
+    "post_result_editing": false,
+    "preexecution_identity_failures_preserved": [31355440247, 31355529068]
+  },
+  "exact_a_mem_v5_stage2": {
+    "workflow_run_id": 31355907320,
+    "workflow_head_sha": "ad2a343c5c8eb63695ff8d904cc4cac6b632e94b",
+    "status": "COMPLETE_SUCCESS_ACCEPTED_60_OF_60",
+    "shard_count": 20,
+    "valid_unique_cases": 60,
+    "missing_cases": 0,
+    "duplicate_cases": 0,
+    "invalid_cases": 0,
+    "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "mrr": 0.7074074074074073,
+    "recall_at_1": 0.4666666666666667,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.0,
+    "false_retrieval_rate": 1.0,
+    "false_abstention_rate": 0.0,
+    "abstention_accuracy_wilson_95_ci": [0.0, 0.20388330103584862],
+    "false_retrieval_wilson_95_ci": [0.7961166989641515, 1.0],
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "cloud_gpu_used": false,
+    "sealed_final_accessed": false,
+    "evidence_commit": "36821cd4338319920fad3d5606ee00a544ab3242",
+    "evidence_paths": [
+      "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/predictions-run1.json",
+      "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/comparison-run1.json",
+      "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/resource-summary-run1.json",
+      "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/artifact-registry.json"
+    ],
+    "artifact_hashes": {
+      "predictions-run1.json": "a021a7c43c03d0ae1a4e23574fa4a9eb166b9869949ef17cd00f3a35f9d92dba",
+      "comparison-run1.json": "878fc0b68ef0a20d70b2b43bb39b4ca678df62430672c4fe02d6c75604c3208d",
+      "resource-summary-run1.json": "1c7e87aa22fd537f60d19ac05aa8fb6f49d75c8fc98e7dd204ac8d7669f69625"
+    }
+  },
+  "paired_statistics": {
+    "iterations": 10000,
+    "candidate_v3_vs_candidate_v2": {
+      "mrr_delta_candidate_v3_minus_candidate_v2": -0.09629629629629631,
+      "bootstrap_95_ci": [-0.17777777777777778, -0.02592592592592592],
+      "candidate_v3_wins": 0,
+      "ties": 39,
+      "candidate_v3_losses": 6
+    },
+    "candidate_v3_vs_exact_a_mem": {
+      "mrr_delta_candidate_v3_minus_exact_a_mem": 0.1,
+      "bootstrap_95_ci": [-0.01851851851851851, 0.20740740740740743],
+      "candidate_v3_wins": 18,
+      "ties": 20,
+      "candidate_v3_losses": 7,
+      "interpretation": "CI crosses zero; no superiority/equivalence/non-inferiority claim is established."
+    },
+    "power_status": "SUFFICIENT"
+  },
+  "gate_e": {
+    "formal_status": "NOT_COMPLETE",
+    "formal_selection": "NO_FORMAL_SELECTION",
+    "candidate_v3_selection": "REJECTED_BY_FROZEN_V5_THRESHOLDS",
+    "reason": "Candidate-v3 failed preregistered retrieval and abstention thresholds. Exact A-MEM Stage 2 completes the confirmatory comparison but cannot rescue or modify frozen candidate-v3.",
+    "candidate_v3_may_be_modified_after_v5": false,
+    "new_candidate_requires_new_identity_and_preregistration": true
+  },
+  "gate_g": {
+    "status": "NOT_COMPLETE_PARTIAL_REMEDIATION",
+    "fresh_external_e3_reproduction": "BLOCKED_BY_CURRENT_CONNECTOR_CAPABILITY",
+    "post_upload_e3_artifact_id_digest_archival": "NOT_COMPLETE",
+    "official_faithful_evaluator_v3_independent_reproduction": "BLOCKED_BY_UNAVAILABLE_EXACT_ZERO_COST_RUNTIME",
+    "independent_reproduction": false,
+    "authorized_zero_cost_non_sealed_work_exhausted": true
+  },
+  "integrity": {
+    "candidate_v2_retuned": false,
+    "candidate_v3_changed_after_freeze": false,
+    "v5_changed_after_first_system_result": false,
+    "failed_or_negative_evidence_deleted": false,
+    "sealed_final_content_accessed": false,
+    "benchmark_leakage_detected": false,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "paid_inference_used": false,
+    "pr_merged": false,
+    "tag_or_release_created": false
+  },
+  "not_claimable": [
+    "Gate E complete",
+    "Gate G complete",
+    "candidate-v3 selected",
+    "algorithm parity",
+    "PSE superiority over A-MEM",
+    "equivalence or non-inferiority",
+    "independent reproduction",
+    "sealed-final readiness",
+    "production readiness"
+  ],
+  "research_verdict": "CONFIRMATORY_V5_COMPLETE; CANDIDATE_V3_REJECTED; GATE_E_NOT_COMPLETE; AUTHORIZED_ZERO_COST_NON_SEALED_WORK_EXHAUSTED_PENDING_GATE_G_BLOCKERS"
+}
