@@ -9,20 +9,35 @@ from .zero_cost_baselines import _stem, tokens
 # candidate-v2 ranking semantics; it adds a separate, deterministic evidence-
 # sufficiency representation and filters the frozen v2 ranking through it.
 
+# Relation concepts are intentionally field-granular where confusing adjacent
+# attributes would create false evidence (for example email vs phone, budget vs
+# balance, PIN vs generic number). They are generic concepts rather than case IDs
+# or answer strings.
 RELATION_CONCEPTS: dict[str, set[str]] = {
-    "identifier": {"number", "no", "id", "pin", "code", "serial", "號碼", "編號", "代碼", "密碼"},
+    "number": {"number", "no", "serial", "號碼", "編號"},
+    "code": {"code", "passcode", "代碼"},
+    "pin": {"pin", "password", "密碼"},
     "ownership": {"owner", "own", "owns", "owned", "responsible", "負責", "負責人"},
-    "location": {"where", "location", "floor", "address", "room", "site", "地點", "位置", "樓層", "地址"},
-    "time": {"when", "date", "day", "time", "expire", "expiry", "expires", "end", "ends", "deadline", "日期", "時間", "到期", "截止"},
+    "floor": {"floor", "level", "樓層"},
+    "address": {"address", "地址"},
+    "location": {"location", "site", "room", "地點", "位置"},
+    "date": {"date", "day", "日期", "哪天"},
+    "expiry": {"expire", "expiry", "expires", "expired", "end", "ends", "deadline", "due", "到期", "截止"},
     "preference": {"prefer", "preferred", "prefers", "preference", "favorite", "favourite", "likes", "喜歡", "偏好"},
-    "amount": {"balance", "budget", "price", "cost", "amount", "total", "salary", "餘額", "預算", "價格", "金額", "薪資"},
+    "balance": {"balance", "餘額"},
+    "budget": {"budget", "預算"},
+    "price": {"price", "cost", "價格", "費用"},
+    "salary": {"salary", "wage", "薪資", "薪水"},
+    "amount": {"amount", "total", "金額", "總額"},
     "type": {"type", "kind", "category", "class", "類型", "種類"},
     "hint": {"hint", "clue", "提示", "線索"},
     "shop": {"shop", "store", "cafe", "coffee", "restaurant", "咖啡店", "商店", "餐廳"},
     "status": {"status", "state", "condition", "狀態", "情況"},
-    "contact": {"phone", "email", "contact", "telephone", "電話", "信箱", "聯絡"},
+    "phone": {"phone", "telephone", "mobile", "電話", "手機"},
+    "email": {"email", "e-mail", "mailbox", "信箱", "電子郵件"},
     "color": {"color", "colour", "顏色"},
-    "quantity": {"count", "quantity", "many", "多少", "數量"},
+    "quantity": {"count", "quantity", "many", "數量"},
+    "registration": {"registration", "plate", "登記", "車牌"},
 }
 
 UNCERTAIN_MARKERS = {
@@ -108,13 +123,7 @@ UNCERTAIN_STEMS = {_stem(marker) for marker in UNCERTAIN_MARKERS if not _contain
 
 
 def has_asserted_value(memory_text: str, query: str) -> bool:
-    """Return True when evidence contains content beyond query/relation boilerplate.
-
-    This is deliberately a support check rather than a ranking score. A memory
-    that only repeats query words (including keyword stuffing) has no asserted
-    value. For CJK, use character bigrams so an entire sentence is not treated
-    as one token by the baseline tokenizer.
-    """
+    """Return True when evidence contains content beyond query/relation boilerplate."""
     if _contains_cjk(memory_text) or _contains_cjk(query):
         memory_extra = _cjk_bigrams(memory_text) - _cjk_bigrams(query)
         relation_bigrams: set[str] = set()
@@ -144,10 +153,6 @@ def has_asserted_value(memory_text: str, query: str) -> bool:
 def evidence_supports_query(memory_text: str, query: str) -> bool:
     requested = relation_concepts(query)
     supported = relation_concepts(memory_text)
-
-    # If the query exposes a recognizable relation/attribute, every requested
-    # concept must be supported by the evidence. This rejects same-entity but
-    # wrong-field memories such as "owner" evidence for a "budget" query.
     if requested and not requested.issubset(supported):
         return False
     if query_requires_certainty(query) and memory_is_uncertain(memory_text):
@@ -175,13 +180,7 @@ def evidence_sufficiency_signature(case: dict[str, Any], ranking: list[str]) -> 
 
 
 def pse_candidate_v3_rank(case: dict[str, Any], k: int = 5) -> list[str]:
-    """Candidate-v3: frozen v2 ordering filtered by evidence sufficiency.
-
-    Candidate-v3 does not alter candidate-v2 scores, weights, thresholds or
-    tie-breaking. It introduces a new support representation and can abstain by
-    returning an empty ranking when the available evidence cannot directly
-    support the requested relation/attribute.
-    """
+    """Candidate-v3: frozen v2 ordering filtered by evidence sufficiency."""
     ranking = pse_candidate_v2_rank(case, k)
     signature = evidence_sufficiency_signature(case, ranking)
     return signature["supported_memory_ids"][:k]
