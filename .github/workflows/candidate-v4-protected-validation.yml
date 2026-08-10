@@ -1,0 +1,37 @@
+name: Candidate v4 One-Time Protected Validation
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/candidate-v4-protected-validation-v2.txt
+
+permissions:
+  contents: read
+
+jobs:
+  validate-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e .
+      - name: Execute frozen validation
+        run: |
+          mkdir -p /tmp/candidate-v4-validation
+          python scripts/evaluate_frozen_candidate_v4_validation.py \
+            --dataset benchmarks/algorithm-development/candidate-v4-validation-v2/validation.json \
+            --expected-dataset-sha256 e8969f6a3fa2bf80ace4a189a4f012897e0151a38a43917e4be1d3b08389bdd9 \
+            --output /tmp/candidate-v4-validation/validation-result-v2.json
+      - name: Upload validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v4-protected-validation-v2
+          path: /tmp/candidate-v4-validation/
+          retention-days: 30
+          if-no-files-found: error
