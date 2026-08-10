@@ -64,6 +64,15 @@ jobs:
             --output-root results/e3-smoke \
             --smoke-cases 4 \
             --retrieval-k 1
+      - name: Enrich and fail closed on E3 artifact provenance
+        run: |
+          python scripts/enrich_e3_artifact_registry.py \
+            --output-root results/e3-smoke \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --model-manifest experiments/models/smollm2-135m-instruct-transformersjs.json \
+            --run-manifest experiments/configs/smollm2-135m-e3-smoke.json \
+            --source-head-sha "$GITHUB_SHA" \
+            --tested-commit-sha "$GITHUB_SHA"
       - name: Verify no benchmark payload entered Git
         if: always()
         run: |
