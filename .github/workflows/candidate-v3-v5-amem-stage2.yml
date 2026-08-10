@@ -1,0 +1,192 @@
+name: Candidate v3 V5 Exact A-MEM Stage 2
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/candidate-v3-v5-amem-stage2-v1.txt
+
+permissions:
+  contents: write
+
+concurrency:
+  group: candidate-v3-v5-amem-stage2
+  cancel-in-progress: false
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    env:
+      A_MEM_SOURCE_COMMIT: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+      EXPECTED_CORPUS_SHA256: 41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169
+      EXPECTED_CANDIDATE_V3_SHA256: 8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284
+      EXPECTED_EMBEDDING_SNAPSHOT: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+      EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify Stage-1 authorization and frozen identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          test "$(sha256sum src/personal_state_engine/candidate_v3.py | awk '{print $1}')" = "$EXPECTED_CANDIDATE_V3_SHA256"
+          python - <<'PY'
+          import json
+          s=json.load(open('results/candidate-v3/v5-stage1-results-v1.json'))
+          p=json.load(open('experiments/protocols/adversarial-v5-confirmatory-v1.json'))
+          assert s['discrimination']['status']=='PASS'
+          assert s['source_artifact']['materialized_v5_sha256']=='41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169'
+          assert p['stage_2_exact_a_mem']['execute_only_if_stage_1_discrimination_passes'] is True
+          assert p['stage_2_exact_a_mem']['commit']=='0c8039f28fdcc08189a23c07a3437d9d2482f9c2'
+          assert p['stage_2_exact_a_mem']['all_60_cases_required'] is True
+          assert p['execution']['zero_cost'] is True
+          assert p['integrity']['sealed_final_access_allowed'] is False
+          assert s['integrity']['sealed_final_accessed'] is False
+          PY
+          mkdir -p amem-v5-artifact
+          python experiments/runners/materialize_adversarial_v5.py --output amem-v5-artifact/materialized-v5.json
+          test "$(sha256sum amem-v5-artifact/materialized-v5.json | awk '{print $1}')" = "$EXPECTED_CORPUS_SHA256"
+          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false,"sealed_final_accessed":false}\n' > amem-v5-artifact/cost.json
+      - name: Install and pin Ollama model
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > amem-v5-artifact/ollama.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull qwen2.5:3b
+          curl -fsS http://127.0.0.1:11434/api/tags > amem-v5-artifact/ollama-tags.json
+          python - <<'PY'
+          import json, os
+          tags=json.load(open('amem-v5-artifact/ollama-tags.json'))
+          model=next(row for row in tags['models'] if row['name']=='qwen2.5:3b')
+          assert model['digest']==os.environ['EXPECTED_OLLAMA_DIGEST']
+          PY
+      - name: Clone exact-pinned A-MEM and install runtime
+        run: |
+          set -euo pipefail
+          git clone https://github.com/WujiangXu/A-mem.git upstream-amem
+          cd upstream-amem
+          git checkout "$A_MEM_SOURCE_COMMIT"
+          test "$(git rev-parse HEAD)" = "$A_MEM_SOURCE_COMMIT"
+          cd ..
+          python -m pip install -e .
+          python -m pip install -r upstream-amem/requirements.txt
+          python -m pip freeze > amem-v5-artifact/pip-freeze.txt
+      - name: Preload and verify exact embedding snapshot
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import snapshot_download
+          expected=os.environ['EXPECTED_EMBEDDING_SNAPSHOT']
+          path=snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision=expected)
+          observed=path.rstrip('/').split('/')[-1]
+          assert observed==expected, (observed, expected)
+          open('amem-v5-artifact/embedding-snapshot.txt','w').write(observed+'\n')
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as handle:
+              handle.write(f'EMBEDDING_MODEL_PATH={path}\n')
+          PY
+      - name: Execute exact A-MEM v5 shard
+        env:
+          PYTHONHASHSEED: "17"
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o amem-v5-artifact/time-shard-${{ matrix.shard }}.txt \
+            python experiments/runners/run_amem_adversarial_v5.py \
+              --corpus amem-v5-artifact/materialized-v5.json \
+              --protocol experiments/protocols/adversarial-v5-confirmatory-v1.json \
+              --upstream-dir upstream-amem \
+              --output amem-v5-artifact/shard-${{ matrix.shard }}.json \
+              --shard-index ${{ matrix.shard }} \
+              --shard-count 20 \
+              --model qwen2.5:3b \
+              --backend ollama \
+              --embedding-model "$EMBEDDING_MODEL_PATH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amem-v5-shard-${{ matrix.shard }}
+          path: amem-v5-artifact/
+          if-no-files-found: error
+          retention-days: 14
+
+  aggregate-and-persist:
+    runs-on: ubuntu-latest
+    needs: shard
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: amem-v5-shard-*
+          path: downloaded-shards
+          merge-multiple: true
+      - name: Install package and materialize frozen corpus
+        run: |
+          set -euo pipefail
+          python -m pip install -e .
+          python experiments/runners/materialize_adversarial_v5.py --output materialized-v5.json
+          test "$(sha256sum materialized-v5.json | awk '{print $1}')" = "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169"
+      - name: Aggregate all 60 cases and compute frozen statistics
+        run: |
+          set -euo pipefail
+          python experiments/runners/aggregate_amem_adversarial_v5.py \
+            --corpus materialized-v5.json \
+            --protocol experiments/protocols/adversarial-v5-confirmatory-v1.json \
+            --shards downloaded-shards \
+            --output-root results/strong-baseline/amem-adversarial-v5-confirmatory-v1 \
+            --run-id "$GITHUB_RUN_ID" \
+            --embedding-snapshot 1110a243fdf4706b3f48f1d95db1a4f5529b4d41 \
+            --ollama-digest 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+          cat results/strong-baseline/amem-adversarial-v5-confirmatory-v1/comparison-run1.json
+      - name: Verify durable v5 acceptance contract
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib
+          root=pathlib.Path('results/strong-baseline/amem-adversarial-v5-confirmatory-v1')
+          comp=json.load(open(root/'comparison-run1.json'))
+          reg=json.load(open(root/'artifact-registry.json'))
+          pred=json.load(open(root/'predictions-run1.json'))
+          assert comp['case_count']==60 and comp['answerable_case_count']==45 and comp['no_evidence_case_count']==15
+          assert pred['case_count']==60 and len(pred['predictions'])==60
+          assert len({row['case_id'] for row in pred['predictions']})==60
+          assert comp['power_status']=='SUFFICIENT'
+          assert comp['candidate_v3_changed_after_freeze'] is False
+          assert comp['sealed_final_accessed'] is False
+          assert comp['new_monetary_cost_usd']==0.0
+          for row in reg['artifacts']:
+              p=pathlib.Path(row['path'])
+              assert p.is_file(), p
+              assert p.stat().st_size==row['bytes']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==row['sha256']
+          print('AMEM_V5_60_OF_60_ACCEPTANCE_PASS')
+          PY
+      - name: Persist exact A-MEM v5 evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/strong-baseline/amem-adversarial-v5-confirmatory-v1
+          if git diff --cached --quiet; then
+            echo "No new A-MEM v5 evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record exact A-MEM adversarial v5 evidence"
+          git push origin HEAD:research/personal-state-engine-v0
