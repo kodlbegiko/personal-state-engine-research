@@ -1,0 +1,99 @@
+{
+  "schema_version": "adversarial-v6-stage1-summary-v1",
+  "status": "STAGE1_COMPLETE_BENCHMARK_DISCRIMINATION_PASS_CANDIDATE_V4_GUARDRAILS_FAIL",
+  "recorded_at": "2026-08-10T21:47:00+08:00",
+  "workflow_run_id": 31394594510,
+  "artifact": {
+    "id": 9065073658,
+    "name": "adversarial-v6-stage1-v1",
+    "digest": "sha256:89e6c464bbbc8329b93b2d9a7e75392f682f5d48310b29bc53b7a86205563394"
+  },
+  "benchmark": {
+    "dataset_sha256": "d5ff2fa4c51ebf09c42c710cd6a8bcf8445060858abf07ed1b34a7ac940471b0",
+    "freeze_commit": "eedf72da4d73abcb6febe377e66794f1a6179bca",
+    "total_cases": 90,
+    "answerable_cases": 60,
+    "no_evidence_cases": 30,
+    "evaluation_protocol_sha256": "d6948b2ecb86f651cd23cbaed30f6884d3ea14526f6272ca039b3ed88c7963c2",
+    "statistics_protocol_sha256": "55b03f5b46a0796b665eaac34aa38f9fc32c997866641807a8150ecf2fbf2476"
+  },
+  "benchmark_discrimination": {
+    "verdict": "PASS",
+    "candidate_v2_mrr_gap_over_max_random_recency": 0.3097222222222223,
+    "candidate_v2_recall_at_1_gap_over_max_random_recency": 0.4083333333333333,
+    "required_minimum_each": 0.15,
+    "exact_a_mem_authorized": true
+  },
+  "candidate_v2_frozen": {
+    "MRR": 0.8013888888888889,
+    "recall_at_1": 0.6166666666666667,
+    "recall_at_3": 0.9,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.0,
+    "false_retrieval_rate": 1.0,
+    "false_abstention_rate": 0.0,
+    "answerable_recall": 1.0
+  },
+  "candidate_v4_frozen": {
+    "MRR": 0.8013888888888889,
+    "recall_at_1": 0.6166666666666667,
+    "recall_at_3": 0.9,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.3,
+    "false_retrieval_rate": 0.7,
+    "false_retrieval_count": 21,
+    "false_abstention_rate": 0.0,
+    "false_abstention_count": 0,
+    "answerable_recall": 1.0,
+    "guardrail_verdict": "FAIL",
+    "guardrail_failures": [
+      "abstention_accuracy_below_0.80",
+      "false_retrieval_rate_above_0.20",
+      "absolute_false_retrieval_reduction_vs_v2_below_0.50"
+    ],
+    "retrieval_preservation_checks": {
+      "MRR": "PASS",
+      "recall_at_1": "PASS",
+      "recall_at_3": "PASS",
+      "recall_at_5": "PASS"
+    },
+    "no_evidence_family_errors": {
+      "same_subject_wrong_attribute": {"retrieved": 2, "cases": 3},
+      "same_relation_wrong_subject": {"retrieved": 3, "cases": 3},
+      "high_lexical_overlap": {"retrieved": 2, "cases": 3},
+      "query_echo": {"retrieved": 2, "cases": 3},
+      "stale_only_evidence": {"retrieved": 3, "cases": 3},
+      "contradictory_unresolved_evidence": {"retrieved": 0, "cases": 3},
+      "partial_evidence": {"retrieved": 2, "cases": 3},
+      "plausible_unsupported_inference": {"retrieved": 3, "cases": 3},
+      "temporal_near_match": {"retrieved": 2, "cases": 3},
+      "near_duplicate_non_answer": {"retrieved": 2, "cases": 3}
+    }
+  },
+  "other_stage1_reference_points": {
+    "pse_current_MRR": 0.9638888888888889,
+    "candidate_v3_frozen_MRR": 0.8416666666666667,
+    "bm25_local_MRR": 1.0,
+    "tfidf_local_MRR": 0.9833333333333333,
+    "random_deterministic_MRR": 0.49166666666666664,
+    "recency_MRR": 0.25833333333333336
+  },
+  "scientific_verdict": {
+    "candidate_v4_confirmatory_selection": "FAIL",
+    "candidate_v4_post_freeze_patch_allowed": false,
+    "candidate_v4_disposition": "REJECT_FOR_GATE_E_SELECTION_PRESERVE_NEGATIVE_EVIDENCE",
+    "new_method_name_if_research_continues": "candidate-v5",
+    "exact_a_mem_stage2": "AUTHORIZED_BY_DISCRIMINATION_PASS_FOR_COMPLETION_OF_FROZEN_COMPARISON_EVIDENCE"
+  },
+  "integrity": {
+    "candidate_v2_changed": false,
+    "candidate_v3_changed": false,
+    "candidate_v4_changed_after_freeze": false,
+    "benchmark_changed_after_freeze": false,
+    "post_result_candidate_patch": false,
+    "post_result_benchmark_edit": false,
+    "new_monetary_cost_usd": 0.0,
+    "failed_evidence_preserved": true
+  },
+  "claim_boundary": "Candidate-v4 fails its frozen v6 answerability selection guardrails despite exact retrieval preservation and zero false abstention. No Gate E completion, parity, superiority, equivalence or non-inferiority claim is supported by Stage 1. Exact A-MEM remains authorized solely because the preregistered benchmark-discrimination gate passed."
+}
