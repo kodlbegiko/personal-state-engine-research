@@ -1,0 +1,58 @@
+name: Candidate v3 Development Evidence
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/candidate-v3-development-v1.txt
+
+permissions:
+  contents: read
+
+jobs:
+  development:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e .
+      - name: Candidate v3 tests
+        run: python -m unittest tests.test_candidate_v3 -v
+      - name: Generate candidate v3 development evidence
+        run: |
+          mkdir -p /tmp/candidate-v3-development
+          python scripts/evaluate_candidate_v3.py \
+            --split development \
+            --output /tmp/candidate-v3-development/development-v1.json
+      - name: Generate explicit pilot-v0.6 benchmark lock transition
+        run: |
+          python scripts/freeze_pilot_benchmark.py --version pilot-v0.6
+          cp benchmarks/pilot/benchmark-lock.json /tmp/candidate-v3-development/benchmark-lock-v0.6.json
+          cp benchmarks/pilot/benchmark-lock.sha256 /tmp/candidate-v3-development/benchmark-lock-v0.6.sha256
+      - name: Development acceptance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('/tmp/candidate-v3-development/development-v1.json').read_text())
+          r = p['results']['pse_candidate_v3']
+          m = r['metrics']
+          d = r['decision_metrics']
+          assert m['recall@1'] >= 0.95, m
+          assert d['false_abstention_rate'] == 0.0, d
+          assert d['abstention_accuracy'] >= 0.80, d
+          assert p['integrity']['candidate_v2_changed'] is False
+          assert p['integrity']['sealed_final_accessed'] is False
+          assert p['integrity']['new_monetary_cost_usd'] == 0.0
+          print('CANDIDATE_V3_DEVELOPMENT_ACCEPTANCE_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v3-development-v1
+          path: /tmp/candidate-v3-development/
+          retention-days: 30
+          if-no-files-found: error
