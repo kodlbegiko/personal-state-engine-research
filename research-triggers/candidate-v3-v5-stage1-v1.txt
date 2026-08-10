@@ -1,0 +1,8 @@
+candidate-v3-v5-stage1-v1
+candidate-freeze-commit: 30e4de6860ef90219bb539fb03913012c83cc2ee
+candidate-source-sha256: 8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284
+v5-dataset-sha256: 41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169
+v5-protocol: experiments/protocols/adversarial-v5-confirmatory-v1.json
+stage: 1
+sealed-final: prohibited
+new-monetary-cost-usd: 0
