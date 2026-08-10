@@ -10,6 +10,7 @@
     "scripts/enrich_e3_artifact_registry.py": "040f9555efedafd5fc8f0ef662ad34bdaa63f4bf",
     "scripts/evaluate_abstention_strategy_matrix.py": "cb02ba22a366deb3b8dcdd610cd217ef69787430",
     "scripts/evaluate_adversarial_v4.py": "b16d71223bc97c9b8199379f2cfd1381a1f63d1c",
+    "scripts/evaluate_adversarial_v6_stage1.py": "753149395769ca4c145a2fb13e146d16029afa1d",
     "scripts/evaluate_candidate_robustness_suite.py": "b7bb43376672f15da810cb6aab3ca6ba5d12e965",
     "scripts/evaluate_candidate_v3.py": "9ef46fab68ca31eb293a90d59075a3518e2426cf",
     "scripts/evaluate_candidate_v4.py": "bd35697070320651aa59bae6d8c7be6c5762633b",
@@ -81,5 +82,5 @@
     "pilot_test": 3,
     "validation": 3
   },
-  "version": "pilot-v0.9"
+  "version": "pilot-v0.10"
 }
