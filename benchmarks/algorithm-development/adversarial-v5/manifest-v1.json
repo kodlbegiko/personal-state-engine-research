@@ -2,13 +2,18 @@
   "schema_version": "adversarial-v5-confirmatory-manifest-v1",
   "status": "FROZEN_BEFORE_ANY_V5_SYSTEM_RESULT",
   "candidate_v3_freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+  "pre_result_identity_correction": {
+    "reason": "The first two Stage-1 attempts stopped at the identity gate before any system execution. GitHub runner byte hashing showed the committed materializer SHA256 is 50b51130...; the previous 6ca56d... value came from a local draft byte representation. Candidate source, case specifications, expected materialized dataset hash, cases, metrics, thresholds and protocol semantics are unchanged.",
+    "failed_preexecution_runs": [31355440247, 31355529068],
+    "v5_system_results_observed_before_correction": false
+  },
   "case_specifications": {
     "path": "benchmarks/algorithm-development/adversarial-v5/case-specifications-v1.json",
     "sha256": "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
   },
   "materializer": {
     "path": "experiments/runners/materialize_adversarial_v5.py",
-    "sha256": "6ca56da4d3ca12bdf3db78bfd0dd12216bfae3f3c468d9c29bc22815d6fb3895"
+    "sha256": "50b51130469a3e6d6f61e45d3e849ff18fbc71719c3966fcea959eeec8d4855d"
   },
   "materialized_dataset": {
     "canonical_json_rule": "json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) plus newline",
