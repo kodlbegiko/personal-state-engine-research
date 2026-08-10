@@ -1,0 +1,172 @@
+{
+  "schema_version": "candidate-v3-design-preregistration-v1",
+  "status": "FROZEN_BEFORE_REPOSITORY_IMPLEMENTATION_AND_BEFORE_VALIDATION_OR_CONFIRMATORY_RESULTS",
+  "created_at": "2026-08-10T12:01:00+08:00",
+  "research_question": "Can a new evidence-sufficiency representation reduce no-evidence false retrieval while preserving answerable retrieval quality, without retuning frozen candidate-v2?",
+  "starting_evidence": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_status": "FROZEN_COMPARATOR",
+    "development_failure": "CURRENT_CONFIDENCE_FEATURES_NOT_SEPARABLE_UNDER_GUARDRAIL",
+    "allowed_design_data": [
+      "benchmarks/algorithm-development/abstention-dev-v1/development.json",
+      "results/abstention-strategy-matrix-v1/results.json",
+      "already-observed Gate E auxiliary diagnostics"
+    ],
+    "prohibited_for_design_selection": [
+      "abstention validation results before candidate-v3 freeze",
+      "new confirmatory v5 results",
+      "sealed-final content"
+    ]
+  },
+  "mechanism_hypotheses": [
+    {
+      "id": "H1_PREDICATE_SLOT_SUPPORT",
+      "mechanism": "Represent the requested relation/attribute as a predicate-slot signature and require retrieved evidence to explicitly support that slot rather than merely overlap the entity/topic.",
+      "targets": ["same_entity_wrong_field", "missing_attribute", "misleading_lexical"],
+      "new_information": "query-to-evidence relation/attribute support representation",
+      "zero_cost": true,
+      "deterministic": true,
+      "risk": "May miss synonym/paraphrase support if the relation ontology is too narrow."
+    },
+    {
+      "id": "H2_CONFLICT_CERTAINTY_GUARD",
+      "mechanism": "Represent assertion modality and unresolved conflict; abstain when a query requires confirmed/current evidence but all candidate evidence is explicitly uncertain or mutually unresolved.",
+      "targets": ["conflict_no_resolution", "stale_or_unresolved_state"],
+      "new_information": "assertion certainty/conflict state",
+      "zero_cost": true,
+      "deterministic": true,
+      "risk": "Does not by itself solve wrong-field or lexical-decoy cases."
+    },
+    {
+      "id": "H3_STRUCTURED_EVIDENCE_SUFFICIENCY_SIGNATURE",
+      "mechanism": "Combine predicate-slot support, asserted-value presence, certainty/conflict checks, and question-echo rejection as a separate evidence-sufficiency layer while preserving frozen candidate-v2 ranking order among supported memories.",
+      "targets": [
+        "same_entity_wrong_field",
+        "missing_attribute",
+        "misleading_lexical",
+        "question_echo",
+        "keyword_stuffing_no_evidence",
+        "conflict_no_resolution"
+      ],
+      "new_information": "structured support signature independent of candidate-v2 ranking score/margin/coverage",
+      "zero_cost": true,
+      "deterministic": true,
+      "risk": "Rule-based relation aliases may not generalize to unseen predicates; confirmatory v5 must include unseen relations and paraphrases."
+    }
+  ],
+  "selected_architecture": {
+    "hypothesis_id": "H3_STRUCTURED_EVIDENCE_SUFFICIENCY_SIGNATURE",
+    "selection_basis": "Development failure taxonomy coverage only. H1 does not resolve uncertainty/conflict; H2 does not resolve wrong-field/lexical-decoy failures; H3 is the only preregistered mechanism that addresses both families without using candidate-v2 score thresholds.",
+    "ranking_mechanism": "Call frozen pse_candidate_v2_rank and preserve its relative order only for memories that pass the new evidence-sufficiency signature.",
+    "abstention_mechanism": "Return an empty ranking when no retrieved memory provides relation-slot support plus an asserted value under required certainty, or when the top evidence is a question echo.",
+    "candidate_v2_modification": false
+  },
+  "development_phase": {
+    "dataset": "benchmarks/algorithm-development/abstention-dev-v1/development.json",
+    "maximum_architecture_iterations": 3,
+    "maximum_parameter_configurations": 12,
+    "primary_guardrail": "false_abstention_rate == 0 on development",
+    "minimum_answerable_recall_at_1": 0.95,
+    "minimum_abstention_accuracy": 0.80,
+    "failure_evidence_must_be_preserved": true
+  },
+  "validation_phase": {
+    "dataset": "benchmarks/algorithm-development/abstention-dev-v1/validation.json",
+    "single_use_after_candidate_v3_freeze": true,
+    "retuning_after_validation": false,
+    "pass_requires": {
+      "answerable_recall_at_1_at_least": 0.90,
+      "false_abstention_rate_at_most": 0.10,
+      "abstention_accuracy_at_least": 0.60
+    },
+    "on_failure": "Reject candidate-v3; any modified mechanism requires candidate-v4 identity."
+  },
+  "confirmatory_plan": {
+    "new_benchmark_identity": "adversarial-v5-confirmatory",
+    "minimum_total_cases": 50,
+    "minimum_answerable_cases": 40,
+    "minimum_no_evidence_cases": 10,
+    "preferred_total_cases": 60,
+    "preferred_answerable_cases": 45,
+    "preferred_no_evidence_cases": 15,
+    "mechanism_agnostic_case_design": true,
+    "must_include_unseen_relation_or_paraphrase_cases": true,
+    "benchmark_frozen_before_any_v5_system_result": true,
+    "systems": [
+      "pse_current_reconstruction",
+      "pse_candidate_v1",
+      "pse_candidate_v2_frozen",
+      "pse_candidate_v3_frozen",
+      "bm25_local",
+      "tfidf_local",
+      "random",
+      "recency",
+      "a_mem_exact"
+    ],
+    "staged_execution": {
+      "stage_1": "Run local PSE and cheap baselines and verify benchmark discrimination before spending A-MEM compute.",
+      "stage_2": "Run exact-pinned A-MEM only if preregistered discrimination checks pass."
+    }
+  },
+  "confirmatory_metrics": [
+    "MRR",
+    "recall@1",
+    "recall@3",
+    "recall@5",
+    "ndcg@5",
+    "abstention_accuracy",
+    "false_retrieval_rate",
+    "false_abstention_rate"
+  ],
+  "statistical_plan": {
+    "paired_bootstrap_iterations": 10000,
+    "primary_comparisons": ["candidate_v3_vs_candidate_v2", "candidate_v3_vs_exact_a_mem"],
+    "win_tie_loss": true,
+    "wilson_intervals_for_abstention_rates": true,
+    "power_sufficient_if_answerable_n_at_least": 40
+  },
+  "gate_e_selection_rule": {
+    "normal_benchmark_guardrail": {
+      "candidate_v3_mrr_at_least": 0.94,
+      "candidate_v3_recall_at_1_at_least": 0.90
+    },
+    "confirmatory_retrieval_guardrail": {
+      "candidate_v3_mrr_not_more_than": 0.03,
+      "interpretation": "Candidate-v3 MRR may not trail frozen candidate-v2 by more than 0.03 absolute on v5."
+    },
+    "abstention_requirements": {
+      "candidate_v3_abstention_accuracy_at_least": 0.70,
+      "candidate_v3_false_retrieval_rate_at_most": 0.30,
+      "candidate_v3_false_abstention_rate_at_most": 0.10
+    },
+    "required_integrity": [
+      "candidate-v3 frozen before validation and v5",
+      "v5 frozen before any v5 result",
+      "all expected cases complete",
+      "no leakage",
+      "determinism pass",
+      "raw evidence preserved",
+      "new monetary cost USD 0",
+      "sealed-final false"
+    ],
+    "independent_reproduction": "If the authoritative Gate E definition requires independent reproduction, candidate-selection evidence may complete but Gate E must remain NOT_COMPLETE until that requirement is satisfied."
+  },
+  "exact_a_mem": {
+    "repository": "WujiangXu/A-mem",
+    "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "top_k": 5
+  },
+  "integrity": {
+    "candidate_v2_retuning_allowed": false,
+    "sealed_final_access_allowed": false,
+    "paid_api_allowed": false,
+    "paid_gpu_allowed": false,
+    "paid_inference_allowed": false,
+    "post_result_benchmark_editing_allowed": false,
+    "merge_release_tag_force_push_allowed": false
+  },
+  "claim_boundary": "Development and future non-sealed confirmatory research only. This preregistration does not establish Gate E completion, parity, superiority, equivalence, non-inferiority, SOTA, sealed-final readiness, or production readiness."
+}
