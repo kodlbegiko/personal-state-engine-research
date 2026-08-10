@@ -1,0 +1,119 @@
+{
+  "schema_version": "adversarial-v5-confirmatory-protocol-v1",
+  "status": "FROZEN_BEFORE_ANY_V5_SYSTEM_RESULT",
+  "candidate_v3": {
+    "freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+    "source_sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+    "source_changes_after_freeze_allowed": false,
+    "validation_retuning_allowed": false
+  },
+  "benchmark": {
+    "manifest": "benchmarks/algorithm-development/adversarial-v5/manifest-v1.json",
+    "materialized_dataset_expected_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+    "case_ids_sha256": "623155d1cd4639ffd1513e4ff8a8a9a6d4466267d5645f2519a3ffd490fca0ba",
+    "case_count": 60,
+    "answerable_case_count": 45,
+    "no_evidence_case_count": 15,
+    "minimum_power_answerable_n": 40,
+    "post_result_case_extension_allowed": false
+  },
+  "stage_1_systems": [
+    "random",
+    "recency",
+    "bm25_local",
+    "tfidf_local",
+    "pse_current_reconstruction",
+    "pse_candidate_v1",
+    "pse_candidate_v2_frozen",
+    "pse_candidate_v3_frozen"
+  ],
+  "stage_1_discrimination_rule": {
+    "frontier_reference": "best MRR and Recall@1 among pse_current_reconstruction, pse_candidate_v1, pse_candidate_v2_frozen, pse_candidate_v3_frozen",
+    "baselines_checked": ["random", "recency"],
+    "minimum_absolute_mrr_gap": 0.15,
+    "minimum_absolute_recall_at_1_gap": 0.15,
+    "pass_requires": "Both random and recency trail the frontier reference by at least 0.15 absolute MRR and at least 0.15 absolute Recall@1.",
+    "on_failure": "BENCHMARK_DISCRIMINATION_FAILURE; do not spend A-MEM compute and keep Gate E NOT_COMPLETE."
+  },
+  "stage_2_exact_a_mem": {
+    "execute_only_if_stage_1_discrimination_passes": true,
+    "repository": "WujiangXu/A-mem",
+    "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "top_k": 5,
+    "ranking_semantics": "EXACT_UPSTREAM_VIA_AMemUpstreamAdapter",
+    "all_60_cases_required": true,
+    "no_missing_duplicate_or_extra_cases": true
+  },
+  "metrics": [
+    "MRR",
+    "recall@1",
+    "recall@3",
+    "recall@5",
+    "ndcg@5",
+    "abstention_accuracy",
+    "false_retrieval_rate",
+    "false_abstention_rate"
+  ],
+  "statistics": {
+    "paired_bootstrap_iterations": 10000,
+    "primary_comparisons": [
+      "candidate_v3_vs_candidate_v2",
+      "candidate_v3_vs_exact_a_mem"
+    ],
+    "secondary_comparisons": [
+      "candidate_v3_vs_candidate_v1",
+      "candidate_v3_vs_current"
+    ],
+    "win_tie_loss": true,
+    "wilson_95_intervals_for_abstention_rates": true,
+    "power_status": "SUFFICIENT_IF_ANSWERABLE_N_AT_LEAST_40"
+  },
+  "gate_e_selection_rule": {
+    "normal_benchmark_guardrail": {
+      "candidate_v3_mrr_at_least": 0.94,
+      "candidate_v3_recall_at_1_at_least": 0.90
+    },
+    "v5_retrieval_guardrail": {
+      "maximum_allowed_mrr_deficit_vs_candidate_v2": 0.03
+    },
+    "v5_abstention_requirements": {
+      "candidate_v3_abstention_accuracy_at_least": 0.70,
+      "candidate_v3_false_retrieval_rate_at_most": 0.30,
+      "candidate_v3_false_abstention_rate_at_most": 0.10
+    },
+    "candidate_selection_requires": [
+      "stage_1 discrimination PASS",
+      "all expected v5 cases complete",
+      "normal benchmark guardrail PASS",
+      "v5 retrieval guardrail PASS",
+      "v5 abstention requirements PASS",
+      "determinism PASS",
+      "no leakage",
+      "candidate-v3 identity unchanged after freeze",
+      "raw evidence preserved",
+      "new monetary cost USD 0",
+      "sealed-final false"
+    ],
+    "claim_boundary": "Meeting these thresholds can justify formal candidate selection evidence. Gate E may still remain NOT_COMPLETE if the authoritative Gate E contract separately requires independent reproduction."
+  },
+  "execution": {
+    "zero_cost": true,
+    "paid_api_allowed": false,
+    "paid_gpu_allowed": false,
+    "paid_inference_allowed": false,
+    "fail_closed": true,
+    "preserve_raw_case_level_evidence": true
+  },
+  "integrity": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_retuning_allowed": false,
+    "sealed_final_access_allowed": false,
+    "benchmark_editing_after_result_allowed": false,
+    "merge_release_tag_force_push_allowed": false
+  },
+  "claim_boundary": "Non-sealed confirmatory development evidence only. No parity, superiority, equivalence, non-inferiority, SOTA, sealed-final readiness, production readiness, or independent-reproduction claim is pre-authorized."
+}
