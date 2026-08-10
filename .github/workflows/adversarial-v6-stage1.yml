@@ -1,0 +1,54 @@
+name: Adversarial v6 Stage 1
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/adversarial-v6-stage1-v1.txt
+
+permissions:
+  contents: read
+
+jobs:
+  cheap-systems:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: python -m pip install -e .
+      - name: Verify frozen comparator sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code d627f61d0888306a97f3ef0b78aa29dc00c444bb HEAD -- src/personal_state_engine/candidate_v2.py
+          git diff --exit-code 30e4de6860ef90219bb539fb03913012c83cc2ee HEAD -- src/personal_state_engine/candidate_v3.py
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected = {
+            'src/personal_state_engine/candidate_v4.py':'b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344',
+            'experiments/protocols/candidate-v4-config-v1.json':'a6341817ed382423a4d48d5df890765bb59f887655f16bd0e0647b89e3379606',
+            'benchmarks/algorithm-development/adversarial-v6-confirmatory/cases-v1.json':'d5ff2fa4c51ebf09c42c710cd6a8bcf8445060858abf07ed1b34a7ac940471b0',
+          }
+          for path, digest in expected.items():
+              actual = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+              assert actual == digest, (path, actual, digest)
+          print('FROZEN_IDENTITIES_VERIFIED')
+          PY
+      - name: Execute cheap Stage 1 systems
+        run: |
+          mkdir -p /tmp/adversarial-v6-stage1
+          python scripts/evaluate_adversarial_v6_stage1.py --output /tmp/adversarial-v6-stage1/stage1-results-v1.json
+      - name: Upload Stage 1 evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: adversarial-v6-stage1-v1
+          path: /tmp/adversarial-v6-stage1/
+          retention-days: 30
+          if-no-files-found: error
