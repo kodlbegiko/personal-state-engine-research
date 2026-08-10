@@ -1,0 +1,55 @@
+{
+  "schema_version": "gate-g-provenance-progress-v1",
+  "assessed_at": "2026-08-10T08:41:00+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "issue": 5,
+  "status": "PARTIAL_REMEDIATION_IMPLEMENTED_PENDING_FRESH_E3_REPRODUCTION",
+  "changes": {
+    "provenance_enricher": "scripts/enrich_e3_artifact_registry.py",
+    "provenance_tests": "tests/test_e3_artifact_registry.py",
+    "workflow": ".github/workflows/external-e3-smoke.yml",
+    "workflow_behavior": "After the existing E3 smoke run completes, fail closed while enriching artifact-registry provenance before artifact upload.",
+    "required_raw_and_summary_fields": [
+      "dataset_hash",
+      "model_manifest_hash",
+      "config_hash",
+      "source_artifacts",
+      "source_head_sha",
+      "tested_commit_sha"
+    ],
+    "new_registry_schema": "artifact-registry-v2"
+  },
+  "validation": {
+    "unit_tests_added": 2,
+    "unit_tests_observed_passing_before_contract_check": true,
+    "initial_ci_failure_type": "EXPECTED_CONTRACT_HASH_AND_BENCHMARK_LOCK_REFRESH_REQUIRED",
+    "external_e3_contract_hash_updated": true,
+    "benchmark_lock_refresh_commit": "96d9e4df4d9514441d5674d7e5f4157de47fac65",
+    "fresh_full_ci_after_lock_refresh": "PENDING"
+  },
+  "remaining_issue_5_gap": {
+    "github_artifact_id": "PENDING_POST_UPLOAD",
+    "github_artifact_digest": "PENDING_POST_UPLOAD",
+    "reason": "GitHub artifact ID and digest do not exist until actions/upload-artifact completes; a post-upload archival step is still required for full Issue #5 acceptance.",
+    "historical_artifacts_rewritten": false
+  },
+  "research_integrity": {
+    "benchmark_semantics_changed": false,
+    "candidate_v2_changed": false,
+    "frozen_development_changed": false,
+    "failed_evidence_deleted": false,
+    "sealed_final_accessed": false,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "paid_inference_used": false,
+    "new_monetary_cost_usd": 0.0
+  },
+  "gate_effect": {
+    "gate_d": "COMPLETE_UNCHANGED",
+    "gate_e": "NOT_COMPLETE_UNCHANGED",
+    "gate_g": "NOT_COMPLETE_BUT_PROVENANCE_GAP_NARROWED",
+    "independent_reproduction": false,
+    "algorithm_parity": "NO"
+  },
+  "next_authorized_action": "Require current-head CI to pass. Then execute a fresh E3 reproduction only through the existing authorized workflow when workflow dispatch is available, validate artifact-registry-v2, and add post-upload artifact ID/digest archival without changing benchmark or model semantics."
+}
