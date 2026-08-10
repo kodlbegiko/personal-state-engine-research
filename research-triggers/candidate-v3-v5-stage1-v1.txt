@@ -1,7 +1,9 @@
 candidate-v3-v5-stage1-v1
-attempt: 2
+attempt: 3
 candidate-freeze-commit: 30e4de6860ef90219bb539fb03913012c83cc2ee
 candidate-source-sha256: 8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284
+v5-spec-sha256: c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767
+v5-materializer-sha256: 50b51130469a3e6d6f61e45d3e849ff18fbc71719c3966fcea959eeec8d4855d
 v5-dataset-sha256: 41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169
 v5-protocol: experiments/protocols/adversarial-v5-confirmatory-v1.json
 stage: 1
