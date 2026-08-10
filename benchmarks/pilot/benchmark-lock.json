@@ -7,6 +7,7 @@
     "scripts/aggregate_amem_frozen_development.py": "b6d80e9af9e008a4ef9adbc004f3850ad481d04d",
     "scripts/analyze_component_results.py": "58773a39032eebaca1b3aa034cc466922e016cc4",
     "scripts/compare_amem_pse_frozen.py": "5d4e9bbf623692fa027fecbf4d6b5459c0b9038a",
+    "scripts/enrich_e3_artifact_registry.py": "040f9555efedafd5fc8f0ef662ad34bdaa63f4bf",
     "scripts/evaluate_abstention_strategy_matrix.py": "cb02ba22a366deb3b8dcdd610cd217ef69787430",
     "scripts/evaluate_adversarial_v4.py": "b16d71223bc97c9b8199379f2cfd1381a1f63d1c",
     "scripts/evaluate_candidate_robustness_suite.py": "b7bb43376672f15da810cb6aab3ca6ba5d12e965",
