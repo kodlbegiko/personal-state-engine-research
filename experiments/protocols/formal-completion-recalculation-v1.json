@@ -1,0 +1,60 @@
+{
+  "schema_version": "formal-completion-recalculation-framework-v1",
+  "status": "FROZEN_BEFORE_RECALCULATION",
+  "frozen_at": "2026-08-10T08:43:00+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "purpose": "Provide a durable, non-result-driven mapping from the repository's A-G research gates to a 100-point formal evidence-completion score after Gate D completion.",
+  "historical_basis": {
+    "source": "docs/progress.md",
+    "previous_completion_percent": 30,
+    "explicit_historical_weights": {
+      "A": 10,
+      "B": 10,
+      "C": 10
+    },
+    "historical_active_evidence_cap_percent": 45,
+    "inferred_D_weight_from_preexisting_cap": 15,
+    "note": "The 45% active evidence cap was documented before Gate D completed; with A-C already totaling 30%, this fixes D at 15 without using the post-D result to choose its weight."
+  },
+  "weights_percent": {
+    "A": 10,
+    "B": 10,
+    "C": 10,
+    "D": 15,
+    "E": 20,
+    "F": 25,
+    "G": 10
+  },
+  "remaining_weight_allocation_rationale": {
+    "E": "Candidate selection, robustness, abstention and statistical adequacy are a major development-evidence phase but do not by themselves authorize the primary final claim.",
+    "F": "The sealed final parity test carries the highest remaining weight because it is the protected test of the primary scientific claim and must not be opened early.",
+    "G": "Independent reproduction receives a dedicated final reproducibility weight comparable to a foundational gate; it cannot be substituted by project-controlled reruns."
+  },
+  "scoring_rule": {
+    "type": "binary_formal_gate_credit",
+    "complete_gate_credit": "full assigned weight",
+    "not_complete_gate_credit": 0,
+    "partial_or_auxiliary_evidence_credit": 0,
+    "reason": "Use formal gate acceptance rather than subjective fractional scoring; auxiliary evidence remains documented separately and can narrow blockers without inflating the formal percentage."
+  },
+  "evidence_levels": {
+    "E0": "claim only",
+    "E1": "code or documentation exists",
+    "E2": "test or execution evidence",
+    "E3": "durable benchmark evidence",
+    "E4": "independent reproduction or external validation"
+  },
+  "claim_boundary": [
+    "Formal completion measures evidence-execution coverage, not algorithm quality, product readiness, or probability the hypothesis is true.",
+    "Gate D completion does not establish algorithm parity.",
+    "Gate F remains zero-credit and sealed until explicitly authorized by protocol.",
+    "Gate G requires genuinely independent reproduction for completion."
+  ],
+  "integrity": {
+    "candidate_v2_retuning_allowed": false,
+    "sealed_final_access_allowed": false,
+    "paid_api_allowed": false,
+    "paid_gpu_allowed": false,
+    "failed_evidence_may_be_deleted": false
+  }
+}
