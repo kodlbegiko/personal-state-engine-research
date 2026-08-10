@@ -36,7 +36,7 @@
     "scripts/validate_longmemeval.py": "3b71ee690aa30b513c2b8966e0f674c4d1ce006e",
     "scripts/verify_benchmark_lock.py": "6f660bbfa5e31238da32b76be44568c5eeed42ff",
     "scripts/verify_development_matrix_contract.py": "161c63f75414d278c2f95f81f818e78affaaa9c6",
-    "scripts/verify_external_e3_contract.py": "ccf86e582004b28ef591306db11389441bf0a6bb",
+    "scripts/verify_external_e3_contract.py": "0cc87ea781a3a85d7c3b927387ac7ed04403959a",
     "scripts/verify_longmemeval_evaluator_v2_contract.py": "5f1f0a64b8b8e57baec4a7cce0e2d9336991711a",
     "scripts/verify_longmemeval_faithful_port_preparation.py": "8988654102928e6d3b54186b69af8b7d24a68083",
     "scripts/verify_longmemeval_raw_evidence_v3.py": "d176251a1f8e3f36a1a663a2fe2f5c3321215acc",
