@@ -131,7 +131,7 @@
       "candidate_v3_recall_at_1_at_least": 0.90
     },
     "confirmatory_retrieval_guardrail": {
-      "candidate_v3_mrr_not_more_than": 0.03,
+      "maximum_allowed_mrr_deficit_vs_candidate_v2": 0.03,
       "interpretation": "Candidate-v3 MRR may not trail frozen candidate-v2 by more than 0.03 absolute on v5."
     },
     "abstention_requirements": {
