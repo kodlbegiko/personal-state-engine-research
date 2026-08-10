@@ -1,0 +1,72 @@
+{
+  "schema_version": "candidate-v4-freeze-v1",
+  "status": "CANDIDATE_V4_FROZEN_BEFORE_NEW_PROTECTED_VALIDATION_AND_V6",
+  "frozen_at": "2026-08-10T21:19:00+08:00",
+  "candidate_id": "pse_candidate_v4",
+  "candidate_source": {
+    "path": "src/personal_state_engine/candidate_v4.py",
+    "git_blob_sha1": "3fa4e55f65067ea78910793800d45d1de5fbb34a",
+    "sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+    "source_commit": "e312e414c46a135dd480207665453bbcea7bfe90",
+    "source_commit_observed_unchanged_at": "6d2986d56d5eb909fc422dbb12f0cb2f878b4bef"
+  },
+  "config": {
+    "path": "experiments/protocols/candidate-v4-config-v1.json",
+    "git_blob_sha1": "ba47a92dcc0f17a3d3a2b069e46cfc7d62bbea40",
+    "sha256": "a6341817ed382423a4d48d5df890765bb59f887655f16bd0e0647b89e3379606"
+  },
+  "effective_preregistration": {
+    "path": "experiments/protocols/candidate-v4-design-preregistration-v2.json",
+    "git_blob_sha1": "53f564033c2dd9f4b81cd00d1e6ecf9b08fde23b",
+    "sha256": "e1d8b1a75e80946ad04917aa06c0450784fa11f96c2e1f916c49371860121442",
+    "original_v1_sha256": "40fde840652165199e2c14dfdb62abdab2ea06f590cef4f064d9be64960427b2",
+    "supersession_scope": "protected-validation source boundary only; thresholds and candidate source unchanged"
+  },
+  "development_evidence": {
+    "workflow_run_id": 31391251038,
+    "artifact_id": 9063747481,
+    "artifact_digest": "sha256:f05875529a606b394b99f4505d6639dce4c05fcaacad441face3c9ebe6f5e14b",
+    "dataset_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+    "candidate_v4_mrr": 1.0,
+    "candidate_v4_recall_at_1": 1.0,
+    "candidate_v4_recall_at_3": 1.0,
+    "candidate_v4_recall_at_5": 1.0,
+    "candidate_v4_abstention_accuracy": 1.0,
+    "candidate_v4_false_retrieval_rate": 0.0,
+    "candidate_v4_false_abstention_rate": 0.0,
+    "acceptance": "PASS"
+  },
+  "frozen_comparators": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_changed": false,
+    "candidate_v3_freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+    "candidate_v3_changed": false
+  },
+  "pilot_lock": {
+    "version": "pilot-v0.7",
+    "refresh_commit": "6d2986d56d5eb909fc422dbb12f0cb2f878b4bef",
+    "lock_sha256": "4530074f1f378cf09f90959572d7a469dd6b4a59cd3262437089f2132cbcf23f"
+  },
+  "post_freeze_rules": {
+    "candidate_v4_source_changes_allowed": false,
+    "candidate_v4_config_changes_allowed": false,
+    "validation_retuning_allowed": false,
+    "validation_result_driven_changes_allowed": false,
+    "v6_result_driven_changes_allowed": false,
+    "on_validation_failure": "REJECT_CANDIDATE_V4_AND_REQUIRE_CANDIDATE_V5",
+    "old_exposed_validation_split_allowed_as_protected_evidence": false
+  },
+  "integrity": {
+    "integrity_deviation_artifact": "results/candidate-v4/integrity-deviations-v1.json",
+    "sealed_final_content_accessed": false,
+    "sealed_final_path_metadata_exposure_recorded": true,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "failed_evidence_deleted": false,
+    "pr_merged": false,
+    "force_push_used": false,
+    "tag_or_release_created": false
+  },
+  "claim_boundary": "Candidate-v4 is frozen for a newly-created one-time non-sealed protected validation. Development success alone does not establish Gate E completion, algorithm parity, superiority, equivalence, or confirmatory generalization."
+}

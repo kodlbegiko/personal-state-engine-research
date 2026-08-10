@@ -1,0 +1,27 @@
+{
+  "schema_version": "candidate-v4-config-v1",
+  "candidate_id": "pse_candidate_v4",
+  "retrieval": {
+    "ranker": "pse_candidate_v2_rank",
+    "frozen_candidate_v2_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "k": 5,
+    "ranking_changes_allowed": false
+  },
+  "answerability": {
+    "verdicts": [
+      "SUPPORTED",
+      "CONTRADICTED",
+      "INSUFFICIENT"
+    ],
+    "supported_action": "return frozen Candidate-v2 ranking unchanged",
+    "contradicted_action": "abstain",
+    "insufficient_action": "abstain",
+    "numeric_tunable_thresholds": 0,
+    "parameterization": "deterministic source-embedded proposition, slot, temporal, certainty, contradiction and query-echo rules"
+  },
+  "post_freeze": {
+    "source_changes_allowed": false,
+    "config_changes_allowed": false,
+    "validation_result_driven_changes_allowed": false
+  }
+}
