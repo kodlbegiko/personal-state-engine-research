@@ -1,0 +1,117 @@
+{
+  "cloud_gpu_used": false,
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "max_peak_rss_kib": 1351192,
+  "max_shard_wall_seconds": 925.08,
+  "mean_end_to_end_case_wall_seconds": 262.151,
+  "new_monetary_cost_usd": 0.0,
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "paid_api_used": false,
+  "run_id": 31355907320,
+  "schema_version": "amem-adversarial-v5-resource-v1",
+  "sealed_final_accessed": false,
+  "serialized_inference_wall_seconds": 15729.06,
+  "shards": [
+    {
+      "peak_rss_kib": 1321680,
+      "shard_index": 0,
+      "wall_seconds": 823.07
+    },
+    {
+      "peak_rss_kib": 1331232,
+      "shard_index": 1,
+      "wall_seconds": 925.08
+    },
+    {
+      "peak_rss_kib": 1324076,
+      "shard_index": 10,
+      "wall_seconds": 762.33
+    },
+    {
+      "peak_rss_kib": 1334484,
+      "shard_index": 11,
+      "wall_seconds": 669.61
+    },
+    {
+      "peak_rss_kib": 1330092,
+      "shard_index": 12,
+      "wall_seconds": 731.51
+    },
+    {
+      "peak_rss_kib": 1331648,
+      "shard_index": 13,
+      "wall_seconds": 771.73
+    },
+    {
+      "peak_rss_kib": 1346912,
+      "shard_index": 14,
+      "wall_seconds": 880.89
+    },
+    {
+      "peak_rss_kib": 1327608,
+      "shard_index": 15,
+      "wall_seconds": 753.87
+    },
+    {
+      "peak_rss_kib": 1345032,
+      "shard_index": 16,
+      "wall_seconds": 805.66
+    },
+    {
+      "peak_rss_kib": 1327176,
+      "shard_index": 17,
+      "wall_seconds": 757.93
+    },
+    {
+      "peak_rss_kib": 1337892,
+      "shard_index": 18,
+      "wall_seconds": 784.78
+    },
+    {
+      "peak_rss_kib": 1337160,
+      "shard_index": 19,
+      "wall_seconds": 857.81
+    },
+    {
+      "peak_rss_kib": 1342976,
+      "shard_index": 2,
+      "wall_seconds": 886.89
+    },
+    {
+      "peak_rss_kib": 1337560,
+      "shard_index": 3,
+      "wall_seconds": 824.03
+    },
+    {
+      "peak_rss_kib": 1337820,
+      "shard_index": 4,
+      "wall_seconds": 829.16
+    },
+    {
+      "peak_rss_kib": 1339100,
+      "shard_index": 5,
+      "wall_seconds": 823.47
+    },
+    {
+      "peak_rss_kib": 1336116,
+      "shard_index": 6,
+      "wall_seconds": 692.78
+    },
+    {
+      "peak_rss_kib": 1341896,
+      "shard_index": 7,
+      "wall_seconds": 890.24
+    },
+    {
+      "peak_rss_kib": 1351192,
+      "shard_index": 8,
+      "wall_seconds": 567.89
+    },
+    {
+      "peak_rss_kib": 1334324,
+      "shard_index": 9,
+      "wall_seconds": 690.33
+    }
+  ],
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+}
