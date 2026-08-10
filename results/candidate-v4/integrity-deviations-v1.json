@@ -1,0 +1,44 @@
+{
+  "schema_version": "candidate-v4-integrity-deviations-v1",
+  "recorded_at": "2026-08-10T21:16:00+08:00",
+  "deviations": [
+    {
+      "id": "DEV-VALIDATION-EXPOSURE-001",
+      "severity": "PROTOCOL_BOUNDARY",
+      "event": "The pre-existing abstention-dev-v1 validation split was exposed to the executing agent before Candidate-v4 freeze and was used for pre-freeze diagnostic checking.",
+      "impact": "That split is permanently disqualified from serving as Candidate-v4 one-time protected validation.",
+      "scientific_contamination_of_candidate_source": "POSSIBLE_BY_EXPOSURE; therefore fail-closed protection requires a new post-freeze validation benchmark.",
+      "remediation": "Preserve the original preregistration; supersede only its protected-validation source boundary before freeze; freeze Candidate-v4 without further source changes; create and freeze a new mechanism-agnostic non-sealed validation benchmark only after candidate freeze; run it once; never use its result to patch Candidate-v4."
+    },
+    {
+      "id": "SEALED-PATH-METADATA-001",
+      "severity": "STRICT_INTEGRITY_DEVIATION",
+      "event": "A broad PR changed-filenames metadata query incidentally surfaced the name of a path containing a sealed-final marker.",
+      "content_accessed": false,
+      "file_fetched": false,
+      "file_searched": false,
+      "file_inspected": false,
+      "impact": "No sealed-final payload, cases, labels, values, statistics, or content entered Candidate-v4 design. However, the mission explicitly prohibits listing sealed-final, so the metadata-only exposure must not be hidden or reported as a perfect no-list record.",
+      "remediation": "Do not perform any further operation targeting or enumerating sealed-final paths. Preserve this deviation and apply fail-closed interpretation at formal Gate E reassessment."
+    },
+    {
+      "id": "BENCHMARK-LOCK-FAIL-001",
+      "severity": "EXPECTED_FAIL_CLOSED_INFRASTRUCTURE",
+      "event": "CI run 31391250893 and Zero-Cost Algorithm Evidence run 31391251086 failed because new benchmark-affecting Python inputs require an explicit benchmark version bump.",
+      "candidate_v4_tests_failed": false,
+      "root_cause": "freeze_pilot_benchmark.py rejected changed benchmark-affecting inputs while pilot-v0.6 was reused without a new version.",
+      "remediation": "Bump pilot lock version explicitly after all current pre-freeze Python changes; preserve failed runs rather than rerunning them as if transient."
+    }
+  ],
+  "global_integrity": {
+    "candidate_v2_modified": false,
+    "candidate_v3_modified": false,
+    "paid_resource_used": false,
+    "new_monetary_cost_usd": 0.0,
+    "pr_merged": false,
+    "force_push_used": false,
+    "tag_or_release_created": false,
+    "failed_evidence_deleted": false
+  },
+  "claim_boundary": "This artifact records deviations rather than curing them. Final Gate E must apply the preregistered fail-closed integrity rules."
+}

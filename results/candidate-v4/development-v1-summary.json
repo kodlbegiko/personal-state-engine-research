@@ -1,0 +1,52 @@
+{
+  "schema_version": "candidate-v4-development-summary-v1",
+  "status": "DEVELOPMENT_PASS",
+  "recorded_at": "2026-08-10T21:16:00+08:00",
+  "source": {
+    "workflow_run_id": 31391251038,
+    "artifact_id": 9063747481,
+    "artifact_digest": "sha256:f05875529a606b394b99f4505d6639dce4c05fcaacad441face3c9ebe6f5e14b",
+    "head_commit": "e312e414c46a135dd480207665453bbcea7bfe90",
+    "candidate_v4_source_sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+    "protocol_sha256": "40fde840652165199e2c14dfdb62abdab2ea06f590cef4f064d9be64960427b2",
+    "development_dataset_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807"
+  },
+  "candidate_v4": {
+    "mrr": 1.0,
+    "recall_at_1": 1.0,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 1.0,
+    "false_retrieval_rate": 0.0,
+    "false_abstention_rate": 0.0,
+    "answerable_recall": 1.0
+  },
+  "candidate_v2_frozen": {
+    "mrr": 1.0,
+    "recall_at_1": 1.0,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.0,
+    "false_retrieval_rate": 1.0,
+    "false_abstention_rate": 0.0,
+    "answerable_recall": 1.0
+  },
+  "guardrail_checks": {
+    "abstention_accuracy": "PASS",
+    "false_retrieval_rate": "PASS",
+    "false_abstention_rate": "PASS",
+    "mrr_preservation": "PASS",
+    "recall_at_1_preservation": "PASS",
+    "recall_at_3_preservation": "PASS",
+    "recall_at_5_preservation": "PASS"
+  },
+  "interpretation": "Development evidence supports freezing Candidate-v4, but does not establish protected-validation success, Gate E completion, parity, superiority, or confirmatory generalization.",
+  "integrity": {
+    "candidate_v2_changed": false,
+    "candidate_v3_changed": false,
+    "candidate_v4_source_changed_after_this_development_run": false,
+    "new_monetary_cost_usd": 0.0,
+    "sealed_final_content_accessed_by_development_workflow": false,
+    "failed_workflow_evidence_preserved": true
+  }
+}
