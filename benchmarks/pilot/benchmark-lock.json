@@ -12,6 +12,7 @@
     "scripts/evaluate_adversarial_v4.py": "b16d71223bc97c9b8199379f2cfd1381a1f63d1c",
     "scripts/evaluate_candidate_robustness_suite.py": "b7bb43376672f15da810cb6aab3ca6ba5d12e965",
     "scripts/evaluate_candidate_v3.py": "9ef46fab68ca31eb293a90d59075a3518e2426cf",
+    "scripts/evaluate_candidate_v4.py": "bd35697070320651aa59bae6d8c7be6c5762633b",
     "scripts/extract_longmemeval_execution_subset.py": "2dca5983420d9c0fc8396c4a788eff2677611a15",
     "scripts/fetch_longmemeval.py": "add9521ccf5ecd60caaebcdcc30fa56ef4859d54",
     "scripts/freeze_adversarial_v4.py": "c6335e66db8b3c8daa926bf5907f58aab3d81df0",
@@ -49,6 +50,7 @@
     "src/personal_state_engine/benchmark_lock.py": "7ad5b7da1d5d3d30e1498efd4eb3d25e569a67ee",
     "src/personal_state_engine/candidate_v2.py": "3a66ac539acce1b6c95cd7ff3f768756c9720b90",
     "src/personal_state_engine/candidate_v3.py": "29898f760bbc7e9b2ece7b85b81b2067925fd408",
+    "src/personal_state_engine/candidate_v4.py": "3fa4e55f65067ea78910793800d45d1de5fbb34a",
     "src/personal_state_engine/commitments.py": "6d05555b71c175a4b993fbcaa53eeb0c74f8beb6",
     "src/personal_state_engine/engine.py": "ceeee9c32272ef52f08ee4a5a1580bdf71dd4e41",
     "src/personal_state_engine/evaluation.py": "3383e26e238ca3d93a22819b2d1fa96995daffa0",
@@ -77,5 +79,5 @@
     "pilot_test": 3,
     "validation": 3
   },
-  "version": "pilot-v0.6"
+  "version": "pilot-v0.7"
 }
