@@ -24,9 +24,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(sha256sum src/personal_state_engine/candidate_v3.py | awk '{print $1}')" = "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284"
-          test "$(sha256sum benchmarks/algorithm-development/adversarial-v5/case-specifications-v1.json | awk '{print $1}')" = "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
-          test "$(sha256sum experiments/runners/materialize_adversarial_v5.py | awk '{print $1}')" = "6ca56da4d3ca12bdf3db78bfd0dd12216bfae3f3c468d9c29bc22815d6fb3895"
+          candidate_sha="$(sha256sum src/personal_state_engine/candidate_v3.py | awk '{print $1}')"
+          spec_sha="$(sha256sum benchmarks/algorithm-development/adversarial-v5/case-specifications-v1.json | awk '{print $1}')"
+          materializer_sha="$(sha256sum experiments/runners/materialize_adversarial_v5.py | awk '{print $1}')"
+          echo "candidate_v3_sha256=$candidate_sha"
+          echo "v5_spec_sha256=$spec_sha"
+          echo "v5_materializer_sha256=$materializer_sha"
+          test "$candidate_sha" = "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284"
+          test "$spec_sha" = "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
+          test "$materializer_sha" = "6ca56da4d3ca12bdf3db78bfd0dd12216bfae3f3c468d9c29bc22815d6fb3895"
       - name: Evaluate frozen v5 stage1
         run: |
           mkdir -p /tmp/v5-stage1
