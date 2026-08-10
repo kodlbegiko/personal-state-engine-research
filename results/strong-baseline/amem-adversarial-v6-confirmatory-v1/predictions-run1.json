@@ -1,0 +1,9 @@
+{
+  "candidate_v4_freeze_commit": "e6780204686d3de526905eca8f2778c2510b7876",
+  "candidate_v4_source_sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+  "corpus_sha256": "d5ff2fa4c51ebf09c42c710cd6a8bcf8445060858abf07ed1b34a7ac940471b0",
+  "model": "qwen2.5:3b",
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "predictions": []
+}
