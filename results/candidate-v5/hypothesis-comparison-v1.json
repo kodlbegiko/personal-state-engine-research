@@ -1,0 +1,88 @@
+{
+  "schema_version": "candidate-v5-hypothesis-comparison-v1",
+  "created_at": "2026-08-13T11:20:00+08:00",
+  "selection_basis": ["mechanistic_fit","simplicity","interpretability","leakage_resistance","zero_cost_feasibility","expected_false_retrieval_reduction","expected_false_abstention_impact"],
+  "forbidden_selection_basis": ["candidate_v5_score_on_adversarial_v6","sealed_final","future_validation_labels","future_v7_results"],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "name": "Structured Entailment Gate",
+      "description": "Parse query and evidence into subject/predicate/object/temporal/certainty/polarity tuples and require an aligned supporting tuple.",
+      "mechanistic_fit": "high",
+      "simplicity": "medium",
+      "interpretability": "high",
+      "leakage_resistance": "high",
+      "zero_cost_feasibility": "high",
+      "expected_false_retrieval_reduction": "high",
+      "expected_false_abstention_impact": "medium",
+      "risks": ["rule coverage gaps","parser brittleness","single-proposition bias for multi-slot queries"]
+    },
+    {
+      "id": "H2",
+      "name": "Query Decomposition plus Evidence Coverage",
+      "description": "Decompose the query into atomic mandatory requirements and require complete coverage across one or more evidence propositions.",
+      "mechanistic_fit": "very_high",
+      "simplicity": "medium",
+      "interpretability": "very_high",
+      "leakage_resistance": "high",
+      "zero_cost_feasibility": "high",
+      "expected_false_retrieval_reduction": "very_high",
+      "expected_false_abstention_impact": "medium",
+      "risks": ["over-decomposition","implicit conjunction detection","alias normalization"]
+    },
+    {
+      "id": "H3",
+      "name": "Evidence Consistency Graph",
+      "description": "Represent requirements, supporting propositions, temporal validity, contradiction and supersession as a graph; answer only when every requirement has a conflict-free support path.",
+      "mechanistic_fit": "very_high",
+      "simplicity": "medium_low",
+      "interpretability": "very_high",
+      "leakage_resistance": "high",
+      "zero_cost_feasibility": "high",
+      "expected_false_retrieval_reduction": "very_high",
+      "expected_false_abstention_impact": "medium",
+      "risks": ["implementation complexity","conservative conflict handling"]
+    },
+    {
+      "id": "H4",
+      "name": "Counterfactual Answerability Test",
+      "description": "Remove high-overlap query cues and test whether answer-bearing proposition content still remains.",
+      "mechanistic_fit": "high_for_echo_overlap",
+      "simplicity": "high",
+      "interpretability": "high",
+      "leakage_resistance": "medium_high",
+      "zero_cost_feasibility": "high",
+      "expected_false_retrieval_reduction": "medium",
+      "expected_false_abstention_impact": "low",
+      "risks": ["insufficient alone for subject/temporal/contradiction failures"]
+    },
+    {
+      "id": "H5",
+      "name": "Hybrid Deterministic plus Local NLI",
+      "description": "Use deterministic structured verification first and a frozen local NLI/LLM verifier only for unresolved cases, failing closed on parse errors.",
+      "mechanistic_fit": "high",
+      "simplicity": "low",
+      "interpretability": "medium",
+      "leakage_resistance": "medium_high",
+      "zero_cost_feasibility": "conditional",
+      "expected_false_retrieval_reduction": "high",
+      "expected_false_abstention_impact": "potentially_low",
+      "risks": ["model availability","nondeterminism","prompt dependence","invalid outputs","CI reproducibility"]
+    }
+  ],
+  "selected_architecture": {
+    "name": "Atomic Requirement Evidence Graph",
+    "composition": ["H2","H3","H4_as_auxiliary_guard","H1_tuple_representation"],
+    "local_nli_enabled": false,
+    "rationale": "This composition directly targets the observed any-support weakness by making answerability an all-required proposition-coverage problem. It preserves candidate-v2 ranking as retrieval only, separates lexical relevance from proof, permits multi-memory composition, and represents contradictions/temporal validity explicitly. H4 is retained only as a query-echo/near-duplicate guard. H5 is deferred because deterministic implementation is sufficient for the preregistered first Candidate-v5 identity and is easier to reproduce at zero monetary cost.",
+    "identity_boundary_from_candidate_v4": [
+      "No reuse of candidate_v4 answerability_signature or _candidate_support semantics.",
+      "Candidate-v5 decomposes query requirements before examining retrieved evidence.",
+      "Candidate-v5 builds proposition coverage across multiple evidence items rather than accepting based on any supporting memory.",
+      "Contradiction and temporal resolution are graph-level properties, not timestamp/value heuristics applied after support acceptance.",
+      "Lexical relevance score is unavailable to the verifier except for the ordered list of frozen candidate-v2 memory IDs."
+    ]
+  },
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}
