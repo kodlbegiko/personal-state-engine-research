@@ -86,6 +86,7 @@ NON_VALUE_STEMS = GENERIC_STEMS | QUERY_TIME_STEMS | STALE_STEMS | RESOLUTION_ST
     _stem(x) for x in {
         "query", "question", "answer", "discussion", "discussed", "topic", "only",
         "without", "period", "historical", "archive", "previously", "prior", "before",
+        "repeat", "repeated", "restate", "restated", "paraphrase", "paraphrased",
     }
 }
 
