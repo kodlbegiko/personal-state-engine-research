@@ -1,0 +1,45 @@
+{
+  "paired_bootstrap": {
+    "bootstrap_fraction_delta_gte_minus_margin": 1.0,
+    "candidate_v6_minus_candidate_v2": 0.0,
+    "ci_95": [0.0, 0.0],
+    "metric": "answerable_case_reciprocal_rank_mrr",
+    "noninferiority_margin": 0.03,
+    "noninferiority_supported": true,
+    "repetitions": 10000,
+    "rule": "lower_95_ci_bound_gte_minus_margin",
+    "seed": 20260813,
+    "wins_ties_losses": [0, 40, 0]
+  },
+  "wilson_intervals": {
+    "abstention_accuracy": {
+      "n": 40,
+      "successes": 40,
+      "wilson_95": [0.9123783988027135, 1.0]
+    },
+    "answerable_recall": {
+      "n": 40,
+      "successes": 40,
+      "wilson_95": [0.9123783988027135, 1.0]
+    },
+    "false_abstention": {
+      "n": 40,
+      "successes": 0,
+      "wilson_95": [0.0, 0.08762160119728664]
+    },
+    "no_evidence_false_retrieval": {
+      "n": 40,
+      "successes": 0,
+      "wilson_95": [0.0, 0.08762160119728664]
+    }
+  },
+  "source_artifact": {
+    "workflow_run_id": 31689435267,
+    "artifact_id": 9176753372,
+    "artifact_digest_sha256": "55789c0536de28064ca02cba6c463b0df766ec1dca1738802fe28856d61d1e9a",
+    "validation_statistics_sha256": "fad0bb2b75f55abe8363f9d527b98cd1470adc9a5b7acf71742844bf468d07fb"
+  },
+  "candidate_rerun_performed": false,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}
