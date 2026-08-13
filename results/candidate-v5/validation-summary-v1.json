@@ -1,0 +1,203 @@
+{
+  "schema_version": "candidate-v5-protected-validation-summary-v1",
+  "phase": "PROTECTED_VALIDATION_SINGLE_FORMAL_EXECUTION",
+  "verdict": "VALIDATION_FAIL_CANDIDATE_V5_REMAINS_FROZEN",
+  "candidate_status": "REJECTED_BY_FROZEN_PROTECTED_VALIDATION_GUARDRAILS",
+  "formal_execution": {
+    "workflow_name": "Candidate-v5 Protected Validation — One Formal Execution",
+    "workflow_run_id": 31665185021,
+    "job_id": 94338109299,
+    "head_sha": "e694ea641cd1f8fc8b712fac8006f85baa0400d6",
+    "workflow_conclusion": "failure_expected_from_frozen_verdict_enforcement",
+    "evaluator_exit_code": 2,
+    "validation_summary_sha256": "5ad27259d7a9e2fea070807ebca7f23c15f7c53760206cf93989f3ec7de9c2fa",
+    "artifact_id": 9167643375,
+    "artifact_size_bytes": 4490,
+    "artifact_digest_sha256": "74372a54d173bb0bc74bfa848bfc01d2c260c7fc30d24d70fa07372db0f48ff3",
+    "artifact_contains": [
+      "validation-summary-v1.json",
+      "SHA256SUMS.txt",
+      "evaluator-exit-code.txt"
+    ],
+    "rerun_performed": false,
+    "rerun_authorized": false
+  },
+  "dataset": {
+    "path": "benchmarks/algorithm-development/candidate-v5-validation-v1/cases.jsonl",
+    "sha256": "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5",
+    "case_count": 48,
+    "answerable_count": 24,
+    "no_evidence_count": 24,
+    "created_after_candidate_v5_freeze": true,
+    "frozen_before_formal_execution": true,
+    "post_result_editing_allowed": false
+  },
+  "candidate_v5_frozen_identity": {
+    "freeze_commit": "1fb360367668d5a5014b88d3f0f47f4b58cb2b43",
+    "freeze_marker_commit": "5a49c2157eb45acfc23fa65e6ce03dc666d3985d",
+    "source_sha256": "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975",
+    "config_sha256": "b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a",
+    "changed_after_freeze": false
+  },
+  "metrics": {
+    "candidate_v2": {
+      "MRR": 0.9166666666666666,
+      "R@1": 0.7083333333333334,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "candidate_v3": {
+      "MRR": 0.8333333333333334,
+      "R@1": 0.6666666666666666,
+      "R@3": 0.875,
+      "R@5": 0.875,
+      "answerable_recall": 0.9166666666666666,
+      "false_abstention": 0.08333333333333337,
+      "no_evidence_false_retrieval": 0.9583333333333334,
+      "abstention_accuracy": 0.04166666666666663
+    },
+    "candidate_v4": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0,
+      "answerable_recall": 0.0,
+      "false_abstention": 1.0,
+      "no_evidence_false_retrieval": 0.0,
+      "abstention_accuracy": 1.0
+    },
+    "candidate_v5": {
+      "MRR": 0.8333333333333334,
+      "R@1": 0.625,
+      "R@3": 0.9166666666666666,
+      "R@5": 0.9166666666666666,
+      "answerable_recall": 0.9166666666666666,
+      "false_abstention": 0.08333333333333337,
+      "no_evidence_false_retrieval": 0.08333333333333333,
+      "abstention_accuracy": 0.9166666666666666
+    },
+    "bm25_local": {
+      "MRR": 0.9027777777777778,
+      "R@1": 0.7083333333333334,
+      "R@3": 1.0,
+      "R@5": 1.0
+    },
+    "tfidf_local": {
+      "MRR": 0.9027777777777778,
+      "R@1": 0.7083333333333334,
+      "R@3": 1.0,
+      "R@5": 1.0
+    },
+    "deterministic_random": {
+      "MRR": 0.638888888888889,
+      "R@1": 0.25,
+      "R@3": 1.0,
+      "R@5": 1.0
+    },
+    "recency": {
+      "MRR": 0.5555555555555556,
+      "R@1": 0.25,
+      "R@3": 1.0,
+      "R@5": 1.0
+    }
+  },
+  "frozen_guardrails": {
+    "threshold_source": "experiments/configs/candidate-v5-v1.json",
+    "retrieval_preservation": {
+      "MRR_deficit": 0.08333333333333326,
+      "MRR_deficit_max": 0.03,
+      "pass": false,
+      "R@1_deficit": 0.08333333333333337,
+      "R@1_deficit_max": 0.03,
+      "R@1_pass": false,
+      "R@3_deficit": 0.08333333333333337,
+      "R@3_deficit_max": 0.02,
+      "R@3_pass": false,
+      "R@5_deficit": 0.08333333333333337,
+      "R@5_deficit_max": 0.02,
+      "R@5_pass": false
+    },
+    "answerability": {
+      "answerable_recall": 0.9166666666666666,
+      "minimum": 0.9,
+      "pass": true,
+      "false_abstention": 0.08333333333333337,
+      "maximum": 0.1,
+      "false_abstention_pass": true
+    },
+    "no_evidence_safety": {
+      "abstention_accuracy": 0.9166666666666666,
+      "minimum": 0.8,
+      "pass": true,
+      "false_retrieval": 0.08333333333333333,
+      "maximum": 0.2,
+      "false_retrieval_pass": true
+    },
+    "improvement_vs_candidate_v2": {
+      "absolute_no_evidence_false_retrieval_reduction": 0.9166666666666666,
+      "minimum": 0.5,
+      "pass": true
+    },
+    "all_selection_critical_checks_pass": false
+  },
+  "failure_cases": {
+    "false_abstentions": [
+      {
+        "id": "validation-a-013",
+        "category": "wrong_relation_distractor",
+        "relevant_memory_ids": ["13-b"]
+      },
+      {
+        "id": "validation-a-014",
+        "category": "wrong_relation_distractor",
+        "relevant_memory_ids": ["14-b"]
+      }
+    ],
+    "no_evidence_false_retrievals": [
+      {
+        "id": "validation-n-045",
+        "category": "high_overlap_no_value",
+        "candidate_v5_ranking": ["45-a", "45-b"]
+      },
+      {
+        "id": "validation-n-046",
+        "category": "high_overlap_no_value",
+        "candidate_v5_ranking": ["46-a", "46-b"]
+      }
+    ]
+  },
+  "diagnostic_interpretation_non_tuning": {
+    "status": "POST_HOC_FAILURE_ANALYSIS_ONLY",
+    "primary_remaining_mechanism": "discourse_residue_misclassified_as_answer_value",
+    "explanation": "In answerable wrong-relation-distractor cases, agenda/question discourse on the correct relation appears to create a spurious competing proposition, producing false abstention despite a valid answer proposition. In no-evidence high-overlap cases, review/topic discourse can leave residue that is misclassified as an asserted value and therefore creates false support.",
+    "candidate_v5_patch_authorized": false,
+    "candidate_v6_research_direction": "Replace token-residue value detection with explicit assertion-structure extraction that requires a value-bearing syntactic/propositional slot and separates discourse/meta-text from evidence objects. Preserve deterministic fail-closed semantics while avoiding false contradictions from meta-discussion."
+  },
+  "terminal_effect": {
+    "candidate_v5_selected": false,
+    "candidate_v5_rejected": true,
+    "adversarial_v7_authorized_or_needed": false,
+    "reason_v7_not_started": "Fresh protected validation is not clean and frozen selection-critical retrieval-preservation guardrails failed. Gate E therefore cannot complete for Candidate-v5; continuing to v7 cannot cure this failed prerequisite and would add non-decisive work.",
+    "gate_e": "NOT_COMPLETE",
+    "formal_completion_percent": 45,
+    "algorithm_parity": "NO",
+    "gate_f": "NOT_STARTED_SEALED_FINAL_PROHIBITED"
+  },
+  "integrity": {
+    "candidate_v5_modified_after_freeze": false,
+    "candidate_v4_modified": false,
+    "v6_modified": false,
+    "v6_used_as_validation": false,
+    "sealed_final_accessed": false,
+    "negative_evidence_deleted": false,
+    "benchmark_contamination_detected": false,
+    "rerun_performed": false,
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false
+  }
+}
