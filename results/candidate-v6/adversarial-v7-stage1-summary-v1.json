@@ -1,0 +1,58 @@
+{
+  "schema_version": "candidate-v6-adversarial-v7-stage1-summary-v1",
+  "candidate": "candidate-v6",
+  "dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+  "workflow": {
+    "run_id": 31689889393,
+    "job_id": 94414530128,
+    "artifact_id": 9176933073,
+    "artifact_digest_sha256": "aa20174c43af6b7a3981ec0de6e3bace954e9bd73e7827bb293268c23f947861",
+    "stage1_results_sha256": "289bdfe007737694008dfba59bc6e0071dbc054d841f144b36c3b4669cda554a",
+    "conclusion": "success"
+  },
+  "benchmark_discrimination": {
+    "verdict": "PASS",
+    "candidate_v2_mrr_gap_over_max_random_recency": 0.5236111111111111,
+    "candidate_v2_recall_at_1_gap_over_max_random_recency": 0.7833333333333333
+  },
+  "candidate_v2": {
+    "MRR": 1.0,
+    "R@1": 1.0,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "answerable_recall": 1.0,
+    "false_abstention_rate": 0.0,
+    "false_retrieval_rate": 1.0,
+    "abstention_accuracy": 0.0
+  },
+  "candidate_v6": {
+    "MRR": 1.0,
+    "R@1": 1.0,
+    "R@3": 1.0,
+    "R@5": 1.0,
+    "answerable_recall": 1.0,
+    "false_abstention_rate": 0.0,
+    "false_retrieval_rate": 0.0,
+    "abstention_accuracy": 1.0
+  },
+  "candidate_v6_guardrails": {
+    "verdict": "PASS",
+    "all_checks_pass": true,
+    "mrr_deficit_vs_candidate_v2": 0.0,
+    "r1_deficit_vs_candidate_v2": 0.0,
+    "r3_deficit_vs_candidate_v2": 0.0,
+    "r5_deficit_vs_candidate_v2": 0.0,
+    "absolute_false_retrieval_reduction_vs_candidate_v2": 1.0
+  },
+  "stage2_exact_a_mem_authorized": true,
+  "integrity": {
+    "candidate_v6_changed_after_freeze": false,
+    "benchmark_changed_after_freeze": false,
+    "candidate_v6_protected_validation_rerun": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api": false,
+    "paid_gpu": false
+  },
+  "claim_boundary": "Stage-1 authorizes exact A-MEM Stage-2 only; it does not establish Gate E completion or algorithm parity."
+}
