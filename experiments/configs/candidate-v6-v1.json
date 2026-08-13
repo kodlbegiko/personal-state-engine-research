@@ -1,0 +1,123 @@
+{
+  "schema_version": "candidate-v6-config-v1",
+  "candidate_id": "candidate-v6",
+  "method_name": "Assertion-Structure Evidence Objects",
+  "architecture": "two_stage_deterministic_discourse_gate_plus_assertion_slot_extractor",
+  "implementation": "src/personal_state_engine/candidate_v6.py",
+  "retrieval_backend": {
+    "candidate": "candidate-v2",
+    "implementation": "src/personal_state_engine/candidate_v2.py::pse_candidate_v2_rank",
+    "ranking_modification_allowed": false,
+    "supported_output": "preserve_candidate_v2_ranking",
+    "unsupported_output": []
+  },
+  "allowed_input": [
+    "query",
+    "memories.id",
+    "memories.text",
+    "memories.timestamp",
+    "candidate_v2_ranking"
+  ],
+  "forbidden_candidate_input": [
+    "case_id_for_decision_logic",
+    "relevant_memory_ids",
+    "benchmark_labels",
+    "protected_validation_results"
+  ],
+  "evidence_object": {
+    "required_fields": [
+      "source_memory_id",
+      "subject",
+      "predicate",
+      "object_or_value",
+      "assertion_type",
+      "polarity",
+      "temporal_scope",
+      "discourse_role",
+      "parse_status"
+    ],
+    "assertion_types": [
+      "ASSERTED_VALUE",
+      "ASSERTED_RELATION",
+      "NEGATED_VALUE",
+      "NO_VALUE_RECORDED",
+      "META_DISCUSSION",
+      "QUESTION",
+      "AGENDA_ITEM",
+      "REVIEW_TOPIC",
+      "UNRESOLVED",
+      "CONTRADICTION",
+      "UNKNOWN"
+    ]
+  },
+  "verification": {
+    "mode": "deterministic_only",
+    "discourse_classification_before_value_extraction": true,
+    "explicit_value_slot_required": true,
+    "parse_failure": "fail_closed",
+    "partial_support_answerable": false,
+    "all_mandatory_requirements_required": true,
+    "contradiction_only_between_comparable_positive_assertions": true,
+    "timestamp_alone_resolves_contradiction": false,
+    "current_query_accepts_stale_only": false,
+    "unsupported_composition_allowed": false
+  },
+  "development_benchmark": {
+    "id": "candidate-v6-development-v1",
+    "minimum_case_count": 120,
+    "minimum_answerable_count": 50,
+    "minimum_no_evidence_count": 70,
+    "historical_candidate_v5_failures": "HISTORICAL_FAILURE_REGRESSION_ONLY",
+    "fresh_confirmatory_claim_allowed": false
+  },
+  "selection_thresholds": {
+    "mrr_deficit_max_vs_candidate_v2": 0.03,
+    "r1_deficit_max_vs_candidate_v2": 0.03,
+    "r3_deficit_max_vs_candidate_v2": 0.02,
+    "r5_deficit_max_vs_candidate_v2": 0.02,
+    "answerable_recall_min": 0.95,
+    "false_abstention_max": 0.05,
+    "abstention_accuracy_min": 0.90,
+    "no_evidence_false_retrieval_max": 0.10,
+    "no_evidence_false_retrieval_absolute_reduction_vs_candidate_v2_min": 0.70,
+    "assertion_extraction_accuracy_min": 0.95,
+    "meta_discourse_rejection_accuracy_min": 0.95,
+    "explicit_no_value_detection_accuracy_min": 0.95,
+    "contradiction_detection_accuracy_min": 0.95,
+    "temporal_resolution_accuracy_min": 0.95,
+    "mrr_noninferiority_margin": 0.03
+  },
+  "statistics": {
+    "paired_bootstrap_repetitions": 10000,
+    "seed": 20260813,
+    "confidence_interval": 0.95,
+    "proportion_interval": "Wilson",
+    "noninferiority_rule": "lower_95_ci_bound_gte_minus_margin"
+  },
+  "freeze_policy": {
+    "post_freeze_source_editing_allowed": false,
+    "post_freeze_config_editing_allowed": false,
+    "post_freeze_threshold_editing_allowed": false,
+    "protected_validation_created_after_candidate_freeze": true,
+    "formal_protected_validation_execution_count": 1,
+    "post_result_protected_dataset_editing_allowed": false
+  },
+  "information_policy": {
+    "candidate_v5_protected_validation": "HISTORICAL_DIAGNOSTIC_ONLY",
+    "sealed_final": "PROHIBITED",
+    "protected_validation_results_before_freeze": "PROHIBITED"
+  },
+  "cost_policy": {
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "paid_inference": false
+  },
+  "gate_e_failure_effect": {
+    "candidate_status": "REJECTED",
+    "gate_e": "NOT_COMPLETE",
+    "formal_completion_percent": 45,
+    "algorithm_parity": "NO",
+    "gate_f": "NOT_STARTED_SEALED_FINAL_PROHIBITED"
+  }
+}
