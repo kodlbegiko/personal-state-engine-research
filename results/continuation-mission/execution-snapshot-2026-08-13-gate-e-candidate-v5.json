@@ -1,0 +1,222 @@
+{
+  "schema_version": "personal-state-engine-gate-e-candidate-v5-terminal-snapshot-v1",
+  "timestamp": "2026-08-13T12:00:00+08:00",
+  "terminal_verdict": "CANDIDATE_V5_REJECTED_BY_FROZEN_PROTECTED_VALIDATION_GUARDRAILS; GATE_E_NOT_COMPLETE; FORMAL_COMPLETION_45_PERCENT; ALGORITHM_PARITY_NO",
+  "repository": {
+    "name": "kodlbegiko/personal-state-engine-research",
+    "branch": "research/personal-state-engine-v0",
+    "head_at_terminal_state_before_snapshot_commit": "ca5aa4d07ebffa2ff42b66e72394e9172dd4f6a3",
+    "snapshot_path": "results/continuation-mission/execution-snapshot-2026-08-13-gate-e-candidate-v5.json",
+    "pr_number": 2,
+    "pr_state": "OPEN",
+    "pr_draft": true,
+    "pr_merged": false,
+    "dirty_worktree": false,
+    "dirty_worktree_basis": "formal Candidate-v5 freeze and protected-validation CI both verified git diff --exit-code; GitHub connector writes are atomic commits"
+  },
+  "candidate_v5": {
+    "status": "FROZEN_REJECTED",
+    "selection": "REJECTED_BY_FROZEN_PROTECTED_VALIDATION_GUARDRAILS",
+    "architecture": "Atomic Requirement Evidence Graph",
+    "source_path": "src/personal_state_engine/candidate_v5.py",
+    "source_sha256": "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975",
+    "source_git_blob_sha1": "807e3fa41d42f67b2d751b99c77d3860d7c8a156",
+    "config_path": "experiments/configs/candidate-v5-v1.json",
+    "config_sha256": "b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a",
+    "preregistration_path": "experiments/protocols/candidate-v5-design-preregistration-v1.json",
+    "preregistration_sha256": "f406ed731d102cb517d3f57a03574cbff43754c609d0d287ed875ed75e77f764",
+    "freeze_commit": "1fb360367668d5a5014b88d3f0f47f4b58cb2b43",
+    "freeze_marker_commit": "5a49c2157eb45acfc23fa65e6ce03dc666d3985d",
+    "changed_after_freeze": false,
+    "local_model": null,
+    "model_digest": "DETERMINISTIC_ONLY_NO_MODEL",
+    "retrieval_identity": "candidate-v2 frozen retrieval",
+    "post_freeze_patch_authorized": false
+  },
+  "development": {
+    "status": "PASS_READY_TO_FREEZE_COMPLETED",
+    "dataset_size": 88,
+    "answerable": 40,
+    "no_evidence": 48,
+    "dataset_sha256": "2a96ee9c15ff77dd359330e5bbf311a528f956041104f513045d39cfd966a93a",
+    "candidate_v5_metrics": {
+      "MRR": 0.9,
+      "R@1": 0.7,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 0.0,
+      "abstention_accuracy": 1.0
+    },
+    "candidate_v2_metrics": {
+      "MRR": 0.9,
+      "R@1": 0.7,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "guardrails_pass": true,
+    "workflow_run_id": 31664329963,
+    "artifact_id": 9167348416,
+    "artifact_digest_sha256": "e7654ec8df3b66a8b607f19349ccfcfaeb743eed83a87675b91bf3a98b4ce406"
+  },
+  "validation": {
+    "status": "FAIL_TERMINAL",
+    "verdict": "VALIDATION_FAIL_CANDIDATE_V5_REMAINS_FROZEN",
+    "dataset_size": 48,
+    "answerable": 24,
+    "no_evidence": 24,
+    "dataset_sha256": "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5",
+    "created_after_candidate_v5_freeze": true,
+    "frozen_before_execution": true,
+    "formal_execution_count": 1,
+    "rerun_performed": false,
+    "workflow_run_id": 31665185021,
+    "job_id": 94338109299,
+    "artifact_id": 9167643375,
+    "artifact_digest_sha256": "74372a54d173bb0bc74bfa848bfc01d2c260c7fc30d24d70fa07372db0f48ff3",
+    "summary_sha256": "5ad27259d7a9e2fea070807ebca7f23c15f7c53760206cf93989f3ec7de9c2fa",
+    "candidate_v5_metrics": {
+      "MRR": 0.8333333333333334,
+      "R@1": 0.625,
+      "R@3": 0.9166666666666666,
+      "R@5": 0.9166666666666666,
+      "answerable_recall": 0.9166666666666666,
+      "false_abstention": 0.08333333333333337,
+      "no_evidence_false_retrieval": 0.08333333333333333,
+      "abstention_accuracy": 0.9166666666666666
+    },
+    "candidate_v2_metrics": {
+      "MRR": 0.9166666666666666,
+      "R@1": 0.7083333333333334,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "guardrail_results": {
+      "MRR_deficit": 0.08333333333333326,
+      "MRR_deficit_max": 0.03,
+      "MRR_pass": false,
+      "R@1_deficit": 0.08333333333333337,
+      "R@1_deficit_max": 0.03,
+      "R@1_pass": false,
+      "R@3_deficit": 0.08333333333333337,
+      "R@3_deficit_max": 0.02,
+      "R@3_pass": false,
+      "R@5_deficit": 0.08333333333333337,
+      "R@5_deficit_max": 0.02,
+      "R@5_pass": false,
+      "answerable_recall_pass": true,
+      "false_abstention_pass": true,
+      "abstention_accuracy_pass": true,
+      "no_evidence_false_retrieval_pass": true,
+      "absolute_false_retrieval_reduction": 0.9166666666666666,
+      "absolute_false_retrieval_reduction_pass": true,
+      "all_selection_critical_guardrails_pass": false
+    },
+    "failure_cases": {
+      "false_abstention": ["validation-a-013", "validation-a-014"],
+      "false_retrieval": ["validation-n-045", "validation-n-046"]
+    },
+    "remaining_failure_mechanism": "discourse/meta-text residue can be misclassified as answer values, causing both false support and false contradictions"
+  },
+  "v7": {
+    "status": "NOT_STARTED_AFTER_TERMINAL_VALIDATION_REJECTION",
+    "total_cases": 0,
+    "answerable": 0,
+    "no_evidence": 0,
+    "dataset_sha256": null,
+    "discrimination_status": "NOT_REACHED",
+    "reason": "Fresh protected validation failed frozen selection-critical guardrails. Candidate-v5 cannot satisfy Gate E; v7 cannot cure the failed prerequisite."
+  },
+  "exact_amem_candidate_v5": {
+    "status": "NOT_REACHED",
+    "reason": "Candidate-v5 was rejected before adversarial-v7 discrimination, which is the prerequisite for exact A-MEM execution in this mission. Historical v6 A-MEM evidence was not repurposed."
+  },
+  "statistics": {
+    "status": "PROTECTED_VALIDATION_IMMUTABLE_PREDICTION_ANALYSIS_COMPLETE",
+    "candidate_v5_vs_candidate_v2": {
+      "delta_MRR": -0.08333333333333333,
+      "paired_bootstrap_repetitions": 10000,
+      "seed": 20260813,
+      "CI_95_lower": -0.20833333333333334,
+      "CI_95_upper": 0.0,
+      "wins": 0,
+      "ties": 22,
+      "losses": 2,
+      "noninferiority_margin": 0.03,
+      "noninferiority_result": "FAIL"
+    },
+    "candidate_v5_vs_candidate_v3": "NOT_REQUIRED_AFTER_TERMINAL_PROTECTED_VALIDATION_REJECTION",
+    "candidate_v5_vs_candidate_v4": "NOT_REQUIRED_AFTER_TERMINAL_PROTECTED_VALIDATION_REJECTION",
+    "candidate_v5_vs_exact_amem": "NOT_REACHED"
+  },
+  "gate": {
+    "Gate_A": "COMPLETE",
+    "Gate_B": "COMPLETE",
+    "Gate_C": "COMPLETE",
+    "Gate_D": "COMPLETE",
+    "Gate_E": "NOT_COMPLETE",
+    "Gate_E_reason": "Candidate-v5 fresh protected validation failed frozen retrieval-preservation guardrails; formal selection impossible.",
+    "Gate_F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+    "Gate_G": "NOT_COMPLETE"
+  },
+  "formal_completion_percent": 45,
+  "formal_completion_change": 0,
+  "algorithm_parity": "NO",
+  "cost": {
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "paid_inference": false
+  },
+  "integrity": {
+    "candidate_v4_modified": false,
+    "candidate_v5_modified_after_freeze": false,
+    "v6_modified": false,
+    "v7_modified_after_freeze": false,
+    "negative_evidence_deleted": false,
+    "benchmark_contamination_detected_in_candidate_v5_mission": false,
+    "candidate_v5_mission_sealed_final_content_accessed": false,
+    "candidate_v5_mission_sealed_final_path_operations_performed": false,
+    "preexisting_historical_sealed_final_path_metadata_listing_deviation": {
+      "present": true,
+      "classification": "metadata_only_historical_deviation",
+      "status": "PRESERVED_NOT_HIDDEN_NOT_CURED",
+      "used_for_candidate_v5": false
+    },
+    "incidents": [
+      "development workflow 31664163704: 15/16 tests, query_echo false acceptance",
+      "development workflow 31664231823: first query-echo repair insufficient",
+      "freeze workflow 31664614671: successful run not adopted because pilot lock identity was v0.11 rather than intended v0.12",
+      "protected validation workflow 31665185021: terminal frozen-guardrail failure; negative evidence preserved; no rerun"
+    ]
+  },
+  "artifacts": {
+    "repository_reconnaissance": "results/candidate-v5/repository-reconnaissance-v1.json",
+    "v6_failure_taxonomy": "results/candidate-v5/v6-failure-taxonomy-v1.json",
+    "hypothesis_comparison": "results/candidate-v5/hypothesis-comparison-v1.json",
+    "design_preregistration": "experiments/protocols/candidate-v5-design-preregistration-v1.json",
+    "development_summary": "results/candidate-v5/development-summary-v1.json",
+    "development_ledger": "results/candidate-v5/development-ledger-v1.jsonl",
+    "freeze_manifest": "results/candidate-v5/candidate-v5-freeze-manifest-v1.json",
+    "validation_summary": "results/candidate-v5/validation-summary-v1.json",
+    "validation_statistics": "results/candidate-v5/validation-statistics-v1.json",
+    "candidate_v6_direction": "results/candidate-v5/candidate-v6-research-direction-v1.json",
+    "integrity_incident_preservation": "results/candidate-v5/integrity-incident-preservation-v1.json",
+    "human_readable_final_report": "results/candidate-v5/candidate-v5-gate-e-recovery-final-report.md"
+  },
+  "next_action": {
+    "candidate_v6": "RECOMMENDED_BUT_NOT_STARTED",
+    "candidate_v6_direction": "Assertion-Structure Evidence Objects",
+    "gate_f": "DO_NOT_START_WITHOUT_EXPLICIT_AUTHORIZATION",
+    "sealed_final": "REMAINS_PROHIBITED"
+  }
+}
