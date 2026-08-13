@@ -1,0 +1,166 @@
+{
+  "schema_version": "candidate-v5-design-preregistration-v1",
+  "preregistered_at": "2026-08-13T11:22:00+08:00",
+  "candidate_id": "candidate-v5",
+  "method_name": "Atomic Requirement Evidence Graph",
+  "status": "PREREGISTERED_BEFORE_IMPLEMENTATION",
+  "research_question": "Can a frozen Candidate-v2 retrieval backend be paired with an independent proposition-level answerability verifier that materially reduces no-evidence false retrieval while preserving answerable retrieval quality?",
+  "architecture": {
+    "retrieval_backend": {
+      "identity": "candidate-v2 frozen retrieval",
+      "implementation": "src/personal_state_engine/candidate_v2.py::pse_candidate_v2_rank",
+      "ranking_modification_allowed": false,
+      "verifier_may_read_retrieval_scores": false,
+      "verifier_input": "ordered top-k memory IDs and memory contents only"
+    },
+    "query_parser": {
+      "output": ["subject_slots","predicate_slots","required_value_type","temporal_constraints","certainty","polarity","conjunction_groups"],
+      "rule": "Every explicit query requirement is mandatory unless the query marks it optional or alternative."
+    },
+    "evidence_parser": {
+      "output": ["subject","predicate","object_or_value","temporal_scope","certainty","polarity","update_or_supersession_cue"],
+      "rule": "A retrieved memory may create zero or more evidence propositions; topic overlap alone creates no support edge."
+    },
+    "subject_matching": {
+      "rule": "A proposition supports a requirement only when the requirement subject and proposition subject are identical after deterministic normalization/alias resolution. Unresolved multi-entity ownership is not a match.",
+      "fail_closed": true
+    },
+    "relation_matching": {
+      "rule": "Predicate concepts are field-granular; adjacent attributes such as phone/email, budget/balance, number/code/PIN are distinct unless an explicit preregistered alias maps them.",
+      "fail_closed": true
+    },
+    "value_matching": {
+      "rule": "A support edge requires an asserted object/value compatible with the requirement. Query wording, relation words, discourse markers, uncertainty markers, and pure lexical overlap are not values.",
+      "unsupported_inference_allowed": false
+    },
+    "temporal_rules": {
+      "rule": "Support must satisfy the query reference time or interval. Current/latest queries reject stale-only evidence. Before/after/as-of semantics require ordered temporal compatibility. Superseded evidence cannot support a current requirement unless the query explicitly asks for the historical state.",
+      "unknown_temporal_state": "INSUFFICIENT"
+    },
+    "contradiction_rules": {
+      "rule": "Conflicting supported values for the same subject/predicate/temporal requirement produce CONTRADICTED or AMBIGUOUS unless an explicit update/supersession relation resolves the conflict.",
+      "newest_timestamp_alone_resolves_conflict": false
+    },
+    "completeness_rules": {
+      "rule": "Every mandatory atomic requirement must have at least one conflict-free support path. Multi-memory composition is allowed. Any uncovered mandatory requirement causes INSUFFICIENT.",
+      "partial_support_answerable": false
+    },
+    "query_echo_guard": {
+      "rule": "After removing query-derived lexical cues and predicate boilerplate from a memory proposition, answer-bearing object/value content must remain. Exact or near query echoes with no answer-bearing residue do not create support."
+    },
+    "abstention_rules": {
+      "SUPPORTED": "All mandatory requirements have conflict-free, temporally valid support paths.",
+      "INSUFFICIENT": "One or more mandatory requirements lack support, required subject/predicate/value/temporal state is unresolved, or parsing fails closed.",
+      "CONTRADICTED": "At least one mandatory requirement has unresolved conflicting values/polarities.",
+      "AMBIGUOUS": "Evidence can support multiple unresolved subject/value interpretations without a unique support path.",
+      "ranking_output": "Return frozen candidate-v2 ranking only for SUPPORTED; otherwise return []."
+    }
+  },
+  "candidate_identity_rules": {
+    "candidate_v4_source_reuse_allowed": false,
+    "candidate_v4_config_reuse_allowed": false,
+    "candidate_v4_threshold_reuse_as_tuning": false,
+    "candidate_v5_must_have_separate_source": true,
+    "candidate_v5_must_have_separate_tests": true,
+    "candidate_v5_must_have_freeze_manifest": true,
+    "post_freeze_method_change_requires": "candidate-v6"
+  },
+  "allowed_information": [
+    "adversarial-v6 historical diagnostics and failure-family taxonomy",
+    "Candidate-v4 historical results",
+    "Candidate-v2/v3/v4 source for architecture comparison only",
+    "fresh Candidate-v5 development data generated after this preregistration"
+  ],
+  "forbidden_information": [
+    "sealed-final content or metadata",
+    "future protected validation labels before Candidate-v5 freeze",
+    "future adversarial-v7 results before Candidate-v5 freeze and v7 preregistration",
+    "using adversarial-v6 as Candidate-v5 clean validation or confirmatory selection",
+    "post-result threshold or margin changes"
+  ],
+  "development_protocol": {
+    "dataset": "benchmarks/algorithm-development/candidate-v5-dev-v1/",
+    "minimum_answerable": 40,
+    "minimum_no_evidence": 40,
+    "v6_case_copying_allowed": false,
+    "family_analogy_allowed": true,
+    "must_change": ["wording","entities","values","temporal_structures","evidence_composition"],
+    "tuning_allowed": true,
+    "tuning_ledger_required": true
+  },
+  "selection_thresholds": {
+    "answerable_retrieval_preservation_vs_candidate_v2": {
+      "mrr_deficit_max": 0.03,
+      "r_at_1_deficit_max": 0.03,
+      "r_at_3_deficit_max": 0.02,
+      "r_at_5_deficit_max": 0.02
+    },
+    "answerability": {
+      "answerable_recall_min": 0.90,
+      "false_abstention_max": 0.10
+    },
+    "no_evidence_safety": {
+      "abstention_accuracy_min": 0.80,
+      "false_retrieval_max": 0.20
+    },
+    "improvement_vs_candidate_v2": {
+      "metric": "absolute reduction in no-evidence false-retrieval rate",
+      "minimum_reduction": 0.50,
+      "note": "If an already-frozen repository protocol defines this metric more precisely, that frozen definition controls; it may not be weakened post-result."
+    },
+    "mrr_noninferiority_margin": 0.03
+  },
+  "statistical_protocol": {
+    "paired_bootstrap_repetitions": 10000,
+    "seed": 20260813,
+    "confidence_interval": 0.95,
+    "resampling": "paired",
+    "proportion_intervals": "Wilson",
+    "post_hoc_equivalence_margin_allowed": false,
+    "post_hoc_noninferiority_margin_allowed": false
+  },
+  "protected_validation_protocol": {
+    "created_only_after_candidate_v5_freeze": true,
+    "minimum_total_cases": 48,
+    "answerable_range": [24, 30],
+    "no_evidence_range": [24, 30],
+    "reuse_dev_cases": false,
+    "reuse_v6_cases": false,
+    "one_execution_only": true,
+    "patch_after_validation": false
+  },
+  "adversarial_v7_confirmatory": {
+    "created_only_after_candidate_v5_freeze": true,
+    "generator_preregistration_required_before_generation": true,
+    "target_total_cases": 120,
+    "answerable_cases": 72,
+    "no_evidence_cases": 48,
+    "benchmark_discrimination": {
+      "candidate_v2_mrr_minus_max_random_recency_min": 0.15,
+      "candidate_v2_r1_minus_max_random_recency_min": 0.15,
+      "failure_verdict": "BENCHMARK_INVALID_FOR_SELECTION"
+    },
+    "case_editing_after_freeze": false
+  },
+  "local_model_policy": {
+    "enabled_for_candidate_v5_v1": false,
+    "reason": "First Candidate-v5 identity is preregistered as deterministic-only for reproducibility. Introducing a local model would change method identity and requires a new candidate unless explicitly preregistered before implementation.",
+    "paid_api_allowed": false,
+    "paid_gpu_allowed": false
+  },
+  "cost_policy": {
+    "monetary_cost_usd_target": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "github_actions_free_quota_allowed": true,
+    "local_cpu_or_apple_silicon_allowed": true
+  },
+  "integrity": {
+    "candidate_v4_frozen": true,
+    "v6_diagnostic_only": true,
+    "sealed_final_accessed": false,
+    "negative_evidence_must_be_preserved": true,
+    "pr_2_must_remain_open_draft_not_merged": true,
+    "merge_tag_release_force_push_prohibited": true
+  }
+}
