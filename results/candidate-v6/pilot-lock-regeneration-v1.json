@@ -1,0 +1,26 @@
+{
+  "schema_version": "candidate-v6-pilot-lock-regeneration-v1",
+  "phase": "PRE_FREEZE_INFRASTRUCTURE_CONSISTENCY",
+  "reason": "Candidate-v6 added benchmark-lock-eligible source and evaluator files; repository authority requires a version bump when benchmark-affecting inputs change.",
+  "workflow": {
+    "name": "Candidate-v6 Regenerate Pilot Lock",
+    "run_id": 31688619024,
+    "trigger_commit": "b6c5f5b99e4431b2e091a98743d1c1f7529af32a",
+    "conclusion": "success",
+    "generated_commit": "a618ad7bcc142ceffe759de42a1848689db35fbd"
+  },
+  "lock": {
+    "version": "pilot-v0.13",
+    "path": "benchmarks/pilot/benchmark-lock.json",
+    "anchor_sha256": "acb43228a41caf4e9b001fa26cca0b73dee21ea43300babb8108cab1f35c8998",
+    "candidate_v6_source_included": true,
+    "candidate_v6_evaluator_included": true,
+    "generated_by": "python scripts/freeze_pilot_benchmark.py --version pilot-v0.13",
+    "manually_invented_hashes": false
+  },
+  "classification": "INFRASTRUCTURE_CONSISTENCY_NOT_ALGORITHM_TUNING",
+  "candidate_v6_source_modified": false,
+  "candidate_v6_config_modified": false,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}
