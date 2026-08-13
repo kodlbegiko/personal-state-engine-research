@@ -1,0 +1,37 @@
+{
+  "schema_version": "candidate-v6-protected-validation-manifest-v1",
+  "benchmark_id": "candidate-v6-validation-v1",
+  "phase": "POST_FREEZE_PROTECTED_CONFIRMATORY",
+  "created_after_candidate_freeze": true,
+  "candidate_freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+  "seed": 20260813,
+  "case_count": 80,
+  "answerable_count": 40,
+  "no_evidence_count": 40,
+  "expected_dataset_sha256": "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7",
+  "generator": "benchmarks/algorithm-development/candidate-v6-validation-v1/generator.py",
+  "materialized_cases": "benchmarks/algorithm-development/candidate-v6-validation-v1/cases.jsonl",
+  "freshness": {
+    "candidate_v5_protected_cases_reused": false,
+    "candidate_v6_development_cases_reused": false,
+    "fresh_subject_namespace": "PVX",
+    "primary_relation_set_not_used_by_candidate_v6_development_generator": true,
+    "candidate_results_observed_before_dataset_definition": false
+  },
+  "families": {
+    "answerable_fresh_relation": 40,
+    "agenda_only": 5,
+    "explicit_no_value": 5,
+    "wrong_subject": 5,
+    "wrong_relation": 5,
+    "stale_only": 5,
+    "contradiction": 5,
+    "unsupported_inference": 5,
+    "review_topic": 5
+  },
+  "formal_execution_count_allowed": 1,
+  "post_result_editing_allowed": false,
+  "selection_critical": true,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}
