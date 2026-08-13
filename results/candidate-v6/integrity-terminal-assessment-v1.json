@@ -1,0 +1,54 @@
+{
+  "schema_version": "candidate-v6-integrity-terminal-assessment-v1",
+  "candidate": "candidate-v6",
+  "assessment": "FORMAL_GATE_E_INTEGRITY_FAIL_CLOSED",
+  "candidate_v6_mission_integrity": {
+    "new_sealed_final_content_access": false,
+    "new_sealed_final_path_operation": false,
+    "candidate_v6_changed_after_freeze": false,
+    "protected_validation_rerun": false,
+    "adversarial_v7_changed_after_results": false,
+    "negative_evidence_deleted": false,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "paid_inference_used": false,
+    "new_monetary_cost_usd": 0.0,
+    "pr_merged": false,
+    "force_push_used": false,
+    "tag_or_release_created": false
+  },
+  "preexisting_repository_deviation": {
+    "id": "SEALED-PATH-METADATA-001",
+    "source_artifact": "results/candidate-v4/integrity-deviations-v1.json",
+    "classification": "STRICT_INTEGRITY_DEVIATION",
+    "event_summary": "A broad PR changed-filenames metadata query historically surfaced the name of a path containing a sealed-final marker. No sealed-final payload was read.",
+    "content_accessed": false,
+    "status": "PRESERVED_NOT_HIDDEN_NOT_CURED",
+    "used_to_design_or_tune_candidate_v6": false
+  },
+  "frozen_gate_e_contract": {
+    "source": "experiments/protocols/adversarial-v6-confirmatory-evaluation-v1.json",
+    "rule": "Any recorded sealed-final listing/access deviation fails the formal Gate E integrity criterion even if payload content was not read.",
+    "known_deviation_artifact": "results/candidate-v4/integrity-deviations-v1.json",
+    "fail_closed": true
+  },
+  "scientific_evidence": {
+    "candidate_v6_protected_validation": "PASS",
+    "adversarial_v7_stage1": "PASS",
+    "adversarial_v7_exact_a_mem_stage2": "PASS_90_OF_90_VALID",
+    "candidate_v6_vs_exact_a_mem_mrr_noninferiority_margin_0_03": "PASS",
+    "gate_e_scientific_requirements": "COMPLETE",
+    "scientific_candidate_selection": "PASS"
+  },
+  "formal_effect": {
+    "candidate_v6_algorithmic_rejection": false,
+    "candidate_v6_scientific_selection": "PASS",
+    "formal_gate_e": "NOT_COMPLETE_INTEGRITY_FAIL_CLOSED",
+    "formal_selection": "NOT_AUTHORIZED_UNDER_PREEXISTING_FROZEN_INTEGRITY_RULE",
+    "formal_completion_percent": 45,
+    "formal_completion_change": 0,
+    "algorithm_parity": "NO",
+    "gate_f": "NOT_STARTED_SEALED_FINAL_PROHIBITED"
+  },
+  "interpretation": "Candidate-v6 solved the tested Gate E scientific selection problem and passed the fresh protected and confirmatory evidence. The formal repository Gate E cannot be marked complete without violating the older frozen integrity contract because the historical SEALED-PATH-METADATA-001 deviation remains part of the record. This deviation is not cured, erased, or attributed to Candidate-v6."
+}
