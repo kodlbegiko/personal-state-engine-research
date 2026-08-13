@@ -5,6 +5,8 @@ on:
     branches: [research/personal-state-engine-v0]
     paths:
       - 'experiments/configs/candidate-v5-v1.json'
+      - 'benchmarks/pilot/benchmark-lock.json'
+      - 'benchmarks/pilot/benchmark-lock.sha256'
       - '.github/workflows/candidate-v5-freeze-evidence.yml'
   workflow_dispatch:
 
