@@ -15,6 +15,7 @@
     "scripts/evaluate_candidate_v3.py": "9ef46fab68ca31eb293a90d59075a3518e2426cf",
     "scripts/evaluate_candidate_v4.py": "bd35697070320651aa59bae6d8c7be6c5762633b",
     "scripts/evaluate_candidate_v5.py": "e04f16d503406caadd7d35b55941d1c4ff3f1932",
+    "scripts/evaluate_candidate_v6.py": "c752d5b5406f1b6f4bb26bede0eefa22978aa152",
     "scripts/evaluate_frozen_candidate_v4_validation.py": "da12f9028c00a5f2632bc09ebac78eca898d87ca",
     "scripts/extract_longmemeval_execution_subset.py": "2dca5983420d9c0fc8396c4a788eff2677611a15",
     "scripts/fetch_longmemeval.py": "add9521ccf5ecd60caaebcdcc30fa56ef4859d54",
@@ -56,6 +57,7 @@
     "src/personal_state_engine/candidate_v3.py": "29898f760bbc7e9b2ece7b85b81b2067925fd408",
     "src/personal_state_engine/candidate_v4.py": "3fa4e55f65067ea78910793800d45d1de5fbb34a",
     "src/personal_state_engine/candidate_v5.py": "807e3fa41d42f67b2d751b99c77d3860d7c8a156",
+    "src/personal_state_engine/candidate_v6.py": "87a4901550c4b10ee72cd59688b3ddcc57a143f8",
     "src/personal_state_engine/commitments.py": "6d05555b71c175a4b993fbcaa53eeb0c74f8beb6",
     "src/personal_state_engine/engine.py": "ceeee9c32272ef52f08ee4a5a1580bdf71dd4e41",
     "src/personal_state_engine/evaluation.py": "3383e26e238ca3d93a22819b2d1fa96995daffa0",
@@ -84,5 +86,5 @@
     "pilot_test": 3,
     "validation": 3
   },
-  "version": "pilot-v0.11"
+  "version": "pilot-v0.13"
 }
