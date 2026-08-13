@@ -1,0 +1,108 @@
+name: Freeze adversarial v7 confirmatory benchmark
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/adversarial-v7-freeze-data.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen Candidate-v6 and protected-validation authorization
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(sha256sum src/personal_state_engine/candidate_v6.py | cut -d' ' -f1)" = "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325"
+          test "$(sha256sum experiments/configs/candidate-v6-v1.json | cut -d' ' -f1)" = "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          pv=json.loads(Path('results/candidate-v6/validation-summary-v1.json').read_text())
+          assert pv['candidate_status']=='PROTECTED_VALIDATION_PASS'
+          assert pv['protected_validation_pass'] is True
+          assert pv['statistics']['noninferiority_supported'] is True
+          assert pv['frozen_candidate']['changed_after_freeze'] is False
+          assert pv['integrity']['candidate_rerun_performed'] is False
+          print('CANDIDATE_V6_PROTECTED_AUTHORIZATION_PASS')
+          PY
+      - name: Materialize fresh adversarial-v7 without running any system
+        shell: bash
+        run: |
+          set -euo pipefail
+          python benchmarks/algorithm-development/adversarial-v7-confirmatory/generator.py
+          test "$(sha256sum benchmarks/algorithm-development/adversarial-v7-confirmatory/cases-v1.json | cut -d' ' -f1)" = "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd"
+      - name: Create frozen benchmark manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='benchmarks/algorithm-development/adversarial-v7-confirmatory'
+          dataset_sha="$(sha256sum "$root/cases-v1.json" | cut -d' ' -f1)"
+          generator_sha="$(sha256sum "$root/generator.py" | cut -d' ' -f1)"
+          protocol_sha="$(sha256sum experiments/protocols/adversarial-v7-confirmatory-evaluation-v1.json | cut -d' ' -f1)"
+          stats_sha="$(sha256sum experiments/protocols/adversarial-v7-statistics-v1.json | cut -d' ' -f1)"
+          python - "$dataset_sha" "$generator_sha" "$protocol_sha" "$stats_sha" <<'PY'
+          import json, sys
+          from pathlib import Path
+          dataset_sha,generator_sha,protocol_sha,stats_sha=sys.argv[1:]
+          manifest={
+            'schema_version':'adversarial-v7-confirmatory-manifest-v1',
+            'benchmark_id':'adversarial-v7-confirmatory',
+            'status':'FROZEN_BEFORE_ANY_SYSTEM_EXECUTION',
+            'case_count':90,
+            'answerable_count':60,
+            'no_evidence_count':30,
+            'dataset_sha256':dataset_sha,
+            'generator_sha256':generator_sha,
+            'evaluation_protocol_sha256':protocol_sha,
+            'statistics_protocol_sha256':stats_sha,
+            'candidate_v6_source_sha256':'c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325',
+            'candidate_v6_config_sha256':'067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1',
+            'candidate_v6_freeze_marker_commit':'af88deb300693e109ef22ec24e22ec3ec31efaad',
+            'post_result_editing_allowed':False,
+            'system_execution_count_at_freeze':0,
+            'candidate_v6_development_cases_reused':False,
+            'candidate_v6_protected_cases_reused':False,
+            'candidate_v5_protected_cases_reused':False,
+            'sealed_final_accessed':False,
+            'monetary_cost_usd':0,
+          }
+          assert dataset_sha=='77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd'
+          Path('benchmarks/algorithm-development/adversarial-v7-confirmatory/manifest-v1.json').write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(manifest,indent=2,sort_keys=True))
+          PY
+          sha256sum "$root/cases-v1.json" "$root/generator.py" "$root/manifest-v1.json" experiments/protocols/adversarial-v7-confirmatory-evaluation-v1.json experiments/protocols/adversarial-v7-statistics-v1.json
+      - name: Verify counts and freeze contract
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          root=Path('benchmarks/algorithm-development/adversarial-v7-confirmatory')
+          data=json.loads((root/'cases-v1.json').read_text())
+          manifest=json.loads((root/'manifest-v1.json').read_text())
+          cases=data['cases']
+          assert manifest['status']=='FROZEN_BEFORE_ANY_SYSTEM_EXECUTION'
+          assert len(cases)==90 and len({c['id'] for c in cases})==90
+          assert sum(bool(c['relevant_memory_ids']) for c in cases)==60
+          assert hashlib.sha256((root/'cases-v1.json').read_bytes()).hexdigest()==manifest['dataset_sha256']
+          print('ADVERSARIAL_V7_FREEZE_CONTRACT_PASS')
+          PY
+      - name: Commit frozen adversarial-v7 dataset and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/algorithm-development/adversarial-v7-confirmatory/cases-v1.json benchmarks/algorithm-development/adversarial-v7-confirmatory/manifest-v1.json
+          git commit -m 'research: freeze adversarial-v7 confirmatory benchmark'
+          git push origin HEAD:research/personal-state-engine-v0
