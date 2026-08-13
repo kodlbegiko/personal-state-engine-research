@@ -1,0 +1,65 @@
+name: Candidate-v6 Materialize Protected Validation
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - 'benchmarks/algorithm-development/candidate-v6-validation-v1/generator.py'
+      - 'benchmarks/algorithm-development/candidate-v6-validation-v1/manifest.json'
+      - '.github/workflows/candidate-v6-materialize-protected-validation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Candidate-v6 is frozen before label materialization
+        run: |
+          set -euo pipefail
+          test "$(sha256sum src/personal_state_engine/candidate_v6.py | cut -d' ' -f1)" = "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325"
+          test "$(sha256sum experiments/configs/candidate-v6-v1.json | cut -d' ' -f1)" = "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          marker = json.loads(Path('results/candidate-v6/freeze-marker-v1.json').read_text())
+          assert marker['status'] == 'FROZEN'
+          assert marker['post_freeze_source_editing_allowed'] is False
+          print(marker['freeze_repository_commit'])
+          PY
+      - name: Materialize fresh post-freeze protected cases
+        run: |
+          set -euo pipefail
+          python benchmarks/algorithm-development/candidate-v6-validation-v1/generator.py
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('benchmarks/algorithm-development/candidate-v6-validation-v1')
+          manifest = json.loads((root / 'manifest.json').read_text())
+          data = (root / 'cases.jsonl').read_bytes()
+          digest = hashlib.sha256(data).hexdigest()
+          assert digest == manifest['expected_dataset_sha256']
+          cases = [json.loads(line) for line in data.decode().splitlines() if line.strip()]
+          assert len(cases) == 80
+          assert sum(bool(c['relevant_memory_ids']) for c in cases) == 40
+          print(json.dumps({'sha256': digest, 'cases': len(cases), 'answerable': 40, 'no_evidence': 40}, sort_keys=True))
+          PY
+      - name: Commit protected dataset without evaluating Candidate-v6
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/algorithm-development/candidate-v6-validation-v1/cases.jsonl
+          if git diff --cached --quiet; then
+            echo 'protected dataset already materialized identically'
+            exit 0
+          fi
+          git commit -m 'research: materialize candidate-v6 protected validation'
+          git push origin HEAD:research/personal-state-engine-v0
