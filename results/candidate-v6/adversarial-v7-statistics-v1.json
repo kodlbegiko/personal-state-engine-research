@@ -1,0 +1,84 @@
+{
+  "schema_version": "candidate-v6-adversarial-v7-statistics-result-v1",
+  "statistics_protocol_sha256": "584e8bf8761ba414ea100df19ca53356b3ef09c0a190be82cfd2f44d5f8a194f",
+  "dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+  "bootstrap": {
+    "iterations": 10000,
+    "seed": 20260813,
+    "metric": "reciprocal_rank_on_answerable_cases",
+    "answerable_n": 60
+  },
+  "comparisons": {
+    "candidate_v6_frozen_vs_exact_a_mem": {
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority_supported": true,
+      "superiority_supported": false,
+      "equivalence_claim_authorized": false,
+      "parity_claim_authorized": false
+    },
+    "candidate_v6_frozen_vs_candidate_v2_frozen": {
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority_supported": true,
+      "superiority_supported": false
+    },
+    "candidate_v6_frozen_vs_candidate_v3_frozen": {
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority_supported": true,
+      "superiority_supported": false
+    }
+  },
+  "rate_intervals": {
+    "candidate_v6": {
+      "answerable_recall": 1.0,
+      "answerable_recall_wilson_95_ci": [0.93982814785791, 0.9999999999999998],
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [0.0, 0.06017185214208986],
+      "abstention_accuracy": 1.0,
+      "abstention_accuracy_wilson_95_ci": [0.8864866068260312, 0.9999999999999999],
+      "false_retrieval_rate": 0.0,
+      "false_retrieval_wilson_95_ci": [0.0, 0.11351339317396876]
+    },
+    "exact_a_mem": {
+      "answerable_recall": 1.0,
+      "answerable_recall_wilson_95_ci": [0.93982814785791, 0.9999999999999998],
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [0.0, 0.06017185214208986],
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [0.0, 0.11351339317396876],
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [0.8864866068260312, 0.9999999999999999]
+    }
+  },
+  "interpretation": {
+    "candidate_v6_exact_a_mem_retrieval_noninferiority": "SUPPORTED_AT_PREREGISTERED_0_03_MARGIN",
+    "candidate_v6_exact_a_mem_superiority": "NOT_SUPPORTED",
+    "candidate_v6_exact_a_mem_equivalence": "NOT_TESTED_NOT_AUTHORIZED",
+    "algorithm_parity": "NO",
+    "candidate_v6_no_evidence_safety_observed_advantage": "30/30 correct abstentions for Candidate-v6 versus 0/30 for exact A-MEM on this frozen benchmark; this is a benchmark-specific observed decision-safety result, not a universal superiority claim."
+  },
+  "source_evidence": {
+    "workflow_run_id": 31690210078,
+    "artifact_id": 9177810576,
+    "artifact_digest_sha256": "af9508085a2554644085800850793f3fb87f2c94194cb6447208b820569d278f",
+    "comparison_run1_sha256": "ba6b648f28c0510435e7cc9a765c21f1ac8f1c1ebed85c499a3b51a1a9873212"
+  },
+  "candidate_v6_rerun_performed": false,
+  "candidate_v6_changed_after_freeze": false,
+  "sealed_final_accessed_in_candidate_v6_mission": false,
+  "new_monetary_cost_usd": 0.0
+}
