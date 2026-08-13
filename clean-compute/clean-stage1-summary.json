@@ -28,11 +28,65 @@
   "schema_version": "adversarial-clean-stage1-v1",
   "stage2_authorized": true,
   "systems": {
-    "bm25": {"MRR": 0.24500000000000002, "R@1": 0.0, "R@3": 0.0, "R@5": 1.0, "abstention_accuracy": 0.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 1.0},
-    "candidate_v2": {"MRR": 1.0, "R@1": 1.0, "R@3": 1.0, "R@5": 1.0, "abstention_accuracy": 0.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 1.0},
-    "candidate_v6": {"MRR": 1.0, "R@1": 1.0, "R@3": 1.0, "R@5": 1.0, "abstention_accuracy": 1.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 0.0},
-    "random": {"MRR": 0.32666666666666666, "R@1": 0.15, "R@3": 0.475, "R@5": 0.6375, "abstention_accuracy": 0.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 1.0},
-    "recency": {"MRR": 0.0, "R@1": 0.0, "R@3": 0.0, "R@5": 0.0, "abstention_accuracy": 0.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 1.0},
-    "tfidf": {"MRR": 0.24500000000000002, "R@1": 0.0, "R@3": 0.0, "R@5": 1.0, "abstention_accuracy": 0.0, "answerable_recall": 1.0, "false_abstention": 0.0, "false_retrieval": 1.0}
+    "bm25": {
+      "MRR": 0.24500000000000002,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "candidate_v2": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "candidate_v6": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 0.0
+    },
+    "random": {
+      "MRR": 0.32666666666666666,
+      "R@1": 0.15,
+      "R@3": 0.475,
+      "R@5": 0.6375,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "recency": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "tfidf": {
+      "MRR": 0.24500000000000002,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    }
   }
 }
