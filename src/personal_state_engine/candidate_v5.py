@@ -118,8 +118,12 @@ def _entity_anchors(query: str) -> set[str]:
     return anchors
 
 
+def _normalize_value_atom(raw: str) -> str:
+    return raw.casefold().strip(".,:;!?()[]{}<>\"'")
+
+
 def _query_raw_atoms(query: str) -> set[str]:
-    return {atom.casefold().rstrip(".") for atom in VALUE_ATOM_RE.findall(query)}
+    return {normalized for raw in VALUE_ATOM_RE.findall(query) if (normalized := _normalize_value_atom(raw))}
 
 
 def _asserted_value_tokens(memory_text: str, query: str) -> set[str]:
@@ -128,8 +132,8 @@ def _asserted_value_tokens(memory_text: str, query: str) -> set[str]:
     ignored = query_stems | NON_VALUE_STEMS
     values: set[str] = set()
     for raw in VALUE_ATOM_RE.findall(memory_text):
-        normalized = raw.casefold().rstrip(".")
-        if normalized in query_raw:
+        normalized = _normalize_value_atom(raw)
+        if not normalized or normalized in query_raw:
             continue
         stem = _stem(normalized)
         if stem in ignored or len(stem) <= 1:
@@ -238,7 +242,7 @@ def answerability_signature(case: dict[str, Any], ranking: list[str] | None = No
             latest = [proposition for proposition in resolving if proposition.timestamp == latest_time]
             if len(latest) != 1:
                 return {
-                    "verdict": VERDICT_AMBIGUOUS,
+                    "verdict": VERDICT_AMIGUOUS,
                     "requirements": requirements,
                     "missing_requirements": [],
                     "coverage": {key: [p.memory_id for p in value] for key, value in coverage.items()},
