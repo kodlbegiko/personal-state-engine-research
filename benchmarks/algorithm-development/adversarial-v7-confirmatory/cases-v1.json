@@ -1,0 +1,2345 @@
+{
+  "cases": [
+    {
+      "category": "answerable",
+      "id": "adv7-a-001",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-001 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-001 is DECOY-1.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 1.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current balance for ADV7-001 is 12117.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-001?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-002",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current date for ALT7-002 is DECOY-2.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 2.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current date for ADV7-002 is 2026-09-06.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-002 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-002?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-003",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 3.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current preference for ADV7-003 is mode-303.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-003 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-003 is DECOY-3.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-003?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-004",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The current approval for ADV7-004 is Reviewer-304.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-004 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-004 is DECOY-4.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 4.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-004?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-005",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-005 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-005 is DECOY-5.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 5.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current registration number for ADV7-005 is REG-9305.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-005?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-006",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-006 is DECOY-6.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 6.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-006 current balance is 12202.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-006 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-006?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-007",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 7.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-007 current date is 2026-09-11.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-007 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-007 is DECOY-7.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-007?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-008",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-008 current preference is mode-308.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-008 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-008 is DECOY-8.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 8.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-008?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-009",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-009 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-009 is DECOY-9.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 9.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-009 current approval is Reviewer-309.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-009?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-010",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-010 is DECOY-10.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 10.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-010 current registration number is REG-9310.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-010 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-010?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-011",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 11.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-011's current balance is 12287.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-011 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-011 is DECOY-11.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-011?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-012",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-012's current date is 2026-09-16.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-012 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-012 is DECOY-12.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 12.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-012?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-013",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-013 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-013 is DECOY-13.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 13.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-013's current preference is mode-313.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-013?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-014",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-014 is DECOY-14.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 14.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-014's current approval is Reviewer-314.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-014 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-014?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-015",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 15.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-015's current registration number is REG-9315.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-015 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-015 is DECOY-15.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-015?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-016",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The balance for ADV7-016 updated to 12372.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-016 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-016 is DECOY-16.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 16.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-016?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-017",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-017 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-017 is DECOY-17.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 17.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The date for ADV7-017 updated to 2026-09-21.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-017?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-018",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-018 is DECOY-18.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 18.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The preference for ADV7-018 updated to mode-318.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-018 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-018?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-019",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 19.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The approval for ADV7-019 updated to Reviewer-319.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-019 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-019 is DECOY-19.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-019?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-020",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The registration number for ADV7-020 updated to REG-9320.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-020 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-020 is DECOY-20.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 20.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-020?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-021",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-021 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-021 is DECOY-21.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 21.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current balance for ADV7-021 is 12457.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-021?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-022",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current date for ALT7-022 is DECOY-22.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 22.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current date for ADV7-022 is 2026-09-26.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-022 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-022?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-023",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 23.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current preference for ADV7-023 is mode-323.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-023 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-023 is DECOY-23.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-023?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-024",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The current approval for ADV7-024 is Reviewer-324.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-024 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-024 is DECOY-24.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 24.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-024?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-025",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-025 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-025 is DECOY-25.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 25.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current registration number for ADV7-025 is REG-9325.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-025?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-026",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-026 is DECOY-26.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 26.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-026 current balance is 12542.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-026 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-026?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-027",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 27.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-027 current date is 2026-09-04.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-027 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-027 is DECOY-27.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-027?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-028",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-028 current preference is mode-328.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-028 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-028 is DECOY-28.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 28.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-028?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-029",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-029 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-029 is DECOY-29.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 29.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-029 current approval is Reviewer-329.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-029?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-030",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-030 is DECOY-30.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 30.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-030 current registration number is REG-9330.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-030 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-030?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-031",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 31.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-031's current balance is 12627.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-031 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-031 is DECOY-31.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-031?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-032",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-032's current date is 2026-09-09.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-032 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-032 is DECOY-32.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 32.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-032?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-033",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-033 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-033 is DECOY-33.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 33.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-033's current preference is mode-333.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-033?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-034",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-034 is DECOY-34.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 34.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-034's current approval is Reviewer-334.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-034 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-034?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-035",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 35.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-035's current registration number is REG-9335.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-035 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-035 is DECOY-35.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-035?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-036",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The balance for ADV7-036 updated to 12712.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-036 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-036 is DECOY-36.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 36.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-036?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-037",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-037 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-037 is DECOY-37.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 37.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The date for ADV7-037 updated to 2026-09-14.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-037?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-038",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-038 is DECOY-38.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 38.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The preference for ADV7-038 updated to mode-338.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-038 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-038?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-039",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 39.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The approval for ADV7-039 updated to Reviewer-339.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-039 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-039 is DECOY-39.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-039?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-040",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The registration number for ADV7-040 updated to REG-9340.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-040 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-040 is DECOY-40.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 40.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-040?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-041",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-041 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-041 is DECOY-41.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 41.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current balance for ADV7-041 is 12797.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-041?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-042",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current date for ALT7-042 is DECOY-42.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 42.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current date for ADV7-042 is 2026-09-19.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-042 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-042?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-043",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 43.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current preference for ADV7-043 is mode-343.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-043 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-043 is DECOY-43.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-043?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-044",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The current approval for ADV7-044 is Reviewer-344.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-044 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-044 is DECOY-44.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 44.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-044?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-045",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-045 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-045 is DECOY-45.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 45.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The current registration number for ADV7-045 is REG-9345.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-045?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-046",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-046 is DECOY-46.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 46.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-046 current balance is 12882.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-046 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-046?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-047",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 47.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-047 current date is 2026-09-24.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-047 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-047 is DECOY-47.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-047?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-048",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-048 current preference is mode-348.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-048 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-048 is DECOY-48.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 48.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-048?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-049",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-049 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-049 is DECOY-49.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 49.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-049 current approval is Reviewer-349.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-049?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-050",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-050 is DECOY-50.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 50.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-050 current registration number is REG-9350.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-050 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-050?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-051",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 51.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-051's current balance is 12967.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-051 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-051 is DECOY-51.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-051?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-052",
+      "memories": [
+        {
+          "id": "good",
+          "text": "ADV7-052's current date is 2026-09-02.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-052 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-052 is DECOY-52.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 52.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-052?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-053",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-053 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-053 is DECOY-53.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 53.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-053's current preference is mode-353.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-053?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-054",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-054 is DECOY-54.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 54.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-054's current approval is Reviewer-354.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-054 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-054?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-055",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 55.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "ADV7-055's current registration number is REG-9355.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-055 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-055 is DECOY-55.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-055?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-056",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The balance for ADV7-056 updated to 13052.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-056 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current balance for ALT7-056 is DECOY-56.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 56.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-056?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-057",
+      "memories": [
+        {
+          "id": "meta",
+          "text": "Question about ADV7-057 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current date for ALT7-057 is DECOY-57.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 57.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The date for ADV7-057 updated to 2026-09-07.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-057?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-058",
+      "memories": [
+        {
+          "id": "other",
+          "text": "The current preference for ALT7-058 is DECOY-58.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 58.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The preference for ADV7-058 updated to mode-358.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-058 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-058?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-059",
+      "memories": [
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 59.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        },
+        {
+          "id": "good",
+          "text": "The approval for ADV7-059 updated to Reviewer-359.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-059 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current approval for ALT7-059 is DECOY-59.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-059?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "answerable",
+      "id": "adv7-a-060",
+      "memories": [
+        {
+          "id": "good",
+          "text": "The registration number for ADV7-060 updated to REG-9360.",
+          "timestamp": "2026-08-20T10:00:00+00:00"
+        },
+        {
+          "id": "meta",
+          "text": "Question about ADV7-060 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "other",
+          "text": "The current registration number for ALT7-060 is DECOY-60.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        },
+        {
+          "id": "noise",
+          "text": "Unrelated logistics note number 60.",
+          "timestamp": "2026-08-24T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-060?",
+      "relevant_memory_ids": [
+        "good"
+      ]
+    },
+    {
+      "category": "agenda_only",
+      "id": "adv7-n-061",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Question about ADV7-061 balance remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-061 current balance agenda topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-061?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "agenda_only",
+      "id": "adv7-n-062",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Question about ADV7-062 date remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-062 current date agenda topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-062?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "agenda_only",
+      "id": "adv7-n-063",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Question about ADV7-063 preference remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-063 current preference agenda topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-063?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "agenda_only",
+      "id": "adv7-n-064",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Question about ADV7-064 approval remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-064 current approval agenda topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-064?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "agenda_only",
+      "id": "adv7-n-065",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Question about ADV7-065 registration number remains in the agenda only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-065 current registration number agenda topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-065?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "review_topic",
+      "id": "adv7-n-066",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current date for ADV7-066 is a discussion topic only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-066 current date review topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-066?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "review_topic",
+      "id": "adv7-n-067",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current preference for ADV7-067 is a discussion topic only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-067 current preference review topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-067?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "review_topic",
+      "id": "adv7-n-068",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current approval for ADV7-068 is a discussion topic only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-068 current approval review topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-068?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "review_topic",
+      "id": "adv7-n-069",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current registration number for ADV7-069 is a discussion topic only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-069 current registration number review topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-069?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "review_topic",
+      "id": "adv7-n-070",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current balance for ADV7-070 is a discussion topic only.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "ADV7-070 current balance review topic only.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-070?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "explicit_no_value",
+      "id": "adv7-n-071",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current preference for ADV7-071 contains no recorded value.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The preference question for ADV7-071 has no known answer.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-071?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "explicit_no_value",
+      "id": "adv7-n-072",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current approval for ADV7-072 contains no recorded value.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The approval question for ADV7-072 has no known answer.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-072?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "explicit_no_value",
+      "id": "adv7-n-073",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current registration number for ADV7-073 contains no recorded value.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The registration number question for ADV7-073 has no known answer.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-073?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "explicit_no_value",
+      "id": "adv7-n-074",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current balance for ADV7-074 contains no recorded value.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The balance question for ADV7-074 has no known answer.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-074?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "explicit_no_value",
+      "id": "adv7-n-075",
+      "memories": [
+        {
+          "id": "a",
+          "text": "Review of the current date for ADV7-075 contains no recorded value.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The date question for ADV7-075 has no known answer.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-075?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "wrong_subject",
+      "id": "adv7-n-076",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current approval for ALT7-076 is Reviewer-376.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Question about ADV7-076 approval remains open.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-076?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "wrong_subject",
+      "id": "adv7-n-077",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current registration number for ALT7-077 is REG-9377.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Question about ADV7-077 registration number remains open.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-077?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "wrong_subject",
+      "id": "adv7-n-078",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current balance for ALT7-078 is 13426.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Question about ADV7-078 balance remains open.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-078?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "wrong_subject",
+      "id": "adv7-n-079",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current date for ALT7-079 is 2026-09-02.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Question about ADV7-079 date remains open.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-079?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "wrong_subject",
+      "id": "adv7-n-080",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current preference for ALT7-080 is mode-380.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Question about ADV7-080 preference remains open.",
+          "timestamp": "2026-08-23T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-080?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only",
+      "id": "adv7-n-081",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The old registration number for ADV7-081 was REG-9381.",
+          "timestamp": "2026-08-05T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Review of the current registration number for ADV7-081 remains pending.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-081?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only",
+      "id": "adv7-n-082",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The old balance for ADV7-082 was 13494.",
+          "timestamp": "2026-08-05T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Review of the current balance for ADV7-082 remains pending.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-082?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only",
+      "id": "adv7-n-083",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The old date for ADV7-083 was 2026-09-06.",
+          "timestamp": "2026-08-05T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Review of the current date for ADV7-083 remains pending.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-083?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only",
+      "id": "adv7-n-084",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The old preference for ADV7-084 was mode-384.",
+          "timestamp": "2026-08-05T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Review of the current preference for ADV7-084 remains pending.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-084?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only",
+      "id": "adv7-n-085",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The old approval for ADV7-085 was Reviewer-385.",
+          "timestamp": "2026-08-05T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "Review of the current approval for ADV7-085 remains pending.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-085?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradiction",
+      "id": "adv7-n-086",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current balance for ADV7-086 is VALUE-A-86.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The current balance for ADV7-086 is VALUE-B-86.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current balance for ADV7-086?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradiction",
+      "id": "adv7-n-087",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current date for ADV7-087 is VALUE-A-87.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The current date for ADV7-087 is VALUE-B-87.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current date for ADV7-087?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradiction",
+      "id": "adv7-n-088",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current preference for ADV7-088 is VALUE-A-88.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The current preference for ADV7-088 is VALUE-B-88.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current preference for ADV7-088?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradiction",
+      "id": "adv7-n-089",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current approval for ADV7-089 is VALUE-A-89.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The current approval for ADV7-089 is VALUE-B-89.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current approval for ADV7-089?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradiction",
+      "id": "adv7-n-090",
+      "memories": [
+        {
+          "id": "a",
+          "text": "The current registration number for ADV7-090 is VALUE-A-90.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        },
+        {
+          "id": "b",
+          "text": "The current registration number for ADV7-090 is VALUE-B-90.",
+          "timestamp": "2026-08-22T10:00:00+00:00"
+        }
+      ],
+      "query": "What is the current registration number for ADV7-090?",
+      "relevant_memory_ids": []
+    }
+  ],
+  "schema_version": "adversarial-v7-confirmatory-cases-v1"
+}
