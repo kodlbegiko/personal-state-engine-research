@@ -1,0 +1,31 @@
+{
+  "schema_version": "candidate-v6-freeze-marker-v1",
+  "candidate": "candidate-v6",
+  "method": "Assertion-Structure Evidence Objects",
+  "status": "FROZEN",
+  "freeze_repository_commit": "76cedf1ec533ba010aa0d992f436c19339c0d18d",
+  "freeze_evidence": {
+    "workflow": "Candidate-v6 Freeze Evidence",
+    "run_id": 31688921031,
+    "job_id": 94411460129,
+    "conclusion": "success",
+    "artifact_id": 9176549407,
+    "artifact_digest_sha256": "32385e8345d71491406127b9adfe5d21d3a464c988c7e08bc611338c3ed84637"
+  },
+  "frozen_identities": {
+    "source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "preregistration_sha256": "bec25afa9b58906a31b1c7d882cbeaa98eb4ea8f590cbe37a87dc29aa77ea87f",
+    "development_dataset_sha256": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d",
+    "pilot_lock_version": "pilot-v0.13",
+    "pilot_lock_sha256": "acb43228a41caf4e9b001fa26cca0b73dee21ea43300babb8108cab1f35c8998"
+  },
+  "development_guardrails": "ALL_PASS",
+  "post_freeze_source_editing_allowed": false,
+  "post_freeze_config_editing_allowed": false,
+  "post_freeze_threshold_editing_allowed": false,
+  "protected_validation_may_now_be_created": true,
+  "candidate_v5_modified": false,
+  "new_sealed_final_access": false,
+  "monetary_cost_usd": 0
+}
