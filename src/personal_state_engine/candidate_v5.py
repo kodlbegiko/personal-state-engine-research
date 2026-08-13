@@ -242,7 +242,7 @@ def answerability_signature(case: dict[str, Any], ranking: list[str] | None = No
             latest = [proposition for proposition in resolving if proposition.timestamp == latest_time]
             if len(latest) != 1:
                 return {
-                    "verdict": VERDICT_AMIGUOUS,
+                    "verdict": VERDICT_AMBIGUOUS,
                     "requirements": requirements,
                     "missing_requirements": [],
                     "coverage": {key: [p.memory_id for p in value] for key, value in coverage.items()},
