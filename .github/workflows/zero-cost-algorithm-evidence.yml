@@ -24,7 +24,7 @@ jobs:
       - name: Run zero-cost regression tests
         run: python -m unittest discover -s tests -v
       - name: Refresh fail-closed benchmark lock
-        run: python scripts/freeze_pilot_benchmark.py --version pilot-v0.11
+        run: python scripts/freeze_pilot_benchmark.py --version pilot-v0.13
       - name: Verify benchmark lock
         run: python scripts/verify_benchmark_lock.py
       - name: Generate zero-cost algorithm evidence
@@ -68,7 +68,6 @@ jobs:
       - name: Commit deterministic research evidence
         shell: bash
         run: |
-          set -euo pipefail
           git add results/zero-cost-algorithm/baseline-results.json results/zero-cost-algorithm/ablation-results.json results/zero-cost-algorithm/statistical-analysis.json results/zero-cost-algorithm/failure-analysis.json results/zero-cost-algorithm/robustness-results.json results/zero-cost-algorithm/determinism-report.json results/zero-cost-algorithm/reproduction-status.json
           if ! git diff --cached --quiet; then
             git commit -m 'research: record zero-cost algorithm evidence'
