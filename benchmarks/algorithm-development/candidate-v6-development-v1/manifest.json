@@ -1,0 +1,37 @@
+{
+  "schema_version": "candidate-v6-development-manifest-v1",
+  "benchmark_id": "candidate-v6-development-v1",
+  "phase": "DEVELOPMENT_DIAGNOSTIC_ONLY",
+  "seed": 20260813,
+  "case_count": 120,
+  "answerable_count": 50,
+  "no_evidence_count": 70,
+  "expected_dataset_sha256": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d",
+  "generator": "benchmarks/algorithm-development/candidate-v6-development-v1/generate.py",
+  "materialized_cases": "benchmarks/algorithm-development/candidate-v6-development-v1/cases.jsonl",
+  "historical_failure_policy": "HISTORICAL_FAILURE_REGRESSION_ONLY_NOT_FRESH_CONFIRMATORY_EVIDENCE",
+  "families": {
+    "answerable": 50,
+    "agenda_only": 10,
+    "review_topic": 10,
+    "explicit_no_value": 10,
+    "wrong_subject": 10,
+    "wrong_relation": 10,
+    "unsupported_inference": 5,
+    "negative_assertion": 5,
+    "stale_only": 5,
+    "contradiction": 5
+  },
+  "variation_dimensions": [
+    "relation",
+    "value_type",
+    "assertion_word_order",
+    "temporal_scope",
+    "distractor_type",
+    "memory_order",
+    "subject_identity"
+  ],
+  "selection_authorized": false,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}
