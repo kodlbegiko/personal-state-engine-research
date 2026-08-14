@@ -1,0 +1,12 @@
+{
+  "schema_version": "pse-abstention-benchmark-v1",
+  "purpose": "Auxiliary CPU-only abstention research separated from frozen PSE candidate v2.",
+  "development_cases": 18,
+  "validation_cases": 12,
+  "balance": "50% answerable / 50% no-evidence in each split",
+  "systems": ["always_retrieve", "lexical_threshold", "margin_threshold", "combined_gate"],
+  "metrics": ["abstention_accuracy", "false_retrieval_rate", "false_abstention_rate", "answerable_recall_at_1", "answerable_recall_at_5"],
+  "selection_rule": "Choose thresholds using development only; evaluate validation once after gate configuration is frozen.",
+  "claim_boundary": "Auxiliary abstention evidence only; does not modify candidate v2, complete Gate E, or establish parity.",
+  "sealed_final_accessed": false
+}

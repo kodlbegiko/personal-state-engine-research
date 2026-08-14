@@ -1,0 +1,51 @@
+{
+  "schema_version": "longmemeval-development-run-v1",
+  "protocol_path": "experiments/protocols/longmemeval-development-matrix-v1.json",
+  "split_manifest_path": "experiments/splits/longmemeval-development-matrix-v1.json",
+  "answer_model_manifest_path": "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json",
+  "answer_run_manifest_path": "experiments/configs/qwen2.5-0.5b-development-matrix.json",
+  "baselines": ["EXT-B0", "EXT-B5"],
+  "retrieval": {
+    "variant": "BM25 Okapi",
+    "k": 3,
+    "k1": 1.2,
+    "b": 0.75,
+    "document_unit": "full session",
+    "turn_policy": "user and assistant turns",
+    "timestamp_policy": "timestamp included in indexed session text",
+    "tie_break": "original chronological index ascending",
+    "truncation_policy": "existing external trial prompt contract; no post-ranking answer-aware filtering",
+    "retrieval_token_budget": 8192,
+    "memory_token_budget": 8192
+  },
+  "evaluator": {
+    "id": "qwen2.5-0.5b-semantic-judge-v1",
+    "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "model_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "role_isolation": true,
+    "baseline_identity_hidden": true,
+    "prompt_version": "longmemeval-semantic-judge-v1",
+    "structured_output": "JSON object with correct boolean and rationale string",
+    "generation": {
+      "do_sample": false,
+      "temperature": 0.0,
+      "max_new_tokens": 96,
+      "seed": 29,
+      "timeout_seconds": 420
+    },
+    "retry_policy": "no automatic retry; invalid output retained"
+  },
+  "attempt_policy": {
+    "formal_attempts_per_case_baseline": 1,
+    "infrastructure_retry_limit": 1,
+    "overwrite_forbidden": true,
+    "analysis_attempt_policy": "terminal attempt with all prior attempts retained"
+  },
+  "security": {
+    "execution": "ephemeral isolated GitHub-hosted runner",
+    "untrusted_archives_or_images": false,
+    "production_deployment": false,
+    "dependency_audit_required": true,
+    "known_high_severity_findings_are_open_blockers": true
+  }
+}

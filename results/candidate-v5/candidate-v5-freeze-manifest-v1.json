@@ -1,0 +1,113 @@
+{
+  "schema_version": "candidate-v5-freeze-manifest-v1",
+  "candidate_id": "candidate-v5",
+  "method_name": "Atomic Requirement Evidence Graph",
+  "status": "FROZEN",
+  "frozen_at": "2026-08-13T11:45:00+08:00",
+  "freeze_commit": "1fb360367668d5a5014b88d3f0f47f4b58cb2b43",
+  "freeze_semantics": "freeze_commit is the CI-validated repository state whose Candidate-v5 source/config/protocol identities are frozen. This manifest is the subsequent durable marker and does not change Candidate-v5 source/config.",
+  "source": {
+    "path": "src/personal_state_engine/candidate_v5.py",
+    "sha256": "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975",
+    "git_blob_sha1": "807e3fa41d42f67b2d751b99c77d3860d7c8a156"
+  },
+  "config": {
+    "path": "experiments/configs/candidate-v5-v1.json",
+    "sha256": "b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a"
+  },
+  "preregistration": {
+    "path": "experiments/protocols/candidate-v5-design-preregistration-v1.json",
+    "sha256": "f406ed731d102cb517d3f57a03574cbff43754c609d0d287ed875ed75e77f764",
+    "existed_before_implementation": true
+  },
+  "verifier_prompt": {
+    "path": null,
+    "sha256": null,
+    "status": "NOT_APPLICABLE_DETERMINISTIC_ONLY"
+  },
+  "local_model": {
+    "enabled": false,
+    "model_name": null,
+    "model_digest": "DETERMINISTIC_ONLY_NO_MODEL"
+  },
+  "retrieval": {
+    "identity": "candidate-v2 frozen retrieval",
+    "implementation": "src/personal_state_engine/candidate_v2.py::pse_candidate_v2_rank",
+    "git_blob_sha1": "3a66ac539acce1b6c95cd7ff3f768756c9720b90",
+    "ranking_modification_allowed": false
+  },
+  "tests": {
+    "path": "tests/test_candidate_v5.py",
+    "sha256": "ac4db489851a65070683ccdcbea300ca403d020ec884c050fefff7dee8e73773",
+    "count": 16,
+    "status": "PASS_16_OF_16"
+  },
+  "development_dataset": {
+    "generator_path": "benchmarks/algorithm-development/candidate-v5-dev-v1/generator.py",
+    "generator_sha256": "86d6d9946a2d9c0c1babb9d57c15e8832a6b25209ba03dc719079bdad1814d3e",
+    "manifest_path": "benchmarks/algorithm-development/candidate-v5-dev-v1/manifest.json",
+    "manifest_sha256": "2573b1c1688d471a1ba1b77dd637f1b3abd1594c81e852e07b2b0b76e76eb28d",
+    "dataset_sha256": "2a96ee9c15ff77dd359330e5bbf311a528f956041104f513045d39cfd966a93a",
+    "case_count": 88,
+    "answerable_count": 40,
+    "no_evidence_count": 48,
+    "guardrails_pass": true,
+    "selection_evidence": false
+  },
+  "benchmark_lock": {
+    "version": "pilot-v0.12",
+    "path": "benchmarks/pilot/benchmark-lock.json",
+    "sha256": "a224a84c2b7895e79f4bcc6bf3a9b2b683d42ed04f815f225f26250cb8bfb8a5",
+    "anchor_path": "benchmarks/pilot/benchmark-lock.sha256",
+    "anchor_file_sha256": "e570ddcf73ac621ee1fa854430dc06609752512c4e708115cd70fb3a9257ae85",
+    "formal_regeneration_run_id": 31664442549,
+    "formal_regeneration_artifact_id": 9167386489,
+    "formal_regeneration_artifact_digest_sha256": "f7ee392f5dd3e8830e00c4578067873b6acded72dc7c8d5b0e3552d3d6d957a7"
+  },
+  "freeze_evidence": {
+    "workflow": "Candidate-v5 Freeze Evidence",
+    "run_id": 31664819435,
+    "job_id": 94336982582,
+    "head_sha": "1fb360367668d5a5014b88d3f0f47f4b58cb2b43",
+    "conclusion": "success",
+    "artifact_id": 9167515386,
+    "artifact_digest_sha256": "f9b81f6e5eeb18c17df0819f216fe84d480681e0baf6b69f8e9db2347bb787a8",
+    "clean_worktree": true,
+    "benchmark_lock_verified": true,
+    "development_guardrails_pass": true
+  },
+  "ci_at_freeze_commit": {
+    "ci": "SUCCESS",
+    "strong_baseline_evidence": "SUCCESS",
+    "candidate_v5_development_evidence": "SUCCESS"
+  },
+  "pre_freeze_deviations_preserved": [
+    {
+      "type": "DEVELOPMENT_FAILURE",
+      "workflow_run_id": 31664163704,
+      "summary": "15/16 unit tests; query_echo false acceptance. Preserved in development ledger."
+    },
+    {
+      "type": "DEVELOPMENT_FAILURE",
+      "workflow_run_id": 31664231823,
+      "summary": "15/16 unit tests after first repair; punctuation canonicalization root cause remained. Preserved in development ledger."
+    },
+    {
+      "type": "FREEZE_EVIDENCE_NOT_ADOPTED",
+      "workflow_run_id": 31664614671,
+      "summary": "Workflow succeeded but verified pilot-v0.11 rather than the intended formally regenerated pilot-v0.12. No freeze manifest was created from that run. Lock identity was reconciled before formal freeze."
+    }
+  ],
+  "post_freeze_rule": "Candidate-v5 source/config/protocol identities must not change. Any method change requires Candidate-v6. Protected validation failure may not be patched in Candidate-v5.",
+  "integrity": {
+    "candidate_v4_modified": false,
+    "v6_modified": false,
+    "v6_role": "HISTORICAL_DIAGNOSTIC_ONLY",
+    "sealed_final_accessed": false,
+    "negative_evidence_deleted": false,
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "pr_2_required_state": "OPEN_DRAFT_NOT_MERGED"
+  }
+}

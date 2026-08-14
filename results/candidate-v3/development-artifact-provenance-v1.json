@@ -1,0 +1,36 @@
+{
+  "schema_version": "candidate-v3-development-artifact-provenance-v1",
+  "workflow": ".github/workflows/candidate-v3-development.yml",
+  "workflow_run_id": 31354745172,
+  "workflow_run_attempt": 1,
+  "workflow_head_sha": "0e39d9dbcc3c7ea8af305bce6606eb21f1562f1d",
+  "workflow_conclusion": "success",
+  "artifact": {
+    "id": 9050232390,
+    "name": "candidate-v3-development-v1",
+    "digest": "sha256:eab4df269218bc5f44baa2d634dfecd4f459531bc42f9ab0dd8a31f577e3be1e",
+    "created_at": "2026-08-10T04:12:21Z",
+    "expires_at": "2026-09-09T04:12:20Z"
+  },
+  "durable_result": "results/candidate-v3/development-v1.json",
+  "durable_result_sha256_from_artifact_bytes": "55ac6ffc63450e997478447adc2251795ad1927fb6094251f3e052ec1c897f90",
+  "candidate_v3_source_sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+  "protocol_sha256": "61c49cfadcf7c1fac7fcd0bfaa0444b037d1ee3bb4b36f009f822e8aec0b0144",
+  "development_dataset_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+  "development_acceptance": {
+    "candidate_v3_mrr": 1.0,
+    "candidate_v3_recall_at_1": 1.0,
+    "candidate_v3_abstention_accuracy": 1.0,
+    "candidate_v3_false_retrieval_rate": 0.0,
+    "candidate_v3_false_abstention_rate": 0.0,
+    "status": "PASS"
+  },
+  "integrity": {
+    "selection_data": "development only",
+    "candidate_v2_changed": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "failed_evidence_deleted": false
+  },
+  "claim_boundary": "Development acceptance only. Validation and v5 confirmatory evaluation have not yet been used to modify candidate-v3."
+}

@@ -1,0 +1,38 @@
+{
+  "blinded_response_id": "response-795bf8baedf021d8",
+  "error": null,
+  "provider": "local-fallback",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 12020.210992000008,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a rubric for desired personalized response, and a response from a model. Please answer yes if the response satisfies the desired response. Otherwise, answer no. The model does not need to reflect all the points in the rubric. The response is correct as long as it recalls and utilizes the user's personal information correctly.\n\nQuestion: I've been struggling with my slow cooker recipes. Any advice on getting better results?\n\nRubric: The user would prefer responses that provide tips and advice specifically tailored to their slow cooker experiences, utilizing their recent success with beef stew and interest in making yogurt in the slow cooker. They might not prefer general slow cooker recipes or advice unrelated to their specific experiences and interests.\n\nModel Response: Certainly! Improving slow cooker recipes requires practice and patience. Here are some tips to help you improve:\n\n1. **Understand the Basics:** Start by learning the basics of slow cooking, including how long to cook each ingredient, what kind of equipment to use, and how to measure ingredients accurately.\n\n2. **Read Recipes:** Always read the instructions carefully before starting to cook. Look for specific instructions on how long to simmer, how much liquid to use, and how many batches\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "evaluator-v2:response-795bf8baedf021d8:6800777c-c5d1-4a48-aef2-ecb153d51c78",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 293,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "evaluator-v2:response-795bf8baedf021d8:6800777c-c5d1-4a48-aef2-ecb153d51c78",
+  "schema_version": "longmemeval-raw-judge-output-v2"
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": "adversarial-v5-confirmatory-manifest-v1",
+  "status": "FROZEN_BEFORE_ANY_V5_SYSTEM_RESULT",
+  "candidate_v3_freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+  "pre_result_identity_correction": {
+    "reason": "The first two Stage-1 attempts stopped at the identity gate before any system execution. GitHub runner byte hashing showed the committed materializer SHA256 is 50b51130...; the previous 6ca56d... value came from a local draft byte representation. Candidate source, case specifications, expected materialized dataset hash, cases, metrics, thresholds and protocol semantics are unchanged.",
+    "failed_preexecution_runs": [31355440247, 31355529068],
+    "v5_system_results_observed_before_correction": false
+  },
+  "case_specifications": {
+    "path": "benchmarks/algorithm-development/adversarial-v5/case-specifications-v1.json",
+    "sha256": "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
+  },
+  "materializer": {
+    "path": "experiments/runners/materialize_adversarial_v5.py",
+    "sha256": "50b51130469a3e6d6f61e45d3e849ff18fbc71719c3966fcea959eeec8d4855d"
+  },
+  "materialized_dataset": {
+    "canonical_json_rule": "json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) plus newline",
+    "expected_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+    "case_count": 60,
+    "answerable_case_count": 45,
+    "no_evidence_case_count": 15,
+    "memory_count_per_case": 8,
+    "case_ids_sha256": "623155d1cd4639ffd1513e4ff8a8a9a6d4466267d5645f2519a3ffd490fca0ba"
+  },
+  "category_counts": {
+    "temporal_update": 5,
+    "contradiction_resolved": 5,
+    "multi_session": 5,
+    "rare_anchor": 5,
+    "duplicate_distractor": 5,
+    "query_echo_distractor": 4,
+    "lexical_overlap": 4,
+    "stale_memory": 4,
+    "recency_trap": 4,
+    "multiple_relevant": 4,
+    "same_entity_wrong_field": 3,
+    "plausible_unsupported": 3,
+    "temporal_near_match": 2,
+    "query_echo_only": 2,
+    "related_domain_wrong_answer": 2,
+    "duplicate_distractor_no_answer": 1,
+    "conflict_no_resolution": 1,
+    "unseen_relation_hard_no_evidence": 1
+  },
+  "design_properties": {
+    "mechanism_agnostic": true,
+    "includes_unseen_relation_or_paraphrase_cases": true,
+    "includes_temporal_conflict": true,
+    "includes_query_echo": true,
+    "includes_duplicate_distractors": true,
+    "includes_stale_and_recency_traps": true,
+    "includes_multiple_relevant_memories": true,
+    "includes_hard_no_evidence": true,
+    "operator_designed": true,
+    "independent_reproduction": false
+  },
+  "integrity": {
+    "candidate_v3_changed_after_freeze": false,
+    "candidate_v2_changed": false,
+    "post_result_case_editing_allowed": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0
+  }
+}

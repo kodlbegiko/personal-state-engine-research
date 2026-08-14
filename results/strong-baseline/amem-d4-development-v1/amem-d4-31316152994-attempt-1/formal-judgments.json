@@ -1,0 +1,210 @@
+{
+  "baseline_identity_hidden": true,
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "invalid_output_count": 0,
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "rows": [
+    {
+      "case_id": "031748ae_abs",
+      "correct": false,
+      "is_abstention": true,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "knowledge-update",
+      "sequence_index": 1,
+      "status": "VALID"
+    },
+    {
+      "case_id": "0862e8bf_abs",
+      "correct": true,
+      "is_abstention": true,
+      "normalized_text": "yes",
+      "parser_error": null,
+      "question_type": "single-session-user",
+      "sequence_index": 2,
+      "status": "VALID"
+    },
+    {
+      "case_id": "09ba9854_abs",
+      "correct": false,
+      "is_abstention": true,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "multi-session",
+      "sequence_index": 3,
+      "status": "VALID"
+    },
+    {
+      "case_id": "18dcd5a5",
+      "correct": true,
+      "is_abstention": false,
+      "normalized_text": "yes",
+      "parser_error": null,
+      "question_type": "single-session-assistant",
+      "sequence_index": 4,
+      "status": "VALID"
+    },
+    {
+      "case_id": "1903aded",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-assistant",
+      "sequence_index": 5,
+      "status": "VALID"
+    },
+    {
+      "case_id": "21436231",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-user",
+      "sequence_index": 6,
+      "status": "VALID"
+    },
+    {
+      "case_id": "26bdc477",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "knowledge-update",
+      "sequence_index": 7,
+      "status": "VALID"
+    },
+    {
+      "case_id": "35a27287",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-preference",
+      "sequence_index": 8,
+      "status": "VALID"
+    },
+    {
+      "case_id": "51b23612",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-assistant",
+      "sequence_index": 9,
+      "status": "VALID"
+    },
+    {
+      "case_id": "71017277",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "temporal-reasoning",
+      "sequence_index": 10,
+      "status": "VALID"
+    },
+    {
+      "case_id": "7527f7e2",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-user",
+      "sequence_index": 11,
+      "status": "VALID"
+    },
+    {
+      "case_id": "caf03d32",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "single-session-preference",
+      "sequence_index": 12,
+      "status": "VALID"
+    },
+    {
+      "case_id": "d23cf73b",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "multi-session",
+      "sequence_index": 13,
+      "status": "VALID"
+    },
+    {
+      "case_id": "d7c942c3",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "knowledge-update",
+      "sequence_index": 14,
+      "status": "VALID"
+    },
+    {
+      "case_id": "dcfa8644",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "temporal-reasoning",
+      "sequence_index": 15,
+      "status": "VALID"
+    },
+    {
+      "case_id": "gpt4_7de946e7",
+      "correct": true,
+      "is_abstention": false,
+      "normalized_text": "yes",
+      "parser_error": null,
+      "question_type": "temporal-reasoning",
+      "sequence_index": 16,
+      "status": "VALID"
+    },
+    {
+      "case_id": "gpt4_93159ced",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "temporal-reasoning",
+      "sequence_index": 17,
+      "status": "VALID"
+    },
+    {
+      "case_id": "gpt4_93159ced_abs",
+      "correct": true,
+      "is_abstention": true,
+      "normalized_text": "yes",
+      "parser_error": null,
+      "question_type": "temporal-reasoning",
+      "sequence_index": 18,
+      "status": "VALID"
+    },
+    {
+      "case_id": "gpt4_a56e767c",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "multi-session",
+      "sequence_index": 19,
+      "status": "VALID"
+    },
+    {
+      "case_id": "gpt4_e05b82a6",
+      "correct": false,
+      "is_abstention": false,
+      "normalized_text": "no",
+      "parser_error": null,
+      "question_type": "multi-session",
+      "sequence_index": 20,
+      "status": "VALID"
+    }
+  ],
+  "schema_version": "amem-d4-formal-judgments-v1"
+}

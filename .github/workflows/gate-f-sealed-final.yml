@@ -1,0 +1,86 @@
+name: Gate F Sealed-Final Single Execution
+
+on:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - .github/workflows/gate-f-sealed-final.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gate-f-sealed-final-single-execution
+  cancel-in-progress: false
+
+jobs:
+  gate-f-formal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout frozen research branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Verify frozen synthetic Gate F adapter tests
+        run: python -m unittest -v tests.test_gate_f_sealed_final_adapter
+
+      - name: Download pinned official LongMemEval-S cleaned dataset
+        run: |
+          mkdir -p /tmp/gate-f results/gate-f-run1
+          curl --fail --location --retry 3 --retry-delay 5 \
+            'https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned/resolve/98d7416c24c778c2fee6e6f3006e7a073259d48f/longmemeval_s_cleaned.json' \
+            --output /tmp/gate-f/longmemeval_s_cleaned.json
+
+      - name: Formal Gate F selection-bearing execution exactly once
+        id: formal
+        shell: bash
+        run: |
+          set +e
+          python scripts/evaluate_gate_f_sealed_final.py \
+            --dataset /tmp/gate-f/longmemeval_s_cleaned.json \
+            --split results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/splits/longmemeval-s-sealed_final.json \
+            --output results/gate-f-run1/formal-result.json
+          code=$?
+          printf '%s\n' "$code" > results/gate-f-run1/evaluator-exit-code.txt
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          meta = {
+              'workflow_run_id': int(os.environ['GITHUB_RUN_ID']),
+              'run_attempt': int(os.environ['GITHUB_RUN_ATTEMPT']),
+              'head_sha': os.environ['GITHUB_SHA'],
+              'ref': os.environ['GITHUB_REF'],
+              'event': os.environ['GITHUB_EVENT_NAME'],
+              'selection_execution_count_this_workflow': 1,
+              'paid_api': False,
+              'paid_gpu': False,
+              'paid_inference': False,
+              'new_monetary_cost_usd': 0,
+          }
+          Path('results/gate-f-run1/execution-metadata.json').write_text(
+              json.dumps(meta, indent=2, sort_keys=True) + '\n', encoding='utf-8'
+          )
+          PY
+          exit 0
+
+      - name: Hash immutable result evidence
+        run: |
+          cd results/gate-f-run1
+          sha256sum formal-result.json evaluator-exit-code.txt execution-metadata.json > SHA256SUMS
+
+      - name: Upload immutable Gate F result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gate-f-sealed-final-run1
+          path: results/gate-f-run1/
+          if-no-files-found: error
+          retention-days: 90

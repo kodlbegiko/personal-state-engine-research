@@ -1,0 +1,162 @@
+name: A-MEM Frozen-24 Retrieval
+
+on:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - ".github/amem-frozen-trigger"
+
+permissions:
+  contents: read
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5]
+    env:
+      A_MEM_SOURCE_COMMIT: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+      EXPECTED_CORPUS_SHA256: 6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9
+      EXPECTED_EMBEDDING_SNAPSHOT: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+      EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify D2 pins and frozen corpus before D3 execution
+        run: |
+          test "$(sha256sum benchmarks/strong-baseline/synthetic-memory-cases-v1.json | awk '{print $1}')" = "$EXPECTED_CORPUS_SHA256"
+      - name: Capture environment and zero-cost boundary
+        run: |
+          mkdir -p amem-frozen-artifact
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          {
+            uname -a
+            python --version
+            free -h
+            df -h
+          } | tee amem-frozen-artifact/environment.txt
+          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false}\n' > amem-frozen-artifact/cost.json
+      - name: Install and pin Ollama model
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > amem-frozen-artifact/ollama.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull qwen2.5:3b
+          curl -fsS http://127.0.0.1:11434/api/tags > amem-frozen-artifact/ollama-tags.json
+          python - <<'PY'
+          import json, os
+          tags = json.load(open('amem-frozen-artifact/ollama-tags.json'))
+          model = next(row for row in tags['models'] if row['name'] == 'qwen2.5:3b')
+          observed = model['digest']
+          expected = os.environ['EXPECTED_OLLAMA_DIGEST']
+          if observed != expected:
+              raise SystemExit(f'Ollama digest mismatch: expected {expected}, got {observed}')
+          PY
+      - name: Clone exact-pinned A-MEM and install runtime
+        run: |
+          git clone https://github.com/WujiangXu/A-mem.git upstream-amem
+          cd upstream-amem
+          git checkout "$A_MEM_SOURCE_COMMIT"
+          test "$(git rev-parse HEAD)" = "$A_MEM_SOURCE_COMMIT"
+          cd ..
+          python -m pip install -e .
+          python -m pip install -r upstream-amem/requirements.txt
+          python -m pip freeze > amem-frozen-artifact/pip-freeze.txt
+      - name: Preload and verify exact embedding snapshot
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import snapshot_download
+          expected = os.environ['EXPECTED_EMBEDDING_SNAPSHOT']
+          path = snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision=expected)
+          observed = path.rstrip('/').split('/')[-1]
+          if observed != expected:
+              raise SystemExit(f'Embedding snapshot mismatch: expected {expected}, got {observed}')
+          open('amem-frozen-artifact/embedding-snapshot.txt','w').write(observed+'\n')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as handle:
+              handle.write(f'EMBEDDING_MODEL_PATH={path}\n')
+          PY
+      - name: Execute exact A-MEM shard
+        env:
+          PYTHONHASHSEED: "17"
+        run: |
+          test -n "$EMBEDDING_MODEL_PATH"
+          /usr/bin/time -v -o amem-frozen-artifact/time-shard-${{ matrix.shard }}.txt \
+            python scripts/run_amem_frozen_synthetic.py \
+              --corpus benchmarks/strong-baseline/synthetic-memory-cases-v1.json \
+              --upstream-dir upstream-amem \
+              --output amem-frozen-artifact/shard-${{ matrix.shard }}.json \
+              --shard-index ${{ matrix.shard }} \
+              --shard-count 6 \
+              --model qwen2.5:3b \
+              --backend ollama \
+              --embedding-model "$EMBEDDING_MODEL_PATH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amem-frozen-shard-${{ matrix.shard }}
+          path: amem-frozen-artifact/
+          if-no-files-found: error
+
+  aggregate:
+    runs-on: ubuntu-latest
+    needs: shard
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: amem-frozen-shard-*
+          path: downloaded-shards
+          merge-multiple: true
+      - name: Merge six fail-closed shards
+        run: |
+          mkdir -p amem-frozen-aggregate
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          corpus = json.loads(Path('benchmarks/strong-baseline/synthetic-memory-cases-v1.json').read_text())
+          expected = [case['id'] for case in corpus['cases']]
+          predictions = []
+          metadata = []
+          for path in sorted(Path('downloaded-shards').glob('shard-*.json')):
+              row = json.loads(path.read_text())
+              if row['corpus_sha256'] != '6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9':
+                  raise SystemExit(f'corpus SHA mismatch in {path}')
+              if row['source_commit'] != '0c8039f28fdcc08189a23c07a3437d9d2482f9c2':
+                  raise SystemExit(f'source commit mismatch in {path}')
+              predictions.extend(row['predictions'])
+              metadata.append({'path': str(path), 'shard_index': row['shard_index'], 'case_count': row['case_count']})
+          ids = [row['case_id'] for row in predictions]
+          if len(predictions) != 24 or len(set(ids)) != 24 or set(ids) != set(expected):
+              raise SystemExit(f'incomplete or duplicate predictions: {len(predictions)} rows / {len(set(ids))} unique')
+          order = {case_id: index for index, case_id in enumerate(expected)}
+          predictions.sort(key=lambda row: order[row['case_id']])
+          payload = {
+              'schema_version': 'amem-frozen-synthetic-predictions-v1',
+              'source_commit': '0c8039f28fdcc08189a23c07a3437d9d2482f9c2',
+              'corpus_sha256': '6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9',
+              'case_count': 24,
+              'embedding_snapshot': '1110a243fdf4706b3f48f1d95db1a4f5529b4d41',
+              'ollama_digest': '357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b',
+              'shards': metadata,
+              'predictions': predictions,
+          }
+          Path('amem-frozen-aggregate/predictions.json').write_text(json.dumps(payload, indent=2, sort_keys=True)+'\n')
+          PY
+          python scripts/run_memory_baseline_comparison.py \
+            --corpus benchmarks/strong-baseline/synthetic-memory-cases-v1.json \
+            --predictions amem-frozen-aggregate/predictions.json \
+            --output amem-frozen-aggregate/retrieval-results.json
+          sha256sum amem-frozen-aggregate/*.json > amem-frozen-aggregate/sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amem-frozen-24-aggregate
+          path: amem-frozen-aggregate/
+          if-no-files-found: error

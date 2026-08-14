@@ -1,0 +1,45 @@
+{
+  "artifact_count": 6,
+  "artifacts": [
+    {
+      "bytes": 75,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/cost.json",
+      "sha256": "23b571969d3990c2db27d018d6acba0eec3c94a4479a942e727e8bb2ebf9a6f6"
+    },
+    {
+      "bytes": 1344,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/minimal-result.json",
+      "sha256": "fb6ddcba20797705efa44229574a7c7f1d47d9faee619a4e655ff98e51537f83"
+    },
+    {
+      "bytes": 419,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/ollama-tags.json",
+      "sha256": "9ffd4ebe0caafb9893be9a1ed4dfba8535e024c7e55075181ba2d550fdc38032"
+    },
+    {
+      "bytes": 3041,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/pip-freeze.txt",
+      "sha256": "5d02ddef3b46f7b23501665a4113282620ddf2ef7c2eb72825899e09ca0cd8bb"
+    },
+    {
+      "bytes": 2039,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/runtime-summary.json",
+      "sha256": "84d34bb94bc6059bef6b9fe854b44995ad6e7b9c716bd88ac64d67b6de334db4"
+    },
+    {
+      "bytes": 743,
+      "path": "results/strong-baseline/amem-minimal-runtime-v1/time.txt",
+      "sha256": "3d697f848b04417c19046b4ae20481f1d663a559970fc2dee02d842322f094c9"
+    }
+  ],
+  "cloud_gpu_cost_usd": 0.0,
+  "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "paid_api_cost_usd": 0.0,
+  "schema_version": "amem-minimal-runtime-artifact-registry-v1",
+  "sealed_final_accessed": false,
+  "source_artifact_digest": "sha256:2352969c45d102033a55888839f910d7b92f5782ee0f341c6a33cf930b5ed40a",
+  "source_artifact_id": 9025152472,
+  "source_job_id": 93132538041,
+  "source_run_id": 31269329437
+}

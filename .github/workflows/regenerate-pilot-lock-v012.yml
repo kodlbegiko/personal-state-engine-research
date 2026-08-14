@@ -1,0 +1,43 @@
+name: Regenerate Pilot Lock v0.12
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/regenerate-pilot-lock-v012.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e .
+      - name: Regenerate lock using repository freeze mechanism
+        run: |
+          set -euo pipefail
+          python scripts/freeze_pilot_benchmark.py --version pilot-v0.12
+          echo '---LOCK-BEGIN---'
+          cat benchmarks/pilot/benchmark-lock.json
+          echo '---LOCK-END---'
+          echo '---ANCHOR-BEGIN---'
+          cat benchmarks/pilot/benchmark-lock.sha256
+          echo '---ANCHOR-END---'
+      - name: Verify regenerated lock
+        run: python scripts/verify_benchmark_lock.py
+      - name: Upload regenerated lock
+        uses: actions/upload-artifact@v4
+        with:
+          name: pilot-lock-v0.12
+          path: |
+            benchmarks/pilot/benchmark-lock.json
+            benchmarks/pilot/benchmark-lock.sha256
+          if-no-files-found: error
+          retention-days: 7

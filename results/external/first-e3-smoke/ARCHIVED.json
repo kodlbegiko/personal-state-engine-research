@@ -1,0 +1,9 @@
+{
+  "archived_at": "2026-07-31T17:42:39Z",
+  "evidence_level": "E3_PIPELINE_SMOKE",
+  "research_verdict": "INCONCLUSIVE",
+  "schema_version": "e3-archive-v1",
+  "source_head_commit": "ca98c4789a7836651bde87f2d6b93fb140d737b0",
+  "workflow_run_attempt": "1",
+  "workflow_run_id": "30652039317"
+}

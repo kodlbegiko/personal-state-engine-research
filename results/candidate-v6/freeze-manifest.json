@@ -1,0 +1,68 @@
+{
+  "schema_version": "candidate-v6-freeze-manifest-v1",
+  "candidate": "candidate-v6",
+  "method": "Assertion-Structure Evidence Objects",
+  "freeze_status": "FROZEN",
+  "freeze_repository_commit": "76cedf1ec533ba010aa0d992f436c19339c0d18d",
+  "freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+  "source": {
+    "path": "src/personal_state_engine/candidate_v6.py",
+    "sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325"
+  },
+  "config": {
+    "path": "experiments/configs/candidate-v6-v1.json",
+    "sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1"
+  },
+  "preregistration": {
+    "path": "results/candidate-v6/preregistration.md",
+    "sha256": "bec25afa9b58906a31b1c7d882cbeaa98eb4ea8f590cbe37a87dc29aa77ea87f"
+  },
+  "development": {
+    "benchmark_id": "candidate-v6-development-v1",
+    "case_count": 120,
+    "answerable_count": 50,
+    "no_evidence_count": 70,
+    "dataset_sha256": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d",
+    "development_result_artifact_sha256": "0e9d5c2a9fee929ae8e3f398625c1e958c17b03020b8c6e8fb3e7141f03be934",
+    "guardrails": "ALL_PASS",
+    "tests_executed": 33,
+    "tests_passed": 33
+  },
+  "development_evidence": {
+    "run_id": 31688488856,
+    "job_id": 94410087985,
+    "artifact_id": 9176385585,
+    "artifact_digest_sha256": "9b6155960ad6decbdc52930cd1703311f054db003c3914757bea54c694d8658d"
+  },
+  "freeze_evidence": {
+    "run_id": 31688921031,
+    "job_id": 94411460129,
+    "artifact_id": 9176549407,
+    "artifact_digest_sha256": "32385e8345d71491406127b9adfe5d21d3a464c988c7e08bc611338c3ed84637",
+    "conclusion": "success"
+  },
+  "repository_ci": {
+    "run_id": 31688923873,
+    "head_sha": "76cedf1ec533ba010aa0d992f436c19339c0d18d",
+    "conclusion": "success"
+  },
+  "pilot_lock": {
+    "version": "pilot-v0.13",
+    "sha256": "acb43228a41caf4e9b001fa26cca0b73dee21ea43300babb8108cab1f35c8998"
+  },
+  "immutability": {
+    "post_freeze_source_editing_allowed": false,
+    "post_freeze_config_editing_allowed": false,
+    "post_freeze_threshold_editing_allowed": false,
+    "protected_validation_formal_execution_count_allowed": 1
+  },
+  "integrity": {
+    "candidate_v5_modified": false,
+    "negative_evidence_deleted": false,
+    "new_sealed_final_access": false,
+    "paid_api": false,
+    "paid_gpu": false,
+    "paid_inference": false,
+    "monetary_cost_usd": 0
+  }
+}

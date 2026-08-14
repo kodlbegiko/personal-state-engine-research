@@ -1,0 +1,79 @@
+{
+  "schema_version": "candidate-v4-design-preregistration-v2",
+  "status": "PRE_FREEZE_INTEGRITY_SUPERSESSION_OF_VALIDATION_BOUNDARY_ONLY",
+  "supersedes": {
+    "path": "experiments/protocols/candidate-v4-design-preregistration-v1.json",
+    "sha256": "40fde840652165199e2c14dfdb62abdab2ea06f590cef4f064d9be64960427b2",
+    "commit": "d25c8938db5eea1bd30bd5f86c85fa1c4ef9e42f",
+    "reason": "The originally named validation split was exposed before Candidate-v4 freeze and is therefore disqualified as protected validation. All architecture, metrics, thresholds, tuning limits, negative-result rules, and zero-cost/sealed-final constraints remain unchanged."
+  },
+  "effective_at": "2026-08-10T21:16:00+08:00",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "branch": "research/personal-state-engine-v0",
+  "candidate_identity": "candidate-v4",
+  "research_question": "Can a post-retrieval answerability mechanism distinguish relevant-looking evidence from evidence sufficient to answer, while preserving frozen Candidate-v2 retrieval quality?",
+  "architecture": {
+    "retriever": "pse_candidate_v2_rank frozen comparator; no ranking-semantic modification",
+    "answerability_layer": "deterministic proposition and slot coverage with contradiction/uncertainty resolution",
+    "integration_rule": "SUPPORTED returns the original frozen Candidate-v2 ranking unchanged; CONTRADICTED or INSUFFICIENT returns an empty ranking.",
+    "source_changes_after_freeze_allowed": false
+  },
+  "development": {
+    "dataset": "benchmarks/algorithm-development/abstention-dev-v1/development.json",
+    "dataset_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+    "completed_run_id": 31391251038,
+    "artifact_id": 9063747481,
+    "artifact_digest": "sha256:f05875529a606b394b99f4505d6639dce4c05fcaacad441face3c9ebe6f5e14b",
+    "acceptance": "PASS"
+  },
+  "protected_validation": {
+    "old_split_status": "CONTAMINATED_AND_FORBIDDEN_FOR_PROTECTED_VALIDATION",
+    "forbidden_old_path": "benchmarks/algorithm-development/abstention-dev-v1/validation.json",
+    "new_validation_creation_time": "ONLY_AFTER_CANDIDATE_V4_FREEZE",
+    "new_validation_requirements": [
+      "non-sealed",
+      "mechanism-agnostic",
+      "contains answerable and no-evidence cases",
+      "category-balanced enough to exercise direct support, updates, temporal constraints, wrong-field near matches, query echo, unresolved contradiction, partial evidence and paraphrase",
+      "dataset and manifest frozen before the one-time run",
+      "no Candidate-v4 source changes after observing any result",
+      "one execution only unless an operationally transient failure occurs before scientific output"
+    ]
+  },
+  "acceptance_thresholds": {
+    "minimum_abstention_accuracy": 0.8,
+    "maximum_false_retrieval_rate": 0.2,
+    "maximum_false_abstention_rate": 0.1,
+    "maximum_mrr_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_1_deficit_vs_candidate_v2": 0.03,
+    "maximum_recall_at_3_deficit_vs_candidate_v2": 0.02,
+    "maximum_recall_at_5_deficit_vs_candidate_v2": 0.02,
+    "all_conditions_required": true
+  },
+  "tuning_budget": {
+    "maximum_architecture_variants": 4,
+    "maximum_hyperparameter_or_config_variants": 20,
+    "used_architecture_variants": 1,
+    "used_config_variants": 1,
+    "candidate_source_changes_after_development_pass": 0,
+    "preserve_all_failed_variants": true
+  },
+  "confirmatory_boundary": {
+    "adversarial_v5_role": "historical_diagnostic_only_not_confirmatory",
+    "candidate_v4_confirmatory_benchmark": "must be newly created only after one-time protected validation PASS",
+    "sealed_final": "PROHIBITED"
+  },
+  "statistics_rule": "Future v6 primary comparisons use 10,000 paired bootstrap iterations for v4-v2 and v4-exact-A-MEM; abstention/error rates report Wilson 95% CIs.",
+  "negative_result_rule": "If the new one-time frozen validation fails, Candidate-v4 is REJECTED and must not be patched; any new method becomes Candidate-v5.",
+  "guardrails": {
+    "candidate_v2_retuning_prohibited": true,
+    "candidate_v3_patching_prohibited": true,
+    "candidate_v4_post_freeze_patch_prohibited": true,
+    "post_result_benchmark_editing_prohibited": true,
+    "merge_force_push_tag_release_prohibited": true,
+    "paid_api_gpu_inference_prohibited": true,
+    "zero_cost_usd": 0.0
+  },
+  "integrity_deviation_reference": "results/candidate-v4/integrity-deviations-v1.json",
+  "claim_boundary": "This pre-freeze supersession changes only the invalid protected-validation source boundary. It does not change Candidate-v4 source, architecture, selection metrics, thresholds, or acceptance guardrails after seeing a protected result."
+}

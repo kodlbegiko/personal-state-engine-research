@@ -1,0 +1,20 @@
+{
+  "cpu_count": 4,
+  "github_run_attempt": "1",
+  "github_run_id": "30652039317",
+  "github_sha": "55eaa489e1a984e98ad28eb1f8431e38ff27b215",
+  "machine": "x86_64",
+  "model_cache_manifest_sha256": "cf1e3be190216974e42777fe180334254524b6598be24770786ed99d2c9b85bc",
+  "model_server_ready": {
+    "cache_directory": ".external-data/hf-cache",
+    "dtype": "q4",
+    "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "runtime": "@huggingface/transformers",
+    "status": "ready"
+  },
+  "node": "v24.18.0",
+  "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "schema_version": "environment-manifest-v1"
+}

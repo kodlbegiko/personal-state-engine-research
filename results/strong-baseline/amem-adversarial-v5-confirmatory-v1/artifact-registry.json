@@ -1,0 +1,27 @@
+{
+  "artifact_count": 3,
+  "artifacts": [
+    {
+      "bytes": 13534,
+      "path": "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/predictions-run1.json",
+      "sha256": "a021a7c43c03d0ae1a4e23574fa4a9eb166b9869949ef17cd00f3a35f9d92dba"
+    },
+    {
+      "bytes": 6331,
+      "path": "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/comparison-run1.json",
+      "sha256": "878fc0b68ef0a20d70b2b43bb39b4ca678df62430672c4fe02d6c75604c3208d"
+    },
+    {
+      "bytes": 2552,
+      "path": "results/strong-baseline/amem-adversarial-v5-confirmatory-v1/resource-summary-run1.json",
+      "sha256": "1c7e87aa22fd537f60d19ac05aa8fb6f49d75c8fc98e7dd204ac8d7669f69625"
+    }
+  ],
+  "corpus_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "060aca66ba87d23dce1b1e8e072094bec7559f2d97f9fbfab9fb4fd8514206fc",
+  "schema_version": "amem-adversarial-v5-artifact-registry-v1",
+  "sealed_final_accessed": false,
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "source_run_id": 31355907320
+}

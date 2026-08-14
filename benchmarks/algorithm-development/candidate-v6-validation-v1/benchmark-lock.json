@@ -1,0 +1,27 @@
+{
+  "benchmark_id": "candidate-v6-validation-v1",
+  "candidate_freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+  "created_after_candidate_freeze": true,
+  "expected": {
+    "candidate_v6_config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "candidate_v6_source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "dataset_sha256": "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7"
+  },
+  "formal_execution_count_allowed": 1,
+  "formal_execution_performed_at_lock_time": false,
+  "hashes": {
+    "candidate_v6_config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "candidate_v6_freeze_marker_sha256": "b7231e19f5d3378dcdfa239e3dbcd9b62eb06e1dc928bfd9e2b94391b7e068e4",
+    "candidate_v6_source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "dataset_sha256": "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7",
+    "evaluator_sha256": "74d7368a12daecd6bf20f0484c4f6d7d73b2e1ea4fa01ef7974ba6bdf624f5d6",
+    "generator_sha256": "5fc97431958bc44e1f6a009ef6a738da4006ed4124eecfe8b7b9aa8985657824",
+    "manifest_sha256": "76b075134908923fdaceba4811c5e63e5da3558eb9e9d1c21dcb50eec42c86f5"
+  },
+  "monetary_cost_usd": 0,
+  "post_result_candidate_tuning_allowed": false,
+  "post_result_editing_allowed": false,
+  "schema_version": "candidate-v6-protected-validation-lock-v1",
+  "sealed_final_accessed": false,
+  "status": "FROZEN_BEFORE_FORMAL_EXECUTION"
+}

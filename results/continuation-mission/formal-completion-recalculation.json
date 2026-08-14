@@ -1,0 +1,115 @@
+{
+  "schema_version": "formal-completion-recalculation-v1",
+  "assessed_at": "2026-08-10T08:44:00+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "framework": {
+    "path": "experiments/protocols/formal-completion-recalculation-v1.json",
+    "freeze_commit": "5b789df3e9139bd8e5e510c47db9aafd5046a3d6",
+    "scoring": "binary_formal_gate_credit",
+    "weights_percent": {"A":10,"B":10,"C":10,"D":15,"E":20,"F":25,"G":10}
+  },
+  "previous_completion_percent": 30,
+  "new_completion_percent": 45,
+  "delta_percentage_points": 15,
+  "domains": [
+    {
+      "gate": "A",
+      "weight_percent": 10,
+      "formal_status": "COMPLETE",
+      "earned_percent": 10,
+      "evidence_level": "E2+",
+      "evidence": ["docs/progress.md"],
+      "missing_credit": 0
+    },
+    {
+      "gate": "B",
+      "weight_percent": 10,
+      "formal_status": "COMPLETE",
+      "earned_percent": 10,
+      "evidence_level": "E2+",
+      "evidence": ["docs/progress.md"],
+      "missing_credit": 0
+    },
+    {
+      "gate": "C",
+      "weight_percent": 10,
+      "formal_status": "COMPLETE",
+      "earned_percent": 10,
+      "evidence_level": "E3",
+      "evidence": ["docs/progress.md","results/external/longmemeval-evaluator-v2/"],
+      "missing_credit": 0
+    },
+    {
+      "gate": "D",
+      "weight_percent": 15,
+      "formal_status": "COMPLETE",
+      "earned_percent": 15,
+      "evidence_level": "E3",
+      "evidence": ["results/continuation-mission/d4-completion-assessment.json","results/strong-baseline/amem-development-v1/predictions-run1.json","results/strong-baseline/amem-d4-development-v1/amem-d4-31316152994-attempt-1/"],
+      "missing_credit": 0,
+      "resource_characterization": "durable auxiliary engineering evidence; no extra percentage beyond Gate D under the frozen binary framework"
+    },
+    {
+      "gate": "E",
+      "weight_percent": 20,
+      "formal_status": "NOT_COMPLETE",
+      "earned_percent": 0,
+      "evidence_level": "E3_AUXILIARY",
+      "evidence": ["results/continuation-mission/gate-e-assessment.json","results/continuation-mission/resource-comparison.json"],
+      "missing_credit": 20,
+      "blockers": ["NO_FORMAL_SELECTION","underpowered candidate-v2 vs exact A-MEM comparison","abstention unresolved","candidate-v1/v2 tradeoff across benchmark families","independent reproduction false"]
+    },
+    {
+      "gate": "F",
+      "weight_percent": 25,
+      "formal_status": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+      "earned_percent": 0,
+      "evidence_level": "E0_NOT_STARTED",
+      "evidence": [],
+      "missing_credit": 25,
+      "blockers": ["sealed-final intentionally prohibited until preceding protocol gates authorize it"]
+    },
+    {
+      "gate": "G",
+      "weight_percent": 10,
+      "formal_status": "NOT_COMPLETE",
+      "earned_percent": 0,
+      "evidence_level": "E2_PARTIAL_REMEDIATION",
+      "evidence": ["results/continuation-mission/gate-g-provenance-progress.json"],
+      "missing_credit": 10,
+      "blockers": ["fresh independent E3 reproduction not complete","artifact-registry-v2 fresh workflow evidence pending","post-upload GitHub artifact ID/digest archival pending","exact official evaluator reproduction remains resource-constrained"]
+    }
+  ],
+  "gate_status": {
+    "A": "COMPLETE",
+    "B": "COMPLETE",
+    "C": "COMPLETE",
+    "D": "COMPLETE",
+    "E": "NOT_COMPLETE",
+    "F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+    "G": "NOT_COMPLETE"
+  },
+  "major_completed_evidence": {
+    "recovery_20_of_20": true,
+    "d4_complete": true,
+    "resource_characterization_durable": true,
+    "evaluator_v2_calibrated": true,
+    "candidate_v2_robustness_auxiliary": true,
+    "candidate_v2_ablation_auxiliary": true
+  },
+  "algorithm_parity": "NO",
+  "algorithm_catch_up_status": "COMPETITIVE_ON_ADVERSARIAL_DEVELOPMENT; PARITY_NOT_ESTABLISHED",
+  "independent_reproduction": false,
+  "sealed_final_accessed": false,
+  "new_monetary_cost_usd": 0.0,
+  "integrity": {
+    "frozen_development_changed": false,
+    "candidate_v2_retuned": false,
+    "failed_evidence_deleted": false,
+    "sealed_final_accessed": false,
+    "pr_merged": false,
+    "release_or_tag_created": false
+  },
+  "verdict": "AT_RISK",
+  "interpretation": "Formal evidence-completion rises from 30% to 45% solely because Gate D moved from not started/zero credit to formally complete under a framework frozen before recalculation. Gate E auxiliary progress and Gate G provenance remediation are intentionally recorded without fractional completion credit until their formal gates pass."
+}

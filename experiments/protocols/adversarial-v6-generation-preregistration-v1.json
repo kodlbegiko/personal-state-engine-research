@@ -1,0 +1,74 @@
+{
+  "schema_version": "adversarial-v6-generation-preregistration-v1",
+  "status": "PREREGISTERED_BEFORE_V6_CASE_GENERATION",
+  "recorded_at": "2026-08-10T21:27:00+08:00",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "branch": "research/personal-state-engine-v0",
+  "candidate_v4_freeze_commit": "e6780204686d3de526905eca8f2778c2510b7876",
+  "candidate_v4_source_sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+  "candidate_v4_config_sha256": "a6341817ed382423a4d48d5df890765bb59f887655f16bd0e0647b89e3379606",
+  "protected_validation": {
+    "run_id": 31392806910,
+    "artifact_id": 9064343914,
+    "artifact_digest": "sha256:79a14acbbb50d7ce53a18f5655d09c73dd4a10e37aeeb2d1039c407eac3d61a3",
+    "verdict": "PASS"
+  },
+  "benchmark": {
+    "name": "adversarial-v6-confirmatory",
+    "total_cases": 90,
+    "answerable_cases": 60,
+    "no_evidence_cases": 30,
+    "mechanism_agnostic": true,
+    "adversarial_v5_reuse": false,
+    "case_id_namespace": ["ADV6-A-001..060", "ADV6-N-001..030"]
+  },
+  "answerable_category_matrix": {
+    "single_support": 6,
+    "multi_support": 6,
+    "temporal_update": 6,
+    "contradiction_resolved": 6,
+    "duplicate_distractor": 6,
+    "lexical_overlap_distractor": 6,
+    "stale_evidence": 6,
+    "recency_trap": 6,
+    "multi_session_evidence": 6,
+    "paraphrased_query": 6
+  },
+  "no_evidence_category_matrix": {
+    "same_subject_wrong_attribute": 3,
+    "same_relation_wrong_subject": 3,
+    "high_lexical_overlap": 3,
+    "query_echo": 3,
+    "stale_only_evidence": 3,
+    "contradictory_unresolved_evidence": 3,
+    "partial_evidence": 3,
+    "plausible_unsupported_inference": 3,
+    "temporal_near_match": 3,
+    "near_duplicate_non_answer": 3
+  },
+  "generation": {
+    "generator_path": "scripts/generate_adversarial_v6.py",
+    "generator_git_blob_sha1": "6d4d8a22b30b89d59c9c7cc533fda8b7d89af1f2",
+    "deterministic": true,
+    "case_edit_after_first_system_result": false,
+    "manual_case_selection_after_result": false,
+    "candidate_specific_answer_string_injection": false
+  },
+  "freeze_order": [
+    "candidate-v4 frozen",
+    "v6 cases generated",
+    "v6 manifest frozen",
+    "metrics/thresholds frozen",
+    "statistics frozen",
+    "systems may execute"
+  ],
+  "integrity": {
+    "sealed_final_content_allowed": false,
+    "paid_resources_allowed": false,
+    "new_monetary_cost_usd": 0.0,
+    "candidate_v2_retuning_allowed": false,
+    "candidate_v3_patching_allowed": false,
+    "candidate_v4_post_freeze_patch_allowed": false,
+    "merge_force_push_tag_release_allowed": false
+  }
+}

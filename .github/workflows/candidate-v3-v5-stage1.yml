@@ -1,0 +1,64 @@
+name: Candidate v3 V5 Stage 1
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/candidate-v3-v5-stage1-v1.txt
+
+permissions:
+  contents: read
+
+jobs:
+  stage1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: python -m pip install -e .
+      - name: Verify frozen identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          candidate_sha="$(sha256sum src/personal_state_engine/candidate_v3.py | awk '{print $1}')"
+          spec_sha="$(sha256sum benchmarks/algorithm-development/adversarial-v5/case-specifications-v1.json | awk '{print $1}')"
+          materializer_sha="$(sha256sum experiments/runners/materialize_adversarial_v5.py | awk '{print $1}')"
+          echo "candidate_v3_sha256=$candidate_sha"
+          echo "v5_spec_sha256=$spec_sha"
+          echo "v5_materializer_sha256=$materializer_sha"
+          test "$candidate_sha" = "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284"
+          test "$spec_sha" = "c7737280b69177773b287dca96fa657ab53b1d6f6d91b92d384b9f7ae6da8767"
+          test "$materializer_sha" = "50b51130469a3e6d6f61e45d3e849ff18fbc71719c3966fcea959eeec8d4855d"
+      - name: Evaluate frozen v5 stage1
+        run: |
+          mkdir -p /tmp/v5-stage1
+          python experiments/runners/evaluate_adversarial_v5_stage1.py \
+            --output /tmp/v5-stage1/stage1-results-v1.json \
+            --dataset-output /tmp/v5-stage1/materialized-v5.json
+      - name: Verify frozen dataset and discrimination
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          dataset = Path('/tmp/v5-stage1/materialized-v5.json')
+          assert hashlib.sha256(dataset.read_bytes()).hexdigest() == '41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169'
+          p = json.loads(Path('/tmp/v5-stage1/stage1-results-v1.json').read_text())
+          assert p['case_count'] == 60
+          assert p['answerable_case_count'] == 45
+          assert p['no_evidence_case_count'] == 15
+          assert p['discrimination']['status'] == 'PASS', p['discrimination']
+          assert p['integrity']['candidate_v3_changed_after_freeze'] is False
+          assert p['integrity']['sealed_final_accessed'] is False
+          assert p['integrity']['new_monetary_cost_usd'] == 0.0
+          print('ADVERSARIAL_V5_STAGE1_DISCRIMINATION_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v3-v5-stage1-v1
+          path: /tmp/v5-stage1/
+          retention-days: 30
+          if-no-files-found: error

@@ -1,0 +1,57 @@
+name: Materialize Candidate-v5 Protected Validation
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/materialize-candidate-v5-validation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize frozen validation cases and manifest
+        run: |
+          set -euo pipefail
+          python benchmarks/algorithm-development/candidate-v5-validation-v1/generator.py
+          mv benchmarks/algorithm-development/candidate-v5-validation-v1/manifest.generated.json benchmarks/algorithm-development/candidate-v5-validation-v1/manifest.json
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('benchmarks/algorithm-development/candidate-v5-validation-v1')
+          cases = root / 'cases.jsonl'
+          generator = root / 'generator.py'
+          manifest = json.loads((root / 'manifest.json').read_text())
+          case_sha = hashlib.sha256(cases.read_bytes()).hexdigest()
+          gen_sha = hashlib.sha256(generator.read_bytes()).hexdigest()
+          assert manifest['case_count'] == 48
+          assert manifest['answerable_count'] == 24
+          assert manifest['no_evidence_count'] == 24
+          assert case_sha == '9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5', case_sha
+          assert manifest['dataset_sha256'] == case_sha
+          assert gen_sha == '6aade601d448463befdf4dbb4547e8301cb19bfee67d6b5c723fe736dccdd9b3', gen_sha
+          assert manifest['created_after_candidate_v5_freeze'] is True
+          assert manifest['one_formal_execution_only'] is True
+          assert manifest['sealed_final_accessed'] is False
+          assert manifest['monetary_cost_usd'] == 0
+          print(json.dumps({'dataset_sha256': case_sha, 'generator_sha256': gen_sha, 'cases': manifest['case_count']}, sort_keys=True))
+          PY
+      - name: Commit materialized dataset
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/algorithm-development/candidate-v5-validation-v1/cases.jsonl benchmarks/algorithm-development/candidate-v5-validation-v1/manifest.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research: materialize candidate-v5 protected validation'
+          git push origin HEAD:research/personal-state-engine-v0

@@ -1,0 +1,38 @@
+{
+  "schema_version": "pilot-benchmark-lock-transition-v1",
+  "recorded_at": "2026-08-10T11:28:00+08:00",
+  "reason": "Close the remaining Issue #3 integrity gap by preventing same-version normalization of benchmark-affecting code changes.",
+  "previous": {
+    "version": "pilot-v0.4",
+    "lock_blob_sha": "e59897f44cbf2c89cf3496a0fc8f62753c9ce0d7",
+    "lock_anchor_sha256": "93ec7693a72b33c0d2a37d6cd34a91429d94d5e0d0f3deb99422c556b91103d6",
+    "freeze_script_git_blob_sha1": "c2ae7ae9dac411d23099f14a20da141b449a8c3e"
+  },
+  "current": {
+    "version": "pilot-v0.5",
+    "freeze_script_git_blob_sha1": "ed968ae81bfc2242803805f7a798a208a57d3174",
+    "lock_anchor_sha256": "9a2244d3cd7459f5d2f62a1fc3fe64c11b22c7ca96cbe53d8cddd06fcc457336"
+  },
+  "changed_locked_inputs": [
+    "scripts/freeze_pilot_benchmark.py"
+  ],
+  "enforcement": {
+    "same_version_with_unchanged_inputs": "ALLOWED",
+    "same_version_with_changed_benchmark_inputs": "REJECTED",
+    "changed_inputs_with_explicit_new_version": "ALLOWED",
+    "ci_default_behavior": "Runs freeze without --version; therefore it can verify an unchanged committed lock but cannot silently refresh changed benchmark-affecting inputs under the existing version."
+  },
+  "regression_test": "tests/test_freeze_pilot_benchmark.py",
+  "semantic_effect": {
+    "benchmark_cases_changed": false,
+    "benchmark_expected_outputs_changed": false,
+    "candidate_v2_changed": false,
+    "a_mem_identity_changed": false,
+    "scientific_result_changed": false
+  },
+  "integrity": {
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "failed_evidence_deleted": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "answerable_count": 24,
+  "candidate_v5_config_sha256": "b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a",
+  "candidate_v5_freeze_commit": "1fb360367668d5a5014b88d3f0f47f4b58cb2b43",
+  "candidate_v5_freeze_marker_commit": "5a49c2157eb45acfc23fa65e6ce03dc666d3985d",
+  "candidate_v5_source_sha256": "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975",
+  "case_count": 48,
+  "dataset_sha256": "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5",
+  "files_sha256": {
+    "benchmarks/algorithm-development/candidate-v5-validation-v1/cases.jsonl": "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5",
+    "benchmarks/algorithm-development/candidate-v5-validation-v1/evaluate_once.py": "a3e891ca01b376144a188e0edf144f08264c241c37abe84fc841742e4effe6b0",
+    "benchmarks/algorithm-development/candidate-v5-validation-v1/generator.py": "6aade601d448463befdf4dbb4547e8301cb19bfee67d6b5c723fe736dccdd9b3",
+    "benchmarks/algorithm-development/candidate-v5-validation-v1/manifest.json": "d429b5c2c99c4675576480ccbc8fccb701968591260188c8cb296480beb52059"
+  },
+  "formal_execution_count_allowed": 1,
+  "monetary_cost_usd": 0,
+  "no_evidence_count": 24,
+  "post_result_editing_allowed": false,
+  "schema_version": "candidate-v5-protected-validation-lock-v1",
+  "sealed_final_accessed": false,
+  "status": "FROZEN_BEFORE_FORMAL_EXECUTION"
+}

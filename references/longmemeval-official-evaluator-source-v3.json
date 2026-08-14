@@ -1,0 +1,18 @@
+{
+  "official_commit_sha": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+  "official_file_blob_sha": "4732f3772b04a2b9069121ade304e6320494abc2",
+  "official_file_path": "src/evaluation/evaluate_qa.py",
+  "official_file_sha256": "ecce9c4c79dc89d99534ac17b383a5cbb5b9f0c69ee98adaf0684742e3d95251",
+  "official_license": "MIT",
+  "official_parser": "label = 'yes' in eval_response.lower()",
+  "official_repository": "https://github.com/xiaowu0162/LongMemEval",
+  "official_retry": "backoff.expo on RateLimitError/APIError without repository-fixed maximum attempt count",
+  "retrieved_at_utc": "2026-08-01T14:28:00Z",
+  "schema_version": "longmemeval-official-evaluator-source-v3",
+  "snapshot_policy": "hash-and-metadata pin; no vendored source file",
+  "supported_models": [
+    "meta-llama/Meta-Llama-3.1-70B-Instruct",
+    "gpt-4o-mini-2024-07-18",
+    "gpt-4o-2024-08-06"
+  ]
+}

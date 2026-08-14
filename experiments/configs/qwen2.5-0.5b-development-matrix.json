@@ -1,0 +1,10 @@
+{
+  "model_provider": "huggingface-open-weight-transformersjs",
+  "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+  "model_version": "956050e4c6ce7c647091e15311218f80d662559f",
+  "temperature": 0.0,
+  "seed": 17,
+  "token_budget": 96,
+  "timeout_seconds": 420.0,
+  "tool_policy": "none"
+}

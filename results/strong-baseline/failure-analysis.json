@@ -1,0 +1,19 @@
+{
+  "compute_blockers": [
+    "sentence-transformers/transformers/rank-bm25 not present in isolated runner",
+    "qwen2.5:3b model weights not present",
+    "no GPU and 5.9 GiB RAM make exact full upstream runtime unverified rather than assumed feasible"
+  ],
+  "context_truncations": null,
+  "failure_taxonomy_status": "PREPARED_NOT_POPULATED_UNTIL_REAL_RETRIEVAL_RUN",
+  "implementation_deviations": [
+    "AMemUpstreamAdapter is a mechanical interface wrapper, not a semantic reimplementation",
+    "No surrogate embedding or surrogate LLM result is counted as A-MEM retrieval evidence"
+  ],
+  "preference_misses": null,
+  "ranking_misses": null,
+  "retrieval_misses": null,
+  "schema_version": "strong-baseline-failure-analysis-v1",
+  "stale_memory_failures": null,
+  "update_conflicts": null
+}

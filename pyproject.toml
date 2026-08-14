@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "personal-state-engine-research"
+version = "0.1.0"
+description = "A research prototype for temporal, provenance-aware personal AI state management."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Personal State Engine Research contributors"}]
+keywords = ["ai-agents", "long-term-memory", "temporal-memory", "personal-assistant", "benchmark"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

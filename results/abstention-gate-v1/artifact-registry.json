@@ -1,0 +1,14 @@
+{
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "bytes": 3595,
+      "path": "results/abstention-gate-v1/results.json",
+      "sha256": "100d7a2d3289277c5ac44619e32cadf2da49eb7f9dbd94885d7e2c5bb35cb6c5"
+    }
+  ],
+  "cloud_gpu_cost_usd": 0.0,
+  "paid_api_cost_usd": 0.0,
+  "schema_version": "pse-abstention-gate-v1-artifact-registry-v1",
+  "sealed_final_accessed": false
+}

@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "d7c942c3",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 5312.972748,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a correct answer, and a response from a model. Please answer yes if the response contains the correct answer. Otherwise, answer no. If the response contains some previous information along with an updated answer, the response should be considered as correct as long as the updated answer is the required answer.\n\nQuestion: Is my mom using the same grocery list method as me?\n\nCorrect Answer: Yes.\n\nModel Response: No, your mother does not use the same grocery list method as you.\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:d7c942c3:cecb0500-43d3-4300-90e9-36881c5a5dd0",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 149,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:d7c942c3:cecb0500-43d3-4300-90e9-36881c5a5dd0",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}

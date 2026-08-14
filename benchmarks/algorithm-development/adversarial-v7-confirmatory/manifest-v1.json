@@ -1,0 +1,22 @@
+{
+  "answerable_count": 60,
+  "benchmark_id": "adversarial-v7-confirmatory",
+  "candidate_v5_protected_cases_reused": false,
+  "candidate_v6_config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+  "candidate_v6_development_cases_reused": false,
+  "candidate_v6_freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+  "candidate_v6_protected_cases_reused": false,
+  "candidate_v6_source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+  "case_count": 90,
+  "dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+  "evaluation_protocol_sha256": "d2c0b23c467175e54d325d019afaf555f5d26f09a4320aae61eee9cd65f4fdd3",
+  "generator_sha256": "da7ec8667923ecfc6f90ec6b2eb55ddeca11c980fd03ec3c92a6644b4b53ac14",
+  "monetary_cost_usd": 0,
+  "no_evidence_count": 30,
+  "post_result_editing_allowed": false,
+  "schema_version": "adversarial-v7-confirmatory-manifest-v1",
+  "sealed_final_accessed": false,
+  "statistics_protocol_sha256": "584e8bf8761ba414ea100df19ca53356b3ef09c0a190be82cfd2f44d5f8a194f",
+  "status": "FROZEN_BEFORE_ANY_SYSTEM_EXECUTION",
+  "system_execution_count_at_freeze": 0
+}

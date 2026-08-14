@@ -1,0 +1,70 @@
+{
+  "schema_version": "amem-d4-completion-assessment-v1",
+  "assessed_at": "2026-08-09T22:35:25+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "d4": {
+    "status": "COMPLETE",
+    "workflow_run_id": 31316152994,
+    "workflow_conclusion": "success",
+    "protocol": "experiments/protocols/amem-d4-development-v2.json",
+    "evidence_path": "results/strong-baseline/amem-d4-development-v1/amem-d4-31316152994-attempt-1",
+    "evidence_commit": "550eca0eb9c75aed49669485fbb548d081e15258",
+    "artifact_id": 9039041089,
+    "case_count": 20,
+    "completed_answer_trials": 20,
+    "judge_invalid_count": 0,
+    "judge_invalid_rate": 0.0,
+    "answer_accuracy": 0.2,
+    "answer_accuracy_wilson_95_ci": [0.08065766257979806, 0.41601743225189364],
+    "correct": 4,
+    "abstention_case_count": 4,
+    "abstention_correct": 2,
+    "abstention_accuracy": 0.5,
+    "median_answer_latency_ms": 13420.2896625,
+    "max_answer_latency_ms": 21512.721341,
+    "answer_input_tokens": 30682,
+    "answer_output_tokens": 812,
+    "answer_total_tokens": 31494,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "cloud_gpu_used": false,
+    "sealed_final_accessed": false,
+    "a_mem_source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "retrieval_recovery_run_id": 31292999631,
+    "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "retrieval_predictions_sha256": "a3a5f6f41e23572156ba04f2290d93551b0a6f733a03e32646ad8ffdab577bbc"
+  },
+  "gate_d": {
+    "D1": "COMPLETE",
+    "D2": "COMPLETE",
+    "D3": "COMPLETE",
+    "D4": "COMPLETE",
+    "formal_gate_status": "COMPLETE",
+    "basis": "The preregistered D4 workflow completed successfully, all 20 answer trials completed, the artifact contract passed, judge invalid rate is zero, raw answers and raw judge outputs were durably persisted, zero-cost and sealed-final boundaries remained intact."
+  },
+  "statistical_interpretation": {
+    "d4_answer_accuracy_point_estimate": 0.2,
+    "d4_answer_accuracy_wilson_95_ci": [0.08065766257979806, 0.41601743225189364],
+    "existing_adversarial_v4_paired_comparison": {
+      "candidate_v2_mrr": 0.875,
+      "a_mem_mrr": 0.8333333333333333,
+      "paired_delta": 0.04166666666666668,
+      "bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
+      "win_tie_loss": [5, 12, 5],
+      "interpretation": "UNDERPOWERED; interval crosses zero; competitiveness only."
+    },
+    "direct_d4_paired_candidate_comparison": "NOT_DEFINED_BY_FROZEN_D4_PROTOCOL; not fabricated post hoc"
+  },
+  "gate_e_reassessment": {
+    "status": "NOT_COMPLETE",
+    "formal_selection": "NO_FORMAL_SELECTION",
+    "reasons": [
+      "The strongest candidate-v2 versus exact A-MEM paired comparison remains underpowered and its bootstrap interval crosses zero.",
+      "Candidate-v2 remains weaker than candidate-v1 on the normal benchmark, so there is no justified universal replacement.",
+      "Abstention remains unresolved as a candidate selection requirement; D4 A-MEM abstention accuracy of 0.5 does not solve the candidate-v2 development guardrail problem.",
+      "Independent reproduction remains false."
+    ],
+    "algorithm_parity": "NO"
+  },
+  "claim_boundary": "Gate D is complete. This D4 development result does not establish algorithm parity, superiority, equivalence, non-inferiority, SOTA, sealed-final readiness, production readiness, or independent reproduction."
+}

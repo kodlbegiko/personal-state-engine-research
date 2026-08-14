@@ -1,0 +1,7 @@
+candidate-v3-validation-v1
+candidate-freeze-commit: 30e4de6860ef90219bb539fb03913012c83cc2ee
+candidate-source-sha256: 8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284
+protocol-sha256: 61c49cfadcf7c1fac7fcd0bfaa0444b037d1ee3bb4b36f009f822e8aec0b0144
+validation-retuning: prohibited
+sealed-final: prohibited
+new-monetary-cost-usd: 0

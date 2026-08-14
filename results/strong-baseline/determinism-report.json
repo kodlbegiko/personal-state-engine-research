@@ -1,0 +1,11 @@
+{
+  "identical_runs": 3,
+  "metrics": "unit metric reconstruction identical across runs",
+  "note": "No claim is made about stochastic upstream LLM evolution.",
+  "official_amem_runtime_determinism": "NOT_TESTED",
+  "retrieved_ids": "fake-upstream fixture identical across runs",
+  "runs": 3,
+  "schema_version": "strong-baseline-determinism-report-v1",
+  "scope": "mechanical adapter and metric functions",
+  "status": "PASS"
+}

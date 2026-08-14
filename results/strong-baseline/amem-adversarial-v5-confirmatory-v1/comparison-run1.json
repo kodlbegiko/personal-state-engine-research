@@ -1,0 +1,218 @@
+{
+  "algorithm_parity": "NO",
+  "answerable_case_count": 45,
+  "candidate_v2_changed": false,
+  "candidate_v3_changed_after_freeze": false,
+  "candidate_v3_v5_selection_checks": {
+    "abstention_requirements": "FAIL",
+    "candidate_selection_status": "REJECTED_BY_FROZEN_V5_THRESHOLDS",
+    "retrieval_guardrail": "FAIL"
+  },
+  "case_count": 60,
+  "claim_boundary": "Non-sealed confirmatory development evidence only. No parity, superiority, equivalence, non-inferiority, SOTA, sealed-final readiness, production readiness, or independent-reproduction claim is pre-authorized.",
+  "corpus_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+  "independent_reproduction": false,
+  "new_monetary_cost_usd": 0.0,
+  "no_evidence_case_count": 15,
+  "operator_designed": true,
+  "paired_statistics": {
+    "candidate_v3_vs_candidate_v1": {
+      "answerable_n": 45,
+      "bootstrap_95_ci": [
+        0.1851851851851852,
+        0.3999999999999999
+      ],
+      "iterations": 10000,
+      "right_minus_left_mrr_delta": 0.2962962962962962,
+      "win_tie_loss": {
+        "right_losses": 7,
+        "right_wins": 32,
+        "ties": 6
+      }
+    },
+    "candidate_v3_vs_candidate_v2": {
+      "answerable_n": 45,
+      "bootstrap_95_ci": [
+        -0.17777777777777778,
+        -0.02592592592592592
+      ],
+      "iterations": 10000,
+      "right_minus_left_mrr_delta": -0.09629629629629631,
+      "win_tie_loss": {
+        "right_losses": 6,
+        "right_wins": 0,
+        "ties": 39
+      }
+    },
+    "candidate_v3_vs_current": {
+      "answerable_n": 45,
+      "bootstrap_95_ci": [
+        0.23888888888888893,
+        0.4388888888888889
+      ],
+      "iterations": 10000,
+      "right_minus_left_mrr_delta": 0.34259259259259256,
+      "win_tie_loss": {
+        "right_losses": 6,
+        "right_wins": 34,
+        "ties": 5
+      }
+    },
+    "candidate_v3_vs_exact_a_mem": {
+      "answerable_n": 45,
+      "bootstrap_95_ci": [
+        -0.01851851851851851,
+        0.20740740740740743
+      ],
+      "iterations": 10000,
+      "right_minus_left_mrr_delta": 0.1,
+      "win_tie_loss": {
+        "right_losses": 7,
+        "right_wins": 18,
+        "ties": 20
+      }
+    }
+  },
+  "power_status": "SUFFICIENT",
+  "protocol_sha256": "060aca66ba87d23dce1b1e8e072094bec7559f2d97f9fbfab9fb4fd8514206fc",
+  "run_id": 31355907320,
+  "schema_version": "amem-adversarial-v5-confirmatory-comparison-v1",
+  "sealed_final_accessed": false,
+  "systems": {
+    "a_mem_exact": {
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [
+        0.0,
+        0.20388330103584862
+      ],
+      "abstention_correct_count": 0,
+      "answerable_case_count": 45,
+      "false_abstention_count": 0,
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [
+        0.0,
+        0.07865159873288836
+      ],
+      "false_retrieval_count": 15,
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [
+        0.7961166989641515,
+        1.0
+      ],
+      "mrr": 0.7074074074074073,
+      "ndcg_at_5": 0.788350942464401,
+      "no_evidence_case_count": 15,
+      "recall_at_1": 0.4666666666666667,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    "pse_candidate_v1": {
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [
+        0.0,
+        0.20388330103584862
+      ],
+      "abstention_correct_count": 0,
+      "answerable_case_count": 45,
+      "false_abstention_count": 0,
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [
+        0.0,
+        0.07865159873288836
+      ],
+      "false_retrieval_count": 15,
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [
+        0.7961166989641515,
+        1.0
+      ],
+      "mrr": 0.5111111111111111,
+      "ndcg_at_5": 0.6436323939723494,
+      "no_evidence_case_count": 15,
+      "recall_at_1": 0.06666666666666667,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    "pse_candidate_v2_frozen": {
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [
+        0.0,
+        0.20388330103584862
+      ],
+      "abstention_correct_count": 0,
+      "answerable_case_count": 45,
+      "false_abstention_count": 0,
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [
+        0.0,
+        0.07865159873288836
+      ],
+      "false_retrieval_count": 15,
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [
+        0.7961166989641515,
+        1.0
+      ],
+      "mrr": 0.9037037037037038,
+      "ndcg_at_5": 0.9327348549236932,
+      "no_evidence_case_count": 15,
+      "recall_at_1": 0.8111111111111111,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0
+    },
+    "pse_candidate_v3_frozen": {
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [
+        0.0,
+        0.20388330103584862
+      ],
+      "abstention_correct_count": 0,
+      "answerable_case_count": 45,
+      "false_abstention_count": 0,
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [
+        0.0,
+        0.07865159873288836
+      ],
+      "false_retrieval_count": 15,
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [
+        0.7961166989641515,
+        1.0
+      ],
+      "mrr": 0.8074074074074075,
+      "ndcg_at_5": 0.8255269403194991,
+      "no_evidence_case_count": 15,
+      "recall_at_1": 0.7444444444444445,
+      "recall_at_3": 0.8666666666666667,
+      "recall_at_5": 0.8666666666666667
+    },
+    "pse_current_reconstruction": {
+      "abstention_accuracy": 0.0,
+      "abstention_accuracy_wilson_95_ci": [
+        0.0,
+        0.20388330103584862
+      ],
+      "abstention_correct_count": 0,
+      "answerable_case_count": 45,
+      "false_abstention_count": 0,
+      "false_abstention_rate": 0.0,
+      "false_abstention_wilson_95_ci": [
+        0.0,
+        0.07865159873288836
+      ],
+      "false_retrieval_count": 15,
+      "false_retrieval_rate": 1.0,
+      "false_retrieval_wilson_95_ci": [
+        0.7961166989641515,
+        1.0
+      ],
+      "mrr": 0.4648148148148149,
+      "ndcg_at_5": 0.6029394395485823,
+      "no_evidence_case_count": 15,
+      "recall_at_1": 0.022222222222222223,
+      "recall_at_3": 0.9555555555555556,
+      "recall_at_5": 0.9777777777777777
+    }
+  }
+}

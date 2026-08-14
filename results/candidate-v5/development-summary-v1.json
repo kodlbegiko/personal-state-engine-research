@@ -1,0 +1,146 @@
+{
+  "candidate_v5_development_guardrails": {
+    "checks": {
+      "abstention_accuracy_ge_0_80": true,
+      "answerable_recall_ge_0_90": true,
+      "false_abstention_le_0_10": true,
+      "false_retrieval_absolute_reduction_ge_0_50": true,
+      "false_retrieval_le_0_20": true,
+      "mrr_deficit_le_0_03": true,
+      "r1_deficit_le_0_03": true,
+      "r3_deficit_le_0_02": true,
+      "r5_deficit_le_0_02": true
+    },
+    "development_only": true,
+    "no_evidence_false_retrieval_absolute_reduction_vs_candidate_v2": 1.0,
+    "note": "Development guardrails justify freezing only; they are not protected validation or Gate E selection evidence.",
+    "pass": true,
+    "retrieval_deficits_vs_candidate_v2": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0
+    },
+    "selection_authorized": false
+  },
+  "dataset": {
+    "answerable_count": 40,
+    "case_count": 88,
+    "no_evidence_count": 48,
+    "seed": 20260813,
+    "sha256": "2a96ee9c15ff77dd359330e5bbf311a528f956041104f513045d39cfd966a93a"
+  },
+  "formal_gate_effect": "NONE_UNTIL_POST_FREEZE_PROTECTED_EVIDENCE",
+  "integrity": {
+    "candidate_v4_modified": false,
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "sealed_final_accessed": false,
+    "v6_used_as_confirmatory": false
+  },
+  "metrics": {
+    "bm25_local": {
+      "MRR": 0.7416666666666667,
+      "R@1": 0.45,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    },
+    "candidate_v2": {
+      "MRR": 0.9,
+      "R@1": 0.7,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    },
+    "candidate_v3": {
+      "MRR": 0.825,
+      "R@1": 0.6625,
+      "R@3": 0.9125,
+      "R@5": 0.9125,
+      "abstention_accuracy": 0.125,
+      "answerable_recall": 0.925,
+      "false_abstention": 0.07499999999999996,
+      "no_evidence_false_retrieval": 0.875
+    },
+    "candidate_v4": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0,
+      "abstention_accuracy": 1.0,
+      "answerable_recall": 0.0,
+      "false_abstention": 1.0,
+      "no_evidence_false_retrieval": 0.0
+    },
+    "candidate_v5": {
+      "MRR": 0.9,
+      "R@1": 0.7,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 0.0
+    },
+    "current_baseline": {
+      "MRR": 0.7416666666666667,
+      "R@1": 0.45,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    },
+    "deterministic_random": {
+      "MRR": 0.7041666666666667,
+      "R@1": 0.4,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    },
+    "recency": {
+      "MRR": 0.5166666666666667,
+      "R@1": 0.2,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    },
+    "tfidf_local": {
+      "MRR": 0.7416666666666667,
+      "R@1": 0.45,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0
+    }
+  },
+  "phase": "DEVELOPMENT_DIAGNOSTIC_ONLY",
+  "schema_version": "candidate-v5-development-summary-v1",
+  "execution_evidence": {
+    "workflow_run_id": 31664329963,
+    "workflow_head_sha": "99d01085d14d51b1f16c9383424564fb5272e9af",
+    "artifact_id": 9167348416,
+    "artifact_digest_sha256": "e7654ec8df3b66a8b607f19349ccfcfaeb743eed83a87675b91bf3a98b4ce406",
+    "source_sha256": "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975",
+    "preregistration_sha256": "f406ed731d102cb517d3f57a03574cbff43754c609d0d287ed875ed75e77f764",
+    "summary_sha256_before_execution_metadata": "60e9740405b48ed483002c2a53ee4539b525f3f353bae1a9d8f5d7d035472894",
+    "unit_tests": "16/16 PASS"
+  }
+}

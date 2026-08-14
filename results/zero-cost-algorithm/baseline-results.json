@@ -1,0 +1,465 @@
+{
+  "benchmark_freeze": {
+    "checks": {
+      "benchmarks/algorithm-development/specification-v2.json": true,
+      "benchmarks/algorithm-development/withheld-extension-v2.json": true,
+      "benchmarks/strong-baseline/synthetic-memory-cases-v1.json": true
+    },
+    "status": "PASS"
+  },
+  "claims_boundary": {
+    "A-MEM": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "claim_boundary": "Observed frozen synthetic retrieval comparison only. It does not establish general algorithm parity, superiority, equivalence, non-inferiority, production readiness, or SOTA.",
+      "corpus_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+      "metrics": {
+        "MRR": 0.8787878787878788,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.38636363636363635,
+        "ndcg@5": 0.9101690461039014,
+        "precision@1": 0.7727272727272727,
+        "precision@3": 0.4090909090909091,
+        "precision@5": 0.24545454545454548,
+        "recall@1": 0.6893939393939393,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      },
+      "run_id": 31269598248,
+      "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+      "statistical_interpretation": "UNDERPOWERED; paired point estimates are descriptive.",
+      "status": "EXECUTED_FROZEN_24_UNDERPOWERED"
+    },
+    "algorithm_parity": "NO",
+    "sealed_final_accessed": false
+  },
+  "generated_at": "2026-08-08T16:40:00Z",
+  "schema_version": "zero-cost-baseline-results-v1",
+  "systems": {
+    "bm25_local": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.704545454545,
+          "abstention_accuracy": 1.0,
+          "irrelevant_retrieval_rate": 0.344827586207,
+          "ndcg@5": 0.734302216721,
+          "precision@1": 0.590909090909,
+          "precision@3": 0.287878787879,
+          "precision@5": 0.172727272727,
+          "recall@1": 0.568181818182,
+          "recall@3": 0.818181818182,
+          "recall@5": 0.818181818182
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.25,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.545454545455,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "hybrid": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.75,
+          "abstention_accuracy": 1.0,
+          "irrelevant_retrieval_rate": 0.344827586207,
+          "ndcg@5": 0.767854057305,
+          "precision@1": 0.681818181818,
+          "precision@3": 0.287878787879,
+          "precision@5": 0.172727272727,
+          "recall@1": 0.659090909091,
+          "recall@3": 0.818181818182,
+          "recall@5": 0.818181818182
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.25,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.545454545455,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "lexical": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.704545454545,
+          "abstention_accuracy": 1.0,
+          "irrelevant_retrieval_rate": 0.344827586207,
+          "ndcg@5": 0.734302216721,
+          "precision@1": 0.590909090909,
+          "precision@3": 0.287878787879,
+          "precision@5": 0.172727272727,
+          "recall@1": 0.568181818182,
+          "recall@3": 0.818181818182,
+          "recall@5": 0.818181818182
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.25,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.545454545455,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "pse_candidate_v1": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "pse_current_reconstruction": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.901515151515,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 0.926944966396,
+          "precision@1": 0.818181818182,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.734848484848,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "random": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 0.876617205519,
+          "precision@1": 0.681818181818,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.598484848485,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.766666666667,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 0.826185950714,
+          "precision@1": 0.6,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.6,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "recency": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.856060606061,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 0.893393125812,
+          "precision@1": 0.727272727273,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.643939393939,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.75,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.825880985127,
+          "precision@1": 0.5,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.388888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.766666666667,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 0.826185950714,
+          "precision@1": 0.6,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.6,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    },
+    "tfidf_local": {
+      "development": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.704545454545,
+          "abstention_accuracy": 1.0,
+          "irrelevant_retrieval_rate": 0.344827586207,
+          "ndcg@5": 0.734302216721,
+          "precision@1": 0.590909090909,
+          "precision@3": 0.287878787879,
+          "precision@5": 0.172727272727,
+          "recall@1": 0.568181818182,
+          "recall@3": 0.818181818182,
+          "recall@5": 0.818181818182
+        }
+      },
+      "hidden-generated": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.833333333333,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.25,
+          "ndcg@5": 0.876976584524,
+          "precision@1": 0.666666666667,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.472222222222,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "validation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.9,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.545454545455,
+          "ndcg@5": 0.926185950714,
+          "precision@1": 0.8,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.8,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    }
+  }
+}

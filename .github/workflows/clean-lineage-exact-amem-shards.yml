@@ -1,0 +1,145 @@
+name: Clean-lineage exact A-MEM shards
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/clean-lineage-exact-amem-shards.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clean-lineage-exact-amem-shards
+  cancel-in-progress: false
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+    env:
+      EXPECTED_DATASET_SHA256: 2b24be0adb26d4be8c4539a3ae9619401e7a2546cd0828185eaa846b974a1b6d
+      EXPECTED_STAGE1_SHA256: d07ba9165e09daab4b152a58ab10e13ac9253b8921a8817a44b53aa74b4408a9
+      A_MEM_SOURCE_COMMIT: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+      EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+      EXPECTED_EMBEDDING_SNAPSHOT: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch exact clean compute inputs and verify authorization
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          test -z "${GEMINI_API_KEY:-}"
+          mkdir -p clean-compute evidence
+          base="https://raw.githubusercontent.com/kodlbegiko/personal-state-engine-research/${GITHUB_SHA}/clean-compute"
+          curl -fsSL "$base/generate_adversarial_clean.py" -o clean-compute/generate_adversarial_clean.py
+          curl -fsSL "$base/run_exact_amem_clean.py" -o clean-compute/run_exact_amem_clean.py
+          curl -fsSL "$base/authorization.json" -o clean-compute/authorization.json
+          curl -fsSL "$base/clean-stage1-summary.json" -o clean-compute/clean-stage1-summary.json
+          python clean-compute/generate_adversarial_clean.py
+          test "$(sha256sum clean-compute/adversarial-clean-v1.json | awk '{print $1}')" = "$EXPECTED_DATASET_SHA256"
+          test "$(sha256sum clean-compute/clean-stage1-summary.json | awk '{print $1}')" = "$EXPECTED_STAGE1_SHA256"
+          python - <<'PY'
+          import json, os
+          a=json.load(open('clean-compute/authorization.json'))
+          s=json.load(open('clean-compute/clean-stage1-summary.json'))
+          assert a['stage1_pass'] is True and a['stage2_authorized'] is True
+          assert a['fresh_dataset_sha256']==os.environ['EXPECTED_DATASET_SHA256']
+          assert a['clean_stage1_summary_sha256']==os.environ['EXPECTED_STAGE1_SHA256']
+          assert a['repository_checkout_allowed'] is False
+          assert a['repository_wide_listing_allowed'] is False
+          assert a['old_repository_treated_as_clean_lineage'] is False
+          assert a['candidate_v6_modified'] is False
+          assert a['candidate_v6_executed_in_compute_host'] is False
+          assert s['all_stage1_pass'] is True and s['stage2_authorized'] is True
+          assert s['dataset_sha256']==os.environ['EXPECTED_DATASET_SHA256']
+          assert s['systems']['candidate_v6']['MRR']==1.0
+          assert s['systems']['candidate_v6']['R@1']==1.0
+          assert s['systems']['candidate_v6']['false_retrieval']==0.0
+          PY
+      - name: Install and pin Ollama model
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > evidence/ollama.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull qwen2.5:3b
+          curl -fsS http://127.0.0.1:11434/api/tags > evidence/ollama-tags.json
+          python - <<'PY'
+          import json, os
+          tags=json.load(open('evidence/ollama-tags.json'))
+          model=next(row for row in tags['models'] if row['name']=='qwen2.5:3b')
+          assert model['digest']==os.environ['EXPECTED_OLLAMA_DIGEST'], model['digest']
+          PY
+      - name: Clone exact-pinned A-MEM and install runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone https://github.com/WujiangXu/A-mem.git upstream-amem
+          cd upstream-amem
+          git checkout "$A_MEM_SOURCE_COMMIT"
+          test "$(git rev-parse HEAD)" = "$A_MEM_SOURCE_COMMIT"
+          cd ..
+          python -m pip install -r upstream-amem/requirements.txt
+      - name: Preload and verify embedding snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from huggingface_hub import snapshot_download
+          expected=os.environ['EXPECTED_EMBEDDING_SNAPSHOT']
+          path=snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision=expected)
+          observed=path.rstrip('/').split('/')[-1]
+          assert observed==expected, (observed, expected)
+          tags=json.load(open('evidence/ollama-tags.json'))
+          model=next(row for row in tags['models'] if row['name']=='qwen2.5:3b')
+          runtime={
+            'embedding_snapshot': observed,
+            'model': 'qwen2.5:3b',
+            'model_digest': model['digest'],
+            'new_monetary_cost_usd': 0.0,
+            'source_commit': os.environ['A_MEM_SOURCE_COMMIT'],
+          }
+          json.dump(runtime,open('evidence/runtime-${{ matrix.shard }}.json','w'),indent=2,sort_keys=True)
+          with open(os.environ['GITHUB_ENV'],'a') as fh:
+              fh.write(f'EMBEDDING_MODEL_PATH={path}\n')
+          PY
+      - name: Execute exact A-MEM clean shard
+        env:
+          PYTHONHASHSEED: '17'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python clean-compute/run_exact_amem_clean.py \
+            --corpus clean-compute/adversarial-clean-v1.json \
+            --upstream-dir upstream-amem \
+            --output evidence/shard-${{ matrix.shard }}.json \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 30 \
+            --model qwen2.5:3b \
+            --backend ollama \
+            --embedding-model "$EMBEDDING_MODEL_PATH"
+      - name: Upload immutable shard evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clean-amem-shard-${{ matrix.shard }}
+          path: |
+            evidence/shard-${{ matrix.shard }}.json
+            evidence/runtime-${{ matrix.shard }}.json
+          if-no-files-found: warn
+          retention-days: 90

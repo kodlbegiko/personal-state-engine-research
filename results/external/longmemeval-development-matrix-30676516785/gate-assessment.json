@@ -1,0 +1,59 @@
+{
+  "active_evidence_cap_percent": 45,
+  "current_completion_percent": 24,
+  "gates": [
+    {
+      "current": 10,
+      "evidence": "Pinned sources, revisions, licenses, dependency audit.",
+      "gate": "A",
+      "missing": "None material.",
+      "previous": 9
+    },
+    {
+      "current": 10,
+      "evidence": "Frozen protocol/split, immutable raw evidence, registry verification, failure retention, budget enforcement.",
+      "gate": "B",
+      "missing": "None material after archival verification.",
+      "previous": 9
+    },
+    {
+      "current": 4,
+      "evidence": "20 paired cases and 40 complete raw trials with retrieval/resource diagnostics.",
+      "gate": "C",
+      "missing": "Calibrated evaluator and valid formal correctness/statistical comparison.",
+      "previous": 2
+    },
+    {
+      "current": 0,
+      "evidence": "None.",
+      "gate": "D",
+      "missing": "Strong baseline.",
+      "previous": 0
+    },
+    {
+      "current": 0,
+      "evidence": "None; prohibited in this phase.",
+      "gate": "E",
+      "missing": "PSE candidate after baseline stabilization.",
+      "previous": 0
+    },
+    {
+      "current": 0,
+      "evidence": "Sealed-final not accessed.",
+      "gate": "F",
+      "missing": "Preregistered sealed execution.",
+      "previous": 0
+    },
+    {
+      "current": 0,
+      "evidence": "None.",
+      "gate": "G",
+      "missing": "Independent reproduction.",
+      "previous": 0
+    }
+  ],
+  "previous_completion_percent": 20,
+  "rationale": "Credit increased only for source/infrastructure closure and raw paired execution. Gate C remains low because evaluator calibration failed.",
+  "remaining_distance_percent": 76,
+  "schema_version": "evidence-weighted-completion-v1"
+}

@@ -1,0 +1,86 @@
+{
+  "artifact_count": 16,
+  "artifacts": [
+    {
+      "path": "README.md",
+      "sha256": "bd1d934191358a30194548d545ee6b29cf32cd17fffae41a3663c50c0efb3b1c",
+      "size_bytes": 776
+    },
+    {
+      "path": "blinded-inputs.jsonl",
+      "sha256": "5b1bbc02c880f27109dfcfdca92026ce8a9f1911ed6c6f4c1101e4b22dc5b1e6",
+      "size_bytes": 66390
+    },
+    {
+      "path": "blinding-manifest.json",
+      "sha256": "1c3d99db9eb836a0a0c7bd281beca507b4ac549fba83edb1f2372b3ab5cbbd0e",
+      "size_bytes": 672
+    },
+    {
+      "path": "environment-capability.json",
+      "sha256": "63b7712ab3070e7bd6c4a264c8d00c4f66045a7d71aa8e00b425055e332d0d13",
+      "size_bytes": 609
+    },
+    {
+      "path": "evaluator-manifest.json",
+      "sha256": "2d5db0bab90011875e411e92b4d1fb2e01afe65f1c33307ccff902383f5607a5",
+      "size_bytes": 1627
+    },
+    {
+      "path": "faithful-port-deviations.json",
+      "sha256": "b6721804ab6bd98d4c51ec46eeaefbf3a58522a5d671b8e6afef2a7c5100df85",
+      "size_bytes": 2714
+    },
+    {
+      "path": "immutable-answer-manifest.json",
+      "sha256": "a53791d657cad220a29ef7744c7960b849286c342e89e47d7eb18479dca82683",
+      "size_bytes": 20311
+    },
+    {
+      "path": "official-prompt-bundle.json",
+      "sha256": "424a9165585ecd449891c838a1650031f107c58af0f25cbb43f6b0cd910e2ba1",
+      "size_bytes": 3233
+    },
+    {
+      "path": "official-prompt-bundle.sha256",
+      "sha256": "ddf1aafa917e2308c2f6f77eb7825209c779959023958fbad2dd54f03094c254",
+      "size_bytes": 65
+    },
+    {
+      "path": "official-source-manifest.json",
+      "sha256": "60e3808c39ee4acadd69b7a94cb47865c3ff1dd6135f6f52ab386b2cc91267e6",
+      "size_bytes": 835
+    },
+    {
+      "path": "official-source-snapshot.sha256",
+      "sha256": "1038a87e988f4065579aedced7978462388f65c0052ae3acb82b03feb75deee0",
+      "size_bytes": 65
+    },
+    {
+      "path": "parser-manifest.json",
+      "sha256": "86c1179ae1c9082944a7189c846753b5fec69a8f84f0ff807fdc58a6c3e667a2",
+      "size_bytes": 742
+    },
+    {
+      "path": "preparation-verdict.json",
+      "sha256": "cb00acc06b250cf2f8abf3f5fc3de1c66aad7a5a757a01ddb607badb2875ef04",
+      "size_bytes": 1106
+    },
+    {
+      "path": "raw-evidence-integrity.json",
+      "sha256": "e73460b89534efe0e899504ce97c49b388d262cb686b06c96f200bd051d4e951",
+      "size_bytes": 1155
+    },
+    {
+      "path": "unblinding-key.json",
+      "sha256": "27f4c9659d89c7cfa12505e563b57a7f93a8182b608ce9ccd8587ee829da4088",
+      "size_bytes": 16050
+    },
+    {
+      "path": "unit-test-corpus-manifest.json",
+      "sha256": "e0c73acc3645bbed7cf896aff9c246f1ac3db629e4e20c27c35f44f0113cf6a9",
+      "size_bytes": 1340
+    }
+  ],
+  "schema_version": "longmemeval-faithful-port-preparation-artifact-registry-v3"
+}

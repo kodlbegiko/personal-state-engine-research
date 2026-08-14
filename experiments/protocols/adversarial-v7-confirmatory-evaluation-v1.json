@@ -1,0 +1,126 @@
+{
+  "schema_version": "adversarial-v7-confirmatory-evaluation-v1",
+  "status": "PREREGISTERED_BEFORE_BENCHMARK_MATERIALIZATION_AND_SYSTEM_EXECUTION",
+  "recorded_date": "2026-08-13",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "branch": "research/personal-state-engine-v0",
+  "purpose": "Fresh Gate E confirmatory selection after Candidate-v6 passed its frozen protected validation.",
+  "candidate_v6": {
+    "method": "Assertion-Structure Evidence Objects",
+    "freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+    "source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "post_freeze_patch_allowed": false,
+    "protected_validation": {
+      "benchmark_id": "candidate-v6-validation-v1",
+      "dataset_sha256": "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7",
+      "formal_workflow_run_id": 31689435267,
+      "artifact_id": 9176753372,
+      "verdict": "PASS",
+      "candidate_v6_minus_candidate_v2_mrr": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "noninferiority_margin_0_03": true
+    }
+  },
+  "benchmark": {
+    "name": "adversarial-v7-confirmatory",
+    "dataset_path": "benchmarks/algorithm-development/adversarial-v7-confirmatory/cases-v1.json",
+    "generator_path": "benchmarks/algorithm-development/adversarial-v7-confirmatory/generator.py",
+    "expected_dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+    "total_cases": 90,
+    "answerable_cases": 60,
+    "no_evidence_cases": 30,
+    "fresh_subject_namespace": "ADV7",
+    "candidate_v6_development_cases_reused": false,
+    "candidate_v6_protected_cases_reused": false,
+    "candidate_v5_protected_cases_reused": false,
+    "post_result_editing_allowed": false,
+    "must_be_frozen_before_any_system_execution": true
+  },
+  "stage1": {
+    "systems": [
+      "candidate-v2-frozen",
+      "candidate-v3-frozen",
+      "candidate-v4-frozen",
+      "candidate-v5-frozen",
+      "candidate-v6-frozen",
+      "bm25-local",
+      "tfidf-local",
+      "random-deterministic",
+      "recency"
+    ],
+    "metrics": [
+      "MRR",
+      "recall@1",
+      "recall@3",
+      "recall@5",
+      "abstention_accuracy",
+      "false_retrieval_rate",
+      "false_abstention_rate",
+      "answerable_recall"
+    ],
+    "discrimination_rule": {
+      "all_required": true,
+      "candidate_v2_mrr_gap_over_max_random_recency_minimum": 0.15,
+      "candidate_v2_recall_at_1_gap_over_max_random_recency_minimum": 0.15,
+      "on_failure": "BENCHMARK_DISCRIMINATION_FAILURE_AND_STOP_BEFORE_EXACT_A_MEM"
+    },
+    "candidate_v6_selection_guardrails": {
+      "all_required": true,
+      "minimum_abstention_accuracy": 0.90,
+      "maximum_false_retrieval_rate": 0.10,
+      "minimum_absolute_false_retrieval_reduction_vs_candidate_v2": 0.70,
+      "maximum_false_abstention_rate": 0.05,
+      "minimum_answerable_recall": 0.95,
+      "maximum_mrr_deficit_vs_candidate_v2": 0.03,
+      "maximum_recall_at_1_deficit_vs_candidate_v2": 0.03,
+      "maximum_recall_at_3_deficit_vs_candidate_v2": 0.02,
+      "maximum_recall_at_5_deficit_vs_candidate_v2": 0.02,
+      "required_unique_cases": 90,
+      "required_missing_cases": 0,
+      "required_duplicate_case_ids": 0,
+      "required_invalid_cases": 0
+    },
+    "stage2_authorized_only_if": [
+      "benchmark_discrimination_PASS",
+      "candidate_v6_selection_guardrails_ALL_PASS"
+    ]
+  },
+  "stage2_exact_a_mem": {
+    "required_for_gate_e_scientific_reassessment": true,
+    "identity": {
+      "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+      "model": "qwen2.5:3b",
+      "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+    },
+    "expected_case_count": 90,
+    "required_missing": 0,
+    "required_duplicate": 0,
+    "required_invalid": 0,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api": false,
+    "paid_gpu": false
+  },
+  "gate_e_scientific_requirements": {
+    "candidate_v6_protected_validation": "PASS",
+    "candidate_v6_stage1_guardrails": "ALL_PASS",
+    "benchmark_discrimination": "PASS",
+    "exact_a_mem": "stage2 complete with pinned identity and 90/90 valid",
+    "statistics": "adversarial-v7-statistics-v1 executed without post-result changes",
+    "candidate_frozen_before_benchmark": true,
+    "benchmark_frozen_before_system_execution": true,
+    "no_post_result_benchmark_edit": true,
+    "no_post_freeze_candidate_patch": true
+  },
+  "integrity": {
+    "zero_paid_resources": true,
+    "no_merge_force_push_tag_release": true,
+    "failed_evidence_preserved": true,
+    "no_new_sealed_final_content_or_path_access": true,
+    "historical_sealed_final_path_metadata_listing_deviation_must_remain_preserved_and_not_claimed_cured": true,
+    "candidate_v6_mission_new_sealed_final_access_invalidates_selection": true,
+    "fail_closed": true
+  },
+  "claim_boundary": "Stage-1 and Stage-2 scientific performance do not by themselves authorize a parity/equivalence claim. Gate E scientific selection and repository-level historical integrity status must be reported separately if they diverge."
+}

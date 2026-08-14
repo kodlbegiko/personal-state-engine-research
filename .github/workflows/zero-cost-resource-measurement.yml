@@ -1,0 +1,184 @@
+name: Zero-Cost Frozen Resource Measurement
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/personal-state-engine-v0
+    paths:
+      - "scripts/measure_zero_cost_retrieval_resources.py"
+      - ".github/workflows/zero-cost-resource-measurement.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: zero-cost-frozen-resource-measurement
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        system:
+          - bm25_local
+          - tfidf_local
+          - pse_current_reconstruction
+          - pse_candidate_v1
+          - pse_candidate_v2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Fail closed on frozen v4 identity and zero-cost boundary
+        run: |
+          set -euo pipefail
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          test "$(sha256sum benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json | awk '{print $1}')" = "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d"
+          git merge-base --is-ancestor d627f61d0888306a97f3ef0b78aa29dc00c444bb HEAD
+          python - <<'PY'
+          import json
+          m=json.load(open('benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json'))
+          p=json.load(open('experiments/protocols/adversarial-v4-evaluation-v1.json'))
+          assert m['status']=='FROZEN_BEFORE_ANY_V4_SYSTEM_EVALUATION'
+          assert m['candidate_v2_freeze_commit']=='d627f61d0888306a97f3ef0b78aa29dc00c444bb'
+          assert m['candidate_v2_source_commit']=='52c8341e4317a1492ec5511907414c7deee77ef6'
+          assert m['candidate_source_changed_for_v4'] is False
+          assert m['sealed_final_accessed'] is False
+          assert p['status']=='FROZEN_BEFORE_V4_SYSTEM_RESULTS'
+          assert p['integrity']['sealed_final_accessed'] is False
+          assert p['integrity']['new_monetary_cost_usd']==0.0
+          PY
+      - name: Measure one system in an isolated process
+        run: |
+          set -euo pipefail
+          mkdir -p resource-measurement
+          python scripts/measure_zero_cost_retrieval_resources.py \
+            --system "${{ matrix.system }}" \
+            --corpus benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json \
+            --manifest benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json \
+            --protocol experiments/protocols/adversarial-v4-evaluation-v1.json \
+            --output "resource-measurement/${{ matrix.system }}.json"
+      - name: Validate measurement contract
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p=pathlib.Path('resource-measurement/${{ matrix.system }}.json')
+          x=json.load(open(p))
+          assert x['system']=='${{ matrix.system }}'
+          assert x['case_count']==24
+          assert x['corpus_sha256']=='02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d'
+          assert x['candidate_v2_freeze_commit']=='d627f61d0888306a97f3ef0b78aa29dc00c444bb'
+          assert x['wall_clock_seconds'] >= 0
+          assert x['per_case_seconds'] >= 0
+          assert x['peak_rss_kib'] > 0
+          assert x['new_monetary_cost_usd']==0.0
+          assert x['paid_api_used'] is False and x['paid_gpu_used'] is False
+          assert x['sealed_final_accessed'] is False
+          assert x['algorithm_parity']=='NO'
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zero-cost-resource-${{ matrix.system }}
+          path: resource-measurement/${{ matrix.system }}.json
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate-and-persist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: measure
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: zero-cost-resource-*
+          path: downloaded-resource-measurements
+          merge-multiple: true
+      - name: Aggregate fail-closed measurements and update comparison
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib
+          expected=['bm25_local','tfidf_local','pse_current_reconstruction','pse_candidate_v1','pse_candidate_v2']
+          root=pathlib.Path('downloaded-resource-measurements')
+          rows={}
+          for name in expected:
+              p=root/f'{name}.json'
+              if not p.is_file():
+                  raise SystemExit(f'missing measurement: {name}')
+              row=json.load(open(p))
+              if row['system'] != name or row['case_count'] != 24:
+                  raise SystemExit(f'invalid measurement identity: {name}')
+              if row['sealed_final_accessed'] is not False or float(row['new_monetary_cost_usd']) != 0.0:
+                  raise SystemExit(f'integrity/cost failure: {name}')
+              rows[name]=row
+          out={
+              'schema_version':'zero-cost-local-resource-summary-v1',
+              'benchmark':'adversarial-v4-postfreeze-discrimination',
+              'corpus_sha256':'02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d',
+              'case_count':24,
+              'candidate_v2_freeze_commit':'d627f61d0888306a97f3ef0b78aa29dc00c444bb',
+              'systems':rows,
+              'new_monetary_cost_usd':0.0,
+              'sealed_final_accessed':False,
+              'algorithm_parity':'NO',
+              'claim_boundary':'Resource evidence only; does not establish parity, superiority, equivalence, non-inferiority, or production readiness.'
+          }
+          pathlib.Path('results/continuation-mission').mkdir(parents=True, exist_ok=True)
+          pathlib.Path('results/continuation-mission/local-candidate-resource-measurements-v1.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+          comp_path=pathlib.Path('results/continuation-mission/resource-comparison.json')
+          comp=json.load(open(comp_path))
+          for name,row in rows.items():
+              target=comp['systems'][name]
+              target['wall_clock_seconds']=row['wall_clock_seconds']
+              target['per_case_seconds']=row['per_case_seconds']
+              target['peak_rss_kib']=row['peak_rss_kib']
+              target['cpu_seconds']=row['cpu_seconds']
+              target['measurement_status']='DEDICATED_GITHUB_ACTIONS_FROZEN_V4_MEASUREMENT'
+              target['measurement_benchmark']='adversarial-v4-postfreeze-discrimination'
+              target['measurement_case_count']=24
+              target['measurement_scope']=row['measurement_scope']
+          comp['new_monetary_cost_usd']=0.0
+          comp['sealed_final_accessed']=False
+          comp.setdefault('sources',[])
+          src='results/continuation-mission/local-candidate-resource-measurements-v1.json'
+          if src not in comp['sources']:
+              comp['sources'].append(src)
+          comp['interpretation'].append('Local dependency-free retrieval systems now have dedicated per-system GitHub Actions measurements on the same frozen 24-case adversarial-v4 corpus; these measurements preserve candidate-v2 and do not alter ranking semantics.')
+          comp_path.write_text(json.dumps(comp,indent=2,sort_keys=True)+'\n')
+          print('LOCAL_RESOURCE_MEASUREMENTS_5_OF_5_VALID')
+          PY
+      - name: Persist durable resource evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/continuation-mission/local-candidate-resource-measurements-v1.json results/continuation-mission/resource-comparison.json
+          if git diff --cached --quiet; then
+            echo "No new resource evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record frozen local resource evidence"
+          git push origin HEAD:research/personal-state-engine-v0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: zero-cost-resource-summary
+          path: |
+            results/continuation-mission/local-candidate-resource-measurements-v1.json
+            results/continuation-mission/resource-comparison.json
+          if-no-files-found: error
+          retention-days: 30

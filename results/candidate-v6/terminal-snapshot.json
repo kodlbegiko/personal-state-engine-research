@@ -1,0 +1,161 @@
+{
+  "schema_version": "candidate-v6-gate-e-terminal-snapshot-v1",
+  "timestamp": "2026-08-13T18:45:00+08:00",
+  "candidate": "candidate-v6",
+  "method": "Assertion-Structure Evidence Objects",
+  "candidate_status": "SCIENTIFICALLY_SELECTED_FORMAL_GATE_E_BLOCKED_BY_PREEXISTING_INTEGRITY_DEVIATION",
+  "algorithmic_rejection": false,
+  "scientific_selection": "PASS",
+  "repository": {
+    "name": "kodlbegiko/personal-state-engine-research",
+    "branch": "research/personal-state-engine-v0",
+    "head_before_terminal_snapshot_commit": "53b539f7e752663ccd8332b51b4fb881969d0926",
+    "pr_number": 2,
+    "pr_state": "OPEN",
+    "pr_draft": true,
+    "pr_merged": false
+  },
+  "candidate_v6": {
+    "candidate_frozen": true,
+    "freeze_repository_commit": "76cedf1ec533ba010aa0d992f436c19339c0d18d",
+    "freeze_marker_commit": "af88deb300693e109ef22ec24e22ec3ec31efaad",
+    "source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "candidate_modified_after_freeze": false,
+    "retrieval_identity": "candidate-v2 frozen retrieval",
+    "post_freeze_patch_authorized": false
+  },
+  "development": {
+    "status": "PASS",
+    "case_count": 120,
+    "answerable_count": 50,
+    "no_evidence_count": 70,
+    "dataset_sha256": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d",
+    "tests_executed": 33,
+    "tests_passed": 33,
+    "workflow_run_id": 31688488856,
+    "artifact_id": 9176385585,
+    "guardrails": "ALL_PASS"
+  },
+  "protected_validation": {
+    "status": "PASS",
+    "benchmark_id": "candidate-v6-validation-v1",
+    "case_count": 80,
+    "answerable_count": 40,
+    "no_evidence_count": 40,
+    "dataset_sha256": "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7",
+    "formal_execution_count": 1,
+    "rerun_performed": false,
+    "workflow_run_id": 31689435267,
+    "artifact_id": 9176753372,
+    "candidate_v6_metrics": {
+      "MRR": 0.8166666666666667,
+      "R@1": 0.65,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 0.0,
+      "abstention_accuracy": 1.0
+    },
+    "candidate_v6_minus_candidate_v2_mrr": 0.0,
+    "bootstrap_95_ci": [0.0, 0.0],
+    "noninferiority_margin": 0.03,
+    "noninferiority_result": "PASS"
+  },
+  "adversarial_v7": {
+    "status": "STAGE1_AND_EXACT_A_MEM_STAGE2_PASS",
+    "case_count": 90,
+    "answerable_count": 60,
+    "no_evidence_count": 30,
+    "dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+    "benchmark_discrimination": "PASS",
+    "candidate_v6_stage1_guardrails": "PASS",
+    "stage1_workflow_run_id": 31689889393,
+    "stage2_workflow_run_id": 31690210078,
+    "stage2_workflow_conclusion": "success",
+    "stage2_artifact_id": 9177810576,
+    "stage2_artifact_digest_sha256": "af9508085a2554644085800850793f3fb87f2c94194cb6447208b820569d278f",
+    "exact_a_mem_90_of_90_valid": true,
+    "missing_cases": 0,
+    "duplicate_cases": 0,
+    "invalid_cases": 0
+  },
+  "confirmatory_metrics": {
+    "candidate_v6": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention_rate": 0.0,
+      "false_retrieval_rate": 0.0,
+      "abstention_accuracy": 1.0
+    },
+    "exact_a_mem": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention_rate": 0.0,
+      "false_retrieval_rate": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "candidate_v6_vs_exact_a_mem": {
+      "delta_MRR": 0.0,
+      "paired_bootstrap_repetitions": 10000,
+      "seed": 20260813,
+      "CI_95_lower": 0.0,
+      "CI_95_upper": 0.0,
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority_result": "PASS",
+      "superiority_result": "NOT_SUPPORTED",
+      "equivalence_or_parity_test": "NOT_PREREGISTERED"
+    }
+  },
+  "gate": {
+    "Gate_A": "COMPLETE",
+    "Gate_B": "COMPLETE",
+    "Gate_C": "COMPLETE",
+    "Gate_D": "COMPLETE",
+    "Gate_E_scientific": "COMPLETE",
+    "Gate_E": "NOT_COMPLETE_INTEGRITY_FAIL_CLOSED",
+    "Gate_E_reason": "Candidate-v6 passes protected and fresh confirmatory scientific selection, but the pre-existing SEALED-PATH-METADATA-001 deviation triggers the older frozen Gate E integrity rule that any recorded sealed-final listing/access deviation fails formal integrity.",
+    "Gate_F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+    "Gate_G": "NOT_COMPLETE"
+  },
+  "formal_completion_percent": 45,
+  "formal_completion_change": 0,
+  "algorithm_parity": "NO",
+  "integrity": {
+    "candidate_v6_mission_sealed_final_content_accessed": false,
+    "candidate_v6_mission_sealed_final_path_operations_performed": false,
+    "preexisting_historical_sealed_final_path_metadata_listing_deviation": {
+      "present": true,
+      "id": "SEALED-PATH-METADATA-001",
+      "status": "PRESERVED_NOT_HIDDEN_NOT_CURED",
+      "content_accessed": false,
+      "used_for_candidate_v6": false,
+      "formal_gate_e_effect": "FAIL_CLOSED"
+    },
+    "negative_evidence_deleted": false,
+    "candidate_v5_modified": false,
+    "candidate_v6_modified_after_freeze": false,
+    "protected_validation_rerun": false,
+    "adversarial_v7_post_result_edit": false
+  },
+  "cost": {
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "paid_inference": false
+  },
+  "terminal_reason": "SCIENTIFIC_CANDIDATE_SELECTION_SUCCEEDED_BUT_FORMAL_GATE_E_CANNOT_PASS_EXISTING_FROZEN_INTEGRITY_CRITERION",
+  "next_research_direction": "CLEAN_INTEGRITY_RESEARCH_TRACK_OR_CLEAN_REPOSITORY_LINEAGE_RECOMMENDED_BUT_NOT_STARTED",
+  "gate_f_action": "DO_NOT_START",
+  "sealed_final_action": "REMAINS_PROHIBITED"
+}

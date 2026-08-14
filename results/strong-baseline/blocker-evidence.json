@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "install exact-pinned A-MEM dependencies without paid services",
+    "pin resolved dependency versions",
+    "pin all-MiniLM-L6-v2 revision",
+    "pin Ollama/qwen2.5:3b model identity",
+    "run 24-case synthetic corpus",
+    "record retrieval and resource metrics",
+    "pass verifier with USD 0.00"
+  ],
+  "baseline": "A-MEM",
+  "cause": [
+    "required local model/runtime packages are not present",
+    "model weights are not present",
+    "5.9 GiB CPU-only runner has not been demonstrated to sustain exact A-MEM qwen2.5:3b + embedding execution"
+  ],
+  "classification": "BLOCKED BY COMPUTE",
+  "evidence_paths": [
+    "results/strong-baseline/environment-capability.json",
+    "results/strong-baseline/dependency-manifest.json"
+  ],
+  "impact": "D2/D3/D4 cannot be claimed; Gate D remains partial",
+  "next_exact_action": "execute the official robust A-MEM path on a zero-cost machine with sufficient memory",
+  "schema_version": "strong-baseline-blocker-evidence-v1"
+}

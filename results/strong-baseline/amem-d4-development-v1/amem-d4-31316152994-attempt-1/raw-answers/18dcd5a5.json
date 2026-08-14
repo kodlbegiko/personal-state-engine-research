@@ -1,0 +1,76 @@
+{
+  "amem_retrieval_run_id": "31292999631",
+  "amem_source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "answer_context_top_k": 3,
+  "answer_model": "onnx-community/Qwen2.5-0.5B-Instruct",
+  "answer_model_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+  "case_id": "18dcd5a5",
+  "context_session_ids": [
+    "answer_sharegpt_hn3IS1q_0",
+    "sharegpt_f8qia8m_0",
+    "ultrachat_198366"
+  ],
+  "history_lexical_tokens": 1024,
+  "history_token_budget": 1024,
+  "history_truncated": true,
+  "input_tokens": 1603,
+  "is_abstention": false,
+  "model_latency_ms": 13052.529026,
+  "new_monetary_cost_usd": 0.0,
+  "output_tokens": 19,
+  "parsed_answer": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot.",
+  "prompt_template_version": "longmemeval-answer-v1",
+  "question": "I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+  "question_date": "2023/05/30 (Tue) 23:50",
+  "question_type": "single-session-assistant",
+  "ranked_retrieved_session_ids": [
+    "answer_sharegpt_hn3IS1q_0",
+    "sharegpt_f8qia8m_0",
+    "ultrachat_198366",
+    "ultrachat_3370",
+    "sharegpt_MW0whoh_79"
+  ],
+  "raw_model_output": {
+    "dtype": "q4",
+    "latency_ms": 13052.529026,
+    "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "model_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "Answer the user's question using only the supplied conversation history. If the history is insufficient, say that the answer is unknown. Return only the answer, without explaining the retrieval method.",
+            "role": "system"
+          },
+          {
+            "content": "Conversation history:\nSession answer_sharegpt_hn3IS1q_0 at 2023/05/29 (Mon) 22:33\nuser: create a D&D one shot for level 8 PCs. Include stat blocks for the enemies and loot if they succeed. the final battle should include a suprise twist. also, there should be cool layer actions. If there are any traps, describe in detail. Also, describe in detail all aspects of the one-shot to help a GM run the one shot smoothly\nassistant: \"The Lost Temple of the Djinn\"\n\nAges ago, a powerful Djinn named Zoltar ruled over a vast temple filled with treasures and magical artifacts. Zoltar was a just ruler and the temple flourished under his rule. But as time passed, Zoltar disappeared and the temple was lost to the sands of time.\n\nNow, a wealthy collector has hired the party to retrieve an artifact from the lost temple. The collector has located the temple and believes the artifact to be located within its walls, but he doesn't have the power to retrieve it himself.\n\nUpon arriving at the temple, the party must navigate through a series of traps and puzzles to reach the artifact. The temple is filled with mummies, undead warriors, and constructs guarding its treasures.\n\nHere are the stat blocks for the enemies the party will face:\n\n* Mummies (4):\n\t+ Armor Class: 11\n\t+ Hit Points: 45 (6d8 + 18)\n\t+ Speed: 20 ft.\n\t+ Damage Immunity: Poison, Psychicical\n\t+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned\n\t+ Traits:\n\t\t- Curse of the Pharaohs. A creature that touches the mummy or hits it with a melee attack while within 5 ft. of it must succeed on a DC 15 Wisdom saving throw or be cursed. The cursed target can't regain hit points, and its hit point maximum is reduced by 10 (3d6) for 24 hours. The curse lasts until removed by a remove curse spell or similar magic.\n\t\t- Mummy Rot. A creature hit by a mummy's Slam attack must succeed on a DC 15 Constitution saving throw or be affected by the Mummy Rot disease. The disease's effects are detailed in appendix A of the Monster Manuel.\n* Construct Guardians (2):\n\t+ Armor Class: 17 (natural armor)\n\t+ Hit Points: 110 (13d10 + 30)\n\t+ Speed: 30 ft.\n\t+ Damage Immunity: Poison, Psychicical\n\t+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned\n\t+ Traits:\n\t\t- Immutable Form. The construct is immune to any spell or effect that would alter its form.\n\t\t- Magic Resistance. The construct has advantage on saving throws against spells and other magical effects.\n\t\t- Magic Weapons. The construct's weapon attacks are magical.\n\t\t- Siege Monster. The construct deals double damage to objects and structures.\n* Skeletal Warriors (6):\n\t+ Armor Class: 12\n\t+ Hit Points: 22 (5d8)\n\t+ Speed: 30 ft.\n\t+ Damage Immunity: Poison, Psychicical\n\t+ Condition Immunity: Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned\n\t+ Traits:\n\t\t- Undead Fortitude. If damage reduces the skeleton to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the skeleton drops to 1 hit point instead.\n\nPuzzles and Traps:\n\n* Pressure Plate Puzzle. A room filled with pressure plates on the floor. Stepping on the wrong plate will trigger a poison dart trap. A successful Intelligence (Investigation) check (DC 15) will reveal which plates are safe to step on.\n* Spinning Blade Trap. A hallway filled with spinning blades that activate when the party steps on a pressure plate. A Dexterity (Acrobatics) check (DC 15\n\nSession sharegpt_f8qia8m_0 at 2023/05/29 (Mon) 10:34\nuser: You are a character in a post apocalyptic world, you are going to give me a quest where I have to save a village’s children from mutant creatures. The reward is a powerful weapon (give it a name). What would your character say to me?\nassistant: Greetings, traveler. I am but a humble survivor in this post-apocalyptic wasteland, but I have a quest for you that may prove worthy of your skills.\n\nThere is a nearby village, inhabited by families who have managed to eke out a meager existence amidst the ruins. Recently, a pack of mutant creatures has begun to prey upon the village's children, dragging them off into the wilderness to feast upon their flesh.\n\nThe villagers are in dire need of someone brave enough to venture out and rescue their children from the clutches of these beasts. If you are willing to take on this task, I will reward you with a powerful weapon known as the \"Stormbringer\". It's a rare and fearsome weapon, capable of unleashing bolts of lightning upon your enemies.\n\nBut be warned, traveler, the mutants are not to be underestimated. They are vicious and cunning, and you will need all your wits and strength to overcome them. Are you up to the challenge?\nuser: When I return from this quest there can be 2 outcomes, the first in which I succeed, and the second where I fail. What would your character say in each of the 2 scenarios?\nassistant: If you return successful in your quest to save the village's children, I would say:\n\n\"Well done, traveler. You have proven yourself a true hero in this wasteland. The children are safe, and the village is forever in your debt. As promised, here is the Stormbringer, a weapon worthy of a warrior such as yourself. May it serve you well in your future endeavors.\"\n\nIf, unfortunately, you return unsuccessful in your quest, I would say:\n\n\"I am sorry, traveler. The loss of the village's children is a tragedy beyond words. You fought bravely, but it seems the mutants were too strong. I cannot reward you as promised, for the weapon was meant to be a token of gratitude for saving the children. However, perhaps there is another way you can make amends for your failure. The village still needs protection, and perhaps you can use your skills to aid them in some other way.\"\n\nSession ultrachat_198366 at 2023/05/30 (Tue) 03:19\nuser: How has the symbolism of the Foundation Stone been represented in art and literature throughout history?\nassistant: The Foundation Stone has been an important symbol in various religions and has been represented\n\nQuestion date: 2023/05/30 (Tue) 23:50\nQuestion: I'm going back to our previous chat about the Lost Temple of the Djinn one-shot. Can you remind me how many mummies the party will face in the temple?",
+            "role": "user"
+          },
+          {
+            "content": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-31316152994-attempt-1:18dcd5a5:ccac5735-6538-486d-9045-c8e4570288a0",
+    "text": "The party will face 4 mummies in the Lost Temple of the Djinn one-shot.",
+    "usage": {
+      "input_tokens": 1603,
+      "output_tokens": 19,
+      "retrieval_tokens": 1493
+    }
+  },
+  "reference_answer": "4",
+  "request_id": "amem-d4-31316152994-attempt-1:18dcd5a5:ccac5735-6538-486d-9045-c8e4570288a0",
+  "run_id": "amem-d4-31316152994-attempt-1",
+  "schema_version": "amem-d4-answer-trial-v1",
+  "sealed_final_accessed": false,
+  "selected_session_ids_before_budget": [
+    "answer_sharegpt_hn3IS1q_0",
+    "sharegpt_f8qia8m_0",
+    "ultrachat_198366"
+  ],
+  "sequence_index": 4,
+  "total_tokens": 0
+}

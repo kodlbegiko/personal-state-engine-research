@@ -1,0 +1,76 @@
+name: Candidate-v5 Protected Validation — One Formal Execution
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/candidate-v5-protected-validation-once.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  protected-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e .
+      - name: Verify frozen Candidate-v5 and protected-validation lock
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          lock_path = Path('benchmarks/algorithm-development/candidate-v5-validation-v1/benchmark-lock.json')
+          lock = json.loads(lock_path.read_text())
+          assert lock['status'] == 'FROZEN_BEFORE_FORMAL_EXECUTION'
+          assert lock['formal_execution_count_allowed'] == 1
+          assert lock['post_result_editing_allowed'] is False
+          assert lock['sealed_final_accessed'] is False
+          assert lock['dataset_sha256'] == '9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5'
+          for name, expected in lock['files_sha256'].items():
+              actual = hashlib.sha256(Path(name).read_bytes()).hexdigest()
+              assert actual == expected, (name, actual, expected)
+          source = hashlib.sha256(Path('src/personal_state_engine/candidate_v5.py').read_bytes()).hexdigest()
+          config = hashlib.sha256(Path('experiments/configs/candidate-v5-v1.json').read_bytes()).hexdigest()
+          assert source == lock['candidate_v5_source_sha256'] == 'f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975'
+          assert config == lock['candidate_v5_config_sha256'] == 'b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a'
+          print(json.dumps({'validation_lock_verified': True, 'dataset_sha256': lock['dataset_sha256'], 'candidate_v5_source_sha256': source}, sort_keys=True))
+          PY
+      - name: Execute protected validation exactly once
+        id: execute
+        run: |
+          set +e
+          mkdir -p /tmp/candidate-v5-validation
+          python benchmarks/algorithm-development/candidate-v5-validation-v1/evaluate_once.py --output /tmp/candidate-v5-validation/validation-summary-v1.json
+          code=$?
+          set -e
+          echo "$code" > /tmp/candidate-v5-validation/evaluator-exit-code.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          sha256sum /tmp/candidate-v5-validation/validation-summary-v1.json > /tmp/candidate-v5-validation/SHA256SUMS.txt
+          cat /tmp/candidate-v5-validation/SHA256SUMS.txt
+          cat /tmp/candidate-v5-validation/evaluator-exit-code.txt
+      - name: Verify repository remains unchanged
+        if: always()
+        run: git diff --exit-code
+      - name: Upload immutable protected-validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v5-protected-validation-formal
+          path: /tmp/candidate-v5-validation/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce frozen validation verdict
+        if: always()
+        run: |
+          set -euo pipefail
+          code="$(cat /tmp/candidate-v5-validation/evaluator-exit-code.txt)"
+          if [ "$code" -ne 0 ]; then
+            echo 'Protected validation failed frozen guardrails. Candidate-v5 remains frozen and must not be patched.' >&2
+            exit "$code"
+          fi

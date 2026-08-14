@@ -1,0 +1,14 @@
+{
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "bytes": 8489,
+      "path": "results/candidate-v2/summary.json",
+      "sha256": "baf117428ac11fc3111fe3196c881c0b12369dc74491449fb0ff559df501afdb"
+    }
+  ],
+  "cloud_gpu_cost_usd": 0.0,
+  "paid_api_cost_usd": 0.0,
+  "schema_version": "pse-candidate-v2-artifact-registry-v1",
+  "sealed_final_accessed": false
+}

@@ -1,0 +1,53 @@
+{
+  "deviations": [
+    {
+      "component": "output transport",
+      "effect_on_semantics": "potential",
+      "official_behavior": "free-form text requested as yes or no",
+      "ported_behavior": "single JSON object with label CORRECT or INCORRECT",
+      "reason": "enforce a machine-checkable schema while retaining the official yes/no decision semantics",
+      "verification": "synthetic parser corpus and prompt-routing tests"
+    },
+    {
+      "component": "parser",
+      "effect_on_semantics": "potential",
+      "official_behavior": "substring test: yes in lowercased response",
+      "ported_behavior": "exact JSON schema; malformed, extra-key, conflicting, timeout, provider-error and truncated outputs are INVALID",
+      "reason": "prevent false positives such as not yes and retain invalid outputs instead of coercing them",
+      "verification": "strict parser unit tests; invalids excluded from correctness"
+    },
+    {
+      "component": "model selection",
+      "effect_on_semantics": "potential",
+      "official_behavior": "one of official GPT-4o, GPT-4o-mini or Llama 3.1 70B paths",
+      "ported_behavior": "only exact official dated GPT-4o or exact-pinned official 70B path; no smaller fallback",
+      "reason": "avoid substituting a judge with uncalibrated semantic behavior",
+      "verification": "evaluator manifest rejects all other model IDs"
+    },
+    {
+      "component": "retry",
+      "effect_on_semantics": "none",
+      "official_behavior": "exponential retry on rate-limit/API errors without repository-fixed attempt ceiling",
+      "ported_behavior": "at most two transport retries; no semantic retry and no parser repair",
+      "reason": "bound execution and retain every attempt without label-driven retry",
+      "verification": "retry contract in evaluator manifest"
+    },
+    {
+      "component": "evidence retention",
+      "effect_on_semantics": "none",
+      "official_behavior": "writes parsed label into result rows",
+      "ported_behavior": "retains raw provider response, attempt metadata, usage, parser result and errors",
+      "reason": "support reconstruction and invalid-output audit",
+      "verification": "preparation and artifact-registry verifier"
+    },
+    {
+      "component": "blinding",
+      "effect_on_semantics": "none",
+      "official_behavior": "no repository-specific baseline blinding contract",
+      "ported_behavior": "identity-free blinded input and separately stored unblinding key using seed 17",
+      "reason": "prevent baseline identity from influencing the judge or human auditor",
+      "verification": "forbidden-term and forbidden-key scans"
+    }
+  ],
+  "schema_version": "longmemeval-faithful-port-deviations-v3"
+}

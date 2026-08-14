@@ -1,0 +1,60 @@
+name: Candidate-v5 Freeze Evidence
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - 'experiments/configs/candidate-v5-v1.json'
+      - 'benchmarks/pilot/benchmark-lock.json'
+      - 'benchmarks/pilot/benchmark-lock.sha256'
+      - '.github/workflows/candidate-v5-freeze-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freeze-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e .
+      - name: Verify benchmark lock
+        run: python scripts/verify_benchmark_lock.py
+      - name: Run Candidate-v5 unit tests
+        run: python -m unittest tests.test_candidate_v5 -v
+      - name: Re-run deterministic development guardrails
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/candidate-v5-freeze
+          python scripts/evaluate_candidate_v5.py --output /tmp/candidate-v5-freeze/development-summary-v1.json
+      - name: Record freeze hashes
+        run: |
+          set -euo pipefail
+          sha256sum \
+            src/personal_state_engine/candidate_v5.py \
+            experiments/configs/candidate-v5-v1.json \
+            experiments/protocols/candidate-v5-design-preregistration-v1.json \
+            tests/test_candidate_v5.py \
+            benchmarks/algorithm-development/candidate-v5-dev-v1/generator.py \
+            benchmarks/algorithm-development/candidate-v5-dev-v1/manifest.json \
+            benchmarks/pilot/benchmark-lock.json \
+            benchmarks/pilot/benchmark-lock.sha256 \
+            > /tmp/candidate-v5-freeze/FREEZE-SHA256SUMS.txt
+          cp experiments/configs/candidate-v5-v1.json /tmp/candidate-v5-freeze/
+          cp experiments/protocols/candidate-v5-design-preregistration-v1.json /tmp/candidate-v5-freeze/
+          cp src/personal_state_engine/candidate_v5.py /tmp/candidate-v5-freeze/
+          cat /tmp/candidate-v5-freeze/FREEZE-SHA256SUMS.txt
+      - name: Verify clean worktree
+        run: git diff --exit-code
+      - name: Upload freeze evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v5-freeze-evidence
+          path: /tmp/candidate-v5-freeze/
+          if-no-files-found: error
+          retention-days: 90

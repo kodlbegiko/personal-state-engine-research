@@ -1,0 +1,105 @@
+{
+  "evidence_basis": "Existing development cases plus already-observed adversarial-v5 failure diagnostics only. No new confirmatory cases were observed before selection.",
+  "hypotheses": [
+    {
+      "computational_cost": "LOW",
+      "determinism": "HIGH with rule-based entailment proxy",
+      "development_feasibility": "HIGH",
+      "expected_false_abstention_risk": "MEDIUM",
+      "expected_false_retrieval_reduction": "HIGH",
+      "failure_modes_addressed": ["same_subject_wrong_predicate", "query_echo", "plausible_unsupported_answer"],
+      "id": "H1",
+      "interpretability": "HIGH",
+      "leakage_risk": "LOW",
+      "name": "Evidence entailment",
+      "new_information_introduced": "Proposition-support verdict rather than similarity score.",
+      "reason": "Necessary but a monolithic entailment proxy can miss temporal and multi-evidence conflicts.",
+      "selection": "COMPONENT_ONLY",
+      "zero_cost_feasibility": "HIGH"
+    },
+    {
+      "computational_cost": "LOW",
+      "determinism": "HIGH",
+      "development_feasibility": "HIGH",
+      "expected_false_abstention_risk": "LOW_TO_MEDIUM",
+      "expected_false_retrieval_reduction": "HIGH",
+      "failure_modes_addressed": ["same_subject_wrong_predicate", "temporal_near_match", "partial_evidence", "unseen_relation"],
+      "id": "H2",
+      "interpretability": "HIGH",
+      "leakage_risk": "LOW",
+      "name": "Query decomposition and slot coverage",
+      "new_information_introduced": "Explicit subject, requested attribute/relation, temporal scope, certainty and value slots.",
+      "reason": "Strongest single mechanism for wrong-field and temporal failures, but does not alone resolve conflicts.",
+      "selection": "COMPONENT_ONLY",
+      "zero_cost_feasibility": "HIGH"
+    },
+    {
+      "computational_cost": "LOW_TO_MEDIUM",
+      "determinism": "HIGH",
+      "development_feasibility": "MEDIUM",
+      "expected_false_abstention_risk": "MEDIUM",
+      "expected_false_retrieval_reduction": "MEDIUM_TO_HIGH",
+      "failure_modes_addressed": ["contradiction", "stale_evidence", "uncertain_evidence", "temporal_conflict"],
+      "id": "H3",
+      "interpretability": "HIGH",
+      "leakage_risk": "LOW",
+      "name": "Evidence consistency graph",
+      "new_information_introduced": "Cross-memory agreement, contradiction, uncertainty and update-resolution state.",
+      "reason": "Targets unresolved conflict but is insufficient for single misleading memories.",
+      "selection": "COMPONENT_ONLY",
+      "zero_cost_feasibility": "HIGH"
+    },
+    {
+      "computational_cost": "LOW",
+      "determinism": "HIGH",
+      "development_feasibility": "HIGH",
+      "expected_false_abstention_risk": "LOW if not used as a multi-source requirement",
+      "expected_false_retrieval_reduction": "MEDIUM",
+      "failure_modes_addressed": ["query_echo", "high_lexical_overlap", "duplicate_distractor", "no_actual_supporting_proposition"],
+      "id": "H4",
+      "interpretability": "HIGH",
+      "leakage_risk": "LOW",
+      "name": "Counterfactual answerability test",
+      "new_information_introduced": "Tests whether apparent support disappears when lexical-copy/boilerplate evidence is excluded.",
+      "reason": "Useful veto, but cannot require multiple independent memories because legitimate single-support cases exist.",
+      "selection": "COMPONENT_ONLY",
+      "zero_cost_feasibility": "HIGH"
+    },
+    {
+      "computational_cost": "LOW",
+      "determinism": "MEDIUM_TO_HIGH",
+      "development_feasibility": "MEDIUM",
+      "expected_false_abstention_risk": "UNKNOWN",
+      "expected_false_retrieval_reduction": "UNKNOWN_TO_HIGH",
+      "failure_modes_addressed": ["mixed nonlinear interactions"],
+      "id": "H5",
+      "interpretability": "MEDIUM",
+      "leakage_risk": "MEDIUM_TO_HIGH",
+      "name": "Lightweight learned answerability classifier",
+      "new_information_introduced": "Learned mapping over support/contradiction/temporal features.",
+      "reason": "Small development corpus and already-observed v5 diagnostics create unnecessary overfit/leakage risk; deterministic mechanisms are adequate to test the research question first.",
+      "selection": "REJECTED_FOR_V4",
+      "zero_cost_feasibility": "HIGH"
+    }
+  ],
+  "integrity": {
+    "candidate_v2_modified": false,
+    "candidate_v3_modified": false,
+    "new_monetary_cost_usd": 0.0,
+    "selection_before_new_confirmatory_benchmark": true
+  },
+  "recorded_at": "2026-08-10T20:51:00+08:00",
+  "schema_version": "candidate-v4-hypothesis-comparison-v1",
+  "selected_architecture": {
+    "components": [
+      "H1 proposition-support proxy",
+      "H2 slot coverage",
+      "H3 consistency/uncertainty resolution",
+      "H4 lexical-copy counterfactual veto"
+    ],
+    "decision": "SUPPORTED => return the frozen Candidate-v2 ranking unchanged; CONTRADICTED or INSUFFICIENT => abstain with an empty ranking.",
+    "id": "V4-HYBRID",
+    "name": "Frozen-v2 retrieval + deterministic proposition/slot answerability gate",
+    "reason": "This separates ranking from answerability, directly addresses every observed no-evidence failure family, and minimizes false-abstention/retrieval-regression risk by never reordering a supported v2 result."
+  }
+}

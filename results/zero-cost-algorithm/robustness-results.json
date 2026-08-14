@@ -1,0 +1,424 @@
+{
+  "development": {
+    "baseline": {
+      "abstention_case_count": 2,
+      "answerable_case_count": 22,
+      "case_count": 24,
+      "metrics": {
+        "MRR": 1.0,
+        "abstention_accuracy": 0.5,
+        "irrelevant_retrieval_rate": 0.386363636364,
+        "ndcg@5": 1.0,
+        "precision@1": 1.0,
+        "precision@3": 0.409090909091,
+        "precision@5": 0.245454545455,
+        "recall@1": 0.916666666667,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "perturbations": {
+      "capitalization": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "irrelevant_duplicate": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.931818181818,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.602941176471,
+          "ndcg@5": 0.958935772479,
+          "precision@1": 0.863636363636,
+          "precision@3": 0.378787878788,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.840909090909,
+          "recall@3": 0.969696969697,
+          "recall@5": 1.0
+        }
+      },
+      "lexical_adversary": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 0.5,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.602941176471,
+          "ndcg@5": 0.643034043747,
+          "precision@1": 0.0,
+          "precision@3": 0.378787878788,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.0,
+          "recall@3": 0.969696969697,
+          "recall@5": 1.0
+        }
+      },
+      "missing_timestamps": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "punctuation": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "reverse_memory_order": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "whitespace": {
+        "abstention_case_count": 2,
+        "answerable_case_count": 22,
+        "case_count": 24,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.5,
+          "irrelevant_retrieval_rate": 0.386363636364,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.409090909091,
+          "precision@5": 0.245454545455,
+          "recall@1": 0.916666666667,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    }
+  },
+  "generated_at": "2026-08-08T16:40:00Z",
+  "hidden_generated": {
+    "baseline": {
+      "abstention_case_count": 0,
+      "answerable_case_count": 6,
+      "case_count": 6,
+      "metrics": {
+        "MRR": 0.916666666667,
+        "abstention_accuracy": null,
+        "irrelevant_retrieval_rate": 0.307692307692,
+        "ndcg@5": 0.938488292262,
+        "precision@1": 0.833333333333,
+        "precision@3": 0.5,
+        "precision@5": 0.3,
+        "recall@1": 0.638888888889,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "perturbations": {
+      "capitalization": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "irrelevant_duplicate": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.526315789474,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "lexical_adversary": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.472222222222,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.526315789474,
+          "ndcg@5": 0.636507380802,
+          "precision@1": 0.0,
+          "precision@3": 0.444444444444,
+          "precision@5": 0.3,
+          "recall@1": 0.0,
+          "recall@3": 0.944444444444,
+          "recall@5": 1.0
+        }
+      },
+      "missing_timestamps": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "punctuation": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "reverse_memory_order": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "whitespace": {
+        "abstention_case_count": 0,
+        "answerable_case_count": 6,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.916666666667,
+          "abstention_accuracy": null,
+          "irrelevant_retrieval_rate": 0.307692307692,
+          "ndcg@5": 0.938488292262,
+          "precision@1": 0.833333333333,
+          "precision@3": 0.5,
+          "precision@5": 0.3,
+          "recall@1": 0.638888888889,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    }
+  },
+  "schema_version": "zero-cost-robustness-results-v1",
+  "validation": {
+    "baseline": {
+      "abstention_case_count": 1,
+      "answerable_case_count": 5,
+      "case_count": 6,
+      "metrics": {
+        "MRR": 1.0,
+        "abstention_accuracy": 0.0,
+        "irrelevant_retrieval_rate": 0.583333333333,
+        "ndcg@5": 1.0,
+        "precision@1": 1.0,
+        "precision@3": 0.333333333333,
+        "precision@5": 0.2,
+        "recall@1": 1.0,
+        "recall@3": 1.0,
+        "recall@5": 1.0
+      }
+    },
+    "perturbations": {
+      "capitalization": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "irrelevant_duplicate": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.722222222222,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "lexical_adversary": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 0.5,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.722222222222,
+          "ndcg@5": 0.630929753571,
+          "precision@1": 0.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "missing_timestamps": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "punctuation": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "reverse_memory_order": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      },
+      "whitespace": {
+        "abstention_case_count": 1,
+        "answerable_case_count": 5,
+        "case_count": 6,
+        "metrics": {
+          "MRR": 1.0,
+          "abstention_accuracy": 0.0,
+          "irrelevant_retrieval_rate": 0.583333333333,
+          "ndcg@5": 1.0,
+          "precision@1": 1.0,
+          "precision@3": 0.333333333333,
+          "precision@5": 0.2,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "recall@5": 1.0
+        }
+      }
+    }
+  }
+}

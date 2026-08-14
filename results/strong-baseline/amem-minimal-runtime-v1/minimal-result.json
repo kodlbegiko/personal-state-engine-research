@@ -1,0 +1,19 @@
+{
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "backend": "ollama",
+  "llm_model": "qwen2.5:3b",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "memory_count": 2,
+  "memory_ids_created": [
+    "301e65d0-0dfb-4d5e-8486-b1a735814b32",
+    "4f39dc7e-ac86-4f2b-be6d-7fdd9d2a0bdf"
+  ],
+  "retrieval_indices": [
+    0,
+    1
+  ],
+  "retrieval_nonempty": true,
+  "retrieval_text": "memory index:0\t talk start time:202501010900\t memory content: User preferred coffee for morning drinks.\t memory context: The main topic is user preferences regarding beverage choices in the morning.\t memory keywords: ['Coffee', 'Morning', 'Beverage']\t memory tags: ['Lifestyle', 'Habit', 'Drink']\nmemory index:1\t talk start time:202606010900\t memory content: User changed morning drink preference to tea.\t memory context: The user altered their usual beverage choice in the morning from another drink to tea.\t memory keywords: ['Preference Change', 'Morning Drink', 'Tea']\t memory tags: ['Lifestyle', 'Personal Choice', 'Beverage Switch']\n",
+  "wall_seconds_python": 34.89470276700001,
+  "note": "Uses upstream find_related_memories(), the same standard retrieval API used by AMemUpstreamAdapter. Prior failures are retained: raw-neighborhood API IndexError, then wrapper-only NumPy truth-value error after successful standard retrieval."
+}

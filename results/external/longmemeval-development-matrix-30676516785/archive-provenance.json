@@ -1,0 +1,19 @@
+{
+  "branch": "research/personal-state-engine-v0",
+  "experiment_step": "PASS",
+  "pull_request": 2,
+  "raw_to_summary_contract": "PASS",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "run_id": "development-matrix-30676516785-attempt-1",
+  "schema_version": "github-actions-evidence-provenance-v1",
+  "sealed_final_accessed": false,
+  "source_head_sha": "d705b1724c5a206f41db506d6c72c35d03e1cb13",
+  "tested_pr_merge_sha": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+  "workflow_artifact_id": 8810812462,
+  "workflow_artifact_name": "longmemeval-development-matrix-30676516785-1",
+  "workflow_artifact_zip_sha256": "bec23cd90b5ec6eca24ebca9806528e128a6d0acf3c256eb4b37682e651a5235",
+  "workflow_conclusion": "FAILURE",
+  "workflow_failure_scope": "Post-experiment shell check searched ignored runtime cache instead of Git-tracked files. The evidence and contract steps passed.",
+  "workflow_job_id": 91304822403,
+  "workflow_run_id": 30676516785
+}

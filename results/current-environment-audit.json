@@ -1,0 +1,32 @@
+{
+  "architecture": "x86_64",
+  "audited_at": "2026-08-08T15:50:00Z",
+  "branch": "research/personal-state-engine-v0",
+  "capability_class": "REDUCED_PILOT_ONLY",
+  "checkout_mode": "GitHub connector plus isolated execution container; no local authenticated Git checkout",
+  "cloud_gpu_used": false,
+  "free_disk_bytes": 40558215168,
+  "gpu": null,
+  "logical_cpu_count": 5,
+  "memory_total_kib": 6219544,
+  "network_note": "Direct container DNS/network access to GitHub was unavailable; repository reads/writes used the authenticated GitHub connector.",
+  "new_paid_service_used": false,
+  "packages": {
+    "numpy": "2.3.5",
+    "rank-bm25": null,
+    "scikit-learn": "1.8.0",
+    "sentence-transformers": null,
+    "torch": "2.10.0+cpu",
+    "transformers": null
+  },
+  "paid_api_used": false,
+  "python": "3.13.5",
+  "repository": "kodlbegiko/personal-state-engine-research",
+  "schema_version": "current-environment-audit-v1",
+  "sealed_final_accessed": false,
+  "starting_head_sha": "a5936dcc4d29bcdbe87ffb031102139d54ed789e",
+  "swap_total_kib": 0,
+  "vram": null,
+  "working_tree_clean": null,
+  "working_tree_note": "Not asserted because the execution container is not the authenticated repository checkout; remote branch state was audited through GitHub."
+}

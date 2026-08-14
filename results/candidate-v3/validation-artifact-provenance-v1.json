@@ -1,0 +1,35 @@
+{
+  "schema_version": "candidate-v3-validation-artifact-provenance-v1",
+  "candidate_freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+  "candidate_source_sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+  "workflow_run_id": 31354985238,
+  "workflow_run_attempt": 1,
+  "workflow_head_sha": "db9a244640ca157adf6a8b9a27f75f1258ac8ccd",
+  "workflow_conclusion": "success",
+  "artifact": {
+    "id": 9050310030,
+    "name": "candidate-v3-validation-v1",
+    "digest": "sha256:102374e598201e6bb345773fee00f0c980e6eb479c70994dd4bf08312e4ee9ed",
+    "created_at": "2026-08-10T04:17:11Z",
+    "expires_at": "2026-09-09T04:17:10Z"
+  },
+  "durable_result": "results/candidate-v3/validation-v1.json",
+  "durable_result_sha256_from_artifact_bytes": "95d37ab37efb37b39e11ee1b001ad107167c6610fdefe141b1a63e1cb021d33e",
+  "validation_dataset_sha256": "f396fa3cbc2dbb46fb7003fb7a359e7392469e45cb3abb07c0c9f7c6f01b08fa",
+  "validation_acceptance": {
+    "candidate_v3_mrr": 1.0,
+    "candidate_v3_recall_at_1": 1.0,
+    "candidate_v3_abstention_accuracy": 1.0,
+    "candidate_v3_false_retrieval_rate": 0.0,
+    "candidate_v3_false_abstention_rate": 0.0,
+    "status": "PASS"
+  },
+  "integrity": {
+    "candidate_changed_after_freeze": false,
+    "validation_retuning": false,
+    "candidate_v2_changed": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0
+  },
+  "claim_boundary": "One-time frozen validation passed. This does not establish confirmatory generalization, Gate E completion, parity, or independent reproduction."
+}

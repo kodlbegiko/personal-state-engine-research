@@ -1,0 +1,69 @@
+{
+  "schema_version": "candidate-v5-protected-validation-statistics-v1",
+  "status": "POST_VALIDATION_ANALYSIS_OF_IMMUTABLE_PREDICTIONS",
+  "selection_decision_already_frozen": true,
+  "decision_changed_by_statistics": false,
+  "source_evidence": {
+    "workflow_run_id": 31665185021,
+    "artifact_id": 9167643375,
+    "artifact_digest_sha256": "74372a54d173bb0bc74bfa848bfc01d2c260c7fc30d24d70fa07372db0f48ff3",
+    "validation_summary_sha256": "5ad27259d7a9e2fea070807ebca7f23c15f7c53760206cf93989f3ec7de9c2fa",
+    "dataset_sha256": "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5",
+    "predictions_regenerated": false,
+    "benchmark_rerun": false
+  },
+  "paired_bootstrap": {
+    "comparison": "candidate_v5_vs_candidate_v2",
+    "metric": "answerable-case reciprocal-rank MRR",
+    "answerable_cases": 24,
+    "repetitions": 10000,
+    "seed": 20260813,
+    "confidence_interval": 0.95,
+    "candidate_v5_mrr": 0.8333333333333334,
+    "candidate_v2_mrr": 0.9166666666666666,
+    "delta_mrr_v5_minus_v2": -0.08333333333333333,
+    "ci_lower": -0.20833333333333334,
+    "ci_upper": 0.0,
+    "noninferiority_margin": 0.03,
+    "noninferiority_rule": "lower_95pct_bound >= -0.03",
+    "noninferiority_result": "FAIL",
+    "bootstrap_fraction_delta_ge_minus_margin": 0.12,
+    "wins": 0,
+    "ties": 22,
+    "losses": 2
+  },
+  "wilson_intervals": {
+    "candidate_v5_answerable_recall": {
+      "successes": 22,
+      "trials": 24,
+      "estimate": 0.9166666666666666,
+      "ci_lower": 0.741511978067893,
+      "ci_upper": 0.9768411847029567
+    },
+    "candidate_v5_abstention_accuracy": {
+      "successes": 22,
+      "trials": 24,
+      "estimate": 0.9166666666666666,
+      "ci_lower": 0.741511978067893,
+      "ci_upper": 0.9768411847029567
+    },
+    "candidate_v5_false_abstention": {
+      "events": 2,
+      "trials": 24,
+      "estimate": 0.08333333333333333,
+      "ci_lower": 0.023158815297043306,
+      "ci_upper": 0.25848802193210685
+    },
+    "candidate_v5_no_evidence_false_retrieval": {
+      "events": 2,
+      "trials": 24,
+      "estimate": 0.08333333333333333,
+      "ci_lower": 0.023158815297043306,
+      "ci_upper": 0.25848802193210685
+    }
+  },
+  "interpretation": "The protected-validation point estimate violates the frozen retrieval-preservation margin by 0.05333 beyond the allowed 0.03 deficit. The paired bootstrap lower bound is well below -0.03, so the preregistered MRR noninferiority criterion is not supported. This analysis is diagnostic confirmation of an already terminal frozen-guardrail failure, not a second validation execution.",
+  "candidate_v5_patch_authorized": false,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}

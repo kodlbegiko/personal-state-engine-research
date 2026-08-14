@@ -1,0 +1,34 @@
+{
+  "primary_baseline": "A-MEM",
+  "rejected_candidates": [
+    {
+      "id": "LongMem",
+      "reason": "insufficient personal/cross-session fit and current compute infeasible"
+    },
+    {
+      "id": "MemoryBank",
+      "reason": "weaker benchmark compatibility and original reproduction assumes A100/OpenAI paths"
+    }
+  ],
+  "scores": {
+    "A-MEM": 45,
+    "Graphiti/Zep": 40,
+    "LongMem": 25,
+    "Mem0": 42,
+    "MemoryBank": 33,
+    "MemoryOS": 40,
+    "TiMem": 44
+  },
+  "secondary_baseline": "TiMem",
+  "selected_at": "2026-08-08T22:22:00+08:00",
+  "selected_without_pse_result_visibility": true,
+  "selection_frozen_before_results": true,
+  "selection_reason": [
+    "A-MEM has NeurIPS 2025 publication strength and an official reproduction repository.",
+    "The exact-pinned 2026-03-05 upstream revision adds an official robust local path via Ollama/vLLM, including qwen2.5:3b, so no paid API is structurally required.",
+    "A-MEM's source surface is materially smaller than TiMem/MemoryOS/Graphiti and therefore offers the best balance of scientific strength, relevance, exact pinning, and zero-cost feasibility.",
+    "TiMem ranks second because it directly targets both LoCoMo and LongMemEval-S and is accepted to Findings of ACL 2026, but its self-hosted stack requires PostgreSQL/Qdrant plus LLM services and is materially heavier."
+  ],
+  "selection_rubric_sha256": "4d9e2bfb90eb25b2ada93d669c0549e5c83b534263d97de70eca474442c8bb1b",
+  "selection_version": "v1"
+}

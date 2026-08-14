@@ -1,0 +1,26 @@
+{
+  "answer_model_rerun": false,
+  "archive_registry": {
+    "artifact_count": 59,
+    "registered_artifact_sha256_checks": 59,
+    "status": "PASS"
+  },
+  "case_count": 20,
+  "case_id_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+  "case_pairs_complete": true,
+  "evidence_directory": "results/external/longmemeval-development-matrix-30676516785",
+  "expected_case_id_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+  "expected_raw_trials": 40,
+  "ext_b0_cross_session_history_absent": true,
+  "ext_b5_retrieval_trace_present": true,
+  "integrity_verdict": "PASS",
+  "observed_raw_trials": 40,
+  "old_evaluator_v1_evidence_preserved": true,
+  "ordered_answer_set_sha256": "a7bcd93c9fb24e0b22e3a48c8ba0f181ac41927bfde1e2af119e05ef083f25ab",
+  "raw_trial_set_sha256": "401417eeae4151e80057a8b28fbf81942e779735a0e27bade334e0489839c886",
+  "request_ids_unique": true,
+  "schema_version": "longmemeval-raw-evidence-integrity-v3",
+  "sealed_final_accessed": false,
+  "trial_ids_unique": true,
+  "unordered_answer_multiset_sha256": "686c7b2ae60ace9c4636ca228c4c0c6be055112325386a79daa27302ab3e4b6e"
+}

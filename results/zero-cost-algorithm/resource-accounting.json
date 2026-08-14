@@ -1,0 +1,56 @@
+{
+  "case_count": 24,
+  "cloud_gpu_cost_usd": 0.0,
+  "corpus": "benchmarks/strong-baseline/synthetic-memory-cases-v1.json",
+  "environment": "isolated CPU-only execution container",
+  "interpretation": "Candidate v1 is slower than the benchmark reconstruction of current PSE but remains sub-0.1 ms/query on this tiny synthetic in-memory corpus. These figures are environment-specific engineering measurements, not production latency claims.",
+  "measured_at": "2026-08-08T16:08:00Z",
+  "microbenchmark": {
+    "queries_per_system": 48000,
+    "repetitions_per_case": 2000,
+    "systems": {
+      "bm25_local": {
+        "mean_query_ms": 0.013292,
+        "qps": 75234.45
+      },
+      "hybrid": {
+        "mean_query_ms": 0.011164,
+        "qps": 89571.79
+      },
+      "lexical": {
+        "mean_query_ms": 0.008406,
+        "qps": 118964.26
+      },
+      "pse_candidate_v1": {
+        "mean_query_ms": 0.02988,
+        "qps": 33467.6
+      },
+      "pse_current_reconstruction": {
+        "mean_query_ms": 0.020802,
+        "qps": 48072.81
+      },
+      "random": {
+        "mean_query_ms": 0.011877,
+        "qps": 84196.24
+      },
+      "recency": {
+        "mean_query_ms": 0.001824,
+        "qps": 548263.98
+      },
+      "tfidf_local": {
+        "mean_query_ms": 0.024253,
+        "qps": 41231.8
+      }
+    }
+  },
+  "other_paid_service_cost_usd": 0.0,
+  "paid_api_cost_usd": 0.0,
+  "runner": {
+    "maximum_resident_set_kib": 111304,
+    "system_cpu_seconds": 0.34,
+    "user_cpu_seconds": 1.57,
+    "wall_clock_seconds": 1.53
+  },
+  "schema_version": "zero-cost-resource-accounting-v1",
+  "total_new_monetary_cost_usd": 0.0
+}

@@ -1,0 +1,6 @@
+{
+  "contract": "exact enum yes/no, case-insensitive, optional terminal period or exclamation mark",
+  "schema_version": "longmemeval-parser-version-v2",
+  "source_path": "src/personal_state_engine/longmemeval_evaluator.py",
+  "source_sha256": "975e659fd3a109a40c8316fc532bf010a0dbf71208bcbb97978146e9d917f0e2"
+}

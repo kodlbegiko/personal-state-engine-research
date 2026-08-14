@@ -1,0 +1,41 @@
+{
+  "baseline_identity_hidden": true,
+  "case_id": "031748ae_abs",
+  "evaluator_id": "longmemeval-official-prompt-priority-v2",
+  "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+  "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 6199.2184720000005,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you an unanswerable question, an explanation, and a response from a model. Please answer yes if the model correctly identifies the question as unanswerable. The model could say that the information is incomplete, or some other information is given but the asked information is not.\n\nQuestion: How many engineers do I lead when I just started my new role as Software Engineer Manager?\n\nExplanation: The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.\n\nModel Response: You lead 5 engineers when you start your new role as Software Engineer Manager.\n\nDoes the model correctly identify the question as unanswerable? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "amem-d4-eval:031748ae_abs:23990304-2cd8-4e99-b52a-7c709f860090",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 174,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "amem-d4-eval:031748ae_abs:23990304-2cd8-4e99-b52a-7c709f860090",
+  "schema_version": "amem-d4-raw-judge-output-v1",
+  "sealed_final_accessed": false
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "candidate-v3-v5-stage1-artifact-provenance-v1",
+  "workflow": ".github/workflows/candidate-v3-v5-stage1.yml",
+  "workflow_run_id": 31355637627,
+  "workflow_run_attempt": 1,
+  "workflow_head_sha": "245b5af2d667d4ed75a03c86a31b64300380d7ad",
+  "workflow_conclusion": "success",
+  "artifact": {
+    "id": 9050512835,
+    "name": "candidate-v3-v5-stage1-v1",
+    "digest": "sha256:a76a7213e80e921a2958d0fb9275290c579b7b0f8562f8b5296b82f97a851f6e",
+    "created_at": "2026-08-10T04:29:36Z",
+    "expires_at": "2026-09-09T04:29:35Z"
+  },
+  "raw_artifact_files": {
+    "stage1-results-v1.json": {
+      "sha256": "24c7429c6b245391bd25539751c696b72547767956eccfbd7e910fbf9a962db3",
+      "bytes": 170117
+    },
+    "materialized-v5.json": {
+      "sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169",
+      "bytes": 89500
+    }
+  },
+  "durable_summary": "results/candidate-v3/v5-stage1-results-v1.json",
+  "benchmark": {
+    "case_count": 60,
+    "answerable_case_count": 45,
+    "no_evidence_case_count": 15,
+    "dataset_sha256": "41313c3da5f49e87a4456686e90c4b6934c4c088685f31679cc639b66ecbf169"
+  },
+  "stage1": {
+    "discrimination_status": "PASS",
+    "candidate_v3_selection_status": "REJECTED_BY_FROZEN_V5_THRESHOLDS"
+  },
+  "integrity": {
+    "candidate_v3_freeze_commit": "30e4de6860ef90219bb539fb03913012c83cc2ee",
+    "candidate_v3_source_sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+    "candidate_v3_changed_after_freeze": false,
+    "candidate_v2_changed": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "failed_preexecution_identity_runs_preserved": [31355440247, 31355529068]
+  },
+  "claim_boundary": "V5 Stage-1 discrimination passed, while candidate-v3 failed its preregistered retrieval and abstention selection thresholds. Exact A-MEM Stage 2 is authorized by the frozen protocol solely because discrimination passed."
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": "candidate-v6-adversarial-v7-amem-stage2-summary-v1",
+  "candidate": "candidate-v6",
+  "stage": "ADVERSARIAL_V7_EXACT_A_MEM_STAGE2",
+  "workflow": {
+    "run_id": 31690210078,
+    "head_sha": "d5b10fef3fc1d5f0392fb250659146575f587cde",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "final_artifact_id": 9177810576,
+    "final_artifact_digest_sha256": "af9508085a2554644085800850793f3fb87f2c94194cb6447208b820569d278f",
+    "shard_artifact_count": 30,
+    "aggregate_artifact_count": 1
+  },
+  "frozen_identities": {
+    "candidate_v6_source_sha256": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "candidate_v6_config_sha256": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "adversarial_v7_dataset_sha256": "77f2113fdf67001c53a31f0d9eff4ecac7e71564335ab9a505665b44a05546cd",
+    "evaluation_protocol_sha256": "d2c0b23c467175e54d325d019afaf555f5d26f09a4320aae61eee9cd65f4fdd3",
+    "statistics_protocol_sha256": "584e8bf8761ba414ea100df19ca53356b3ef09c0a190be82cfd2f44d5f8a194f",
+    "exact_a_mem_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+  },
+  "acceptance_contract": {
+    "case_count": 90,
+    "answerable_case_count": 60,
+    "no_evidence_case_count": 30,
+    "missing_case_count": 0,
+    "duplicate_case_count": 0,
+    "invalid_case_count": 0,
+    "exact_a_mem_90_of_90_valid": true
+  },
+  "systems": {
+    "candidate_v6_frozen": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention_rate": 0.0,
+      "false_retrieval_rate": 0.0,
+      "abstention_accuracy": 1.0,
+      "answerable_recall_wilson_95_ci": [0.93982814785791, 0.9999999999999998],
+      "false_abstention_wilson_95_ci": [0.0, 0.06017185214208986],
+      "false_retrieval_wilson_95_ci": [0.0, 0.11351339317396876],
+      "abstention_accuracy_wilson_95_ci": [0.8864866068260312, 0.9999999999999999]
+    },
+    "exact_a_mem": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention_rate": 0.0,
+      "false_retrieval_rate": 1.0,
+      "abstention_accuracy": 0.0,
+      "false_retrieval_count": 30,
+      "answerable_recall_wilson_95_ci": [0.93982814785791, 0.9999999999999998],
+      "false_abstention_wilson_95_ci": [0.0, 0.06017185214208986],
+      "false_retrieval_wilson_95_ci": [0.8864866068260312, 0.9999999999999999],
+      "abstention_accuracy_wilson_95_ci": [0.0, 0.11351339317396876]
+    },
+    "candidate_v2_frozen": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_retrieval_rate": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "candidate_v3_frozen": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_retrieval_rate": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "candidate_v4_frozen": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0,
+      "answerable_recall": 0.0,
+      "false_abstention_rate": 1.0,
+      "false_retrieval_rate": 0.0,
+      "abstention_accuracy": 1.0
+    },
+    "candidate_v5_frozen": {
+      "MRR": 0.25,
+      "R@1": 0.25,
+      "R@3": 0.25,
+      "R@5": 0.25,
+      "answerable_recall": 0.25,
+      "false_abstention_rate": 0.75,
+      "false_retrieval_rate": 0.6666666666666666,
+      "abstention_accuracy": 0.33333333333333337
+    }
+  },
+  "paired_statistics": {
+    "candidate_v6_vs_exact_a_mem": {
+      "answerable_n": 60,
+      "mrr_delta": 0.0,
+      "bootstrap_iterations": 10000,
+      "seed": 20260813,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority": true,
+      "superiority": false
+    },
+    "candidate_v6_vs_candidate_v2": {
+      "answerable_n": 60,
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority": true,
+      "superiority": false
+    },
+    "candidate_v6_vs_candidate_v3": {
+      "answerable_n": 60,
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "wins": 0,
+      "ties": 60,
+      "losses": 0,
+      "noninferiority_margin": 0.03,
+      "noninferiority": true,
+      "superiority": false
+    }
+  },
+  "scientific_selection": {
+    "candidate_v6_protected_validation": "PASS",
+    "benchmark_discrimination": "PASS",
+    "candidate_v6_stage1_guardrails": "PASS",
+    "exact_a_mem_90_of_90_valid": true,
+    "statistics_executed": true,
+    "candidate_v6_vs_exact_a_mem_noninferiority": true,
+    "gate_e_scientific_requirements_complete": true,
+    "scientific_candidate_selection": "PASS"
+  },
+  "claim_boundary": {
+    "algorithm_parity": "NO",
+    "reason": "The preregistered statistics protocol did not create a parity/equivalence criterion. Non-inferiority and identical observed MRR do not establish formal equivalence.",
+    "formal_gate_e_integrity_assessed_separately": true
+  },
+  "artifact_registry": {
+    "predictions_run1_sha256": "17fa08aa1a5f39425805c953c40d225245d138275f07d3e98ece5882688bbc3f",
+    "comparison_run1_sha256": "ba6b648f28c0510435e7cc9a765c21f1ac8f1c1ebed85c499a3b51a1a9873212",
+    "resource_summary_run1_sha256": "b28dde040b0f68d4edff5f2b6b1787241c80c3eb764062bc6459c7486ec324e7"
+  },
+  "integrity": {
+    "candidate_v6_changed_after_freeze": false,
+    "benchmark_changed_after_results": false,
+    "candidate_v6_protected_validation_rerun": false,
+    "sealed_final_accessed_in_candidate_v6_mission": false,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "cloud_gpu_used": false
+  }
+}

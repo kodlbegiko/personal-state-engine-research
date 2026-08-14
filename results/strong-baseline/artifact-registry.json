@@ -1,0 +1,25 @@
+{
+  "artifacts": [
+    {"bytes": 6943, "path": "experiments/baselines/strong-baseline-candidates.json", "sha256": "6b5b4d45c667235fe6a40b5d0e43a0ab0759ba20e9988ef1dcc78add257426ce"},
+    {"bytes": 1488, "path": "experiments/baselines/strong-baseline-selection-v1.json", "sha256": "260f9620541756314ec881a040cee47ed0dfa6ad92bc19d10794863d193bc08e"},
+    {"bytes": 596, "path": "experiments/baselines/strong-baseline-primary-v1.json", "sha256": "18954779c008e34dc8b55ea1347b94e2eb39c3ef7d78f56a87933a11e6cd5ae2"},
+    {"bytes": 1974, "path": "references/strong-baseline-primary-source.json", "sha256": "9f0ab01e61cce8ec7ac532086b3a735d60664a38af5d5c38007ed9133d4143b4"},
+    {"bytes": 6105, "path": "benchmarks/strong-baseline/synthetic-memory-cases-v1.json", "sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9"},
+    {"bytes": 124, "path": "benchmarks/strong-baseline/synthetic-memory-cases-v1.sha256", "sha256": "99f39d6ff938c2940c43ccdb80112a9ac2b98b64ebcae5944e53646c2ba6ddec"},
+    {"bytes": 1072, "path": "results/strong-baseline/environment-capability.json", "sha256": "ab3d1a72c6e12b49a2a8285828e3f4ce3579cba2216c8bab1ff5a6d71b799bf8"},
+    {"bytes": 927, "path": "results/strong-baseline/dependency-manifest.json", "sha256": "c783ddd1eb9d0dd222ff5cb94b2b1c51d0021260a31ed8eb5dce5271b3096766"},
+    {"bytes": 607, "path": "results/strong-baseline/synthetic-results.json", "sha256": "defacab02eb4f3d88e19a6a8bfe0ee3a75c7e50b055ea4cbda1b05a7546a2118"},
+    {"bytes": 550, "path": "results/strong-baseline/retrieval-results.json", "sha256": "e672efda3fa11e92d3c73f504c1d7abf9a3953cfbebe654bcda8a886756eed8c"},
+    {"bytes": 715, "path": "results/strong-baseline/resource-accounting.json", "sha256": "738faa43d1f12e05f1835d42c39888e509168863c7a6681d3cf3e385b2eedf10"},
+    {"bytes": 799, "path": "results/strong-baseline/failure-analysis.json", "sha256": "02c53b9fc973256580cadbfc363f15340e263cafff9bd6ce2db497f4fe8984e8"},
+    {"bytes": 429, "path": "results/strong-baseline/determinism-report.json", "sha256": "8e946986b42fa39fa5a497a578bb06d23e2074f9d25183a2447c053ab2c95438"},
+    {"bytes": 951, "path": "results/strong-baseline/reproduction-verdict.json", "sha256": "24a2b34814853efbca47420799fb758037c7391d1d43eae6cca74526588d84cc"},
+    {"bytes": 793, "path": "results/strong-baseline/pilot-scope.json", "sha256": "e67e09651597f0a391d5e797d5a9980844335e396a0326cc91463be6f946fe11"},
+    {"bytes": 1010, "path": "results/strong-baseline/blocker-evidence.json", "sha256": "9d71c44b48a0f3b1bd635adfef1c9f59d5dd78ab4b8e718c0e40378228845cfa"},
+    {"bytes": 2532, "path": "docs/strong-baseline-landscape.md", "sha256": "cfb0105e064dcbe1e1d099b8bd1c70cbdf0360c9e842dfb2c0e5d901f6c4ad92"},
+    {"bytes": 1289, "path": "docs/strong-baseline-reproduction-deviations.md", "sha256": "b4166a61fc10f479398594c58aad1913adb8f971b27a2983546e8b40aa2617de"},
+    {"bytes": 1060, "path": "docs/strong-baseline-failure-analysis.md", "sha256": "f64c1c836cf465f490902163afd7da63019dcbec66fce7bb94de96ef4a2df9d0"},
+    {"bytes": 3776, "path": "docs/strong-baseline-status-2026-08-08.md", "sha256": "8cb61a0880209b17c65c346de7ed8b2b19f055a9926f42a4bd29e933ae0be0a5"}
+  ],
+  "schema_version": "strong-baseline-artifact-registry-v1"
+}

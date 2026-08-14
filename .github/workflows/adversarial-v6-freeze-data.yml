@@ -1,0 +1,68 @@
+name: Freeze adversarial v6 confirmatory benchmark
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - research-triggers/adversarial-v6-generate-v1.txt
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-freeze:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Fail closed if v6 already exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e benchmarks/algorithm-development/adversarial-v6-confirmatory/cases-v1.json
+          test ! -e benchmarks/algorithm-development/adversarial-v6-confirmatory/manifest-v1.json
+      - name: Generate deterministic v6 cases and manifest
+        run: python scripts/generate_adversarial_v6.py
+      - name: Validate category matrix and identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from collections import Counter
+          from pathlib import Path
+          p = Path('benchmarks/algorithm-development/adversarial-v6-confirmatory/cases-v1.json')
+          m = Path('benchmarks/algorithm-development/adversarial-v6-confirmatory/manifest-v1.json')
+          data = json.loads(p.read_text())
+          manifest = json.loads(m.read_text())
+          assert len(data['cases']) == 90
+          assert len({c['id'] for c in data['cases']}) == 90
+          assert sum(bool(c['relevant_memory_ids']) for c in data['cases']) == 60
+          assert sum(not c['relevant_memory_ids'] for c in data['cases']) == 30
+          assert hashlib.sha256(p.read_bytes()).hexdigest() == manifest['dataset_sha256']
+          assert manifest['mechanism_agnostic'] is True
+          assert manifest['adversarial_v5_reused'] is False
+          assert manifest['sealed_final_source_used'] is False
+          assert manifest['new_monetary_cost_usd'] == 0.0
+          expected_a = {'single_support','multi_support','temporal_update','contradiction_resolved','duplicate_distractor','lexical_overlap_distractor','stale_evidence','recency_trap','multi_session_evidence','paraphrased_query'}
+          expected_n = {'same_subject_wrong_attribute','same_relation_wrong_subject','high_lexical_overlap','query_echo','stale_only_evidence','contradictory_unresolved_evidence','partial_evidence','plausible_unsupported_inference','temporal_near_match','near_duplicate_non_answer'}
+          counts = Counter(c['category'] for c in data['cases'])
+          assert all(counts[x] == 6 for x in expected_a)
+          assert all(counts[x] == 3 for x in expected_n)
+          print(json.dumps({'dataset_sha256': manifest['dataset_sha256'], 'category_counts': dict(sorted(counts.items()))}, sort_keys=True))
+          PY
+      - name: Commit immutable v6 dataset and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add benchmarks/algorithm-development/adversarial-v6-confirmatory/cases-v1.json benchmarks/algorithm-development/adversarial-v6-confirmatory/manifest-v1.json
+          git commit -m 'research: freeze adversarial-v6 confirmatory benchmark'
+          git push origin HEAD:research/personal-state-engine-v0

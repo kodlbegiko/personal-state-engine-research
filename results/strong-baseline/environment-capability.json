@@ -1,0 +1,32 @@
+{
+  "available": {
+    "numpy": "2.3.5",
+    "rank_bm25": false,
+    "scikit_learn": "1.8.0",
+    "sentence_transformers": false,
+    "torch": "2.10.0+cpu",
+    "transformers": false
+  },
+  "classification": "REDUCED PILOT ONLY",
+  "cpu": {
+    "architecture": "x86_64",
+    "logical_cpus": 5,
+    "model": "not exposed by lscpu in current container output"
+  },
+  "disk_free_gib": 38,
+  "executor": "current isolated research runner",
+  "gpu": null,
+  "observed_at": "2026-08-08T22:22:00+08:00",
+  "oom_policy": "do_not brute-force repeated OOM attempts",
+  "primary_baseline_requirements": {
+    "embedding_model": "all-MiniLM-L6-v2",
+    "local_llm": "qwen2.5:3b via Ollama",
+    "model_download_required": true
+  },
+  "python": "3.13.5",
+  "ram_gib": 5.9,
+  "reason": "Source/protocol and mechanical adapter can be verified now. The exact-pinned upstream runtime requires packages/model weights not present in this isolated runner; no paid service will be used.",
+  "schema_version": "strong-baseline-environment-capability-v1",
+  "swap_gib": 0.0,
+  "vram_gib": 0.0
+}

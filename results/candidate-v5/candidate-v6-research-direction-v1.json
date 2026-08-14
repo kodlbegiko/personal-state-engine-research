@@ -1,0 +1,49 @@
+{
+  "schema_version": "candidate-v6-research-direction-v1",
+  "status": "RECOMMENDATION_ONLY_NOT_STARTED",
+  "trigger": "Candidate-v5 failed frozen protected-validation retrieval-preservation guardrails.",
+  "candidate_v5_must_remain_frozen": true,
+  "candidate_v5_patch_authorized": false,
+  "observed_remaining_failure_mechanisms": [
+    {
+      "mechanism": "meta_discourse_as_value_false_positive",
+      "evidence": ["validation-n-045", "validation-n-046"],
+      "description": "High-overlap review/topic discourse with no answer-bearing value was accepted as evidence because residual non-query lexical tokens were treated as value candidates."
+    },
+    {
+      "mechanism": "meta_discourse_as_competing_proposition_false_contradiction",
+      "evidence": ["validation-a-013", "validation-a-014"],
+      "description": "A valid answer proposition coexisted with same-subject/same-relation agenda/question discourse; the latter appears to have produced a spurious value proposition and therefore a false contradiction/abstention."
+    }
+  ],
+  "candidate_v6_primary_hypothesis": "Assertion-Structure Evidence Objects",
+  "candidate_v6_design_direction": {
+    "core_change": "Replace generic token-residue value detection with explicit assertion-structure extraction. Evidence support requires a recognized assertion frame linking subject, predicate, and object/value; meta-discourse, questions, agenda/review text, and unresolved discussion cannot create object/value nodes.",
+    "preserve": [
+      "Candidate-v2 frozen retrieval as a candidate baseline option",
+      "all-required evidence coverage",
+      "explicit contradiction handling",
+      "temporal validity",
+      "fail-closed behavior",
+      "zero monetary cost",
+      "sealed-final prohibition"
+    ],
+    "new_mechanisms_to_compare": [
+      "deterministic assertion-frame grammar",
+      "deterministic clause-role parser with explicit meta-discourse classifier",
+      "hybrid deterministic parser plus frozen zero-cost local NLI only for unresolved assertion roles"
+    ],
+    "required_new_tests": [
+      "agenda_only_same_relation_does_not_create_value",
+      "review_topic_only_does_not_create_value",
+      "question_paraphrase_does_not_create_value",
+      "valid_answer_plus_meta_discourse_does_not_create_contradiction",
+      "valid_answer_plus_true_conflicting_assertion_still_abstains",
+      "explicit value assertion remains supported"
+    ]
+  },
+  "research_integrity_rule": "Candidate-v6 must have a new preregistration, new source/config identity, new development data, and fresh protected evidence. Candidate-v5 protected-validation cases may be used only as historical diagnostics, never as Candidate-v6 confirmatory selection data.",
+  "candidate_v6_started": false,
+  "sealed_final_accessed": false,
+  "monetary_cost_usd": 0
+}

@@ -1,0 +1,10 @@
+{
+  "benign_acceptance_rate": 1.0,
+  "cases": 23,
+  "false_negative": 0,
+  "false_positive": 0,
+  "injection_or_secret_recall": 1.0,
+  "passed": 23,
+  "true_negative": 8,
+  "true_positive": 15
+}

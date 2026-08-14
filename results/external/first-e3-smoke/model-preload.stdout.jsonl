@@ -1,0 +1,1 @@
+{"status":"ready","model_id":"HuggingFaceTB/SmolLM2-135M-Instruct","model_revision":"12fd25f77366fa6b3b4b768ec3050bf629380bac","dtype":"q4","cache_directory":"/home/runner/work/personal-state-engine-research/personal-state-engine-research/.external-data/hf-cache","runtime":"@huggingface/transformers"}

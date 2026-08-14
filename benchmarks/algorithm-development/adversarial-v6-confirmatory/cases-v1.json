@@ -1,0 +1,3107 @@
+{
+  "answerable_case_count": 60,
+  "candidate_v4_freeze_commit": "e6780204686d3de526905eca8f2778c2510b7876",
+  "case_count": 90,
+  "cases": [
+    {
+      "category": "single_support",
+      "id": "ADV6-A-001",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The approved Project Aster budget is 315000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Aster review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Aster owner is Nia.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "single_support",
+      "id": "ADV6-A-002",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal account email is team@boreal.example.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Boreal owner is Omar.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "single_support",
+      "id": "ADV6-A-003",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar review room is Room 31.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Cedar owner is Priya.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "single_support",
+      "id": "ADV6-A-004",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Dune serial number is DN-77231.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Device Dune warranty expires next year.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Device Vale serial number is DN-77231.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Dune review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Dune owner is Felix.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is device Dune's serial number?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "single_support",
+      "id": "ADV6-A-005",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ember support SLA is eight hours.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember support owner is Maya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Ash support SLA is eight hours.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Ember review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Ember owner is Maya.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Ember support SLA?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "single_support",
+      "id": "ADV6-A-006",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord phone number is 555-0205.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Lake mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord review is scheduled next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Fjord owner is Tariq.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Fjord mailing address?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-007",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Nia approved Project Aster.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Omar approved Project Aster.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Aster budget is 315000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Nia approved Project Vega.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Aster owner is Priya.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Aster?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-008",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Omar approved Project Boreal.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Priya approved Project Boreal.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Boreal budget is 428000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Omar approved Project Aurora.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Boreal owner is Felix.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Boreal?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-009",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Priya approved Project Cedar.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Felix approved Project Cedar.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Cedar budget is 96000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Priya approved Project Maple.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Cedar owner is Maya.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Cedar?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-010",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Felix approved Project Dune.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Maya approved Project Dune.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Dune budget is 173000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Felix approved Project Vale.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Dune owner is Tariq.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Dune?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-011",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Maya approved Project Ember.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Tariq approved Project Ember.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Ember budget is 78000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Maya approved Project Ash.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Ember owner is Nia.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Ember?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_support",
+      "id": "ADV6-A-012",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Reviewer Tariq approved Project Fjord.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Reviewer Nia approved Project Fjord.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m3",
+          "text": "Project Fjord budget is 251000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Reviewer Tariq approved Project Lake.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Project Fjord owner is Omar.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "Which two reviewers approved Project Fjord?",
+      "relevant_memory_ids": [
+        "m1",
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-013",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Project Aster owner was Nia.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Project Aster owner was updated to Omar, who is the current owner.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Aster owner is Nia.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Aster review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Vega has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Aster?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-014",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Boreal account email was old@boreal.example.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Boreal account email was updated to current@boreal.example and is current.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Boreal owner is Omar.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Aurora has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the current Boreal account email?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-015",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Cedar meeting room was Room 4.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Cedar meeting room moved to Room 18 and is current.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Cedar owner is Priya.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Maple has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the current Cedar meeting room?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-016",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Dune project budget was 140000.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Dune project budget changed to 155000 and is current.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Dune owner is Felix.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Dune review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Vale has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the current Dune project budget?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-017",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The morning dose of Embermed was 5 mg.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The morning dose of Embermed was updated to 7.5 mg and is current.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Ember owner is Maya.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Ember review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Ash has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the current morning dose of Embermed?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "temporal_update",
+      "id": "ADV6-A-018",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Fjord report format was PDF.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Fjord report format changed to CSV and is current.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Fjord owner is Tariq.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord review occurs Friday.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "Lake has a similar update.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the current Fjord report format?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-019",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Aster conference venue might be East Hall.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Aster conference venue might be West Hall.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Aster conference venue is North Center.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Aster owner is Nia.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "North Center is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Aster conference venue?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-020",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal training room might be Room A.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal training room might be Room B.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Boreal training room is Room C.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal owner is Omar.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "Room C is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Boreal training room?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-021",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar supplier might be Helix.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar supplier might be Vertex.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Cedar supplier is Meridian.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar owner is Priya.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "Meridian is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Cedar supplier?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-022",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Dune maintenance window might be Saturday morning.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Dune maintenance window might be Sunday morning.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Dune maintenance window is Sunday 02:00-04:00.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Dune owner is Felix.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "Sunday 02:00-04:00 is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Dune maintenance window?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-023",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ember VPN gateway might be vpn-a.example.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember VPN gateway might be vpn-b.example.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Ember VPN gateway is vpn-c.example.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Ember owner is Maya.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "vpn-c.example is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Ember VPN gateway?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "contradiction_resolved",
+      "id": "ADV6-A-024",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord report format might be DOCX.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord report format might be PDF.",
+          "timestamp": "2026-07-02"
+        },
+        {
+          "id": "m3",
+          "text": "The confirmed Fjord report format is CSV.",
+          "timestamp": "2026-07-05"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord owner is Tariq.",
+          "timestamp": "2026-07-06"
+        },
+        {
+          "id": "m5",
+          "text": "CSV is mentioned in the logistics file.",
+          "timestamp": "2026-07-07"
+        }
+      ],
+      "query": "What is the confirmed Fjord report format?",
+      "relevant_memory_ids": [
+        "m3"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-025",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The approved Project Aster budget is 315000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Aster review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-026",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal account email is team@boreal.example.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-027",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar review room is Room 31.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-028",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Dune serial number is DN-77231.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Device Dune warranty expires next year.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Device Dune warranty expires next year.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Dune review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "Device Vale serial number is DN-77231.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is device Dune's serial number?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-029",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ember support SLA is eight hours.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember support owner is Maya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Ember support owner is Maya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Ember review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "The Ash support SLA is eight hours.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is the Ember support SLA?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "duplicate_distractor",
+      "id": "ADV6-A-030",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord phone number is 555-0205.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Fjord phone number is 555-0205.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord review is Thursday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m5",
+          "text": "The Lake mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-13"
+        }
+      ],
+      "query": "What is the Fjord mailing address?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-031",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The approved Project Aster budget is 315000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Aster budget question was discussed, but this note records no final budget value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Aster budget review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-032",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal account email is team@boreal.example.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal email question was discussed, but this note records no final email value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Boreal email review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-033",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar review room is Room 31.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar room question was discussed, but this note records no final room value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Cedar room review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-034",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Dune serial number is DN-77231.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Dune serial question was discussed, but this note records no final serial value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "Device Dune warranty expires next year.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "Device Vale serial number is DN-77231.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Dune serial review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is device Dune's serial number?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-035",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ember support SLA is eight hours.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember sla question was discussed, but this note records no final sla value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "The Ember support owner is Maya.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "The Ash support SLA is eight hours.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Ember sla review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the Ember support SLA?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "lexical_overlap_distractor",
+      "id": "ADV6-A-036",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord address question was discussed, but this note records no final address value.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m3",
+          "text": "The Fjord phone number is 555-0205.",
+          "timestamp": "2026-07-21"
+        },
+        {
+          "id": "m4",
+          "text": "The Lake mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m5",
+          "text": "The Fjord address review remains on the agenda.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "What is the Fjord mailing address?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-037",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2024, Project Aster owner was Nia.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Project Aster owner was replaced by Omar in 2026; Omar is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Aster owner is Nia.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Aster archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Vega has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "Who is the current owner of Project Aster?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-038",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2024, Boreal account email was old@boreal.example.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Boreal account email changed to current@boreal.example in 2026 and is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Boreal owner is Omar.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Aurora has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "What is the current Boreal account email?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-039",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2025, Cedar room was Room 1.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Cedar room moved to Room 9 in 2026; Room 9 is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Cedar owner is Priya.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Maple has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "What is the current Cedar room?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-040",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2025, Dune budget was 40000.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Dune budget changed to 47000 in 2026 and is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Dune owner is Felix.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Dune archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Vale has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "What is the current Dune budget?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-041",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2024, Ember mailing address was 10 Old Road.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Ember mailing address was updated to 22 New Street in 2026 and is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Ember owner is Maya.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Ember archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Ash has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "What is the current Ember mailing address?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "stale_evidence",
+      "id": "ADV6-A-042",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2025, the morning dose of Fjordmed was 2 mg.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The morning dose of Fjordmed changed to 3 mg in 2026 and is current.",
+          "timestamp": "2026-07-15"
+        },
+        {
+          "id": "m3",
+          "text": "Fjord owner is Tariq.",
+          "timestamp": "2026-07-16"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord archive contains older notes.",
+          "timestamp": "2026-07-17"
+        },
+        {
+          "id": "m5",
+          "text": "Lake has a similar field.",
+          "timestamp": "2026-07-18"
+        }
+      ],
+      "query": "What is the current morning dose of Fjordmed?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-043",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The approved Project Aster budget is 315000.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Project Aster owner is Nia changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Aster meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Aster budget review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-044",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal account email is team@boreal.example.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal account phone number is 555-0106 changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Boreal meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Boreal email review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-045",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar review room is Room 31.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar review begins at 10:00 changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Cedar meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Cedar room review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-046",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Dune serial number is DN-77231.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Device Dune warranty expires next year changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Dune meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "Device Vale serial number is DN-77231.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Dune serial review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is device Dune's serial number?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-047",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ember support SLA is eight hours.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember support owner is Maya changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Ember meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "The Ash support SLA is eight hours.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Ember sla review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is the Ember support SLA?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "recency_trap",
+      "id": "ADV6-A-048",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord phone number is 555-0205 changed yesterday.",
+          "timestamp": "2026-07-25"
+        },
+        {
+          "id": "m3",
+          "text": "Fjord meeting moved today.",
+          "timestamp": "2026-07-26"
+        },
+        {
+          "id": "m4",
+          "text": "The Lake mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-27"
+        },
+        {
+          "id": "m5",
+          "text": "Fjord address review is next week.",
+          "timestamp": "2026-07-28"
+        }
+      ],
+      "query": "What is the Fjord mailing address?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-049",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Aster owner was Nia.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Aster owner changed to Omar, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Aster budget is 315000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Aster meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Vega owner is Omar.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Aster?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-050",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Boreal owner was Omar.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Boreal owner changed to Priya, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Boreal budget is 428000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Boreal meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Aurora owner is Priya.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Boreal?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-051",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Cedar owner was Priya.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Cedar owner changed to Felix, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Cedar budget is 96000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Cedar meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Maple owner is Felix.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Cedar?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-052",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Dune owner was Felix.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Dune owner changed to Maya, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Dune budget is 173000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Dune meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Vale owner is Maya.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Dune?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-053",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Ember owner was Maya.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Ember owner changed to Tariq, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Ember budget is 78000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Ember meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Ash owner is Tariq.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Ember?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "multi_session_evidence",
+      "id": "ADV6-A-054",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Session 1 note: Project Fjord owner was Tariq.",
+          "timestamp": "2026-07-01"
+        },
+        {
+          "id": "m2",
+          "text": "Session 5 update: Project Fjord owner changed to Nia, who is current.",
+          "timestamp": "2026-07-22"
+        },
+        {
+          "id": "m3",
+          "text": "Session 2: Project Fjord budget is 251000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m4",
+          "text": "Session 4: Project Fjord meeting is Friday.",
+          "timestamp": "2026-07-20"
+        },
+        {
+          "id": "m5",
+          "text": "Project Lake owner is Nia.",
+          "timestamp": "2026-07-23"
+        }
+      ],
+      "query": "Who is the current owner of Project Fjord?",
+      "relevant_memory_ids": [
+        "m2"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-055",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Aster mailing address is 84 Pine Avenue.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Aster owner is Nia.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Vega has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Aster review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Aster was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Which address should mail for the Aster office go to?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-056",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal support SLA is three hours.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Boreal owner is Omar.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Aurora has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Boreal review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Boreal was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "How quickly must the Boreal support team respond?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-057",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar account email is desk@cedar.example.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Cedar owner is Priya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Maple has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Cedar review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Cedar was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Which inbox belongs to the Cedar account?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-058",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Dune warranty expires on October 9, 2026.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Dune owner is Felix.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Vale has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Dune review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Dune was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "When is the Dune warranty over?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-059",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Project Ember owner changed to Maya, who is current.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Ember owner is Maya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Ash has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Ember review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Ember was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Who is responsible for Project Ember right now?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "paraphrased_query",
+      "id": "ADV6-A-060",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Fjord blueprints are stored on shelf H3.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Fjord owner is Tariq.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Lake has a similar record.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Fjord review is next week.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "A different field for Fjord was updated.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Where are the Fjord blueprints kept?",
+      "relevant_memory_ids": [
+        "m1"
+      ]
+    },
+    {
+      "category": "same_subject_wrong_attribute",
+      "id": "ADV6-N-001",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Aster deadline is September 2.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Aster budget field is not recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Aster review is complete.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "same_subject_wrong_attribute",
+      "id": "ADV6-N-002",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Boreal deadline is September 3.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Boreal email field is not recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Boreal review is complete.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "same_subject_wrong_attribute",
+      "id": "ADV6-N-003",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Cedar deadline is September 4.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Cedar room field is not recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Cedar review is complete.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "same_relation_wrong_subject",
+      "id": "ADV6-N-004",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Device Vale serial number is DN-77231.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Device Dune warranty expires next year.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Dune serial field is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Device Ember serial number is DN-77231.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Dune contract is active.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is device Dune's serial number?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "same_relation_wrong_subject",
+      "id": "ADV6-N-005",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Ash support SLA is eight hours.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Ember support owner is Maya.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Ember sla field is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Fjord support SLA is eight hours.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Ember contract is active.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Ember support SLA?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "same_relation_wrong_subject",
+      "id": "ADV6-N-006",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Lake mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Fjord phone number is 555-0205.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Fjord address field is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Aster mailing address is 33 Fjord Drive.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Fjord contract is active.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Fjord mailing address?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "high_lexical_overlap",
+      "id": "ADV6-N-007",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Aster budget question remains unanswered; no budget value is recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Aster budget workflow is documented.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Project Aster owner is Nia.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The approved Project Vega budget is 315000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Aster finance notes contain no final answer.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is Project Aster's approved budget?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "high_lexical_overlap",
+      "id": "ADV6-N-008",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Boreal email question remains unanswered; no email value is recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Boreal email workflow is documented.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Boreal account phone number is 555-0106.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Aurora account email is team@boreal.example.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Boreal finance notes contain no final answer.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Boreal account email?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "high_lexical_overlap",
+      "id": "ADV6-N-009",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The Cedar room question remains unanswered; no room value is recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The Cedar room workflow is documented.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The Cedar review begins at 10:00.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The Maple review room is Room 31.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Cedar finance notes contain no final answer.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Cedar review room?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "query_echo",
+      "id": "ADV6-N-010",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "What is the private archive PIN?",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The archive is on floor 2.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Archive access training is Friday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "PIN rotation policy is monthly.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "No PIN value is recorded here.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the private archive PIN?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "query_echo",
+      "id": "ADV6-N-011",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Where is the red binder stored?",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The blue binder is stored on shelf B2.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Red binder inventory is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Shelf map was updated.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "No storage location for the red binder is recorded.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Where is the red binder stored?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "query_echo",
+      "id": "ADV6-N-012",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "What is the Nimbus Wi-Fi password?",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Nimbus Wi-Fi network name is NimbusNet.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Wireless maintenance is Sunday.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Password rotation policy is monthly.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "No password value is stored here.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Nimbus Wi-Fi password?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only_evidence",
+      "id": "ADV6-N-013",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2024, Project Quartz owner was Mira; later ownership is not recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Quartz budget is 81000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Quartz current-owner review is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Mira now owns Project Topaz.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Quartz archive contains 2024 notes.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Who owns Project Quartz now?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only_evidence",
+      "id": "ADV6-N-014",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2023, Redwood account email was old@redwood.example; no newer address is recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Redwood phone is 555-0166.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Redwood email update is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Pine account email is current@pine.example.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Redwood contract is active.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the current Redwood account email?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "stale_only_evidence",
+      "id": "ADV6-N-015",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "In 2025, Silver room was Room 6; later room assignments are not recorded.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Silver meeting is Thursday.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Silver room update is pending.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Gold room is Room 9.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Silver owner is Pia.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the current Silver room?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradictory_unresolved_evidence",
+      "id": "ADV6-N-016",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "A current note says Willow training room is Room A.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Another current note says Willow training room is Room B.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Neither note is marked final or superseded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Willow starts at nine.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Room A has a projector.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the confirmed Willow training room?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradictory_unresolved_evidence",
+      "id": "ADV6-N-017",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "A current procurement note lists Xeno supplier Helix.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "A second current procurement note lists Xeno supplier Vertex.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "No approval or resolution is recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Xeno budget is 42000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Supplier review is Friday.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the confirmed Xeno supplier?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "contradictory_unresolved_evidence",
+      "id": "ADV6-N-018",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "A current note says Yonder report format is PDF.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Another current note says Yonder report format is CSV.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "No final decision is recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Yonder owner is Vic.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Report deadline is Monday.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the confirmed Yonder report format?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "partial_evidence",
+      "id": "ADV6-N-019",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "My passport renewal appointment is August 22.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The passport expires next year.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The issuing office is downtown.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "A passport number is required on the form, but no number is recorded.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "My travel date is September 3.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is my passport number?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "partial_evidence",
+      "id": "ADV6-N-020",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The office Wi-Fi network name is StudioNet.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Password rotation happens monthly.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The router is in the server room.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The password field is intentionally omitted from this note.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Guest Wi-Fi is available.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the office Wi-Fi password?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "partial_evidence",
+      "id": "ADV6-N-021",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Acme owner is Jo.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Acme budget is 90000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Cost-center review is next week.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The cost-center field has not been assigned.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Acme headquarters is downtown.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Acme cost center?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "plausible_unsupported_inference",
+      "id": "ADV6-N-022",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "I donated blood last month.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The donation was accepted.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The clinic is on Main Street.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "My blood-type card is not in these records.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "The next donation is in October.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is my blood type?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "plausible_unsupported_inference",
+      "id": "ADV6-N-023",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The laptop model is ThinkPad T14.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The laptop was purchased in Taiwan.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "The OS language is English.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Keyboard-layout details were not recorded.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "The warranty is active.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the laptop keyboard layout?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "plausible_unsupported_inference",
+      "id": "ADV6-N-024",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The vehicle is a blue sedan.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Insurance is active.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Registration renewal is due in November.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The registration number itself is not recorded.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Parking permit is valid.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the vehicle registration number?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "temporal_near_match",
+      "id": "ADV6-N-025",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "March sales total was 88000.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "May sales total was 93000.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "April sales meeting occurred on April 30, but no total was recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "April budget was 87000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Q2 report is pending.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What was the April sales total?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "temporal_near_match",
+      "id": "ADV6-N-026",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Project Zenith owner was Aya in January 2026.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Project Zenith owner was Ben in March 2026.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "A February review occurred, but ownership was not recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Zenith budget is 73000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Zenith deadline is June.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "Who owned Project Zenith in February 2026?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "temporal_near_match",
+      "id": "ADV6-N-027",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "The evening dose of Medora on July 4 was 20 mg.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "The evening dose of Medora on July 6 was 25 mg.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "A July 5 medication note exists but no dose is recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "The morning dose on July 5 was 10 mg.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Medora refill is Friday.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What was the evening dose of Medora on July 5?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "near_duplicate_non_answer",
+      "id": "ADV6-N-028",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Orion office mailing schedule is Tuesday.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Orion office email address is office@orion.example.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Orion shipping address is not recorded.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Orion office address-change form is blank.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Orion owner is Lan.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Orion office mailing address?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "near_duplicate_non_answer",
+      "id": "ADV6-N-029",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Pixel support contract owner is Ezra.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Pixel support contract renewal process starts in October.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Pixel warranty expiry is December 1, 2026.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Pixel support contract expiry field is blank.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "Pixel SLA is four hours.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Pixel support contract expiry date?",
+      "relevant_memory_ids": []
+    },
+    {
+      "category": "near_duplicate_non_answer",
+      "id": "ADV6-N-030",
+      "memories": [
+        {
+          "id": "m1",
+          "text": "Raven supplier review is approved to begin.",
+          "timestamp": "2026-07-10"
+        },
+        {
+          "id": "m2",
+          "text": "Raven supplier shortlist contains three names but no selection.",
+          "timestamp": "2026-07-11"
+        },
+        {
+          "id": "m3",
+          "text": "Raven procurement owner is Emi.",
+          "timestamp": "2026-07-12"
+        },
+        {
+          "id": "m4",
+          "text": "Raven budget is 51000.",
+          "timestamp": "2026-07-13"
+        },
+        {
+          "id": "m5",
+          "text": "No approved supplier is recorded.",
+          "timestamp": "2026-07-14"
+        }
+      ],
+      "query": "What is the Raven approved supplier?",
+      "relevant_memory_ids": []
+    }
+  ],
+  "created_after_candidate_v4_validation_run": 31392806910,
+  "no_evidence_case_count": 30,
+  "schema_version": "adversarial-v6-confirmatory-v1",
+  "status": "FROZEN_CANDIDATE_AGNOSTIC_DATASET_BEFORE_STAGE1"
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": "candidate-v5-config-v1",
+  "candidate_id": "candidate-v5",
+  "method_name": "Atomic Requirement Evidence Graph",
+  "implementation": "src/personal_state_engine/candidate_v5.py",
+  "retrieval_backend": {
+    "candidate": "candidate-v2",
+    "implementation": "src/personal_state_engine/candidate_v2.py::pse_candidate_v2_rank",
+    "ranking_modification_allowed": false,
+    "verifier_reads_retrieval_scores": false,
+    "supported_output": "preserve_candidate_v2_ranking",
+    "unsupported_output": []
+  },
+  "verification": {
+    "mode": "deterministic_only",
+    "local_model": null,
+    "local_model_digest": null,
+    "verifier_prompt": null,
+    "parse_failure": "fail_closed",
+    "required_dimensions": [
+      "subject_alignment",
+      "predicate_alignment",
+      "value_support",
+      "temporal_validity",
+      "evidence_completeness",
+      "contradiction_resolution",
+      "unsupported_inference_rejection",
+      "query_echo_resistance"
+    ],
+    "all_mandatory_requirements_required": true,
+    "partial_support_answerable": false,
+    "timestamp_alone_resolves_contradiction": false,
+    "current_query_accepts_stale_only": false
+  },
+  "selection_thresholds": {
+    "mrr_deficit_max_vs_candidate_v2": 0.03,
+    "r1_deficit_max_vs_candidate_v2": 0.03,
+    "r3_deficit_max_vs_candidate_v2": 0.02,
+    "r5_deficit_max_vs_candidate_v2": 0.02,
+    "answerable_recall_min": 0.90,
+    "false_abstention_max": 0.10,
+    "abstention_accuracy_min": 0.80,
+    "no_evidence_false_retrieval_max": 0.20,
+    "no_evidence_false_retrieval_absolute_reduction_vs_candidate_v2_min": 0.50,
+    "mrr_noninferiority_margin": 0.03
+  },
+  "statistics": {
+    "paired_bootstrap_repetitions": 10000,
+    "seed": 20260813,
+    "confidence_interval": 0.95,
+    "proportion_interval": "Wilson"
+  },
+  "information_policy": {
+    "adversarial_v6": "HISTORICAL_DIAGNOSTIC_ONLY",
+    "sealed_final": "PROHIBITED",
+    "future_validation_labels_before_freeze": "PROHIBITED",
+    "future_v7_results_before_freeze": "PROHIBITED"
+  },
+  "cost_policy": {
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false
+  }
+}

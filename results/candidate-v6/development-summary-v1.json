@@ -1,0 +1,87 @@
+{
+  "schema_version": "candidate-v6-development-summary-v1",
+  "phase": "DEVELOPMENT_DIAGNOSTIC_ONLY",
+  "workflow": {
+    "name": "Candidate-v6 Development Evidence",
+    "run_id": 31688488856,
+    "job_id": 94410087985,
+    "head_sha": "f8e768472b75c757b013f64859a78932e4a4c1ec",
+    "conclusion": "success",
+    "artifact_id": 9176385585,
+    "artifact_size_bytes": 18165,
+    "artifact_digest_sha256": "9b6155960ad6decbdc52930cd1703311f054db003c3914757bea54c694d8658d"
+  },
+  "tests": {
+    "discovered_and_executed": 33,
+    "passed": 33,
+    "failed": 0
+  },
+  "dataset": {
+    "case_count": 120,
+    "answerable_count": 50,
+    "no_evidence_count": 70,
+    "seed": 20260813,
+    "sha256": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d"
+  },
+  "metrics": {
+    "candidate_v2": {
+      "MRR": 0.76,
+      "R@1": 0.52,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 1.0,
+      "abstention_accuracy": 0.0
+    },
+    "candidate_v6": {
+      "MRR": 0.76,
+      "R@1": 0.52,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "no_evidence_false_retrieval": 0.0,
+      "abstention_accuracy": 1.0
+    }
+  },
+  "diagnostics": {
+    "assertion_extraction_accuracy": 1.0,
+    "meta_discourse_rejection_accuracy": 1.0,
+    "explicit_no_value_detection_accuracy": 1.0,
+    "contradiction_detection_accuracy": 1.0,
+    "temporal_resolution_accuracy": 1.0
+  },
+  "guardrails": {
+    "retrieval_deficits_vs_candidate_v2": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0
+    },
+    "no_evidence_false_retrieval_absolute_reduction_vs_candidate_v2": 1.0,
+    "all_checks_pass": true,
+    "selection_authorized": false,
+    "freeze_authorized_subject_to_ci_and_lock": true
+  },
+  "artifact_sha256s": {
+    "candidate_v6_source": "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325",
+    "candidate_v6_config": "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1",
+    "development_cases": "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d",
+    "development_summary": "0e9d5c2a9fee929ae8e3f398625c1e958c17b03020b8c6e8fb3e7141f03be934",
+    "guardrails": "ea853ead025dc7b455641d2234500c29441973582f868629c7102a1d65dad4af",
+    "manifest": "0001275a71877bc2ef7ca1d710e4b79c80b1fff0f8983b979b455bf37ba7048d",
+    "preregistration": "bec25afa9b58906a31b1c7d882cbeaa98eb4ea8f590cbe37a87dc29aa77ea87f",
+    "test_summary": "8023c6af8c861f5069c03459ef32abb868782c945c48f84bf21a27d13bb76f65"
+  },
+  "integrity": {
+    "candidate_v5_modified": false,
+    "candidate_v5_protected_validation_used_as_fresh_confirmatory": false,
+    "sealed_final_accessed": false,
+    "monetary_cost_usd": 0,
+    "paid_api": false,
+    "paid_gpu": false,
+    "paid_inference": false
+  },
+  "formal_gate_effect": "NONE_UNTIL_POST_FREEZE_PROTECTED_EVIDENCE"
+}

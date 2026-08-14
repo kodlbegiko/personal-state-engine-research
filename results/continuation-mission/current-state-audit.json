@@ -1,0 +1,78 @@
+{
+  "schema_version": "continuation-mission-current-state-audit-v3",
+  "audited_at": "2026-08-09T11:44:33+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
+  "gate_d": {
+    "D1": "COMPLETE",
+    "D2": "COMPLETE",
+    "D3": "COMPLETE",
+    "D4": "NOT_COMPLETE",
+    "formal_gate_status": "NOT_COMPLETE",
+    "basis": "Original frozen development retrieval run 31284023872 was cancelled by the 180-minute execution timeout. All ten artifacts were inspected and contained no completed shard JSON, so 0/20 cases are formally salvageable. Case-level zero-cost recovery run 31292999631 is active."
+  },
+  "gate_e": {
+    "status": "NOT_COMPLETE",
+    "formal_selection": "NO_FORMAL_SELECTION",
+    "reason": "Exact A-MEM adversarial-v4 remains underpowered; abstention remains unresolved; candidate-v1/v2 tradeoffs differ across benchmark families; independent reproduction is false."
+  },
+  "candidate": {
+    "latest": "pse_candidate_v2",
+    "v2_status": "FROZEN",
+    "v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "selection_status": "ROBUSTNESS_SPECIALIST_NOT_DROP_IN_V1_REPLACEMENT"
+  },
+  "amem_d3": {"run_id": 31269598248, "status": "COMPLETE", "rerun_required": false},
+  "amem_adversarial_v4": {
+    "run_id": 31284978045,
+    "status": "COMPLETE_AUXILIARY_UNDERPOWERED",
+    "case_count": 24,
+    "answerable_case_count": 22,
+    "a_mem_mrr": 0.8333333333333333,
+    "pse_candidate_v2_mrr": 0.875,
+    "v2_minus_a_mem_mrr_delta": 0.04166666666666668,
+    "v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
+    "algorithm_parity": "NO"
+  },
+  "amem_frozen_development_original_run": {
+    "run_id": 31284023872,
+    "status": "CANCELLED_BY_EXECUTION_TIMEOUT",
+    "prepare_dataset": "SUCCESS",
+    "frozen_split_preflight": "PASS",
+    "dataset_identity": "PASS",
+    "source_pin": "PASS",
+    "ollama_identity": "PASS",
+    "embedding_snapshot": "PASS",
+    "original_shards": 10,
+    "valid_salvaged_case_count": 0,
+    "expected_case_count": 20,
+    "forensic_evidence": "results/strong-baseline/amem-development-recovery-v1/cancelled-run-artifact-inventory.json"
+  },
+  "amem_frozen_development_recovery": {
+    "run_id": 31292999631,
+    "status": "ACTIVE_CASE_LEVEL_RECOVERY",
+    "workflow": ".github/workflows/strong-baseline-amem-development-recovery.yml",
+    "case_shard_count": 20,
+    "cases_per_job": 1,
+    "job_timeout_minutes": 350,
+    "max_parallel": 10,
+    "prepare_dataset": "SUCCESS",
+    "frozen_split_preflight": "PASS",
+    "algorithm_changed": false,
+    "model_changed": false,
+    "benchmark_changed": false,
+    "next_if_success": "Validate 20/20 durable retrieval outputs and only then execute experiments/protocols/amem-d4-development-v2.json."
+  },
+  "formal_evidence_weighted_completion": 30,
+  "integrity": {
+    "twenty_frozen_development_cases_changed": false,
+    "forty_immutable_answers_changed": false,
+    "candidate_v2_changed": false,
+    "sealed_final_content_accessed": false,
+    "sealed_final_case_or_error_viewed": false,
+    "sealed_final_path_metadata_previously_exposed_by_repository_tree_listing": true
+  },
+  "cost": {"new_monetary_cost_usd": 0.0, "paid_api_used": false, "paid_gpu_used": false},
+  "algorithm_parity": "NO",
+  "next_evidence_gate": "Complete case-level frozen development recovery; validate 20/20 outputs; then execute frozen D4 end-to-end protocol."
+}

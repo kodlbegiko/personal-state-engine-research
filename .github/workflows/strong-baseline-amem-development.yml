@@ -1,0 +1,220 @@
+name: A-MEM Frozen Development Retrieval
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: amem-frozen-development-retrieval
+  cancel-in-progress: false
+
+jobs:
+  prepare-dataset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install repository package for split preflight
+        run: python -m pip install -e .
+      - name: Enforce development-only source and fetch pinned dataset
+        run: |
+          set -euo pipefail
+          test "$(python - <<'PY'
+          import json
+          p=json.load(open('experiments/splits/longmemeval-development-matrix-v1.json'))
+          print(str(p.get('sealed_final_accessed')).lower())
+          PY
+          )" = "false"
+          python scripts/fetch_longmemeval.py \
+            --manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --output-directory data
+          test "$(sha256sum data/longmemeval_s_cleaned.json | awk '{print $1}')" = "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+      - name: Reproduce original development split before model downloads
+        run: |
+          set -euo pipefail
+          python scripts/freeze_longmemeval_development_matrix.py \
+            data/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --parent-split-manifest results/external/first-e3-smoke/e3-smoke-30652039317-attempt-1/splits/longmemeval-s-development.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v1.json \
+            --output /tmp/recomputed-development-freeze.json
+          python - <<'PY'
+          import json
+          expected=json.load(open('experiments/splits/longmemeval-development-matrix-v1.json'))
+          actual=json.load(open('/tmp/recomputed-development-freeze.json'))
+          assert actual['case_ids']==expected['case_ids']
+          assert actual['case_ids_sha256']==expected['case_ids_sha256']
+          assert actual['history_fingerprint_sha256']==expected['history_fingerprint_sha256']
+          assert [
+              (r['case_id'],r['question_type'],r['is_abstention'],r['history_fingerprint'])
+              for r in actual['records']
+          ] == [
+              (r['case_id'],r['question_type'],r['is_abstention'],r['history_fingerprint'])
+              for r in expected['records']
+          ]
+          print('FROZEN_DEVELOPMENT_PREFLIGHT_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-longmemeval-development-source
+          path: data/longmemeval_s_cleaned.json
+          if-no-files-found: error
+          retention-days: 1
+
+  shard:
+    runs-on: ubuntu-latest
+    needs: prepare-dataset
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    env:
+      A_MEM_SOURCE_COMMIT: 0c8039f28fdcc08189a23c07a3437d9d2482f9c2
+      EXPECTED_DATASET_SHA256: d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442
+      EXPECTED_CASE_IDS_SHA256: 519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e
+      EXPECTED_EMBEDDING_SNAPSHOT: 1110a243fdf4706b3f48f1d95db1a4f5529b4d41
+      EXPECTED_OLLAMA_DIGEST: 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          name: pinned-longmemeval-development-source
+          path: data
+      - name: Fail closed on frozen development identity and zero-cost boundary
+        run: |
+          set -euo pipefail
+          test "$(python --version | awk '{print $2}' | cut -d. -f1-2)" = "3.11"
+          test "$(sha256sum data/longmemeval_s_cleaned.json | awk '{print $1}')" = "$EXPECTED_DATASET_SHA256"
+          test -z "${OPENAI_API_KEY:-}"
+          test -z "${ANTHROPIC_API_KEY:-}"
+          python - <<'PY'
+          import json, os
+          p=json.load(open('experiments/splits/longmemeval-development-matrix-v1.json'))
+          assert p['source_split']=='development'
+          assert p['sealed_final_accessed'] is False
+          assert p['sample_count']==20
+          assert p['case_ids_sha256']==os.environ['EXPECTED_CASE_IDS_SHA256']
+          PY
+          mkdir -p amem-development-artifact
+          printf '{"new_monetary_cost_usd":0.0,"paid_api_used":false,"cloud_gpu_used":false,"sealed_final_accessed":false,"python":"3.11"}\n' > amem-development-artifact/cost.json
+      - name: Install and pin Ollama model
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > amem-development-artifact/ollama.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then break; fi
+            sleep 2
+          done
+          ollama pull qwen2.5:3b
+          curl -fsS http://127.0.0.1:11434/api/tags > amem-development-artifact/ollama-tags.json
+          python - <<'PY'
+          import json, os
+          tags=json.load(open('amem-development-artifact/ollama-tags.json'))
+          model=next(row for row in tags['models'] if row['name']=='qwen2.5:3b')
+          if model['digest'] != os.environ['EXPECTED_OLLAMA_DIGEST']:
+              raise SystemExit(f"Ollama digest mismatch: {model['digest']}")
+          PY
+      - name: Clone exact-pinned A-MEM and install runtime
+        run: |
+          set -euo pipefail
+          git clone https://github.com/WujiangXu/A-mem.git upstream-amem
+          cd upstream-amem
+          git checkout "$A_MEM_SOURCE_COMMIT"
+          test "$(git rev-parse HEAD)" = "$A_MEM_SOURCE_COMMIT"
+          cd ..
+          python -m pip install -e .
+          python -m pip install -r upstream-amem/requirements.txt
+          python -m pip freeze > amem-development-artifact/pip-freeze.txt
+      - name: Preload and verify exact embedding snapshot
+        run: |
+          python - <<'PY'
+          import os
+          from huggingface_hub import snapshot_download
+          expected=os.environ['EXPECTED_EMBEDDING_SNAPSHOT']
+          path=snapshot_download('sentence-transformers/all-MiniLM-L6-v2', revision=expected)
+          observed=path.rstrip('/').split('/')[-1]
+          if observed != expected:
+              raise SystemExit(f'Embedding snapshot mismatch: expected {expected}, got {observed}')
+          open('amem-development-artifact/embedding-snapshot.txt','w').write(observed+'\n')
+          with open(os.environ['GITHUB_ENV'],'a',encoding='utf-8') as handle:
+              handle.write(f'EMBEDDING_MODEL_PATH={path}\n')
+          PY
+      - name: Execute exact A-MEM development shard
+        env:
+          PYTHONHASHSEED: "17"
+        run: |
+          set -euo pipefail
+          /usr/bin/time -v -o amem-development-artifact/time-shard-${{ matrix.shard }}.txt \
+            python scripts/run_amem_frozen_development.py \
+              --dataset data/longmemeval_s_cleaned.json \
+              --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+              --upstream-dir upstream-amem \
+              --output amem-development-artifact/shard-${{ matrix.shard }}.json \
+              --shard-index ${{ matrix.shard }} \
+              --shard-count 10 \
+              --model qwen2.5:3b \
+              --backend ollama \
+              --embedding-model "$EMBEDDING_MODEL_PATH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amem-development-shard-${{ matrix.shard }}
+          path: amem-development-artifact/
+          if-no-files-found: error
+          retention-days: 7
+
+  aggregate-and-persist:
+    runs-on: ubuntu-latest
+    needs: shard
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: amem-development-shard-*
+          path: downloaded-shards
+          merge-multiple: true
+      - name: Aggregate fail-closed shards
+        run: |
+          set -euo pipefail
+          python scripts/aggregate_amem_frozen_development.py \
+            --shards downloaded-shards \
+            --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+            --output-root results/strong-baseline/amem-development-v1 \
+            --run-id "$GITHUB_RUN_ID" \
+            --embedding-snapshot 1110a243fdf4706b3f48f1d95db1a4f5529b4d41 \
+            --ollama-digest 357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b
+          cat results/strong-baseline/amem-development-v1/retrieval-results-run1.json
+      - name: Persist durable D4 retrieval evidence without merging PR
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/strong-baseline/amem-development-v1
+          if git diff --cached --quiet; then
+            echo "No new durable evidence to commit."
+            exit 0
+          fi
+          git commit -m "research: record A-MEM frozen development retrieval evidence"
+          git push origin HEAD:research/personal-state-engine-v0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amem-development-aggregate
+          path: results/strong-baseline/amem-development-v1/
+          if-no-files-found: error
+          retention-days: 30

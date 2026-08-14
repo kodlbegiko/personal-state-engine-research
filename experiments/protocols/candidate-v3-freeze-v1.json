@@ -1,0 +1,49 @@
+{
+  "schema_version": "candidate-v3-freeze-v1",
+  "status": "CANDIDATE_V3_FROZEN_BEFORE_VALIDATION_AND_V5",
+  "frozen_at": "2026-08-10T12:17:00+08:00",
+  "candidate_id": "pse_candidate_v3",
+  "candidate_source": {
+    "path": "src/personal_state_engine/candidate_v3.py",
+    "git_blob_sha1": "29898f760bbc7e9b2ece7b85b81b2067925fd408",
+    "sha256": "8e0ba9d818804d3f032f6e9f19d6768207a020dea9def52e78755cd7f4a38284",
+    "source_commit_observed_before_freeze": "bda5c9f2996375d9d3582e5c4dc588c17a27ebb1"
+  },
+  "preregistration": {
+    "path": "experiments/protocols/candidate-v3-design-preregistration-v1.json",
+    "git_blob_sha1": "e8daafb73cc1931567e1e6e75deee5e0fc5fc9ef",
+    "sha256": "61c49cfadcf7c1fac7fcd0bfaa0444b037d1ee3bb4b36f009f822e8aec0b0144"
+  },
+  "development_evidence": {
+    "path": "results/candidate-v3/development-v1.json",
+    "dataset_sha256": "b7ef7dd716a7fe444244a1337fc8ebdb0cebdb697c8944d7881ea7e159e86807",
+    "workflow_run_id": 31354745172,
+    "artifact_id": 9050232390,
+    "artifact_digest": "sha256:eab4df269218bc5f44baa2d634dfecd4f459531bc42f9ab0dd8a31f577e3be1e",
+    "candidate_v3_mrr": 1.0,
+    "candidate_v3_recall_at_1": 1.0,
+    "candidate_v3_abstention_accuracy": 1.0,
+    "candidate_v3_false_retrieval_rate": 0.0,
+    "candidate_v3_false_abstention_rate": 0.0,
+    "acceptance": "PASS"
+  },
+  "frozen_comparator": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_changed": false
+  },
+  "post_freeze_rules": {
+    "candidate_v3_source_changes_allowed": false,
+    "validation_retuning_allowed": false,
+    "v5_result_driven_changes_allowed": false,
+    "on_validation_failure": "REJECT_CANDIDATE_V3_AND_REQUIRE_NEW_CANDIDATE_IDENTITY"
+  },
+  "integrity": {
+    "pilot_lock_version": "pilot-v0.6",
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "failed_evidence_deleted": false
+  },
+  "claim_boundary": "Candidate-v3 is frozen for one-time non-sealed validation and future v5 confirmatory evaluation. Development success alone does not establish Gate E completion or algorithm parity."
+}

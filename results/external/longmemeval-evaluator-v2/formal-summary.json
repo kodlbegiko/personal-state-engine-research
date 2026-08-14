@@ -1,0 +1,151 @@
+{
+  "absolute_accuracy_difference_b5_minus_b0": 0.1,
+  "by_baseline": {
+    "EXT-B0": {
+      "accuracy": 0.1,
+      "correct": 2,
+      "invalid": 0,
+      "total": 20,
+      "valid": 20,
+      "wilson_95": {
+        "lower": 0.02786648121376822,
+        "upper": 0.3010336452284873
+      }
+    },
+    "EXT-B5": {
+      "accuracy": 0.2,
+      "correct": 4,
+      "invalid": 0,
+      "total": 20,
+      "valid": 20,
+      "wilson_95": {
+        "lower": 0.08065766257979808,
+        "upper": 0.41601743225189364
+      }
+    }
+  },
+  "paired": {
+    "b5_losses": 1,
+    "b5_wins": 3,
+    "both_correct": 1,
+    "both_incorrect": 15,
+    "discordant_pairs": 4,
+    "effect_interpretation": "directional but inconclusive improvement",
+    "exact_mcnemar_two_sided_p": 0.625,
+    "invalid_pairs": 0,
+    "power_warning": "The fixed sample has only 20 paired cases; low discordance implies very low power.",
+    "rows": [
+      {
+        "case_id": "031748ae_abs",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "0862e8bf_abs",
+        "outcome": "B5_WIN"
+      },
+      {
+        "case_id": "09ba9854_abs",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "18dcd5a5",
+        "outcome": "B5_WIN"
+      },
+      {
+        "case_id": "1903aded",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "21436231",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "26bdc477",
+        "outcome": "B5_WIN"
+      },
+      {
+        "case_id": "35a27287",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "51b23612",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "71017277",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "7527f7e2",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "caf03d32",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "d23cf73b",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "d7c942c3",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "dcfa8644",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "gpt4_7de946e7",
+        "outcome": "BOTH_CORRECT"
+      },
+      {
+        "case_id": "gpt4_93159ced",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "gpt4_93159ced_abs",
+        "outcome": "B5_LOSS"
+      },
+      {
+        "case_id": "gpt4_a56e767c",
+        "outcome": "BOTH_INCORRECT"
+      },
+      {
+        "case_id": "gpt4_e05b82a6",
+        "outcome": "BOTH_INCORRECT"
+      }
+    ]
+  },
+  "resource_comparison": {
+    "by_baseline": {
+      "EXT-B0": {
+        "answer_input_tokens": 1866,
+        "answer_output_tokens": 605,
+        "answer_total_tokens": 2471,
+        "estimated_monetary_cost_usd": 0.0,
+        "median_answer_latency_ms": 2008.9939875,
+        "recorded_output_storage_bytes": 22785
+      },
+      "EXT-B5": {
+        "answer_input_tokens": 30680,
+        "answer_output_tokens": 977,
+        "answer_total_tokens": 31657,
+        "estimated_monetary_cost_usd": 0.0,
+        "median_answer_latency_ms": 14222.210120499998,
+        "recorded_output_storage_bytes": 157328
+      }
+    },
+    "cost_per_additional_correct_answer_display": "0.0",
+    "cost_per_additional_correct_answer_usd": 0.0,
+    "difference_b5_minus_b0": {
+      "answer_input_tokens": 28814,
+      "answer_output_tokens": 372,
+      "answer_total_tokens": 29186,
+      "estimated_monetary_cost_usd": 0.0,
+      "median_answer_latency_ms": 12213.216132999998,
+      "recorded_output_storage_bytes": 134543
+    }
+  },
+  "schema_version": "longmemeval-formal-summary-v2"
+}

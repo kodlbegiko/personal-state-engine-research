@@ -1,0 +1,5 @@
+triggered-by=continuation-mission
+scope=all-12-adversarial-v3-withheld
+protocol=experiments/protocols/amem-adversarial-v3-withheld-v1.json
+sealed-final=false
+paid-cost-usd=0

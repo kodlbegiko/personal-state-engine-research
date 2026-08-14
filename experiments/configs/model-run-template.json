@@ -1,0 +1,10 @@
+{
+  "model_provider": "REPLACE_ME",
+  "model_id": "REPLACE_ME",
+  "model_version": "PIN_EXACT_VERSION",
+  "temperature": 0.0,
+  "seed": 7,
+  "token_budget": 2048,
+  "timeout_seconds": 120.0,
+  "tool_policy": "benchmark-fixed-tools-v1"
+}

@@ -1,0 +1,38 @@
+{
+  "blinded_response_id": "response-cb86c505033a7bd6",
+  "error": null,
+  "provider": "local-fallback",
+  "raw_response": {
+    "dtype": "q4",
+    "latency_ms": 6529.911494,
+    "model_id": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "model_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "raw_generation": [
+      {
+        "generated_text": [
+          {
+            "content": "",
+            "role": "system"
+          },
+          {
+            "content": "I will give you a question, a correct answer, and a response from a model. Please answer yes if the response contains the correct answer. Otherwise, answer no. If the response is equivalent to the correct answer or contains all the intermediate steps to get the correct answer, you should also answer yes. If the response only contains a subset of the information required by the answer, answer no.\n\nQuestion: How many movie festivals that I attended?\n\nCorrect Answer: I attended four movie festivals.\n\nModel Response: I didn't ask about a specific number of movies you watched.\n\nIs the model response correct? Answer yes or no only.",
+            "role": "user"
+          },
+          {
+            "content": "No.",
+            "role": "assistant"
+          }
+        ]
+      }
+    ],
+    "request_id": "evaluator-v2:response-cb86c505033a7bd6:706fd89a-9293-4cce-a71a-7b8680e32b9d",
+    "text": "No.",
+    "usage": {
+      "input_tokens": 161,
+      "output_tokens": 2,
+      "retrieval_tokens": 0
+    }
+  },
+  "request_id": "evaluator-v2:response-cb86c505033a7bd6:706fd89a-9293-4cce-a71a-7b8680e32b9d",
+  "schema_version": "longmemeval-raw-judge-output-v2"
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "continuation-mission-execution-snapshot-v12",
+  "recorded_at": "2026-08-10T23:04:36+08:00",
+  "branch": "research/personal-state-engine-v0",
+  "pull_request": {"number": 2, "state": "OPEN", "draft": true, "merged": false},
+  "gate_status": {
+    "A": "COMPLETE",
+    "B": "COMPLETE",
+    "C": "COMPLETE",
+    "D": "COMPLETE",
+    "E": "NOT_COMPLETE_NO_FORMAL_SELECTION",
+    "F": "NOT_STARTED_SEALED_FINAL_PROHIBITED",
+    "G": "NOT_COMPLETE"
+  },
+  "formal_research_completion_percent": 45,
+  "algorithm_parity": "NO",
+  "candidate_v4": {
+    "freeze_commit": "e6780204686d3de526905eca8f2778c2510b7876",
+    "source_sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+    "changed_after_freeze": false,
+    "stage1_selection_status": "FAIL",
+    "false_retrieval_rate": 0.7,
+    "abstention_accuracy": 0.3,
+    "may_be_patched_or_retuned_after_v6": false
+  },
+  "adversarial_v6": {
+    "dataset_sha256": "d5ff2fa4c51ebf09c42c710cd6a8bcf8445060858abf07ed1b34a7ac940471b0",
+    "evaluation_protocol_sha256": "d6948b2ecb86f651cd23cbaed30f6884d3ea14526f6272ca039b3ed88c7963c2",
+    "statistics_protocol_sha256": "55b03f5b46a0796b665eaac34aa38f9fc32c997866641807a8150ecf2fbf2476",
+    "post_result_editing": false
+  },
+  "exact_a_mem_v6_stage2": {
+    "workflow_run_id": 31395560165,
+    "workflow_head_sha": "7366f2ba48ac0b753c2e707ce28aed144c3aded5",
+    "status": "COMPLETE_SUCCESS_ACCEPTED_90_OF_90",
+    "shard_count": 30,
+    "valid_unique_cases": 90,
+    "missing_cases": 0,
+    "duplicate_cases": 0,
+    "invalid_cases": 0,
+    "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "ollama_model": "qwen2.5:3b",
+    "ollama_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "embedding_snapshot": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "new_monetary_cost_usd": 0.0,
+    "paid_api_used": false,
+    "cloud_gpu_used": false,
+    "sealed_final_accessed": false,
+    "artifact_id": 9066650844,
+    "artifact_zip_digest": "sha256:3220c173c350aa0e2ddf95320e6389c19a09bf6ffbd62f7c15bfc1e105db3548",
+    "artifact_hashes": {
+      "predictions-run1.json": "8bad8d5942b4cbcfe5ba71dfea978c3608b82092f034f772519d624f955b707c",
+      "comparison-run1.json": "e7087ed4f73660b087099a475a86878541d9a04cbe84daf7574dbdddd9812c30",
+      "resource-summary-run1.json": "de987f08db1ae09f176438e13ca788184cba4ffdb14b37d39c7e4670837fe59e",
+      "artifact-registry.json": "8383144ed03c2ca82d7c1a6d98a230623ae114590d130bedb2ee62534fba4b29"
+    },
+    "durable_validation_path": "results/strong-baseline/amem-adversarial-v6-confirmatory-v1/terminal-validation-run-31395560165.json"
+  },
+  "paired_statistics": {
+    "iterations": 10000,
+    "seed": 20260810,
+    "candidate_v4_vs_exact_a_mem": {
+      "mrr_delta_candidate_v4_minus_exact_a_mem": -0.13194444444444445,
+      "bootstrap_95_ci": [-0.22555555555555556, -0.03666666666666667],
+      "candidate_v4_wins": 8,
+      "ties": 32,
+      "candidate_v4_losses": 20,
+      "noninferiority_margin_0_03": false
+    },
+    "candidate_v4_vs_candidate_v2": {
+      "mrr_delta": 0.0,
+      "bootstrap_95_ci": [0.0, 0.0],
+      "noninferiority_margin_0_03": true,
+      "formal_parity_claim_authorized": false
+    },
+    "candidate_v4_vs_candidate_v3": {
+      "mrr_delta_candidate_v4_minus_candidate_v3": -0.04027777777777777,
+      "bootstrap_95_ci": [-0.07027777777777779, -0.015277777777777776],
+      "noninferiority_margin_0_03": false
+    }
+  },
+  "gate_e": {
+    "formal_status": "NOT_COMPLETE",
+    "formal_selection": "NO_FORMAL_SELECTION",
+    "candidate_v4_selection": "REJECTED_BY_FROZEN_V6_THRESHOLDS",
+    "reason": "Candidate-v4 failed preregistered adversarial-v6 Stage-1 selection guardrails (false retrieval 0.70; abstention accuracy 0.30). Exact A-MEM Stage-2 completion is confirmatory comparison evidence only and cannot rescue, patch, retune, or reinterpret Candidate-v4 as a pass."
+  },
+  "integrity": {
+    "candidate_v4_changed_after_freeze": false,
+    "v6_changed_after_results": false,
+    "failed_or_negative_evidence_deleted": false,
+    "sealed_final_content_accessed": false,
+    "sealed_final_path_operations_performed": false,
+    "recorded_sealed_final_path_metadata_listing_integrity_deviation_preserved": true,
+    "paid_api_used": false,
+    "paid_gpu_used": false,
+    "paid_inference_used": false,
+    "pr_merged": false,
+    "tag_or_release_created": false,
+    "post_hoc_parity_or_equivalence_criteria_created": false
+  },
+  "not_claimable": [
+    "Gate E complete",
+    "candidate-v4 selected",
+    "algorithm parity",
+    "PSE superiority over exact A-MEM",
+    "post-hoc equivalence",
+    "sealed-final readiness"
+  ],
+  "research_verdict": "ADVERSARIAL_V6_STAGE2_COMPLETE; CANDIDATE_V4_REJECTED_BY_FROZEN_STAGE1_GUARDRAILS; GATE_E_NOT_COMPLETE; FORMAL_COMPLETION_45_PERCENT; ALGORITHM_PARITY_NO"
+}

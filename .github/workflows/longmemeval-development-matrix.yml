@@ -1,0 +1,109 @@
+name: LongMemEval Development Matrix
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: longmemeval-development-matrix-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  paired-development-matrix:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install Python package
+        run: python -m pip install -e .
+      - name: Install exact Transformers.js runtime
+        working-directory: experiments/runtime
+        run: npm ci --ignore-scripts
+      - name: Expose exact runtime to model server
+        run: ln -s experiments/runtime/node_modules node_modules
+      - name: Record dependency audit
+        run: |
+          mkdir -p results/development-matrix
+          cd experiments/runtime
+          npm audit --json > ../../results/development-matrix/npm-audit.json || true
+      - name: Download and verify pinned LongMemEval-S
+        run: |
+          python scripts/fetch_longmemeval.py \
+            --manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --output-directory .external-data/longmemeval
+      - name: Extract verified minimal execution subset before loading model
+        run: |
+          python scripts/extract_longmemeval_execution_subset.py \
+            .external-data/longmemeval/longmemeval_s_cleaned.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v2.json \
+            --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+            --output .external-data/longmemeval/development-execution-subset.json \
+            --output-manifest results/development-matrix/execution-subset-manifest.json
+      - name: Preload pinned answer and judge model
+        env:
+          PSE_MODEL_ID: onnx-community/Qwen2.5-0.5B-Instruct
+          PSE_MODEL_REVISION: 956050e4c6ce7c647091e15311218f80d662559f
+          PSE_MODEL_DTYPE: q4
+          PSE_HF_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+        run: |
+          node scripts/transformersjs_model_server.mjs </dev/null \
+            > results/development-matrix/model-preload.stdout.jsonl \
+            2> results/development-matrix/model-preload.stderr.log
+          grep '"status":"ready"' results/development-matrix/model-preload.stdout.jsonl
+      - name: Run fixed 20-case paired development matrix from verified subset
+        env:
+          TRANSFORMERS_CACHE: ${{ github.workspace }}/.external-data/hf-cache
+          PSE_SOURCE_HEAD_SHA: ${{ github.sha }}
+        run: |
+          python scripts/run_longmemeval_development_subset.py \
+            .external-data/longmemeval/longmemeval_s_cleaned.json \
+            .external-data/longmemeval/development-execution-subset.json \
+            --execution-subset-manifest results/development-matrix/execution-subset-manifest.json \
+            --source-manifest experiments/datasets/longmemeval-s-cleaned.json \
+            --protocol experiments/protocols/longmemeval-development-matrix-v2.json \
+            --split-manifest experiments/splits/longmemeval-development-matrix-v1.json \
+            --model-manifest experiments/models/qwen2.5-0.5b-instruct-transformersjs.json \
+            --run-manifest experiments/configs/qwen2.5-0.5b-development-matrix.json \
+            --matrix-config experiments/configs/longmemeval-development-matrix-v2.json \
+            --model-server scripts/transformersjs_model_server.mjs \
+            --cache-directory .external-data/hf-cache \
+            --output-root results/development-matrix \
+            | tee results/development-matrix/run.stdout.log
+      - name: Verify raw-to-summary and artifact contract
+        run: |
+          RUN_DIRECTORY="$(find results/development-matrix -mindepth 1 -maxdepth 1 -type d | sort | head -n 1)"
+          test -n "$RUN_DIRECTORY"
+          python scripts/verify_development_matrix_contract.py "$RUN_DIRECTORY" \
+            | tee results/development-matrix/verification.stdout.log
+      - name: Verify no dataset or model weights entered Git
+        if: always()
+        run: |
+          git status --short
+          test -z "$(git status --short -- .external-data)"
+          test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
+      - name: Upload complete development evidence or failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: longmemeval-development-matrix-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            results/development-matrix/**
+            experiments/protocols/longmemeval-development-matrix-v1.json
+            experiments/protocols/longmemeval-development-matrix-v2.json
+            experiments/splits/longmemeval-development-matrix-v1.json
+            experiments/models/qwen2.5-0.5b-instruct-transformersjs.json
+            experiments/configs/qwen2.5-0.5b-development-matrix.json
+            experiments/configs/longmemeval-development-matrix-v1.json
+            experiments/configs/longmemeval-development-matrix-v2.json
+            experiments/runtime/package-lock.json
+          if-no-files-found: warn
+          retention-days: 14

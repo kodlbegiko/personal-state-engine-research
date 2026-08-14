@@ -1,0 +1,118 @@
+name: LongMemEval Evaluator V2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: longmemeval-evaluator-v2-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evaluate-fixed-answers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install exact runtimes
+        run: |
+          python -m pip install -e .
+          python -m pip install openai==1.35.1
+          cd experiments/runtime
+          npm ci --ignore-scripts
+          cd ../..
+          ln -s experiments/runtime/node_modules node_modules
+
+      - name: Confirm fixed source evidence before judging
+        shell: bash
+        run: |
+          EVIDENCE_ROOT="$GITHUB_WORKSPACE/results/external/longmemeval-development-matrix-30676516785"
+          COMPAT_ROOT="$GITHUB_WORKSPACE/.contract-compat"
+          rm -rf "$COMPAT_ROOT"
+          mkdir -p "$COMPAT_ROOT/results/development-matrix"
+          ln -s "$EVIDENCE_ROOT" \
+            "$COMPAT_ROOT/results/development-matrix/development-matrix-30676516785-attempt-1"
+          (
+            cd "$COMPAT_ROOT"
+            python "$GITHUB_WORKSPACE/scripts/verify_development_matrix_contract.py" "$EVIDENCE_ROOT"
+          )
+          rm -rf "$COMPAT_ROOT"
+          test "$(find "$EVIDENCE_ROOT/raw-trials" -type f -name '*.json' | wc -l)" -eq 40
+          test -f "$EVIDENCE_ROOT/evaluator-calibration.json"
+          test -f "$EVIDENCE_ROOT/research-verdict.json"
+
+      - name: Run fixed evaluator selection, calibration and conditional rescoring
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_ORGANIZATION: ${{ secrets.OPENAI_ORGANIZATION }}
+          PSE_FORCE_LOCAL_JUDGE: "0"
+        run: |
+          python scripts/run_longmemeval_evaluator_v2.py \
+            --evidence-root results/external/longmemeval-development-matrix-30676516785 \
+            --spec experiments/evaluators/longmemeval-semantic-evaluator-v2.json \
+            --unit-corpus benchmarks/evaluator/longmemeval-evaluator-unit-v2.json \
+            --model-server scripts/transformersjs_model_server.mjs \
+            --cache-directory .external-data/evaluator-v2-hf-cache \
+            --output-root results/external/longmemeval-evaluator-v2 \
+            | tee results/longmemeval-evaluator-v2.stdout.log
+
+      - name: Verify evaluator evidence contract
+        run: |
+          python scripts/verify_longmemeval_evaluator_v2_contract.py \
+            results/external/longmemeval-evaluator-v2 \
+            --evidence-root results/external/longmemeval-development-matrix-30676516785
+          test -z "$(find results/external/longmemeval-evaluator-v2 -type f \( -name '*.onnx' -o -name '*.safetensors' -o -name '*.bin' \) -print)"
+          test -z "$(git ls-files '*.onnx' '*.safetensors' '*.bin')"
+          test -z "$(git status --short -- .external-data)"
+
+      - name: Refresh benchmark lock for new executable surface
+        run: python scripts/freeze_pilot_benchmark.py
+
+      - name: Run complete engineering tests against refreshed lock
+        run: |
+          python -m compileall -q src scripts experiments/runners tests
+          python -m unittest discover -s tests -v
+          python scripts/verify_external_e3_contract.py
+          python scripts/verify_benchmark_lock.py
+          python scripts/run_benchmark.py
+          python scripts/run_redteam.py
+          python scripts/analyze_component_results.py
+
+      - name: Commit durable evaluator evidence and refreshed lock
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            results/external/longmemeval-evaluator-v2 \
+            benchmarks/pilot/benchmark-lock.json \
+            benchmarks/pilot/benchmark-lock.sha256
+          git diff --cached --quiet && exit 0
+          git commit -m "evidence(e3): calibrate LongMemEval evaluator v2"
+          git push origin HEAD:research/personal-state-engine-v0
+
+      - name: Upload complete evaluator evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: longmemeval-evaluator-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            results/external/longmemeval-evaluator-v2/**
+            results/longmemeval-evaluator-v2.stdout.log
+            experiments/evaluators/longmemeval-semantic-evaluator-v2.json
+            benchmarks/evaluator/longmemeval-evaluator-unit-v2.json
+          if-no-files-found: warn
+          retention-days: 30

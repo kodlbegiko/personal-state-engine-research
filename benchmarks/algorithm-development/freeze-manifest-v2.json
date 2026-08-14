@@ -1,0 +1,14 @@
+{
+  "schema_version": "algorithm-development-freeze-manifest-v2",
+  "frozen_at": "2026-08-08T15:55:00Z",
+  "files": {
+    "benchmarks/algorithm-development/specification-v2.json": "8a4bd4dc7c0cfb702066d396623bbe5a05ee230e813821d769a0f26911c5f1a9",
+    "benchmarks/algorithm-development/withheld-extension-v2.json": "6da06a92f94f827f6cff04294a8e3032af1116c0423318e67180cb397111a7a0"
+  },
+  "development_source": {
+    "path": "benchmarks/strong-baseline/synthetic-memory-cases-v1.json",
+    "sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9"
+  },
+  "sealed_final_accessed": false,
+  "candidate_evaluation_started_before_freeze": false
+}

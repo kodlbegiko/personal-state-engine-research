@@ -1,0 +1,833 @@
+{
+  "artifact_count": 46,
+  "artifacts": [
+    {
+      "artifact_type": "model-cache-manifest",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/model-cache-manifest.json",
+      "sha256": "5e7123fb7047edb5ad66869e5157ae5df769483bab3b842ef994e2295ee18864",
+      "source_artifacts": [
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "environment-manifest",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/environment-manifest.json",
+      "sha256": "ebf70de9a998cc055528156d520577d95c5c7832c3d141c40075e531c56a3ca5",
+      "source_artifacts": [
+        "results/development-matrix/development-matrix-30676516785-attempt-1/model-cache-manifest.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "model-capability-screening",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/model-capability-screening.json",
+      "sha256": "2ea8795c4b6d471f518750065e8e7950ae4a5a207f6e94cb89eba3f2d1d9a0b4",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "processed-summary",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/processed-summary.json",
+      "sha256": "dbd8f667d4a719996202232bb3d3a9ac3b2f2293b47a413e7ee90e1966b673cd",
+      "source_artifacts": [
+        "raw-trials"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "human-audit-queue",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/human-audit-queue.json",
+      "sha256": "d50c7b5b9f30657c9ca0fb38d2a9e160a51fa2f073a5899339d34fbd6c061f9b",
+      "source_artifacts": [
+        "results/development-matrix/development-matrix-30676516785-attempt-1/processed-summary.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "human-audit-key",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/human-audit-key.json",
+      "sha256": "f7bf4599993d9df12eeecc0357574686e4359f3ac84b7e739bc33c0101ae1691",
+      "source_artifacts": [
+        "results/development-matrix/development-matrix-30676516785-attempt-1/human-audit-queue.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/000b5da1-5e68-465e-b819-f3d9aa9c42cd.json",
+      "sha256": "214b1be3fc5e150e10c077a3be9f7ce188f2efcb3ab882436d82e5d8c05a9b70",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/00d85eb3-5804-483f-857c-333b5d0d02eb.json",
+      "sha256": "097848c3e4456100ba9f14c13116b90ae20173ca373cbf058175f14ff4705973",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/131d3d72-6d92-480e-929a-ee8d25538986.json",
+      "sha256": "0721fb208e62516df9b469b234940f362a1c7f6ceca7f38fd3b47d6581e538de",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/15ae7f18-5b2a-4d59-ae8f-5555c48a6408.json",
+      "sha256": "b48abe36d703f7fdd709f51815b629ee9deec46a55a3cf129160d99a31f6aa49",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/1625ccd2-ee3d-4668-b382-d2b78c74bb44.json",
+      "sha256": "92b37db68ce150bb4c2e44859a825d06cd8547ff8e6ad1a641d270ca68f9bb75",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/1637c5a9-2789-4a8e-a054-1e52acfa3b9c.json",
+      "sha256": "1233a3748ecf8e0a83c93c4c0805e8db4c78ef3a4d53e64f6bc6f527499cd098",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/16bcacc9-ed04-4ef4-882c-4cf9d900a399.json",
+      "sha256": "70a47b1fc3e3fa3fe507c2d30aae3b9cccf010dbbd0a79098e064e5238c4a9af",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/19cbb692-1e9e-467a-8423-4c74e1c93ee5.json",
+      "sha256": "475764f12c95cdfe8b52a42831ea837f348203934e1344c7a6da2afa874d5abf",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/1a26b0f1-b415-4764-853d-29ae2c3b29ba.json",
+      "sha256": "8dfae55436e904532d6953dd046852ce0faa5efa523b37cdcec28f4b0b6fdf99",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/205bbae8-464e-4ae0-b827-a4ceca990296.json",
+      "sha256": "0e7ff60beea0b816167635733655be40d4f5d8146b69b352b8c2b88badb3f252",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/271653f1-6dc1-41f2-8ef2-f91ac135e84c.json",
+      "sha256": "3c816625c56fb1bb3fdf4169e7608b733e6ddf08873291d771198606cf78c761",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/497fa417-c369-4c3c-bc1b-11b31ed4998e.json",
+      "sha256": "a549b7c39eff4afee233559b9a5f3aec6fffe2766c81b6dfffa4e31c4c0fb53e",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/4cfea7b3-4475-40a0-b287-30db98a05412.json",
+      "sha256": "2311b1369c47706eeb8db45a57714965bc559d3ff6115d60382152a401338eb4",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/4d5d6399-a3cf-4fc2-b80e-7969b9b0c80a.json",
+      "sha256": "f3398431c394914c066abacbde1f0f33ec09cb20d3787f05a1de9476c58064aa",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/52e0fbca-eff1-4355-aed5-6dd691b4cd2e.json",
+      "sha256": "d7a3124fdb04c951b49243493f641d7ca9f3e5b39b8aa45276a96d8aeb34958e",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/5f54f96f-c1cf-4ce3-b240-73b07f2812a4.json",
+      "sha256": "9f04025bd51184b0ace6483c2425ef48f037aa6fb4b720e7d63a99669ec19edc",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/62239096-5b09-48f2-81d3-888e2d1cff5f.json",
+      "sha256": "aa8f7bd6285def4534094474c9455eeedb988a5c4508b95c8160192a91c208dd",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/63b53b44-5c52-4cc2-be10-b6954debcb60.json",
+      "sha256": "7fb3e6ed3554a100a73e52498a6ae9a5452d6330acc9495441c5e5ed3eb78313",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/6ac65bc9-94c2-4773-8e54-48d77d90ab44.json",
+      "sha256": "817bc7acb3f3f4ac8532dd74b44d17c1cd744ab6035658e3387c76a84912f361",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/6b1578f2-9146-4825-975b-0b9e908fbe55.json",
+      "sha256": "77184ebb8e8fef9211c747c66e08595d6ffab3bb7b340bc7366c204efcb985d1",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/6f00f140-ce6d-4c82-8414-5ef7acad918e.json",
+      "sha256": "364dc3b74ec40d39b41b4ad070253914e1bd2e9d0a3aacada372480083516d3e",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/7c30e218-7283-432f-9d30-1cb9d9929e86.json",
+      "sha256": "36775b0e8ca8e5f8ce21cb8282c0d266819f14e08ec7cda23f6571e681336036",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/7e68e3d0-a54b-4309-95fa-1a2c10f323b3.json",
+      "sha256": "e41811cf2598004434959bdc3c4240b68defd7bf724e19f69e3afb8f6d73a917",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/82eaaded-d08c-4d53-b393-17cb670110b8.json",
+      "sha256": "660515c9eb272e75b948c367366ce2980fdb52627f56a20d17aefa3330a3bb60",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/836822c2-073c-41dd-acb9-54f9afd84fc8.json",
+      "sha256": "c56bc52eecc02a344aa49db8f8f19abab4f993017e5606824195c04c798b131a",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/91cbb375-8825-4f1c-9450-008fd003bb8c.json",
+      "sha256": "90683d8594b5a48686dba01d96abc388aec2308bf89e99957ee7d9b8276f0fee",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/98d8ee19-9b76-48e6-bbc5-15fe0d40f5d3.json",
+      "sha256": "7a42c2fac910812efe3400de91b5491d3e88b8d47bd10c6155339789438d0bf5",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/a8801186-c9a3-4951-81ac-0d862b198644.json",
+      "sha256": "b97fcf836596bbf39017affe6c94824393c577bff697e275a11ad985ba411110",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/b276a309-0807-4ca6-b4f3-9b71a8df5997.json",
+      "sha256": "7520b6c3ea6424041e7778f381ba402f8d8ed8deeb9b9d23c5543cf88ec47662",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/baa26dae-387f-4d7b-9829-a67c229943b4.json",
+      "sha256": "5943f661d029d038ff3e97a8c6c0808c548d290146121bf4a845abcc82a9fac6",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/c1c3bd9c-7e3c-4b9b-9794-ac71963f3c44.json",
+      "sha256": "3b7f5c26069a5552480a494fac8f48ef82418f67b05313619925fb2b9d8a2727",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/c477c452-14fd-4b3e-b217-038de8b3b319.json",
+      "sha256": "bf288cec41eef3081a3d00eb82d4fe218b79130c2bf3ceb1a481ec5662727934",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/cca00fce-58cc-4047-9805-7582322d3f71.json",
+      "sha256": "e6787c77c55019e6a051a036634f4fb1891da0d2624d85ece01aca3c3c2f2278",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/d3136d2a-5238-4bda-91bc-b85fc49032b1.json",
+      "sha256": "f5663706b651bd14fa528d02719d0f72bb0672ca47ec4439146c10ef2013eeb8",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/d7cdd83d-e445-4696-b757-6b56ae65d38b.json",
+      "sha256": "f64912e2d8349f80f580f6b73bd96dcef8621db9c2ecc00dc2657ae51b6e3708",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/de0f4388-b05d-4b81-a183-d53c13ff6e46.json",
+      "sha256": "95b9849e25418b2a8f89c6300c3ee6b2d6c7ac77859f5027b30cb884e7e51cfc",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/e90b1da3-b4a9-4d9e-aca5-7850a9354835.json",
+      "sha256": "8597b0cb43e486b873dfcb2e51ea25bfa7942b1c15a394e9bdd95eb7d03a0edb",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/e979cc03-beea-4509-8a5c-f0115b6a6124.json",
+      "sha256": "75491e4df6fe9317e180d339d8b276be27ba824d06e23d42d7bb938db4a8f645",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/ef59a3b6-525b-4e48-ac93-7ddd192e6a81.json",
+      "sha256": "3e571adb26f1375628fd23983d88f9342fcefc9bc869f8aaa0e3bbcf33338efa",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    },
+    {
+      "artifact_type": "raw-trial",
+      "code_commit": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca",
+      "config_hash": "849ce9b96ba2df6e29a9c4ba18b66aab5d6692f296112473a6369eca74b735f6",
+      "created_at": "2026-08-01T01:02:02Z",
+      "dataset_hash": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+      "evidence_level": "E3",
+      "generator_command": "python scripts/run_longmemeval_development_subset.py ...",
+      "model_manifest_hash": "131ae799ab6d90e1ec33aa2c2d035ee6d0d1ca1ae9708021b80c8eeea631d359",
+      "path": "results/development-matrix/development-matrix-30676516785-attempt-1/raw-trials/f6272804-8d25-4455-9ee0-20c141d1b69e.json",
+      "sha256": "fee215e104c8dd1057a3dd04aa3b375096d9aef8f3988d7de14354c70e69ad59",
+      "source_artifacts": [
+        "results/development-matrix/execution-subset-manifest.json",
+        "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json"
+      ],
+      "split_hash": "b1f0ca50956e44496b885ff1d91692a2d822acbda53b010b89cce964faf2e92d",
+      "status": "complete"
+    }
+  ],
+  "github_run_attempt": "1",
+  "github_run_id": "30676516785",
+  "run_id": "development-matrix-30676516785-attempt-1",
+  "schema_version": "artifact-registry-v2",
+  "source_head_sha": "d705b1724c5a206f41db506d6c72c35d03e1cb13",
+  "tested_commit_sha": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca"
+}

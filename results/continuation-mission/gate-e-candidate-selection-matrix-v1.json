@@ -1,0 +1,103 @@
+{
+  "schema_version": "gate-e-candidate-selection-matrix-v1",
+  "assessed_at": "2026-08-10T11:30:00+08:00",
+  "gate": "E",
+  "formal_status": "NOT_COMPLETE",
+  "formal_selection": "NO_FORMAL_SELECTION",
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "candidate_v2_retuned": false,
+  "evidence_matrix": {
+    "normal_benchmark": {
+      "case_count": 24,
+      "pse_current_mrr": 0.9015151515151515,
+      "candidate_v1_mrr": 1.0,
+      "candidate_v2_mrr": 0.9469696969696969,
+      "a_mem_exact_mrr": 0.8787878787878788,
+      "v2_vs_v1_delta": -0.05303030303030303,
+      "v2_vs_v1_bootstrap_95_ci": [-0.13636363636363635, 0.0],
+      "selection_readthrough": "candidate_v1 leads candidate_v2 on the normal benchmark"
+    },
+    "adversarial_v3_withheld": {
+      "case_count": 12,
+      "answerable_case_count": 11,
+      "candidate_v1_mrr": 0.6666666666666666,
+      "candidate_v2_mrr": 0.9090909090909091,
+      "a_mem_exact_mrr": 0.6666666666666666,
+      "random_mrr": 0.6818181818181818,
+      "selection_readthrough": "candidate_v2 leads descriptively, but benchmark discrimination is insufficient because random slightly exceeds candidate_v1 and exact A-MEM"
+    },
+    "adversarial_v4_postfreeze": {
+      "case_count": 24,
+      "answerable_case_count": 22,
+      "candidate_v1_mrr": 0.7136363636363637,
+      "candidate_v2_mrr": 0.875,
+      "a_mem_exact_mrr": 0.8333333333333333,
+      "candidate_v2_recall_at_1": 0.7727272727272727,
+      "a_mem_exact_recall_at_1": 0.7272727272727273,
+      "v2_minus_a_mem_mrr_delta": 0.04166666666666668,
+      "v2_minus_a_mem_bootstrap_95_ci": [-0.10984848484848485, 0.19696969696969704],
+      "v2_vs_a_mem_win_tie_loss": {"v2_wins": 5, "ties": 12, "v2_losses": 5},
+      "selection_readthrough": "candidate_v2 is descriptively competitive with exact A-MEM but the interval crosses zero and n=22 is below the preregistered n=30 threshold"
+    },
+    "robustness_suite": {
+      "status": "COMPLETE_AUXILIARY",
+      "perturbation_count": 13,
+      "candidate_v2_worst_mrr_delta": -0.09090909090909094,
+      "candidate_v1_worst_mrr_delta": -0.515909090909091,
+      "pse_current_worst_mrr_delta": -0.5469696969696971,
+      "selection_readthrough": "candidate_v2 is the strongest robustness specialist among the PSE candidates on the tested suite"
+    },
+    "ablation": {
+      "full_candidate_v2_withheld_mrr": 0.9090909090909091,
+      "without_adversarial_cue_mrr": 0.8181818181818182,
+      "without_echo_mrr": 0.7727272727272727,
+      "without_update_mrr": 0.7727272727272727,
+      "original24_without_anchor_mrr": 0.9696969696969696,
+      "selection_readthrough": "adversarial-cue, echo and update terms contribute to adversarial robustness, while the anchor term trades some normal-benchmark MRR for robustness"
+    },
+    "abstention": {
+      "status": "UNRESOLVED",
+      "candidate_v2_adversarial_v4_abstention_accuracy": 0.0,
+      "candidate_v2_adversarial_v4_false_retrieval_rate": 1.0,
+      "a_mem_adversarial_v4_abstention_accuracy": 0.0,
+      "a_mem_adversarial_v4_false_retrieval_rate": 1.0,
+      "development_strategy_matrix_abstention_accuracy_under_zero_false_abstention_guardrail": 0.0,
+      "development_strategy_matrix_false_retrieval_rate": 1.0,
+      "selection_readthrough": "neither candidate-v2 nor exact A-MEM solves no-evidence abstention; existing candidate-v2 confidence features are not safely separable under the guardrail"
+    },
+    "determinism_and_leakage": {
+      "candidate_v2_determinism_reruns": 3,
+      "candidate_v2_determinism": "PASS",
+      "candidate_v2_leakage_audit": "PASS",
+      "tuning_after_withheld": false,
+      "freeze_precedes_withheld": true
+    },
+    "resource_characterization": {
+      "candidate_v2_peak_rss_kib": 22092,
+      "candidate_v2_local_24_case_wall_seconds": 0.010895863999998312,
+      "a_mem_exact_adversarial_v4_max_peak_rss_kib": 1426156,
+      "a_mem_exact_mean_end_to_end_case_wall_seconds": 364.8379166666666,
+      "comparison_boundary": "Execution semantics differ; no unsupported X-times-faster ratio is used for formal selection."
+    },
+    "independent_reproduction": {
+      "candidate_v2": false,
+      "gate_g": "NOT_COMPLETE"
+    }
+  },
+  "decision_logic": {
+    "candidate_v1": "Retain as normal-benchmark-leading hypothesis.",
+    "candidate_v2": "Retain as frozen robustness-specialist hypothesis; do not promote to universal replacement.",
+    "a_mem": "Exact strong baseline reproduced for Gate D and adversarial-v4 auxiliary comparison; not a basis for claiming candidate parity.",
+    "formal_winner": null,
+    "reason_no_formal_selection": [
+      "Candidate-v1 and candidate-v2 optimize different observed benchmark regimes.",
+      "The strongest candidate-v2 versus exact A-MEM comparison is underpowered and its 95% interval crosses zero.",
+      "No-evidence abstention remains unsolved under the no-answerable-rejection guardrail.",
+      "Independent reproduction remains false."
+    ]
+  },
+  "algorithm_parity": "NO",
+  "sealed_final_accessed": false,
+  "new_monetary_cost_usd": 0.0,
+  "claim_boundary": "Auxiliary Gate E selection synthesis only. It does not complete Gate E or establish parity, superiority, equivalence, non-inferiority, SOTA, sealed-final readiness, or production readiness."
+}

@@ -1,0 +1,16 @@
+{
+  "adapter_interface_tests": {
+    "failed": 0,
+    "passed": 3,
+    "tests": 3
+  },
+  "corpus_cases": 24,
+  "corpus_sha256": "6e8a66502752debb0c2385b5654bceb85a7a046a21c5bc7bea22ae1a460a61e9",
+  "interpretation": "This validates the comparison interface and metric reconstruction only. It is not A-MEM retrieval or answer-accuracy evidence.",
+  "official_embedding_execution": false,
+  "official_llm_execution": false,
+  "schema_validation": "PASS",
+  "schema_version": "strong-baseline-synthetic-results-v1",
+  "semantic_memory_algorithm_execution": false,
+  "status": "MECHANICAL_ADAPTER_SMOKE_PASS"
+}

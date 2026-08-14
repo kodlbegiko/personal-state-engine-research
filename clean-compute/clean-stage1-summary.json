@@ -1,0 +1,92 @@
+{
+  "all_stage1_pass": true,
+  "case_count": 120,
+  "checks": {
+    "absolute_reduction": true,
+    "abstention_accuracy": true,
+    "answerable_recall": true,
+    "discrimination_mrr": true,
+    "discrimination_r1": true,
+    "false_abstention": true,
+    "false_retrieval": true,
+    "mrr_deficit": true,
+    "r1_deficit": true,
+    "r3_deficit": true,
+    "r5_deficit": true
+  },
+  "dataset_sha256": "2b24be0adb26d4be8c4539a3ae9619401e7a2546cd0828185eaa846b974a1b6d",
+  "deficits": {
+    "MRR": 0.0,
+    "R@1": 0.0,
+    "R@3": 0.0,
+    "R@5": 0.0
+  },
+  "discrimination": {
+    "mrr_gap": 0.6733333333333333,
+    "r1_gap": 0.85
+  },
+  "schema_version": "adversarial-clean-stage1-v1",
+  "stage2_authorized": true,
+  "systems": {
+    "bm25": {
+      "MRR": 0.24500000000000002,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "candidate_v2": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "candidate_v6": {
+      "MRR": 1.0,
+      "R@1": 1.0,
+      "R@3": 1.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 1.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 0.0
+    },
+    "random": {
+      "MRR": 0.32666666666666666,
+      "R@1": 0.15,
+      "R@3": 0.475,
+      "R@5": 0.6375,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "recency": {
+      "MRR": 0.0,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 0.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    },
+    "tfidf": {
+      "MRR": 0.24500000000000002,
+      "R@1": 0.0,
+      "R@3": 0.0,
+      "R@5": 1.0,
+      "abstention_accuracy": 0.0,
+      "answerable_recall": 1.0,
+      "false_abstention": 0.0,
+      "false_retrieval": 1.0
+    }
+  }
+}

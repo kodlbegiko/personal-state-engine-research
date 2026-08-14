@@ -1,0 +1,7 @@
+{
+  "force_local": false,
+  "openai_key_present": false,
+  "provider": "local-fallback",
+  "selected_before_inference": true,
+  "selection_reason": "No confirmed usable OpenAI API credential; fixed local 3B fallback selected before inference"
+}

@@ -1,0 +1,37 @@
+name: Freeze Adversarial-v4 Discrimination Benchmark
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify candidate freeze still predates v4 and freeze corpus
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor d627f61d0888306a97f3ef0b78aa29dc00c444bb HEAD
+          test ! -e results/algorithm-development/adversarial-v4
+          python scripts/freeze_adversarial_v4.py \
+            --corpus benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json \
+            --output benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json \
+            --source-commit "$(git rev-parse HEAD)"
+      - name: Persist freeze before any v4 evaluation
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json
+          git commit -m "research: freeze adversarial v4 discrimination benchmark"
+          git push origin HEAD:research/personal-state-engine-v0

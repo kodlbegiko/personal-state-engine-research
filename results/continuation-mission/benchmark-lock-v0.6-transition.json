@@ -1,0 +1,35 @@
+{
+  "schema_version": "pilot-benchmark-lock-transition-v1",
+  "recorded_at": "2026-08-10T12:15:00+08:00",
+  "reason": "Candidate-v3 introduced a new locked algorithm source and development evaluator. The existing fail-closed lock correctly rejected same-version normalization, so the lock was explicitly advanced before continuing.",
+  "previous": {
+    "version": "pilot-v0.5",
+    "lock_anchor_sha256": "9a2244d3cd7459f5d2f62a1fc3fe64c11b22c7ca96cbe53d8cddd06fcc457336"
+  },
+  "current": {
+    "version": "pilot-v0.6",
+    "lock_anchor_sha256": "c2adf5673ffe561480dea5a64c4f9eea3ce1ebaeb4bcf2b733dd2e5be4a54e14",
+    "generation_workflow_run_id": 31354745172,
+    "generation_artifact_id": 9050232390,
+    "generation_artifact_digest": "sha256:eab4df269218bc5f44baa2d634dfecd4f459531bc42f9ab0dd8a31f577e3be1e"
+  },
+  "changed_locked_inputs": {
+    "src/personal_state_engine/candidate_v3.py": "29898f760bbc7e9b2ece7b85b81b2067925fd408",
+    "scripts/evaluate_candidate_v3.py": "9ef46fab68ca31eb293a90d59075a3518e2426cf"
+  },
+  "semantic_effect": {
+    "pilot_benchmark_cases_changed": false,
+    "pilot_expected_outputs_changed": false,
+    "candidate_v2_changed": false,
+    "a_mem_identity_changed": false,
+    "historical_scientific_results_rewritten": false,
+    "candidate_v3_is_new_candidate_identity": true
+  },
+  "integrity": {
+    "same_version_changed_input_refresh_was_rejected": true,
+    "explicit_version_bump_used": true,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0,
+    "failed_evidence_deleted": false
+  }
+}

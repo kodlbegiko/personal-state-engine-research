@@ -1,0 +1,33 @@
+{
+  "schema_version": "model-manifest-v1",
+  "provider": "huggingface-open-weight",
+  "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+  "model_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+  "model_repository": "https://huggingface.co/onnx-community/Qwen2.5-0.5B-Instruct",
+  "model_file": "onnx/model_q4.onnx and repository-defined external data files",
+  "model_file_sha256": "CAPTURE_FROM_RUNTIME_CACHE",
+  "tokenizer_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+  "tokenizer_revision": "956050e4c6ce7c647091e15311218f80d662559f",
+  "runtime_name": "@huggingface/transformers",
+  "runtime_version": "4.2.0",
+  "quantization": "q4",
+  "context_length": 32768,
+  "chat_template": "repository tokenizer chat_template at pinned revision",
+  "generation_parameters": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_new_tokens": 96,
+    "seed": 17
+  },
+  "hardware": "GitHub-hosted ubuntu-24.04 CPU runner",
+  "thread_count": "runtime-default-recorded-in-environment-manifest",
+  "batch_size": 1,
+  "license": "Apache-2.0",
+  "pricing_version": "open-weight-local-execution-no-api-charge",
+  "provider_drift_limitations": "Model, tokenizer and repository files are pinned by immutable revision; runtime dependencies are pinned by package-lock and audited per run.",
+  "selected_at": "2026-08-01T00:00:00Z",
+  "selection_reason": "Fixed 0.5B instruction-tuned CPU-compatible candidate selected before development inference to reduce the obvious 135M floor effect while remaining feasible for a 20-case paired matrix. Selection is not evidence of competitiveness.",
+  "cache_directory": ".external-data/hf-cache",
+  "security_scope": "ephemeral isolated research runner only; no untrusted archives or images; not production-ready"
+}

@@ -1,0 +1,17 @@
+{
+  "cpu_count": 4,
+  "execution_subset_sha256": "46a8bb13d6c65fd94abfe9f1e1c8c1f88e36fbcfacd046dea174079c60f789e2",
+  "github_run_attempt": "1",
+  "github_run_id": "30676516785",
+  "machine": "x86_64",
+  "model_cache_manifest_sha256": "5e7123fb7047edb5ad66869e5157ae5df769483bab3b842ef994e2295ee18864",
+  "model_process_scope": "one formal case per subprocess",
+  "node": "v24.18.0",
+  "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "schema_version": "development-environment-manifest-v3",
+  "security_scope": "ephemeral isolated research runner only; no untrusted archives or images; not production-ready",
+  "source_dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "source_head_sha": "d705b1724c5a206f41db506d6c72c35d03e1cb13",
+  "tested_commit_sha": "ea1f1775dc0a5500f37a10bf956cd543e2c450ca"
+}

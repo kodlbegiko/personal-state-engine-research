@@ -1,0 +1,37 @@
+{
+  "allowed_alternate_official_model": "meta-llama/Meta-Llama-3.1-70B-Instruct",
+  "baseline_blinding": true,
+  "calibration_thresholds": {
+    "cohen_kappa_minimum": 0.6,
+    "invalid_output_rate_maximum": 0.05,
+    "raw_agreement_minimum": 0.8
+  },
+  "evaluator_id": "longmemeval-official-faithful-port-v3",
+  "formal_result_policy": "No new formal correctness result may be produced until exact official runtime execution and fresh blinded calibration pass.",
+  "invalid_output_policy": "retain_and_exclude_from_correctness",
+  "max_output_tokens": 16,
+  "model_id": "gpt-4o-2024-08-06",
+  "model_revision": "gpt-4o-2024-08-06",
+  "parser_sha256": "21b6bdf67be269bf57885478897f8ce95817da751a6192977e68f7c56603d9fe",
+  "prior_v2_formal_result_exposure": true,
+  "prompt_bundle_sha256": "54e1135ab53702db963ff49e4cf316463a0dd430ef93e6e3b295ce77379a0e1a",
+  "provider": "openai",
+  "raw_outputs_retained": true,
+  "retry_policy": {
+    "attempts_retained": true,
+    "parser_repairs": 0,
+    "semantic_retries": 0,
+    "transport_retries": 2
+  },
+  "sampling": false,
+  "schema_version": "longmemeval-evaluator-v3",
+  "seed": 17,
+  "source_commit": "9e0b455f4ef0e2ab8f2e582289761153549043fc",
+  "source_file": "src/evaluation/evaluate_qa.py",
+  "source_file_blob_sha": "4732f3772b04a2b9069121ade304e6320494abc2",
+  "source_file_sha256": "ecce9c4c79dc89d99534ac17b383a5cbb5b9f0c69ee98adaf0684742e3d95251",
+  "source_repository": "https://github.com/xiaowu0162/LongMemEval",
+  "source_type": "faithful-port",
+  "temperature": 0,
+  "versioning_response": "v3 created; v1 and v2 evidence retained; no v3 judge labels generated"
+}

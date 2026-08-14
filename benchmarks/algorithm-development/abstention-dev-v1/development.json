@@ -1,0 +1,24 @@
+{
+  "schema_version": "pse-abstention-dev-v1",
+  "cases": [
+    {"id":"ABS1-DEV-A01","split":"development","category":"direct_fact","memories":[{"id":"m1","text":"The locker code hint is cobalt","timestamp":"2026-01-01"},{"id":"m2","text":"Lunch was noodles","timestamp":"2026-01-02"}],"query":"What is the locker code hint?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A02","split":"development","category":"update","memories":[{"id":"m1","text":"Desk is on floor 3","timestamp":"2026-01-01"},{"id":"m2","text":"Desk moved to floor 5","timestamp":"2026-05-01"}],"query":"What floor is the desk on now?","relevant_memory_ids":["m2"]},
+    {"id":"ABS1-DEV-A03","split":"development","category":"old_fact","memories":[{"id":"m1","text":"Tax archive hint is cedar","timestamp":"2021-01-01"},{"id":"m2","text":"Bought tea yesterday","timestamp":"2026-07-01"}],"query":"What is the tax archive hint?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A04","split":"development","category":"entity","memories":[{"id":"m1","text":"Nina on Atlas owns deployment","timestamp":"2026-01-01"},{"id":"m2","text":"Nina on Beacon owns design","timestamp":"2026-01-02"}],"query":"Who owns deployment on Atlas?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A05","split":"development","category":"preference_update","memories":[{"id":"m1","text":"User preferred coffee","timestamp":"2025-01-01"},{"id":"m2","text":"User stopped coffee and now prefers tea","timestamp":"2026-03-01"}],"query":"What drink does the user prefer now?","relevant_memory_ids":["m2"]},
+    {"id":"ABS1-DEV-A06","split":"development","category":"multi_match","memories":[{"id":"m1","text":"Launch owner is Dana","timestamp":"2026-01-01"},{"id":"m2","text":"Launch date is September 2","timestamp":"2026-01-02"}],"query":"Who owns the launch?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A07","split":"development","category":"unicode_fact","memories":[{"id":"m1","text":"常用的咖啡店是慢慢咖啡","timestamp":"2026-01-01"}],"query":"常用的咖啡店是哪一間？","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A08","split":"development","category":"partial_wording","memories":[{"id":"m1","text":"Warranty ends November 30","timestamp":"2026-01-01"}],"query":"When does the warranty expire?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-DEV-A09","split":"development","category":"temporal_specific","memories":[{"id":"m1","text":"March balance was 1200","timestamp":"2026-03-01"},{"id":"m2","text":"April balance was 900","timestamp":"2026-04-01"}],"query":"What was the March balance?","relevant_memory_ids":["m1"]},
+
+    {"id":"ABS1-DEV-N01","split":"development","category":"unrelated","memories":[{"id":"m1","text":"User likes jazz","timestamp":"2026-01-01"}],"query":"What is the user's blood type?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N02","split":"development","category":"misleading_lexical","memories":[{"id":"m1","text":"Driver license renewal office is downtown","timestamp":"2026-01-01"}],"query":"What is the driver's license number?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N03","split":"development","category":"question_echo","memories":[{"id":"m1","text":"What is the private account PIN?","timestamp":"2026-06-01"}],"query":"What is the private account PIN?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N04","split":"development","category":"partial_topic_only","memories":[{"id":"m1","text":"Passport photo was renewed","timestamp":"2026-01-01"}],"query":"What is the passport number?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N05","split":"development","category":"conflict_no_resolution","memories":[{"id":"m1","text":"Meeting might be Monday","timestamp":"2026-01-01"},{"id":"m2","text":"Meeting might be Tuesday","timestamp":"2026-01-01"}],"query":"What is the confirmed meeting day?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N06","split":"development","category":"missing_attribute","memories":[{"id":"m1","text":"Car service is booked for Friday","timestamp":"2026-01-01"}],"query":"What is the car registration number?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N07","split":"development","category":"same_entity_wrong_field","memories":[{"id":"m1","text":"Project Orion owner is Dana","timestamp":"2026-01-01"}],"query":"What is Project Orion's budget?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N08","split":"development","category":"keyword_stuffing_no_evidence","memories":[{"id":"m1","text":"blood type blood type answer query blood type","timestamp":"2026-07-01"}],"query":"What is the user's blood type?","relevant_memory_ids":[]},
+    {"id":"ABS1-DEV-N09","split":"development","category":"unicode_missing","memories":[{"id":"m1","text":"駕照換發地點在市中心","timestamp":"2026-01-01"}],"query":"駕照號碼是多少？","relevant_memory_ids":[]}
+  ]
+}

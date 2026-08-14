@@ -1,0 +1,18 @@
+{
+  "schema_version": "pse-abstention-validation-v1",
+  "cases": [
+    {"id":"ABS1-VAL-A01","split":"validation","category":"direct_fact","memories":[{"id":"m1","text":"Backup phrase hint is violet","timestamp":"2026-01-01"},{"id":"m2","text":"Garden needs water","timestamp":"2026-01-02"}],"query":"What is the backup phrase hint?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-VAL-A02","split":"validation","category":"update","memories":[{"id":"m1","text":"Support room is 201","timestamp":"2026-01-01"},{"id":"m2","text":"Support room changed to 508","timestamp":"2026-05-01"}],"query":"What is the current support room?","relevant_memory_ids":["m2"]},
+    {"id":"ABS1-VAL-A03","split":"validation","category":"entity","memories":[{"id":"m1","text":"Maya on Cedar owns billing","timestamp":"2026-01-01"},{"id":"m2","text":"Maya on Pine owns design","timestamp":"2026-01-02"}],"query":"Who owns billing on Cedar?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-VAL-A04","split":"validation","category":"preference","memories":[{"id":"m1","text":"Preferred editor is Helix","timestamp":"2026-01-01"}],"query":"Which editor is preferred?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-VAL-A05","split":"validation","category":"old_fact","memories":[{"id":"m1","text":"Archive key hint is maple","timestamp":"2022-01-01"}],"query":"What is the archive key hint?","relevant_memory_ids":["m1"]},
+    {"id":"ABS1-VAL-A06","split":"validation","category":"unicode_fact","memories":[{"id":"m1","text":"固定使用的會議室是松柏廳","timestamp":"2026-01-01"}],"query":"固定使用的會議室是哪一間？","relevant_memory_ids":["m1"]},
+
+    {"id":"ABS1-VAL-N01","split":"validation","category":"unrelated","memories":[{"id":"m1","text":"Favorite fruit is mango","timestamp":"2026-01-01"}],"query":"What is the user's national ID number?","relevant_memory_ids":[]},
+    {"id":"ABS1-VAL-N02","split":"validation","category":"same_entity_wrong_field","memories":[{"id":"m1","text":"Invoice 22 owner is Mei","timestamp":"2026-01-01"}],"query":"What is the amount of invoice 22?","relevant_memory_ids":[]},
+    {"id":"ABS1-VAL-N03","split":"validation","category":"question_echo","memories":[{"id":"m1","text":"What is the recovery password?","timestamp":"2026-07-01"}],"query":"What is the recovery password?","relevant_memory_ids":[]},
+    {"id":"ABS1-VAL-N04","split":"validation","category":"partial_topic_only","memories":[{"id":"m1","text":"Blood donation appointment is Friday","timestamp":"2026-01-01"}],"query":"What is the user's blood type?","relevant_memory_ids":[]},
+    {"id":"ABS1-VAL-N05","split":"validation","category":"conflict_no_resolution","memories":[{"id":"m1","text":"Delivery may arrive at 2 PM","timestamp":"2026-01-01"},{"id":"m2","text":"Delivery may arrive at 4 PM","timestamp":"2026-01-01"}],"query":"What is the confirmed delivery time?","relevant_memory_ids":[]},
+    {"id":"ABS1-VAL-N06","split":"validation","category":"unicode_missing","memories":[{"id":"m1","text":"護照換發日期是下週一","timestamp":"2026-01-01"}],"query":"護照號碼是多少？","relevant_memory_ids":[]}
+  ]
+}

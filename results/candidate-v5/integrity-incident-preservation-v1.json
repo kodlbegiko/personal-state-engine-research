@@ -1,0 +1,44 @@
+{
+  "schema_version": "candidate-v5-integrity-incident-preservation-v1",
+  "candidate_v5_mission_new_sealed_final_access": false,
+  "candidate_v5_mission_new_sealed_final_path_operations": false,
+  "candidate_v5_mission_sealed_final_content_accessed": false,
+  "preexisting_historical_incidents": [
+    {
+      "type": "SEALED_FINAL_PATH_METADATA_LISTING_DEVIATION",
+      "origin": "pre-Candidate-v5 repository history / PR #2 authoritative status",
+      "classification": "metadata_only_historical_deviation",
+      "status": "PRESERVED_NOT_HIDDEN_NOT_CURED",
+      "used_for_candidate_v5_development_or_selection": false,
+      "note": "This incident predates the Candidate-v5 Gate E Recovery Mission. Candidate-v5 execution did not repeat, inspect, expand, enumerate, hash, search, or otherwise use sealed-final metadata/content. The historical record is retained rather than erased."
+    }
+  ],
+  "candidate_v5_mission_incidents": [
+    {
+      "type": "DEVELOPMENT_UNIT_FAILURE",
+      "workflow_run_id": 31664163704,
+      "status": "PRESERVED",
+      "effect": "query_echo false acceptance; development-only repair allowed before freeze"
+    },
+    {
+      "type": "DEVELOPMENT_UNIT_FAILURE",
+      "workflow_run_id": 31664231823,
+      "status": "PRESERVED",
+      "effect": "first repair insufficient; punctuation canonicalization root cause identified before freeze"
+    },
+    {
+      "type": "FREEZE_EVIDENCE_NOT_ADOPTED",
+      "workflow_run_id": 31664614671,
+      "status": "PRESERVED",
+      "effect": "run verified pilot-v0.11 instead of intended formally regenerated v0.12; no freeze was declared from that run"
+    },
+    {
+      "type": "PROTECTED_VALIDATION_FAILURE",
+      "workflow_run_id": 31665185021,
+      "status": "PRESERVED_TERMINAL_NEGATIVE_EVIDENCE",
+      "effect": "Candidate-v5 rejected; no rerun and no post-freeze patch"
+    }
+  ],
+  "negative_evidence_deleted": false,
+  "monetary_cost_usd": 0
+}

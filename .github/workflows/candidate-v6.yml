@@ -1,0 +1,100 @@
+name: Candidate-v6 Development Evidence
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - 'src/personal_state_engine/candidate_v6.py'
+      - 'tests/test_candidate_v6.py'
+      - 'scripts/evaluate_candidate_v6.py'
+      - 'benchmarks/algorithm-development/candidate-v6-development-v1/**'
+      - 'experiments/configs/candidate-v6-v1.json'
+      - 'results/candidate-v6/preregistration.md'
+      - '.github/workflows/candidate-v6.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/personal_state_engine/candidate_v6.py'
+      - 'tests/test_candidate_v6.py'
+      - 'scripts/evaluate_candidate_v6.py'
+      - 'benchmarks/algorithm-development/candidate-v6-development-v1/**'
+      - 'experiments/configs/candidate-v6-v1.json'
+      - 'results/candidate-v6/preregistration.md'
+      - '.github/workflows/candidate-v6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  development-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e .
+      - name: Compile Candidate-v6 surfaces
+        run: |
+          python -m compileall -q \
+            src/personal_state_engine/candidate_v6.py \
+            scripts/evaluate_candidate_v6.py \
+            benchmarks/algorithm-development/candidate-v6-development-v1/generate.py \
+            tests/test_candidate_v6.py
+      - name: Run Candidate-v6 unit and metamorphic tests
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/candidate-v6-dev
+          python -m unittest tests.test_candidate_v6 -v 2>&1 | tee /tmp/candidate-v6-dev/unit-tests.txt
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          text = Path('/tmp/candidate-v6-dev/unit-tests.txt').read_text()
+          match = re.search(r'Ran\s+(\d+)\s+tests?', text)
+          if not match:
+              raise SystemExit('unable to determine discovered/executed test count')
+          executed = int(match.group(1))
+          if executed < 24:
+              raise SystemExit(f'too few Candidate-v6 tests executed: {executed}')
+          summary = {'tests_discovered_and_executed': executed, 'tests_failed': 0, 'tests_passed': executed}
+          Path('/tmp/candidate-v6-dev/test-summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True) + '\n')
+          print(json.dumps(summary, sort_keys=True))
+          PY
+      - name: Verify committed development benchmark identity
+        run: |
+          set -euo pipefail
+          python benchmarks/algorithm-development/candidate-v6-development-v1/generate.py
+          git diff --exit-code -- benchmarks/algorithm-development/candidate-v6-development-v1/cases.jsonl
+      - name: Evaluate deterministic development benchmark and enforce preregistered guardrails
+        run: |
+          set -euo pipefail
+          python scripts/evaluate_candidate_v6.py \
+            --output /tmp/candidate-v6-dev/development-summary.json \
+            --materialize-cases /tmp/candidate-v6-dev/cases.jsonl
+          cp benchmarks/algorithm-development/candidate-v6-development-v1/manifest.json /tmp/candidate-v6-dev/manifest.json
+          cp experiments/configs/candidate-v6-v1.json /tmp/candidate-v6-dev/candidate-v6-v1.json
+          cp results/candidate-v6/preregistration.md /tmp/candidate-v6-dev/preregistration.md
+          cp src/personal_state_engine/candidate_v6.py /tmp/candidate-v6-dev/candidate_v6.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          summary = json.loads(Path('/tmp/candidate-v6-dev/development-summary.json').read_text())
+          Path('/tmp/candidate-v6-dev/guardrails.json').write_text(
+              json.dumps(summary['candidate_v6_development_guardrails'], indent=2, sort_keys=True) + '\n'
+          )
+          PY
+          sha256sum /tmp/candidate-v6-dev/* > /tmp/candidate-v6-dev/SHA256SUMS.txt
+          cat /tmp/candidate-v6-dev/development-summary.json
+          cat /tmp/candidate-v6-dev/SHA256SUMS.txt
+      - name: Verify repository stayed clean
+        run: git diff --exit-code
+      - name: Upload Candidate-v6 development evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v6-development-evidence
+          path: /tmp/candidate-v6-dev/
+          if-no-files-found: error
+          retention-days: 30

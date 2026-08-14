@@ -1,0 +1,66 @@
+name: Freeze Candidate-v5 Protected Validation
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/freeze-candidate-v5-validation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify Candidate-v5 frozen identity and validation dataset
+        run: |
+          set -euo pipefail
+          test "$(sha256sum src/personal_state_engine/candidate_v5.py | awk '{print $1}')" = "f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975"
+          test "$(sha256sum experiments/configs/candidate-v5-v1.json | awk '{print $1}')" = "b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a"
+          test "$(sha256sum benchmarks/algorithm-development/candidate-v5-validation-v1/cases.jsonl | awk '{print $1}')" = "9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5"
+      - name: Create protected-validation benchmark lock
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('benchmarks/algorithm-development/candidate-v5-validation-v1')
+          paths = [root/'generator.py', root/'cases.jsonl', root/'manifest.json', root/'evaluate_once.py']
+          files = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+          lock = {
+              'schema_version': 'candidate-v5-protected-validation-lock-v1',
+              'status': 'FROZEN_BEFORE_FORMAL_EXECUTION',
+              'candidate_v5_freeze_commit': '1fb360367668d5a5014b88d3f0f47f4b58cb2b43',
+              'candidate_v5_freeze_marker_commit': '5a49c2157eb45acfc23fa65e6ce03dc666d3985d',
+              'candidate_v5_source_sha256': 'f85be743db4d2658c90c5d2b8ec8dee0f0e1f4bdfe3e92066cbd2818c749d975',
+              'candidate_v5_config_sha256': 'b0106d0560fae1e2a08a3107dda135d6f015ca3260a41d4daeed179da8e04e6a',
+              'dataset_sha256': '9fe8b06b6a1ee051476171328e0cd330978fe996cdba8b6cfbf932cd23334af5',
+              'case_count': 48,
+              'answerable_count': 24,
+              'no_evidence_count': 24,
+              'files_sha256': files,
+              'formal_execution_count_allowed': 1,
+              'post_result_editing_allowed': False,
+              'sealed_final_accessed': False,
+              'monetary_cost_usd': 0,
+          }
+          (root/'benchmark-lock.json').write_text(json.dumps(lock, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+          print(json.dumps(lock, indent=2, sort_keys=True))
+          PY
+      - name: Commit frozen validation lock
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/algorithm-development/candidate-v5-validation-v1/benchmark-lock.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'research: freeze candidate-v5 protected validation'
+          git push origin HEAD:research/personal-state-engine-v0

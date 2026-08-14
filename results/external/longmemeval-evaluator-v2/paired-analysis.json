@@ -1,0 +1,93 @@
+{
+  "b5_losses": 1,
+  "b5_wins": 3,
+  "both_correct": 1,
+  "both_incorrect": 15,
+  "discordant_pairs": 4,
+  "effect_interpretation": "directional but inconclusive improvement",
+  "exact_mcnemar_two_sided_p": 0.625,
+  "invalid_pairs": 0,
+  "power_warning": "The fixed sample has only 20 paired cases; low discordance implies very low power.",
+  "rows": [
+    {
+      "case_id": "031748ae_abs",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "0862e8bf_abs",
+      "outcome": "B5_WIN"
+    },
+    {
+      "case_id": "09ba9854_abs",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "18dcd5a5",
+      "outcome": "B5_WIN"
+    },
+    {
+      "case_id": "1903aded",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "21436231",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "26bdc477",
+      "outcome": "B5_WIN"
+    },
+    {
+      "case_id": "35a27287",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "51b23612",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "71017277",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "7527f7e2",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "caf03d32",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "d23cf73b",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "d7c942c3",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "dcfa8644",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "gpt4_7de946e7",
+      "outcome": "BOTH_CORRECT"
+    },
+    {
+      "case_id": "gpt4_93159ced",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "gpt4_93159ced_abs",
+      "outcome": "B5_LOSS"
+    },
+    {
+      "case_id": "gpt4_a56e767c",
+      "outcome": "BOTH_INCORRECT"
+    },
+    {
+      "case_id": "gpt4_e05b82a6",
+      "outcome": "BOTH_INCORRECT"
+    }
+  ]
+}

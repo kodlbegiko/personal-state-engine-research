@@ -1,0 +1,25 @@
+{
+  "excluded": [
+    "exact upstream embedding inference",
+    "exact upstream LLM evolution",
+    "frozen development retrieval pilot",
+    "answer generation",
+    "formal answer scoring",
+    "sealed-final"
+  ],
+  "included": [
+    "candidate landscape",
+    "selection freeze",
+    "primary source pin",
+    "dependency mapping",
+    "24-case synthetic corpus",
+    "PSE-compatible upstream adapter",
+    "retrieval metric calculator",
+    "fail-closed verifier",
+    "unit/determinism smoke"
+  ],
+  "schema_version": "strong-baseline-pilot-scope-v1",
+  "scope": "D1 source/protocol reproduction preparation plus mechanical adapter/metric smoke only",
+  "sealed_final_accessed": false,
+  "why": "exact upstream runtime dependencies/model weights unavailable in current isolated runner"
+}

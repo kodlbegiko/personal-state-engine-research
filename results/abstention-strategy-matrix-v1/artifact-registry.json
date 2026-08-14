@@ -1,0 +1,16 @@
+{
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "bytes": 69683,
+      "generation_command": "python scripts/evaluate_abstention_strategy_matrix.py ...",
+      "path": "results/abstention-strategy-matrix-v1/results.json",
+      "sha256": "938cdf1c16420dc51de4da9b67ee75c53b7ea3a9295603f1a336f6d3b08b7742"
+    }
+  ],
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "3d0710879ceef8518f7d7e2619669d5449b5e84cd501e788a95ca08b75b0915f",
+  "schema_version": "abstention-strategy-matrix-artifact-registry-v1",
+  "sealed_final_accessed": false
+}

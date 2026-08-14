@@ -1,0 +1,366 @@
+{
+  "artifact_count": 44,
+  "artifacts": [
+    {
+      "bytes": 407,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "environment.json",
+      "sha256": "98de57ff5781015ad71f72fb4a75aef97401d2e9cdcb9c2fd38fe7cca1b61fcf",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 5399,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "formal-judgments.json",
+      "sha256": "ae05f60a3dfb1ff361c343ae1d8f84122adde8ecf63210b60785294a0ccec809",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 254,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "judge-ready.json",
+      "sha256": "cbf6da140b3113c67d7035881a1caadd69d84d8370623d2a4a14abbca00e1320",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9004,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/031748ae_abs.json",
+      "sha256": "62f1a3dec342c4e0e0fdd5d47d0d45dc7caae610153b1d87ca88c423c214f05c",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 8293,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/0862e8bf_abs.json",
+      "sha256": "9111ae884fae6061bcff293687ee160323c9d31f0d0c1680bc0abb779e257c4f",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9487,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/09ba9854_abs.json",
+      "sha256": "f28656871a71c0cb9a20b9c3265e5a74c6f20f822803a5af50e005fd43750612",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9133,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/18dcd5a5.json",
+      "sha256": "cc23088114e7f5cbde2d8585fb2f5710005b6b1c1401546aa75f4492a84760a6",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9485,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/1903aded.json",
+      "sha256": "3bdf8b3f926406c112d863b0e1980fae8883e8898a609b7f23be68face82fdc7",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 10425,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/21436231.json",
+      "sha256": "40259b61a3051cfb4ae6e031189e5836a36c28f569450723993a03619cc4c32e",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9601,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/26bdc477.json",
+      "sha256": "76afdd7719693144e46af456232a8484c9740379cf0cc23531371aed05e7d8c6",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 10653,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/35a27287.json",
+      "sha256": "c1d50ee22ce7ec17a86b721cf88b27e0844b6086497c2774a16fa6fe38ad28f1",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9858,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/51b23612.json",
+      "sha256": "023d11a9100b4d3e7d15f3e54761edb423010a2509d7bd2a29a06286a66667bb",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9372,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/71017277.json",
+      "sha256": "f1fb82f6d8e0d42f95b3b03c4c3080012fefd2b121b075f13ed62b38ae5ad931",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9218,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/7527f7e2.json",
+      "sha256": "3ec4a3187a3d1e3578c81fa8322039bd4f66506a55165eed75d5cfaf7c3e7deb",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 10815,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/caf03d32.json",
+      "sha256": "05c4ec1b5aeba82e6382f529365db88ce6d78ac03875d764be54d174836a602a",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 10051,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/d23cf73b.json",
+      "sha256": "ea1a78d652127d73ddea6f95de9935e31908ee6d454befdd47d672d44e00a0ab",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9147,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/d7c942c3.json",
+      "sha256": "aa9d7972b80a235a2fdae0f217a09864f25223769cf4f342e9be92074630b68e",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9454,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/dcfa8644.json",
+      "sha256": "594c6d4e264b7e4bfa733fbb188b76cf6f4d8fe0a3509a2dd0bde9621f4e97fb",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9496,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/gpt4_7de946e7.json",
+      "sha256": "decd97b87b703199a67bee209260ba5c32a2038ceb2404f9e29e7be24efa0dbb",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9323,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/gpt4_93159ced.json",
+      "sha256": "79a45d84aef6680d88d0d57e1ce48dac53ac7df36d9d6d76ae928ad507dd2050",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9438,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/gpt4_93159ced_abs.json",
+      "sha256": "dfbd6cfb5b84ead09896f8e0ee3589996bebd98159cbe6cc5ffa3dbffac14294",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 9687,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/gpt4_a56e767c.json",
+      "sha256": "668514494acd72d526b5aa0ac32711d1fb9d2cf1d115be01e3e5d744f1046b71",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 10113,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-answers/gpt4_e05b82a6.json",
+      "sha256": "76217383c4f76b293d2f6b4c4b11d2086f820a61775e769a108921f393a9182a",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1904,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/031748ae_abs.json",
+      "sha256": "45fd43304f5fa8da01f4e04763da63e890742809858e081978b7a98bfc32dea8",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1791,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/0862e8bf_abs.json",
+      "sha256": "5a8f38d1864b68057a97bc8035e3120305be0e979714dd4d7faf48b03bd9030d",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1889,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/09ba9854_abs.json",
+      "sha256": "58e17587288da1ef807530508f8e5dca0f7bc9413976072ec24591753a550711",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1885,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/18dcd5a5.json",
+      "sha256": "c4761e7ab2c7e10a3fd8faf2fbbdc4ea87db284467c8e5a1ad3429d1ab55e22f",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1892,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/1903aded.json",
+      "sha256": "3edccd408e342a6d999956490be0b3b39ad8be2315890222c41979d36e115cdd",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2245,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/21436231.json",
+      "sha256": "eb8546781762453331c17a90e0b4ad1de3ea369c0588b46de6cfbc6288446767",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1873,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/26bdc477.json",
+      "sha256": "cc32d70a1caa172f786faf5c6a948ce6cf6956dc294db3490039d36c81dd1da5",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2548,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/35a27287.json",
+      "sha256": "001e9e9f6b43639291ef31ec2a830de79c7dd7890915c0a0a24f2c97eb264053",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2041,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/51b23612.json",
+      "sha256": "01327017500fe9db9df8fbbf6ed202db454213472b0d1e9f117f5a9691813a67",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2042,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/71017277.json",
+      "sha256": "4c9ce1b2e7ffce745844639491ebfe303eeba3e2cba18630bd253098b52fe33d",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1788,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/7527f7e2.json",
+      "sha256": "6d3a5377f86421e931bad229e3893c7030144d689d55ee157887df083d0c170c",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2523,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/caf03d32.json",
+      "sha256": "ed2a5b0a9e124d4a5d2524f986877b2941eb0c7b114c0ff70a350e0302dabe86",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2149,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/d23cf73b.json",
+      "sha256": "501bd1e62dda3f87b1e5164fb48e2a29ca4ca0e9573262ba81b3a1523383bc41",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1718,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/d7c942c3.json",
+      "sha256": "e2c1fad05bc4e6c56fe2ceb9d68c0e98670a2a93c31842e70566bfe10528f82c",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2358,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/dcfa8644.json",
+      "sha256": "61d386c6c076e259e77bba738ef30bf766b9c74031885909567f199e72cfd9af",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2208,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/gpt4_7de946e7.json",
+      "sha256": "b4d26f4a70be49562d4c820ac7befda1b45dfbd2838a5b61788274ceecb88f22",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2096,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/gpt4_93159ced.json",
+      "sha256": "119128309ba0ff1d78439f81636a317c0cdd2d88487f140e6b443ff3305341a1",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1865,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/gpt4_93159ced_abs.json",
+      "sha256": "55c7156ac929ecce043e95d0bb059af400b7040cc49f091c48dd805c08b19417",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1880,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/gpt4_a56e767c.json",
+      "sha256": "d206c894964bf89b90ae7cee87ed3890a05dc5d15908bd40ee8731d6b73573fe",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 2154,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "raw-judge-outputs/gpt4_e05b82a6.json",
+      "sha256": "1ebe20ecb9e96a5ffdf310676496e27d0d8f5f99ebd6f0cfa91ea1904f1ce9ac",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    },
+    {
+      "bytes": 1669,
+      "generation_command": "python scripts/run_amem_d4_development.py ...",
+      "path": "summary.json",
+      "sha256": "b20abe86b4952ca969798b7c5e2dbde62d0ecca604b4a8ec7af0c1692a611abd",
+      "source_commit": "4441fb12055ab22274365e7cb043beea27ffa84c",
+      "source_workflow_run": "31316152994"
+    }
+  ],
+  "case_ids_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e",
+  "dataset_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "75a8d19f27905809586c7b5b05dd1f789c58fc6087c49c5bc10557071312ebde",
+  "run_id": "amem-d4-31316152994-attempt-1",
+  "schema_version": "amem-d4-artifact-registry-v1",
+  "sealed_final_accessed": false,
+  "source_amem_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+  "source_retrieval_run": "31292999631"
+}

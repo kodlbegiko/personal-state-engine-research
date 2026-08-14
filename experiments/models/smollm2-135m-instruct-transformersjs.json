@@ -1,0 +1,31 @@
+{
+  "schema_version": "model-manifest-v1",
+  "provider": "huggingface-open-weight",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "model_repository": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_file": "onnx/model_q4.onnx and repository-defined external data files",
+  "model_file_sha256": "CAPTURE_FROM_RUNTIME_CACHE",
+  "tokenizer_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "tokenizer_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime_name": "@huggingface/transformers",
+  "runtime_version": "4.2.0",
+  "quantization": "q4",
+  "context_length": 8192,
+  "chat_template": "repository tokenizer chat_template at pinned revision",
+  "generation_parameters": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_new_tokens": 64
+  },
+  "hardware": "GitHub-hosted ubuntu-24.04 CPU runner",
+  "thread_count": "runtime-default-recorded-in-environment-manifest",
+  "batch_size": 1,
+  "license": "Apache-2.0",
+  "pricing_version": "open-weight-local-execution-no-api-charge",
+  "provider_drift_limitations": "Weights, tokenizer and repository files are pinned by immutable revision; JavaScript runtime dependencies are pinned by npm version and captured package-lock artifact.",
+  "selected_at": "2026-08-01T00:50:00+08:00",
+  "selection_reason": "Small instruction-tuned open-weight model with exact revision and Transformers.js CPU support; selected only for first real-model pipeline evidence, not competitive parity claims.",
+  "cache_directory": ".external-data/hf-cache"
+}

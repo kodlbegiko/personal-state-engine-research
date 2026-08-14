@@ -1,0 +1,93 @@
+{
+  "schema_version": "amem-d4-development-protocol-v2",
+  "status": "FROZEN_BEFORE_D4_RETRIEVAL_RESULT",
+  "supersedes": "experiments/protocols/amem-d4-development-v1.json",
+  "supersession_reason": "Pre-result contract correction: v1 used 4096-token memory budgets and five answer-context items, which did not match the existing frozen LongMemEval development matrix. v2 restores apples-to-apples answer-context settings: top 3 retrieved sessions and 1024-token retrieval/memory budgets. No A-MEM development retrieval result was observed before this correction.",
+  "purpose": "Repository-defined Gate D4 end-to-end A-MEM development reproduction after the frozen development retrieval pilot passes.",
+  "source": {
+    "system": "A-MEM",
+    "repository": "WujiangXu/A-mem",
+    "commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2",
+    "retrieval_evidence_path": "results/strong-baseline/amem-development-v1/predictions-run1.json",
+    "required_retrieval_case_count": 20,
+    "retrieval_output_top_k": 5,
+    "answer_context_uses_ranked_top_k": 3
+  },
+  "dataset": {
+    "name": "LongMemEval-S cleaned",
+    "revision": "98d7416c24c778c2fee6e6f3006e7a073259d48f",
+    "sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442"
+  },
+  "split": {
+    "name": "development",
+    "manifest": "experiments/splits/longmemeval-development-matrix-v1.json",
+    "case_count": 20,
+    "abstention_case_count": 4,
+    "case_ids_sha256": "519b4db13813b60ad6a49cce919543b0639524a98bd1b0d1615c53e62cf8cc7e"
+  },
+  "answer_model": {
+    "model_id": "onnx-community/Qwen2.5-0.5B-Instruct",
+    "revision": "956050e4c6ce7c647091e15311218f80d662559f",
+    "model_manifest": "experiments/models/qwen2.5-0.5b-instruct-transformersjs.json",
+    "run_manifest": "experiments/configs/qwen2.5-0.5b-development-matrix.json",
+    "runtime": "@huggingface/transformers 4.2.0",
+    "quantization": "q4",
+    "prompt_template_version": "longmemeval-answer-v1",
+    "retrieval_item_limit": 3,
+    "retrieval_token_budget": 1024,
+    "memory_token_budget": 1024,
+    "reference_matrix_config": "experiments/configs/longmemeval-development-matrix-v2.json",
+    "answer_model_rerun_of_existing_ext_b0_b5": false
+  },
+  "formal_evaluator": {
+    "evaluator_id": "longmemeval-official-prompt-priority-v2",
+    "provider": "local-fallback",
+    "judge_model": "onnx-community/Llama-3.2-3B-Instruct-ONNX",
+    "judge_revision": "cab364e7d0e1de7aa09e3abc932be92361c5b55f",
+    "runtime": "@huggingface/transformers 4.2.0",
+    "quantization": "q4",
+    "prompt_semantics": "official LongMemEval evaluator prompt semantics",
+    "parser_contract": "exact yes/no enum, case-insensitive, optional terminal period or exclamation mark",
+    "existing_calibration": {
+      "raw_agreement": 0.95,
+      "cohen_kappa": 0.7727,
+      "invalid_output_rate": 0.0,
+      "formal_development_correctness_use": "PERMITTED",
+      "independent_reproduction": false
+    },
+    "recalibration_on_amem_answers": false,
+    "reason": "The fixed evaluator v2 already passed preregistered development calibration on the same frozen 20-case domain; D4 reuses it without tuning on A-MEM outputs."
+  },
+  "acceptance": {
+    "retrieval_pilot_must_pass_first": true,
+    "exactly_20_unique_expected_cases": true,
+    "no_missing_duplicate_or_extra_cases": true,
+    "all_answer_trials_must_complete": true,
+    "all_formal_judge_outputs_must_be_valid": true,
+    "raw_answers_preserved": true,
+    "raw_judge_outputs_preserved": true,
+    "artifact_registry_required": true,
+    "new_monetary_cost_usd": 0.0,
+    "sealed_final_accessed": false
+  },
+  "reported_metrics": [
+    "answer_accuracy",
+    "wilson_95_ci",
+    "abstention_accuracy",
+    "answer_latency_ms",
+    "answer_input_tokens",
+    "answer_output_tokens",
+    "judge_invalid_rate",
+    "monetary_cost_usd"
+  ],
+  "claim_boundary": [
+    "development evidence only",
+    "does not establish algorithm parity",
+    "does not establish superiority, equivalence, non-inferiority, or SOTA",
+    "does not authorize sealed-final",
+    "does not establish independent reproduction"
+  ],
+  "sealed_final_accessed": false,
+  "paid_api_allowed": false,
+  "paid_gpu_allowed": false
+}

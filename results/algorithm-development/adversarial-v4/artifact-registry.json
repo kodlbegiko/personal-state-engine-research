@@ -1,0 +1,18 @@
+{
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "bytes": 61753,
+      "generation_command": "python scripts/evaluate_adversarial_v4.py ...",
+      "path": "results/algorithm-development/adversarial-v4/results.json",
+      "sha256": "9f7f295b04b40c1d5931e16da2e2b26c4b7ba929f306c2237cf236a301bdb3b9"
+    }
+  ],
+  "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+  "corpus_sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+  "manifest_sha256": "2ca604563d763fe1f3dc76a9da06746bbe14594c633c0dbf910227e9cfd69019",
+  "new_monetary_cost_usd": 0.0,
+  "protocol_sha256": "e1cdaf33896b2b231e720e65e3168c754c332a67b9df7d2ed2f2e6642993f4af",
+  "schema_version": "adversarial-v4-artifact-registry-v1",
+  "sealed_final_accessed": false
+}

@@ -1,0 +1,24 @@
+{
+  "blinding_tests": "PASS",
+  "contamination_control": "v3 uses only official source, synthetic unit cases and immutable raw answers; prior v2 results are retained but not used to tune v3 prompt/parser. Independent calibration remains required.",
+  "current_completion": 30,
+  "evaluator_calibration": "NOT YET ESTABLISHED",
+  "evaluator_specification_committed": true,
+  "faithful_port_deviations_documented": true,
+  "formal_correctness_use_for_v3": "PROHIBITED",
+  "next_exact_action": "Provision exact official judge runtime",
+  "official_source_exact_pinned": true,
+  "preparation_verdict": "BLOCKED BY ENVIRONMENT",
+  "preparation_verifier": "PASS",
+  "previous_completion": 30,
+  "prior_formal_result_files_present": [
+    "results/external/longmemeval-evaluator-v2/formal-summary.json",
+    "results/external/longmemeval-evaluator-v2/formal-rescoring.jsonl"
+  ],
+  "raw_evidence_integrity": "PASS",
+  "remaining_distance": 70,
+  "research_verdict": "BLOCKED",
+  "schema_version": "longmemeval-faithful-port-preparation-verdict-v3",
+  "strict_parser_tests": "PASS",
+  "unit_test_corpus": "PASS"
+}

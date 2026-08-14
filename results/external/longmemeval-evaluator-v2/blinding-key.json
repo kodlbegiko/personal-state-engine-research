@@ -1,0 +1,147 @@
+{
+  "rows": [
+    {
+      "case_id": "031748ae_abs",
+      "mapping": {
+        "response-01053d95a80c0a3d": "EXT-B0",
+        "response-f58f09128a7a1e50": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "0862e8bf_abs",
+      "mapping": {
+        "response-82b8fd3a992310e8": "EXT-B5",
+        "response-ae294623451700d9": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "09ba9854_abs",
+      "mapping": {
+        "response-63fd548b11b8919d": "EXT-B0",
+        "response-69566f26d6f35239": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "18dcd5a5",
+      "mapping": {
+        "response-422a2ace2f2f55c8": "EXT-B0",
+        "response-e2de3f6b94f2b8af": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "1903aded",
+      "mapping": {
+        "response-1521b66737632ae7": "EXT-B5",
+        "response-4fc5af5deeeded6f": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "21436231",
+      "mapping": {
+        "response-0e35f6e6d2c245e9": "EXT-B0",
+        "response-459fdb3923a54c5b": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "26bdc477",
+      "mapping": {
+        "response-c223202456bbdae9": "EXT-B5",
+        "response-ecb6762fd4665e8c": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "35a27287",
+      "mapping": {
+        "response-370cd9304cdece19": "EXT-B5",
+        "response-748088365ef0eb89": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "51b23612",
+      "mapping": {
+        "response-6c1dd6b61854276a": "EXT-B0",
+        "response-83e48a7c552de79e": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "71017277",
+      "mapping": {
+        "response-722b36455f9fda5e": "EXT-B0",
+        "response-f8ab914b84f22182": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "7527f7e2",
+      "mapping": {
+        "response-7fe619688ff91a97": "EXT-B5",
+        "response-9f55469e3f50539d": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "caf03d32",
+      "mapping": {
+        "response-795bf8baedf021d8": "EXT-B5",
+        "response-d21f35dd217195f4": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "d23cf73b",
+      "mapping": {
+        "response-0d244ddd9952d1d4": "EXT-B0",
+        "response-7533e315d8216554": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "d7c942c3",
+      "mapping": {
+        "response-40fb9c5f9d9e5591": "EXT-B5",
+        "response-8917a4f8d52c0820": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "dcfa8644",
+      "mapping": {
+        "response-4c9e0978cb4477d5": "EXT-B5",
+        "response-deceee9ec32f1933": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "gpt4_7de946e7",
+      "mapping": {
+        "response-75c2e1c4a9732cbe": "EXT-B0",
+        "response-7b599e1baf4517d4": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "gpt4_93159ced",
+      "mapping": {
+        "response-0225f4a345625b83": "EXT-B0",
+        "response-774c4b09a4177072": "EXT-B5"
+      }
+    },
+    {
+      "case_id": "gpt4_93159ced_abs",
+      "mapping": {
+        "response-1af1598dbdc47dd2": "EXT-B5",
+        "response-4bc925c2adcfc647": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "gpt4_a56e767c",
+      "mapping": {
+        "response-3578c8b9e9add8c5": "EXT-B5",
+        "response-cb86c505033a7bd6": "EXT-B0"
+      }
+    },
+    {
+      "case_id": "gpt4_e05b82a6",
+      "mapping": {
+        "response-ad2f09b0eff8051f": "EXT-B0",
+        "response-d9537932c84301d9": "EXT-B5"
+      }
+    }
+  ],
+  "schema_version": "longmemeval-blinding-key-v2",
+  "seed": 17,
+  "warning": "Open only after judge outputs and human decisions are fixed."
+}

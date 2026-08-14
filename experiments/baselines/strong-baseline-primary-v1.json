@@ -1,0 +1,15 @@
+{
+  "adapter_class": "AMemUpstreamAdapter",
+  "adapter_path": "src/personal_state_engine/strong_baseline.py",
+  "adapter_type": "mechanically-adapted",
+  "baseline": "A-MEM",
+  "dataset_adapter_status": "PREPARED_SYNTHETIC_ONLY",
+  "formal_development_execution": false,
+  "monetary_cost_usd": 0.0,
+  "official_embedding_model": "all-MiniLM-L6-v2",
+  "official_zero_cost_llm_path": "ollama:qwen2.5:3b",
+  "schema_version": "strong-baseline-primary-v1",
+  "sealed_final_accessed": false,
+  "semantic_algorithm_reimplemented": false,
+  "source_commit": "0c8039f28fdcc08189a23c07a3437d9d2482f9c2"
+}

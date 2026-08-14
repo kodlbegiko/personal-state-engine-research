@@ -1,0 +1,325 @@
+{
+  "rows": [
+    {
+      "anonymous_response_id": "response-023fc036b54e6cc6b03a",
+      "answer_sha256": "ae0c2a2fd6190628b242ec4f39b405f4bac5f74bd945b86cc78b6450496a74c9",
+      "baseline_id": "EXT-B5",
+      "case_id": "0862e8bf_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:0862e8bf_abs:cca00fce-58cc-4047-9805-7582322d3f71",
+      "trial_id": "cca00fce-58cc-4047-9805-7582322d3f71"
+    },
+    {
+      "anonymous_response_id": "response-0687c1d8941db476c248",
+      "answer_sha256": "005c554056e4ab367e524dc8de0097d75489a18472cb88f51445634ce3b60fe2",
+      "baseline_id": "EXT-B0",
+      "case_id": "031748ae_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:031748ae_abs:4cfea7b3-4475-40a0-b287-30db98a05412",
+      "trial_id": "4cfea7b3-4475-40a0-b287-30db98a05412"
+    },
+    {
+      "anonymous_response_id": "response-0a6bc9ae030b834c5016",
+      "answer_sha256": "f439cf4b8cb015b565c59b3d7c696777dbbf80cff7472f7da6d103c055a1254e",
+      "baseline_id": "EXT-B0",
+      "case_id": "7527f7e2",
+      "request_id": "development-matrix-30676516785-attempt-1:7527f7e2:205bbae8-464e-4ae0-b827-a4ceca990296",
+      "trial_id": "205bbae8-464e-4ae0-b827-a4ceca990296"
+    },
+    {
+      "anonymous_response_id": "response-14e721cc0ef6d99193ef",
+      "answer_sha256": "a51944102020be22256c41f0af2080b411559bacbc42bb2e5a8d39e5519c9ce2",
+      "baseline_id": "EXT-B0",
+      "case_id": "d7c942c3",
+      "request_id": "development-matrix-30676516785-attempt-1:d7c942c3:1625ccd2-ee3d-4668-b382-d2b78c74bb44",
+      "trial_id": "1625ccd2-ee3d-4668-b382-d2b78c74bb44"
+    },
+    {
+      "anonymous_response_id": "response-19f06ebb2cea09d6402b",
+      "answer_sha256": "020b561323f665ff7c389addb21e700b9e91a36d89a07dff1b5672ac65e68be4",
+      "baseline_id": "EXT-B0",
+      "case_id": "71017277",
+      "request_id": "development-matrix-30676516785-attempt-1:71017277:16bcacc9-ed04-4ef4-882c-4cf9d900a399",
+      "trial_id": "16bcacc9-ed04-4ef4-882c-4cf9d900a399"
+    },
+    {
+      "anonymous_response_id": "response-1c5fe8406ce5408fd445",
+      "answer_sha256": "545f9b0988631d71467440870f1a831e07b8c671a64d3f69bdaf9d6fd8725f5f",
+      "baseline_id": "EXT-B0",
+      "case_id": "18dcd5a5",
+      "request_id": "development-matrix-30676516785-attempt-1:18dcd5a5:82eaaded-d08c-4d53-b393-17cb670110b8",
+      "trial_id": "82eaaded-d08c-4d53-b393-17cb670110b8"
+    },
+    {
+      "anonymous_response_id": "response-30b4e641a1132466daa6",
+      "answer_sha256": "75b651083f6766c1676346ea0f5763edae6abfdc9bbb043288d144acbee6a42a",
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_a56e767c",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_a56e767c:baa26dae-387f-4d7b-9829-a67c229943b4",
+      "trial_id": "baa26dae-387f-4d7b-9829-a67c229943b4"
+    },
+    {
+      "anonymous_response_id": "response-33779f741bcd6ea188a0",
+      "answer_sha256": "0fa1ceabc12e732f5b00803a8169cb917678c92e8ca755ad091a57320dc6e72e",
+      "baseline_id": "EXT-B0",
+      "case_id": "51b23612",
+      "request_id": "development-matrix-30676516785-attempt-1:51b23612:b276a309-0807-4ca6-b4f3-9b71a8df5997",
+      "trial_id": "b276a309-0807-4ca6-b4f3-9b71a8df5997"
+    },
+    {
+      "anonymous_response_id": "response-35791698336db801c62e",
+      "answer_sha256": "e5c37016b57ce32bbffa7c8d09c1d2e863039d2ad7cd75009a077e032d909bad",
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_7de946e7",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_7de946e7:ef59a3b6-525b-4e48-ac93-7ddd192e6a81",
+      "trial_id": "ef59a3b6-525b-4e48-ac93-7ddd192e6a81"
+    },
+    {
+      "anonymous_response_id": "response-36979e5b6479a1bb4332",
+      "answer_sha256": "df97600287cfe0f63dc5529c91fa0859bceb959c4922fa9117066569d2a5452c",
+      "baseline_id": "EXT-B0",
+      "case_id": "09ba9854_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:09ba9854_abs:15ae7f18-5b2a-4d59-ae8f-5555c48a6408",
+      "trial_id": "15ae7f18-5b2a-4d59-ae8f-5555c48a6408"
+    },
+    {
+      "anonymous_response_id": "response-36cdafce243d9beca4b4",
+      "answer_sha256": "ee1e7c391f42245e2a6e58720c5201ffc1ceac23ca50fb66a7c70ab833425bf3",
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_e05b82a6",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_e05b82a6:131d3d72-6d92-480e-929a-ee8d25538986",
+      "trial_id": "131d3d72-6d92-480e-929a-ee8d25538986"
+    },
+    {
+      "anonymous_response_id": "response-42a2282830ed34c340a0",
+      "answer_sha256": "2c5a48c039a0de48df0797eaf991d60f07b780d860750ca1469083ea5a8ddbc2",
+      "baseline_id": "EXT-B5",
+      "case_id": "26bdc477",
+      "request_id": "development-matrix-30676516785-attempt-1:26bdc477:de0f4388-b05d-4b81-a183-d53c13ff6e46",
+      "trial_id": "de0f4388-b05d-4b81-a183-d53c13ff6e46"
+    },
+    {
+      "anonymous_response_id": "response-42c3b1c9b0170c1f9b16",
+      "answer_sha256": "3762d3c45b2be299da7fad2c47e84dddcb79f7d163800bcf5360941d436bd554",
+      "baseline_id": "EXT-B0",
+      "case_id": "26bdc477",
+      "request_id": "development-matrix-30676516785-attempt-1:26bdc477:d7cdd83d-e445-4696-b757-6b56ae65d38b",
+      "trial_id": "d7cdd83d-e445-4696-b757-6b56ae65d38b"
+    },
+    {
+      "anonymous_response_id": "response-535d88cc582a9e7cc682",
+      "answer_sha256": "a141bca8b8e4d0168223b4abbd14a144736d7c7623a3bcc9cfc4977056a3219f",
+      "baseline_id": "EXT-B0",
+      "case_id": "1903aded",
+      "request_id": "development-matrix-30676516785-attempt-1:1903aded:00d85eb3-5804-483f-857c-333b5d0d02eb",
+      "trial_id": "00d85eb3-5804-483f-857c-333b5d0d02eb"
+    },
+    {
+      "anonymous_response_id": "response-539f9dba7cb8e5e02cb8",
+      "answer_sha256": "4660553a70480996af08b1f4ae6917d7875dae2df73d580780ba622cdd81f2e8",
+      "baseline_id": "EXT-B5",
+      "case_id": "35a27287",
+      "request_id": "development-matrix-30676516785-attempt-1:35a27287:c477c452-14fd-4b3e-b217-038de8b3b319",
+      "trial_id": "c477c452-14fd-4b3e-b217-038de8b3b319"
+    },
+    {
+      "anonymous_response_id": "response-5ad6e85044fea7c8f892",
+      "answer_sha256": "17eea8143f840cbe31016fe8f0eab29fb1ec8492b6619bfcd8289d7474b04205",
+      "baseline_id": "EXT-B5",
+      "case_id": "d7c942c3",
+      "request_id": "development-matrix-30676516785-attempt-1:d7c942c3:271653f1-6dc1-41f2-8ef2-f91ac135e84c",
+      "trial_id": "271653f1-6dc1-41f2-8ef2-f91ac135e84c"
+    },
+    {
+      "anonymous_response_id": "response-5cdf5a9163523fc0a8f6",
+      "answer_sha256": "becb37d1b87b5fddf70537fc3cc3c6a108cf87c71c421600c5ce79870e8c5492",
+      "baseline_id": "EXT-B0",
+      "case_id": "caf03d32",
+      "request_id": "development-matrix-30676516785-attempt-1:caf03d32:1637c5a9-2789-4a8e-a054-1e52acfa3b9c",
+      "trial_id": "1637c5a9-2789-4a8e-a054-1e52acfa3b9c"
+    },
+    {
+      "anonymous_response_id": "response-669c152282615ca32e67",
+      "answer_sha256": "f9129881c293e566bf256a46f898aa96437634db07ef3ea2a1a30ced7f63860a",
+      "baseline_id": "EXT-B5",
+      "case_id": "031748ae_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:031748ae_abs:19cbb692-1e9e-467a-8423-4c74e1c93ee5",
+      "trial_id": "19cbb692-1e9e-467a-8423-4c74e1c93ee5"
+    },
+    {
+      "anonymous_response_id": "response-693bf787a15dd8fb3e34",
+      "answer_sha256": "cf4485be6c3604e55ef86f62830f6dfc971e4b6fe3099834bfb462601f1a5ac4",
+      "baseline_id": "EXT-B0",
+      "case_id": "0862e8bf_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:0862e8bf_abs:98d8ee19-9b76-48e6-bbc5-15fe0d40f5d3",
+      "trial_id": "98d8ee19-9b76-48e6-bbc5-15fe0d40f5d3"
+    },
+    {
+      "anonymous_response_id": "response-694e2c9578794d8d85a2",
+      "answer_sha256": "108b6e1b1e47b9a831e2645f3ea51cde8c63aed475ab13d05aeb3da19a1cf54f",
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_93159ced",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_93159ced:52e0fbca-eff1-4355-aed5-6dd691b4cd2e",
+      "trial_id": "52e0fbca-eff1-4355-aed5-6dd691b4cd2e"
+    },
+    {
+      "anonymous_response_id": "response-78fd79ba7260b1f4c9b5",
+      "answer_sha256": "e59da93254b24258d3e30e169ac6773c512d5f3d4cd7c2a42754dcf71f2beb52",
+      "baseline_id": "EXT-B0",
+      "case_id": "d23cf73b",
+      "request_id": "development-matrix-30676516785-attempt-1:d23cf73b:f6272804-8d25-4455-9ee0-20c141d1b69e",
+      "trial_id": "f6272804-8d25-4455-9ee0-20c141d1b69e"
+    },
+    {
+      "anonymous_response_id": "response-79a6988f23a1462200d9",
+      "answer_sha256": "c2f686be6193e79436794a74edd6c0bce4fdebe804d2372cb22d527e2c27b57e",
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_7de946e7",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_7de946e7:6ac65bc9-94c2-4773-8e54-48d77d90ab44",
+      "trial_id": "6ac65bc9-94c2-4773-8e54-48d77d90ab44"
+    },
+    {
+      "anonymous_response_id": "response-7b81080a21fd1a41c27d",
+      "answer_sha256": "f8e10038d2a016b7236402adccfae1af8011c0a025ea15e69ad9f4a0fef3e2ae",
+      "baseline_id": "EXT-B5",
+      "case_id": "18dcd5a5",
+      "request_id": "development-matrix-30676516785-attempt-1:18dcd5a5:91cbb375-8825-4f1c-9450-008fd003bb8c",
+      "trial_id": "91cbb375-8825-4f1c-9450-008fd003bb8c"
+    },
+    {
+      "anonymous_response_id": "response-7dc92cd5bffc0b0e816c",
+      "answer_sha256": "4fbd55436be2604fe8ec8157178cb4374188c3e84ee665424dab8ef6886c4805",
+      "baseline_id": "EXT-B5",
+      "case_id": "d23cf73b",
+      "request_id": "development-matrix-30676516785-attempt-1:d23cf73b:7e68e3d0-a54b-4309-95fa-1a2c10f323b3",
+      "trial_id": "7e68e3d0-a54b-4309-95fa-1a2c10f323b3"
+    },
+    {
+      "anonymous_response_id": "response-89a7a737f1f10752af3c",
+      "answer_sha256": "7ee2dc77087b382da6e35d2bd75258d5deeb8e4c9ff6824a69d6b1bb4be8faab",
+      "baseline_id": "EXT-B5",
+      "case_id": "caf03d32",
+      "request_id": "development-matrix-30676516785-attempt-1:caf03d32:7c30e218-7283-432f-9d30-1cb9d9929e86",
+      "trial_id": "7c30e218-7283-432f-9d30-1cb9d9929e86"
+    },
+    {
+      "anonymous_response_id": "response-89b9d4e620017851f947",
+      "answer_sha256": "d3405e5a04b9b48e1d2b21b5f9ae2f2459d8c4d7775f74c5c27cee2b0cc340c6",
+      "baseline_id": "EXT-B0",
+      "case_id": "21436231",
+      "request_id": "development-matrix-30676516785-attempt-1:21436231:4d5d6399-a3cf-4fc2-b80e-7969b9b0c80a",
+      "trial_id": "4d5d6399-a3cf-4fc2-b80e-7969b9b0c80a"
+    },
+    {
+      "anonymous_response_id": "response-8f85ad5caa0810860513",
+      "answer_sha256": "b3fe96f6fc63d3516bad83db886b4d45cd0e11e463a8a855c1e1286b391ec64e",
+      "baseline_id": "EXT-B5",
+      "case_id": "dcfa8644",
+      "request_id": "development-matrix-30676516785-attempt-1:dcfa8644:836822c2-073c-41dd-acb9-54f9afd84fc8",
+      "trial_id": "836822c2-073c-41dd-acb9-54f9afd84fc8"
+    },
+    {
+      "anonymous_response_id": "response-9687d4a013ff464519e6",
+      "answer_sha256": "37c00325435dc0858865f5aad43896652e91558ae25ada49738882d5ea98113b",
+      "baseline_id": "EXT-B5",
+      "case_id": "21436231",
+      "request_id": "development-matrix-30676516785-attempt-1:21436231:6b1578f2-9146-4825-975b-0b9e908fbe55",
+      "trial_id": "6b1578f2-9146-4825-975b-0b9e908fbe55"
+    },
+    {
+      "anonymous_response_id": "response-998ab38721783bee862f",
+      "answer_sha256": "d9c827fe4716b28c5aa6a86cc5278070d43dd1eadc74df0d87c886cf5430bb26",
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_93159ced",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_93159ced:d3136d2a-5238-4bda-91bc-b85fc49032b1",
+      "trial_id": "d3136d2a-5238-4bda-91bc-b85fc49032b1"
+    },
+    {
+      "anonymous_response_id": "response-9e874ef581dd18b2906d",
+      "answer_sha256": "51114d3edbac0aba614822c67439409983155b8439e6da73241b5b74c5d6a1c1",
+      "baseline_id": "EXT-B5",
+      "case_id": "51b23612",
+      "request_id": "development-matrix-30676516785-attempt-1:51b23612:5f54f96f-c1cf-4ce3-b240-73b07f2812a4",
+      "trial_id": "5f54f96f-c1cf-4ce3-b240-73b07f2812a4"
+    },
+    {
+      "anonymous_response_id": "response-a411d63330ade2145718",
+      "answer_sha256": "ca3c9b08bcea3a264664d6bfa18aea512f0caba37c81f32ecb9ece82f655421d",
+      "baseline_id": "EXT-B5",
+      "case_id": "7527f7e2",
+      "request_id": "development-matrix-30676516785-attempt-1:7527f7e2:a8801186-c9a3-4951-81ac-0d862b198644",
+      "trial_id": "a8801186-c9a3-4951-81ac-0d862b198644"
+    },
+    {
+      "anonymous_response_id": "response-b846c03ea5eb1707b257",
+      "answer_sha256": "eff1b72323564258aa08530bef81811138403422218cb679ae5e5b160852f4d1",
+      "baseline_id": "EXT-B5",
+      "case_id": "71017277",
+      "request_id": "development-matrix-30676516785-attempt-1:71017277:c1c3bd9c-7e3c-4b9b-9794-ac71963f3c44",
+      "trial_id": "c1c3bd9c-7e3c-4b9b-9794-ac71963f3c44"
+    },
+    {
+      "anonymous_response_id": "response-ba2de9ccc0dfbd2e1c42",
+      "answer_sha256": "b7895c1725f31e75f8ce3b0c55c629c3919fe500c517b778b374659347eab21c",
+      "baseline_id": "EXT-B0",
+      "case_id": "35a27287",
+      "request_id": "development-matrix-30676516785-attempt-1:35a27287:1a26b0f1-b415-4764-853d-29ae2c3b29ba",
+      "trial_id": "1a26b0f1-b415-4764-853d-29ae2c3b29ba"
+    },
+    {
+      "anonymous_response_id": "response-c94941064212c76d883d",
+      "answer_sha256": "04ed56d79f3a23416b622ce31e3940574e09a7e9b279335324b396167e319ebd",
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_e05b82a6",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_e05b82a6:e979cc03-beea-4509-8a5c-f0115b6a6124",
+      "trial_id": "e979cc03-beea-4509-8a5c-f0115b6a6124"
+    },
+    {
+      "anonymous_response_id": "response-d5e54c1cc55ddc964577",
+      "answer_sha256": "a8d2122ee0ace68f7cc54122d2586e76c7157ac1bf647f66259c3524cbd4e6d2",
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_93159ced_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_93159ced_abs:63b53b44-5c52-4cc2-be10-b6954debcb60",
+      "trial_id": "63b53b44-5c52-4cc2-be10-b6954debcb60"
+    },
+    {
+      "anonymous_response_id": "response-e76bc47502aa8740f1bb",
+      "answer_sha256": "9dea0fc3d9cd3d22d9fd6f302299e6af43bc150a99541717a67c7e10ca2d57f2",
+      "baseline_id": "EXT-B5",
+      "case_id": "gpt4_93159ced_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_93159ced_abs:497fa417-c369-4c3c-bc1b-11b31ed4998e",
+      "trial_id": "497fa417-c369-4c3c-bc1b-11b31ed4998e"
+    },
+    {
+      "anonymous_response_id": "response-ea2a63b05d276ac535c8",
+      "answer_sha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+      "baseline_id": "EXT-B0",
+      "case_id": "dcfa8644",
+      "request_id": "development-matrix-30676516785-attempt-1:dcfa8644:000b5da1-5e68-465e-b819-f3d9aa9c42cd",
+      "trial_id": "000b5da1-5e68-465e-b819-f3d9aa9c42cd"
+    },
+    {
+      "anonymous_response_id": "response-ecb9ddf4b6f5c32e1473",
+      "answer_sha256": "e9a832dca757f942746335edbbe67974b8b55e084c94791b59c348ae7d159e13",
+      "baseline_id": "EXT-B5",
+      "case_id": "1903aded",
+      "request_id": "development-matrix-30676516785-attempt-1:1903aded:6f00f140-ce6d-4c82-8414-5ef7acad918e",
+      "trial_id": "6f00f140-ce6d-4c82-8414-5ef7acad918e"
+    },
+    {
+      "anonymous_response_id": "response-f43b873aabc0ab9d9703",
+      "answer_sha256": "8c8efe3d226db0bac49147f15b8f1e73724957ea7a4be1e0cea92746d7979c84",
+      "baseline_id": "EXT-B5",
+      "case_id": "09ba9854_abs",
+      "request_id": "development-matrix-30676516785-attempt-1:09ba9854_abs:62239096-5b09-48f2-81d3-888e2d1cff5f",
+      "trial_id": "62239096-5b09-48f2-81d3-888e2d1cff5f"
+    },
+    {
+      "anonymous_response_id": "response-f6934da8a6a8cfe692f9",
+      "answer_sha256": "2fbed4ac8f9f5313368c850d43c5171ae20c77f05b24c53f05372e17da11b9ec",
+      "baseline_id": "EXT-B0",
+      "case_id": "gpt4_a56e767c",
+      "request_id": "development-matrix-30676516785-attempt-1:gpt4_a56e767c:e90b1da3-b4a9-4d9e-aca5-7850a9354835",
+      "trial_id": "e90b1da3-b4a9-4d9e-aca5-7850a9354835"
+    }
+  ],
+  "schema_version": "longmemeval-faithful-port-unblinding-key-v3"
+}

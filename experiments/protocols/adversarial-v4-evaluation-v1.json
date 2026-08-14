@@ -1,0 +1,67 @@
+{
+  "schema_version": "adversarial-v4-evaluation-protocol-v1",
+  "status": "FROZEN_BEFORE_V4_SYSTEM_RESULTS",
+  "benchmark": {
+    "path": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination.json",
+    "manifest": "benchmarks/algorithm-development/adversarial-v4/postfreeze-discrimination-manifest.json",
+    "sha256": "02e3afef1e17d9d8991ea7172cbfc19ad239874c914a088c20e5de6a146f7a1d",
+    "case_count": 24,
+    "answerable_case_count": 22,
+    "abstention_case_count": 2
+  },
+  "candidate_lock": {
+    "candidate_v2_freeze_commit": "d627f61d0888306a97f3ef0b78aa29dc00c444bb",
+    "candidate_v2_source_commit": "52c8341e4317a1492ec5511907414c7deee77ef6",
+    "candidate_changes_after_v4_result_allowed": false,
+    "new_algorithm_after_result_requires_new_candidate_version": true
+  },
+  "systems": [
+    "random",
+    "recency",
+    "lexical",
+    "tfidf_local",
+    "bm25_local",
+    "hybrid",
+    "pse_current_reconstruction",
+    "pse_candidate_v1",
+    "pse_candidate_v2"
+  ],
+  "metrics": [
+    "mrr",
+    "recall_at_1",
+    "recall_at_3",
+    "recall_at_5",
+    "precision_at_1",
+    "precision_at_3",
+    "precision_at_5",
+    "ndcg_at_5",
+    "irrelevant_retrieval_rate",
+    "abstention_accuracy",
+    "false_retrieval_rate"
+  ],
+  "paired_statistics": [
+    "candidate_v1_vs_current",
+    "candidate_v2_vs_current",
+    "candidate_v2_vs_candidate_v1"
+  ],
+  "bootstrap_iterations": 5000,
+  "discrimination_rule": {
+    "frontier_reference": "best MRR/R@1 among pse_current_reconstruction, pse_candidate_v1, pse_candidate_v2",
+    "baselines_checked": ["random", "recency"],
+    "minimum_mrr_gap_for_sufficient_discrimination": 0.15,
+    "minimum_recall_at_1_gap_for_sufficient_discrimination": 0.15,
+    "sufficient_if": "Both random and recency trail the best PSE result by at least 0.15 absolute MRR and at least 0.15 absolute Recall@1.",
+    "otherwise": "DISCRIMINATION_INSUFFICIENT"
+  },
+  "a_mem_next_step_rule": {
+    "if_discrimination_sufficient": "Run exact-pinned A-MEM on a scope frozen before A-MEM v4 results; full 24 cases preferred if zero-cost compute remains feasible.",
+    "if_discrimination_insufficient": "Do not spend additional A-MEM compute merely to rank frontier systems on this benchmark; record benchmark-design failure and keep Gate E incomplete."
+  },
+  "integrity": {
+    "operator_designed": true,
+    "independent_reproduction": false,
+    "sealed_final_accessed": false,
+    "new_monetary_cost_usd": 0.0
+  },
+  "claim_boundary": "Post-candidate-freeze development benchmark-discrimination evidence only; not parity, superiority, equivalence, non-inferiority, SOTA, sealed-final, or independent-reproduction evidence."
+}

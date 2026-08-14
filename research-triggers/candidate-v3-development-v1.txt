@@ -1,0 +1,5 @@
+candidate-v3-development-v1
+preregistration: experiments/protocols/candidate-v3-design-preregistration-v1.json
+candidate-v2-freeze: d627f61d0888306a97f3ef0b78aa29dc00c444bb
+sealed-final: prohibited
+new-monetary-cost-usd: 0

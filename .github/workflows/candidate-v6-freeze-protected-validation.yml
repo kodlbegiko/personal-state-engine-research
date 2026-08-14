@@ -1,0 +1,136 @@
+name: Candidate-v6 Freeze Protected Validation
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - '.github/workflows/candidate-v6-freeze-protected-validation.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-protected-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/personal-state-engine-v0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen Candidate-v6 identity and protected dataset
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(sha256sum src/personal_state_engine/candidate_v6.py | cut -d' ' -f1)" = "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325"
+          test "$(sha256sum experiments/configs/candidate-v6-v1.json | cut -d' ' -f1)" = "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1"
+          test "$(sha256sum benchmarks/algorithm-development/candidate-v6-validation-v1/cases.jsonl | cut -d' ' -f1)" = "855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          marker = json.loads(Path('results/candidate-v6/freeze-marker-v1.json').read_text())
+          manifest = json.loads(Path('benchmarks/algorithm-development/candidate-v6-validation-v1/manifest.json').read_text())
+          assert marker['status'] == 'FROZEN'
+          assert marker['post_freeze_source_editing_allowed'] is False
+          assert marker['post_freeze_config_editing_allowed'] is False
+          assert manifest['created_after_candidate_freeze'] is True
+          assert manifest['formal_execution_count_allowed'] == 1
+          assert manifest['post_result_editing_allowed'] is False
+          cases = [json.loads(x) for x in Path('benchmarks/algorithm-development/candidate-v6-validation-v1/cases.jsonl').read_text().splitlines() if x.strip()]
+          assert len(cases) == 80
+          assert sum(bool(c['relevant_memory_ids']) for c in cases) == 40
+          assert sum(not bool(c['relevant_memory_ids']) for c in cases) == 40
+          print('pre-execution protected dataset contract: PASS')
+          PY
+      - name: Create immutable protected-validation lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='benchmarks/algorithm-development/candidate-v6-validation-v1'
+          dataset_sha="$(sha256sum "$root/cases.jsonl" | cut -d' ' -f1)"
+          generator_sha="$(sha256sum "$root/generator.py" | cut -d' ' -f1)"
+          evaluator_sha="$(sha256sum "$root/evaluate_once.py" | cut -d' ' -f1)"
+          manifest_sha="$(sha256sum "$root/manifest.json" | cut -d' ' -f1)"
+          source_sha="$(sha256sum src/personal_state_engine/candidate_v6.py | cut -d' ' -f1)"
+          config_sha="$(sha256sum experiments/configs/candidate-v6-v1.json | cut -d' ' -f1)"
+          freeze_marker_sha="$(sha256sum results/candidate-v6/freeze-marker-v1.json | cut -d' ' -f1)"
+          python - "$dataset_sha" "$generator_sha" "$evaluator_sha" "$manifest_sha" "$source_sha" "$config_sha" "$freeze_marker_sha" <<'PY'
+          import json, sys
+          from pathlib import Path
+          dataset_sha, generator_sha, evaluator_sha, manifest_sha, source_sha, config_sha, freeze_marker_sha = sys.argv[1:]
+          lock = {
+              'schema_version': 'candidate-v6-protected-validation-lock-v1',
+              'benchmark_id': 'candidate-v6-validation-v1',
+              'status': 'FROZEN_BEFORE_FORMAL_EXECUTION',
+              'created_after_candidate_freeze': True,
+              'candidate_freeze_marker_commit': 'af88deb300693e109ef22ec24e22ec3ec31efaad',
+              'formal_execution_count_allowed': 1,
+              'formal_execution_performed_at_lock_time': False,
+              'post_result_editing_allowed': False,
+              'post_result_candidate_tuning_allowed': False,
+              'sealed_final_accessed': False,
+              'monetary_cost_usd': 0,
+              'hashes': {
+                  'dataset_sha256': dataset_sha,
+                  'generator_sha256': generator_sha,
+                  'evaluator_sha256': evaluator_sha,
+                  'manifest_sha256': manifest_sha,
+                  'candidate_v6_source_sha256': source_sha,
+                  'candidate_v6_config_sha256': config_sha,
+                  'candidate_v6_freeze_marker_sha256': freeze_marker_sha,
+              },
+              'expected': {
+                  'dataset_sha256': '855f812b3eec93f3229fe804ebd20e6e86baee5f99e9b322d11c114821215dc7',
+                  'candidate_v6_source_sha256': 'c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325',
+                  'candidate_v6_config_sha256': '067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1',
+              },
+          }
+          assert lock['hashes']['dataset_sha256'] == lock['expected']['dataset_sha256']
+          assert lock['hashes']['candidate_v6_source_sha256'] == lock['expected']['candidate_v6_source_sha256']
+          assert lock['hashes']['candidate_v6_config_sha256'] == lock['expected']['candidate_v6_config_sha256']
+          path = Path('benchmarks/algorithm-development/candidate-v6-validation-v1/benchmark-lock.json')
+          path.write_text(json.dumps(lock, indent=2, sort_keys=True) + '\n')
+          PY
+          sha256sum "$root/benchmark-lock.json" > "$root/benchmark-lock.sha256"
+          cat "$root/benchmark-lock.json"
+          cat "$root/benchmark-lock.sha256"
+      - name: Verify protected-validation lock independently
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('benchmarks/algorithm-development/candidate-v6-validation-v1')
+          lock = json.loads((root/'benchmark-lock.json').read_text())
+          files = {
+              'dataset_sha256': root/'cases.jsonl',
+              'generator_sha256': root/'generator.py',
+              'evaluator_sha256': root/'evaluate_once.py',
+              'manifest_sha256': root/'manifest.json',
+              'candidate_v6_source_sha256': Path('src/personal_state_engine/candidate_v6.py'),
+              'candidate_v6_config_sha256': Path('experiments/configs/candidate-v6-v1.json'),
+              'candidate_v6_freeze_marker_sha256': Path('results/candidate-v6/freeze-marker-v1.json'),
+          }
+          assert lock['status'] == 'FROZEN_BEFORE_FORMAL_EXECUTION'
+          assert lock['formal_execution_count_allowed'] == 1
+          assert lock['formal_execution_performed_at_lock_time'] is False
+          assert lock['post_result_editing_allowed'] is False
+          for key, path in files.items():
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              assert actual == lock['hashes'][key], (key, actual, lock['hashes'][key])
+          anchor = hashlib.sha256((root/'benchmark-lock.json').read_bytes()).hexdigest()
+          recorded = (root/'benchmark-lock.sha256').read_text().split()[0]
+          assert anchor == recorded
+          print('protected-validation lock verification: PASS', anchor)
+          PY
+      - name: Commit protected-validation lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/algorithm-development/candidate-v6-validation-v1/benchmark-lock.json benchmarks/algorithm-development/candidate-v6-validation-v1/benchmark-lock.sha256
+          git commit -m 'research: freeze candidate-v6 protected validation'
+          git push origin HEAD:research/personal-state-engine-v0

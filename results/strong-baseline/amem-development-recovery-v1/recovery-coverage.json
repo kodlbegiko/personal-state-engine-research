@@ -1,0 +1,13 @@
+{
+  "duplicate_case_count": 0,
+  "expected_case_count": 20,
+  "invalid_case_count": 0,
+  "missing_case_count": 20,
+  "missing_scope": "ALL_20_FROZEN_DEVELOPMENT_CASES",
+  "new_monetary_cost_usd": 0.0,
+  "recovery_execution_plan": "20 deterministic case-level jobs using existing run_amem_frozen_development.py with shard-count=20 and shard-index=0..19; no algorithm/model/benchmark change.",
+  "schema_version": "amem-development-recovery-coverage-v1",
+  "sealed_final_accessed": false,
+  "source_run_id": 31284023872,
+  "valid_recovered_case_count": 0
+}

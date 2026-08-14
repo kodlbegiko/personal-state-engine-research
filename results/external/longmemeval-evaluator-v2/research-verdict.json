@@ -1,0 +1,15 @@
+{
+  "answer_model_rerun": false,
+  "calibration_verdict": "PASS",
+  "case_ids_changed": false,
+  "completion_current": 30,
+  "completion_previous": 24,
+  "evidence_cap": 45,
+  "formal_correctness_use": "PERMITTED",
+  "old_failed_evaluator_preserved": true,
+  "provider": "local-fallback",
+  "remaining_distance": 70,
+  "research_verdict": "INCONCLUSIVE",
+  "schema_version": "longmemeval-evaluator-research-verdict-v2",
+  "sealed_final_accessed": false
+}

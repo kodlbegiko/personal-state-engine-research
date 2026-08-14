@@ -1,0 +1,70 @@
+{
+  "schema_version": "candidate-v4-protected-validation-summary-v2",
+  "status": "PASS",
+  "execution": "ONE_TIME_FROZEN_VALIDATION",
+  "recorded_at": "2026-08-10T21:25:39+08:00",
+  "workflow_run_id": 31392806910,
+  "artifact": {
+    "id": 9064343914,
+    "name": "candidate-v4-protected-validation-v2",
+    "digest": "sha256:79a14acbbb50d7ce53a18f5655d09c73dd4a10e37aeeb2d1039c407eac3d61a3"
+  },
+  "candidate_v4": {
+    "freeze_commit": "e6780204686d3de526905eca8f2778c2510b7876",
+    "source_sha256": "b57af79b3ef91497a4d3df373a990f0daa76a21c4daf87c7dd27f1c258c6d344",
+    "config_sha256": "a6341817ed382423a4d48d5df890765bb59f887655f16bd0e0647b89e3379606",
+    "effective_preregistration_sha256": "e1d8b1a75e80946ad04917aa06c0450784fa11f96c2e1f916c49371860121442"
+  },
+  "validation_dataset": {
+    "freeze_commit": "e885d9647fdd9876f38a065243b465d2a06cdce8",
+    "sha256": "e8969f6a3fa2bf80ace4a189a4f012897e0151a38a43917e4be1d3b08389bdd9",
+    "total": 24,
+    "answerable": 12,
+    "no_evidence": 12
+  },
+  "candidate_v4_metrics": {
+    "MRR": 0.9583333333333334,
+    "recall_at_1": 0.875,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.9166666666666666,
+    "false_retrieval_rate": 0.08333333333333333,
+    "false_abstention_rate": 0.0,
+    "answerable_recall": 1.0
+  },
+  "candidate_v2_metrics": {
+    "MRR": 0.9583333333333334,
+    "recall_at_1": 0.875,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "abstention_accuracy": 0.0,
+    "false_retrieval_rate": 1.0
+  },
+  "guardrails": {
+    "abstention_accuracy": "PASS",
+    "false_retrieval_rate": "PASS",
+    "false_abstention_rate": "PASS",
+    "mrr_preservation": "PASS",
+    "recall_at_1_preservation": "PASS",
+    "recall_at_3_preservation": "PASS",
+    "recall_at_5_preservation": "PASS"
+  },
+  "known_failure": {
+    "case_id": "CV4VAL2-N09",
+    "family": "stale_only_evidence",
+    "observed_error": "false retrieval",
+    "post_freeze_patch": false,
+    "disposition": "preserve as frozen validation failure evidence; Candidate-v4 source remains unchanged"
+  },
+  "integrity": {
+    "old_contaminated_validation_used": false,
+    "candidate_v4_changed_after_freeze": false,
+    "candidate_v2_changed": false,
+    "candidate_v3_changed": false,
+    "sealed_final_content_accessed_by_validation": false,
+    "new_monetary_cost_usd": 0.0,
+    "post_result_candidate_patch": false,
+    "post_result_dataset_edit": false
+  },
+  "claim_boundary": "Validation PASS authorizes construction of a new frozen adversarial-v6 confirmatory benchmark. It does not itself complete Gate E or establish parity, superiority, equivalence, or non-inferiority."
+}

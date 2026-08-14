@@ -1,0 +1,84 @@
+name: Candidate-v6 Freeze Evidence
+
+on:
+  push:
+    branches: [research/personal-state-engine-v0]
+    paths:
+      - 'src/personal_state_engine/candidate_v6.py'
+      - 'experiments/configs/candidate-v6-v1.json'
+      - 'results/candidate-v6/preregistration.md'
+      - 'benchmarks/algorithm-development/candidate-v6-development-v1/**'
+      - 'benchmarks/pilot/benchmark-lock.json'
+      - 'benchmarks/pilot/benchmark-lock.sha256'
+      - '.github/workflows/candidate-v6-freeze-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freeze-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install repository
+        run: python -m pip install -e .
+      - name: Verify pre-registered immutable identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(sha256sum src/personal_state_engine/candidate_v6.py | cut -d' ' -f1)" = "c540056c6f30f0145ab8ef8c10be3abcae2ed24e6a087a2d9a3531bc5e545325"
+          test "$(sha256sum experiments/configs/candidate-v6-v1.json | cut -d' ' -f1)" = "067bfa64d97bf2eb1f7208082c36d202118a0e50a2414fc345bf328f83cab5b1"
+          test "$(sha256sum results/candidate-v6/preregistration.md | cut -d' ' -f1)" = "bec25afa9b58906a31b1c7d882cbeaa98eb4ea8f590cbe37a87dc29aa77ea87f"
+          test "$(sha256sum benchmarks/algorithm-development/candidate-v6-development-v1/cases.jsonl | cut -d' ' -f1)" = "393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d"
+          test "$(git hash-object src/personal_state_engine/candidate_v5.py)" = "807e3fa41d42f67b2d751b99c77d3860d7c8a156"
+      - name: Verify pilot benchmark lock
+        run: |
+          set -euo pipefail
+          python scripts/verify_benchmark_lock.py
+          grep -q '"version": "pilot-v0.13"' benchmarks/pilot/benchmark-lock.json
+          test "$(sha256sum benchmarks/pilot/benchmark-lock.json | cut -d' ' -f1)" = "acb43228a41caf4e9b001fa26cca0b73dee21ea43300babb8108cab1f35c8998"
+      - name: Run Candidate-v6 unit and metamorphic tests
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/candidate-v6-freeze
+          python -m unittest tests.test_candidate_v6 -v 2>&1 | tee /tmp/candidate-v6-freeze/unit-tests.txt
+          grep -Eq 'Ran ([3-9][0-9]|[1-9][0-9]{2,}) tests' /tmp/candidate-v6-freeze/unit-tests.txt
+      - name: Re-run frozen deterministic development guardrails
+        run: |
+          set -euo pipefail
+          python scripts/evaluate_candidate_v6.py \
+            --output /tmp/candidate-v6-freeze/development-summary-v1.json \
+            --materialize-cases /tmp/candidate-v6-freeze/cases.jsonl
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          summary = json.loads(Path('/tmp/candidate-v6-freeze/development-summary-v1.json').read_text())
+          assert summary['candidate_v6_development_guardrails']['pass'] is True
+          assert summary['dataset']['sha256'] == '393f669de845a4e3443273217d880d584035135643eaa933f6096b088b4cc25d'
+          print('candidate-v6 development guardrails: ALL PASS')
+          PY
+      - name: Record freeze identities
+        run: |
+          set -euo pipefail
+          cp experiments/configs/candidate-v6-v1.json /tmp/candidate-v6-freeze/
+          cp results/candidate-v6/preregistration.md /tmp/candidate-v6-freeze/
+          cp src/personal_state_engine/candidate_v6.py /tmp/candidate-v6-freeze/
+          cp benchmarks/algorithm-development/candidate-v6-development-v1/manifest.json /tmp/candidate-v6-freeze/development-manifest.json
+          cp benchmarks/pilot/benchmark-lock.json /tmp/candidate-v6-freeze/pilot-benchmark-lock.json
+          cp benchmarks/pilot/benchmark-lock.sha256 /tmp/candidate-v6-freeze/pilot-benchmark-lock.sha256
+          printf '%s\n' "$GITHUB_SHA" > /tmp/candidate-v6-freeze/repository-commit.txt
+          (cd /tmp/candidate-v6-freeze && sha256sum * > FREEZE-SHA256SUMS.txt)
+          cat /tmp/candidate-v6-freeze/FREEZE-SHA256SUMS.txt
+      - name: Verify clean worktree
+        run: git diff --exit-code
+      - name: Upload freeze evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-v6-freeze-evidence
+          path: /tmp/candidate-v6-freeze/
+          if-no-files-found: error
+          retention-days: 90
